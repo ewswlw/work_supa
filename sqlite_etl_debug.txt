@@ -1,0 +1,733 @@
+[DF after load] shape=(20667, 30)
+   Reference Security       Date      Time Ticker  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+0       AN664941 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp 2023-01-03  09:19:00  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp 2023-01-03  08:34:00     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp 2023-01-03  08:34:00  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp 2023-01-03  08:34:00   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp 2023-01-03  14:31:00  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp 2023-01-03  08:34:00   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after type conversion] shape=(20667, 30)
+   reference_security        date   time ticker  ... bid_contributed_yield bid_z_spread bid_workout_risk  sector
+0       AN664941 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp  2023-01-03  09:19  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp  2023-01-03  08:34     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp  2023-01-03  08:34  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp  2023-01-03  08:34   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp  2023-01-03  14:31  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp  2023-01-03  08:34   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after alignment] shape=(20667, 30)
+          date   time ticker dealer cusip  ... ask_interpolated_spread_to_government bid_contributed_yield bid_z_spread  bid_workout_risk  sector
+0   2023-01-03  08:36      T    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+1   2023-01-03  08:36      T    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+2   2023-01-03  08:36      T    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+3   2023-01-03  09:19  ACACN    BMO  None  ...                                 371.0                  7.07          NaN               NaN    None
+4   2023-01-03  08:34     AL    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+5   2023-01-03  11:35  ALACN    BMO  None  ...                                  95.0                   NaN          NaN               NaN    None
+6   2023-01-03  11:35  ALACN    BMO  None  ...                                  96.0                   NaN          NaN               NaN    None
+7   2023-01-03  08:34  ABIBB    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+8   2023-01-03  08:34   AAPL    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+9   2023-01-03  14:31  ACQCN    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+10  2023-01-03  08:34   BPLN    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+11  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+12  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+13  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+14  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+15  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+16  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+17  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+18  2023-01-03  11:28    BMO    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+19  2023-01-03  11:28    BMO    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+
+[20 rows x 30 columns]
+
+[DF dtypes before insert]
+date                                      object
+time                                      object
+ticker                                    object
+dealer                                    object
+cusip                                     object
+reference_security                        object
+source                                    object
+security                                  object
+bid_price                                float64
+ask_price                                float64
+bid_spread                               float64
+ask_spread                               float64
+benchmark                                 object
+reference_benchmark                       object
+bid_size                                 float64
+ask_size                                 float64
+bid_yield_to_convention                  float64
+ask_yield_to_convention                  float64
+bid_discount_margin                      float64
+ask_discount_margin                      float64
+sender_name                               object
+currency                                  object
+subject                                   object
+keyword                                   object
+bid_interpolated_spread_to_government    float64
+ask_interpolated_spread_to_government    float64
+bid_contributed_yield                    float64
+bid_z_spread                             float64
+bid_workout_risk                         float64
+sector                                    object
+dtype: object
+
+[DF after load] shape=(20667, 30)
+   Reference Security       Date      Time Ticker  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+0       AN664941 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp 2023-01-03  09:19:00  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp 2023-01-03  08:34:00     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp 2023-01-03  08:34:00  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp 2023-01-03  08:34:00   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp 2023-01-03  14:31:00  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp 2023-01-03  08:34:00   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after type conversion] shape=(20667, 30)
+   reference_security        date   time ticker  ... bid_contributed_yield bid_z_spread bid_workout_risk  sector
+0       AN664941 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp  2023-01-03  09:19  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp  2023-01-03  08:34     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp  2023-01-03  08:34  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp  2023-01-03  08:34   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp  2023-01-03  14:31  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp  2023-01-03  08:34   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after alignment] shape=(20667, 30)
+          date   time ticker dealer cusip  ... ask_interpolated_spread_to_government bid_contributed_yield bid_z_spread  bid_workout_risk  sector
+0   2023-01-03  08:36      T    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+1   2023-01-03  08:36      T    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+2   2023-01-03  08:36      T    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+3   2023-01-03  09:19  ACACN    BMO  None  ...                                 371.0                  7.07          NaN               NaN    None
+4   2023-01-03  08:34     AL    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+5   2023-01-03  11:35  ALACN    BMO  None  ...                                  95.0                   NaN          NaN               NaN    None
+6   2023-01-03  11:35  ALACN    BMO  None  ...                                  96.0                   NaN          NaN               NaN    None
+7   2023-01-03  08:34  ABIBB    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+8   2023-01-03  08:34   AAPL    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+9   2023-01-03  14:31  ACQCN    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+10  2023-01-03  08:34   BPLN    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+11  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+12  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+13  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+14  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+15  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+16  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+17  2023-01-03  12:37    BAC    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+18  2023-01-03  11:28    BMO    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+19  2023-01-03  11:28    BMO    BMO  None  ...                                   NaN                   NaN          NaN               NaN    None
+
+[20 rows x 30 columns]
+
+[DF dtypes before insert]
+date                                      object
+time                                      object
+ticker                                    object
+dealer                                    object
+cusip                                     object
+reference_security                        object
+source                                    object
+security                                  object
+bid_price                                float64
+ask_price                                float64
+bid_spread                               float64
+ask_spread                               float64
+benchmark                                 object
+reference_benchmark                       object
+bid_size                                 float64
+ask_size                                 float64
+bid_yield_to_convention                  float64
+ask_yield_to_convention                  float64
+bid_discount_margin                      float64
+ask_discount_margin                      float64
+sender_name                               object
+currency                                  object
+subject                                   object
+keyword                                   object
+bid_interpolated_spread_to_government    float64
+ask_interpolated_spread_to_government    float64
+bid_contributed_yield                    float64
+bid_z_spread                             float64
+bid_workout_risk                         float64
+sector                                    object
+dtype: object
+
+Unique PKs: 28
+[DF after load] shape=(20667, 30)
+   Reference Security       Date      Time Ticker  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+0       AN664941 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp 2023-01-03  09:19:00  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp 2023-01-03  08:34:00     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp 2023-01-03  08:34:00  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp 2023-01-03  08:34:00   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp 2023-01-03  14:31:00  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp 2023-01-03  08:34:00   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after type conversion] shape=(20667, 30)
+   Reference Security        Date   Time Ticker  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+0       AN664941 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp  2023-01-03  09:19  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp  2023-01-03  08:34     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp  2023-01-03  08:34  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp  2023-01-03  08:34   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp  2023-01-03  14:31  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp  2023-01-03  08:34   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after alignment] shape=(20667, 30)
+          Date   Time Ticker Dealer      CUSIP  ... Ask Interpolated Spread to Government Bid Contributed Yield Bid Z-spread  Bid Workout Risk  Sector
+0   2023-01-03  08:36      T    BMO  00206RDY5  ...                                   NaN                   NaN          NaN               NaN    None
+1   2023-01-03  08:36      T    BMO  00206RGB2  ...                                   NaN                   NaN          NaN               NaN    None
+2   2023-01-03  08:36      T    BMO  00206RGC0  ...                                   NaN                   NaN          NaN               NaN    None
+3   2023-01-03  09:19  ACACN    BMO  008911BL2  ...                                 371.0                  7.07          NaN               NaN    None
+4   2023-01-03  08:34     AL    BMO  00912XBH6  ...                                   NaN                   NaN          NaN               NaN    None
+5   2023-01-03  11:35  ALACN    BMO  02138ZAH6  ...                                  95.0                   NaN          NaN               NaN    None
+6   2023-01-03  11:35  ALACN    BMO  02138ZAY9  ...                                  96.0                   NaN          NaN               NaN    None
+7   2023-01-03  08:34  ABIBB    BMO  03524BAH9  ...                                   NaN                   NaN          NaN               NaN    None
+8   2023-01-03  08:34   AAPL    BMO  037833CY4  ...                                   NaN                   NaN          NaN               NaN    None
+9   2023-01-03  14:31  ACQCN    BMO  05277BAG5  ...                                   NaN                   NaN          NaN               NaN    None
+10  2023-01-03  08:34   BPLN    BMO  05565QDS4  ...                                   NaN                   NaN          NaN               NaN    None
+11  2023-01-03  12:37    BAC    BMO  060505FG4  ...                                   NaN                   NaN          NaN               NaN    None
+12  2023-01-03  12:37    BAC    BMO  060505FJ8  ...                                   NaN                   NaN          NaN               NaN    None
+13  2023-01-03  12:37    BAC    BMO  060505FM1  ...                                   NaN                   NaN          NaN               NaN    None
+14  2023-01-03  12:37    BAC    BMO  060505FS8  ...                                   NaN                   NaN          NaN               NaN    None
+15  2023-01-03  12:37    BAC    BMO  060505FU3  ...                                   NaN                   NaN          NaN               NaN    None
+16  2023-01-03  12:37    BAC    BMO  060505FZ2  ...                                   NaN                   NaN          NaN               NaN    None
+17  2023-01-03  12:37    BAC    BMO  060505GF5  ...                                   NaN                   NaN          NaN               NaN    None
+18  2023-01-03  11:28    BMO    BMO  063679EC4  ...                                   NaN                   NaN          NaN               NaN    None
+19  2023-01-03  11:28    BMO    BMO  06368AAA8  ...                                   NaN                   NaN          NaN               NaN    None
+
+[20 rows x 30 columns]
+
+[DF dtypes before insert]
+Date                                      object
+Time                                      object
+Ticker                                    object
+Dealer                                    object
+CUSIP                                     object
+Reference Security                        object
+Source                                    object
+Security                                  object
+Bid Price                                float64
+Ask Price                                float64
+Bid Spread                               float64
+Ask Spread                               float64
+Benchmark                                 object
+Reference Benchmark                       object
+Bid Size                                 float64
+Ask Size                                 float64
+Bid Yield to Convention                   object
+Ask Yield to Convention                   object
+Bid Discount Margin                      float64
+Ask Discount Margin                      float64
+Sender Name                               object
+Currency                                  object
+Subject                                   object
+Keyword                                   object
+Bid Interpolated Spread to Government    float64
+Ask Interpolated Spread to Government    float64
+Bid Contributed Yield                    float64
+Bid Z-spread                             float64
+Bid Workout Risk                         float64
+Sector                                    object
+dtype: object
+
+Unique PKs: 20667
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:          Date   Time Ticker Dealer      CUSIP  ... Ask Interpolated Spread to Government Bid Contributed Yield Bid Z-spread  Bid Workout Risk  Sector
+0  2023-01-03  08:36      T    BMO  00206RDY5  ...                                   NaN                   NaN          NaN               NaN    None
+1  2023-01-03  08:36      T    BMO  00206RGB2  ...                                   NaN                   NaN          NaN               NaN    None
+2  2023-01-03  08:36      T    BMO  00206RGC0  ...                                   NaN                   NaN          NaN               NaN    None
+3  2023-01-03  09:19  ACACN    BMO  008911BL2  ...                                 371.0                  7.07          NaN               NaN    None
+4  2023-01-03  08:34     AL    BMO  00912XBH6  ...                                   NaN                   NaN          NaN               NaN    None
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:             Date   Time  Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk Sector
+1000  2023-01-03  13:42   PPLCN    NBF  ...                  5.96          NaN              NaN   None
+1001  2023-01-03  09:32     PEP    NBF  ...                  4.66          NaN              NaN   None
+1002  2023-01-03  08:38   POWCN    NBF  ...                  5.31          NaN              NaN   None
+1003  2023-01-03  08:38   POWCN    NBF  ...                  5.31          NaN              NaN   None
+1004  2023-01-03  13:36  PMZUCN    NBF  ...                  6.13          NaN              NaN   None
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:             Date   Time  Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk Sector
+2000  2023-01-03  16:13  NSIUCN    SCM  ...                   NaN          NaN              NaN   None
+2001  2023-01-03  16:13  NSIUCN    SCM  ...                   NaN          NaN              NaN   None
+2002  2023-01-03  16:13  NSIUCN    SCM  ...                   NaN          NaN              NaN   None
+2003  2023-01-03  16:13  NSIUCN    SCM  ...                   NaN          NaN              NaN   None
+2004  2023-01-03  16:11   PPLCN    SCM  ...                   NaN          NaN              NaN   None
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:             Date   Time  Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk     Sector
+3000  2023-11-01  07:17  ENBGAS    BMO  ...                   NaN          NaN            11.21  Utilities
+3001  2023-11-01  07:17  ENBGAS    BMO  ...                   NaN          NaN             5.58  Utilities
+3002  2023-11-01  07:17  ENBGAS    BMO  ...                   NaN          NaN            10.71  Utilities
+3003  2023-11-01  07:17  ENBGAS    BMO  ...                   NaN          NaN             6.50  Utilities
+3004  2023-11-01  07:17  ENBGAS    BMO  ...                   NaN          NaN            12.86  Utilities
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:             Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk      Sector
+4000  2023-11-01  15:10  IFCCN   CIBC  ...                   NaN          NaN             2.11  Financials
+4001  2023-11-01  15:10  IFCCN   CIBC  ...                   NaN          NaN             3.08  Financials
+4002  2023-11-01  15:10  IFCCN   CIBC  ...                   NaN          NaN             1.30  Financials
+4003  2023-11-01  08:12  IPLCN   CIBC  ...                  8.98          NaN             3.97      Energy
+4004  2023-11-01  08:12  IPLCN   CIBC  ...                  8.99          NaN             4.27      Energy
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:             Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk          Sector
+5000  2023-11-01  15:01    TCN    NBF  ...                  5.58          NaN             3.46  Communications
+5001  2023-11-01  15:01    TCN    NBF  ...                  5.81          NaN             4.92  Communications
+5002  2023-11-01  15:01    TCN    NBF  ...                  6.23          NaN            10.30  Communications
+5003  2023-11-01  15:01    TCN    NBF  ...                  5.97          NaN             5.55  Communications
+5004  2023-11-01  15:01    TCN    NBF  ...                  6.03          NaN             6.66  Communications
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:             Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk      Sector
+6000  2023-11-01  16:53     RY    RBC  ...                  5.53          NaN             3.64  Financials
+6001  2023-11-01  16:53     RY    RBC  ...                   NaN          NaN             3.60  Financials
+6002  2023-11-01  16:53     RY    RBC  ...                  5.55          NaN             3.84  Financials
+6003  2023-11-01  16:53     RY    RBC  ...                  5.52          NaN             2.42  Financials
+6004  2023-11-01  16:53     RY    RBC  ...                  5.66          NaN             5.40  Financials
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:             Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk          Sector
+7000  2023-11-01  15:15    XCN    SCM  ...                   NaN          NaN             3.89      Financials
+7001  2023-11-01  15:15    XCN    SCM  ...                   NaN          NaN             5.19      Financials
+7002  2023-11-01  08:08    TCN    SCM  ...                  5.71          NaN             0.40  Communications
+7003  2023-11-01  12:12    TCN    SCM  ...                   NaN          NaN             9.48  Communications
+7004  2023-11-01  12:12    TCN    SCM  ...                   NaN          NaN            10.27  Communications
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:             Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk          Sector
+8000  2023-11-01  13:36  RCICN     TD  ...                   NaN        131.0             4.14  Communications
+8001  2023-11-01  13:36  RCICN     TD  ...                   NaN        149.0             4.67  Communications
+8002  2023-11-01  13:36  RCICN     TD  ...                   NaN        199.0            10.15  Communications
+8003  2023-11-01  13:36  RCICN     TD  ...                   NaN        162.0             5.10  Communications
+8004  2023-11-01  13:36  RCICN     TD  ...                   NaN         92.0             2.62  Communications
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:             Date   Time  Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk       Sector
+9000  2023-12-29  08:00  ONTPOW    BMO  ...                   NaN          NaN             7.03    Utilities
+9001  2023-12-29  07:48  OTTMAC    BMO  ...                  4.68          NaN             5.71  Industrials
+9002  2023-12-29  07:27    PCAR    BMO  ...                  5.21          NaN             0.35   Financials
+9003  2023-12-29  09:02   PKICN    BMO  ...                  6.13          NaN             3.85       Energy
+9004  2023-12-29  10:57   PKICN    BMO  ...                   NaN          NaN             4.19       Energy
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk          Sector
+10000  2023-12-29  07:37  RCICN   CIBC  ...                   NaN          NaN             0.19  Communications
+10001  2023-12-29  07:37  RCICN   CIBC  ...                   NaN          NaN             2.93  Communications
+10002  2023-12-29  07:37  RCICN   CIBC  ...                   NaN          NaN             1.21  Communications
+10003  2023-12-29  07:37  RCICN   CIBC  ...                   NaN          NaN            14.44  Communications
+10004  2023-12-29  07:37  RCICN   CIBC  ...                   NaN          NaN             0.08  Communications
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+11000  2023-12-29  09:07  TRPCN    NBF  ...                   NaN          NaN              NaN  Energy
+11001  2023-12-29  08:30  TRPCN    NBF  ...                  5.36          NaN            12.48  Energy
+11002  2023-12-29  08:30  TRPCN    NBF  ...                  4.56          NaN             4.75  Energy
+11003  2023-12-29  08:30  TRPCN    NBF  ...                  4.50          NaN             2.96  Energy
+11004  2023-12-29  08:30  TRPCN    NBF  ...                  4.82          NaN             5.77  Energy
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time  Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk     Sector
+12000  2023-12-29  11:25  TORHYD    RBC  ...                   NaN          NaN             6.22  Utilities
+12001  2023-12-29  11:25  TORHYD    RBC  ...                   NaN          NaN            13.87  Utilities
+12002  2023-12-29  11:25  TORHYD    RBC  ...                   NaN          NaN            17.01  Utilities
+12003  2023-12-29  11:25  TORHYD    RBC  ...                   NaN          NaN             7.71  Utilities
+12004  2023-12-29  11:25  TORHYD    RBC  ...                   NaN          NaN             4.37  Utilities
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time  Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk     Sector
+13000  2023-12-29  07:44   TRPCN    SCM  ...                   NaN          NaN            15.33     Energy
+13001  2023-12-29  07:44   TRPCN    SCM  ...                   NaN          NaN             5.55     Energy
+13002  2023-12-29  07:28   TRPCN    SCM  ...                  8.38          NaN             2.77     Energy
+13003  2023-12-29  07:28   TRPCN    SCM  ...                  6.74          NaN             4.70     Energy
+13004  2023-12-29  07:42  TCLACN    SCM  ...                   NaN          NaN             2.24  Materials
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk          Sector
+14000  2023-12-29  08:03    TCN     TD  ...                   NaN         39.0             2.30  Communications
+14001  2023-12-29  08:03    TCN     TD  ...                   NaN        110.0             5.06  Communications
+14002  2023-12-29  08:03    TCN     TD  ...                   NaN        182.0            12.25  Communications
+14003  2023-12-29  08:03    TCN     TD  ...                   NaN         76.0             3.52  Communications
+14004  2023-12-29  08:03    TCN     TD  ...                   NaN        117.0             5.26  Communications
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+15000  2025-04-02  09:09  PPLCN    BMO  ...                   NaN          NaN              NaN  Energy
+15001  2025-04-02  08:52  PPLCN    BMO  ...                  5.20          NaN            12.44  Energy
+15002  2025-04-02  08:52  PPLCN    BMO  ...                  3.38          NaN             2.61  Energy
+15003  2025-04-02  08:52  PPLCN    BMO  ...                  5.20          NaN            12.79  Energy
+15004  2025-04-02  08:52  PPLCN    BMO  ...                  3.55          NaN             3.49  Energy
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk                  Sector
+16000  2025-04-02  12:09     VW   CIBC  ...                   NaN          NaN              NaN  Consumer Discretionary
+16001  2025-04-02  12:09     VW   CIBC  ...                   NaN          NaN             4.22  Consumer Discretionary
+16002  2025-04-02  11:37    VTR   CIBC  ...                   NaN          NaN              NaN              Financials
+16003  2025-04-02  11:37    VTR   CIBC  ...                   NaN          NaN             5.56              Financials
+16004  2025-04-02  11:37    VTR   CIBC  ...                   NaN          NaN             2.86              Financials
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk            Sector
+17000  2025-04-02  09:14  SAPCN    NBF  ...                   NaN          NaN              NaN  Consumer Staples
+17001  2025-04-02  09:14  SAPCN    NBF  ...                   NaN          NaN              NaN  Consumer Staples
+17002  2025-04-02  15:46  SIACN    NBF  ...                  3.46          NaN             0.88       Health Care
+17003  2025-04-02  08:57  SIACN    NBF  ...                  3.69          NaN             1.88       Health Care
+17004  2025-04-02  08:57  SIACN    NBF  ...                  4.09          NaN             4.07       Health Care
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time  Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk       Sector
+18000  2025-04-02  07:51      MS    RBC  ...                  3.14          NaN             1.28   Financials
+18001  2025-04-02  11:54  NAVCAN    RBC  ...                  3.38          NaN             4.53  Industrials
+18002  2025-04-02  11:54  NAVCAN    RBC  ...                  4.39          NaN            13.11  Industrials
+18003  2025-04-02  12:52  NAVCAN    RBC  ...                  2.71          NaN             0.83  Industrials
+18004  2025-04-02  11:54  NAVCAN    RBC  ...                  4.43          NaN            12.46  Industrials
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time  Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk                  Sector
+19000  2025-04-02  08:35  HYNMTR    SCM  ...                   NaN          NaN             2.77  Consumer Discretionary
+19001  2025-04-02  08:35  HYNMTR    SCM  ...                   NaN          NaN             1.79  Consumer Discretionary
+19002  2025-04-02  08:35  HYNMTR    SCM  ...                   NaN          NaN             3.55  Consumer Discretionary
+19003  2025-04-02  08:35  HYNMTR    SCM  ...                   NaN          NaN             2.24  Consumer Discretionary
+19004  2025-04-02  08:35  HYNMTR    SCM  ...                   NaN          NaN             3.94  Consumer Discretionary
+
+[5 rows x 30 columns]
+Failed batch columns: ['Date', 'Time', 'Ticker', 'Dealer', 'CUSIP', 'Reference Security', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector']
+Failed batch head:              Date   Time Ticker Dealer  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk     Sector
+20000  2025-04-02  07:42  FTSCN     TD  ...                   NaN          NaN             2.90  Utilities
+20001  2025-04-02  07:42  FTSCN     TD  ...                   NaN          NaN             3.78  Utilities
+20002  2025-04-02  07:42  FTSCN     TD  ...                   NaN          NaN             7.48  Utilities
+20003  2025-04-02  07:40  FTSCN     TD  ...                   NaN        169.0            16.73  Utilities
+20004  2025-04-02  07:40  FTSCN     TD  ...                   NaN        166.0            11.65  Utilities
+
+[5 rows x 30 columns]
+[DF after load] shape=(20667, 30)
+   Reference Security       Date      Time Ticker  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+0       AN664941 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp 2023-01-03  09:19:00  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp 2023-01-03  08:34:00     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp 2023-01-03  08:34:00  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp 2023-01-03  08:34:00   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp 2023-01-03  14:31:00  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp 2023-01-03  08:34:00   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after type conversion] shape=(20667, 30)
+   Reference Security        Date   Time Ticker  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+0       AN664941 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp  2023-01-03  09:19  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp  2023-01-03  08:34     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp  2023-01-03  08:34  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp  2023-01-03  08:34   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp  2023-01-03  14:31  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp  2023-01-03  08:34   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after alignment] shape=(20667, 30)
+          Date   Time Ticker Dealer      CUSIP  ... Ask Interpolated Spread to Government Bid Contributed Yield Bid Z-spread  Bid Workout Risk  Sector
+0   2023-01-03  08:36      T    BMO  00206RDY5  ...                                   NaN                   NaN          NaN               NaN    None
+1   2023-01-03  08:36      T    BMO  00206RGB2  ...                                   NaN                   NaN          NaN               NaN    None
+2   2023-01-03  08:36      T    BMO  00206RGC0  ...                                   NaN                   NaN          NaN               NaN    None
+3   2023-01-03  09:19  ACACN    BMO  008911BL2  ...                                 371.0                  7.07          NaN               NaN    None
+4   2023-01-03  08:34     AL    BMO  00912XBH6  ...                                   NaN                   NaN          NaN               NaN    None
+5   2023-01-03  11:35  ALACN    BMO  02138ZAH6  ...                                  95.0                   NaN          NaN               NaN    None
+6   2023-01-03  11:35  ALACN    BMO  02138ZAY9  ...                                  96.0                   NaN          NaN               NaN    None
+7   2023-01-03  08:34  ABIBB    BMO  03524BAH9  ...                                   NaN                   NaN          NaN               NaN    None
+8   2023-01-03  08:34   AAPL    BMO  037833CY4  ...                                   NaN                   NaN          NaN               NaN    None
+9   2023-01-03  14:31  ACQCN    BMO  05277BAG5  ...                                   NaN                   NaN          NaN               NaN    None
+10  2023-01-03  08:34   BPLN    BMO  05565QDS4  ...                                   NaN                   NaN          NaN               NaN    None
+11  2023-01-03  12:37    BAC    BMO  060505FG4  ...                                   NaN                   NaN          NaN               NaN    None
+12  2023-01-03  12:37    BAC    BMO  060505FJ8  ...                                   NaN                   NaN          NaN               NaN    None
+13  2023-01-03  12:37    BAC    BMO  060505FM1  ...                                   NaN                   NaN          NaN               NaN    None
+14  2023-01-03  12:37    BAC    BMO  060505FS8  ...                                   NaN                   NaN          NaN               NaN    None
+15  2023-01-03  12:37    BAC    BMO  060505FU3  ...                                   NaN                   NaN          NaN               NaN    None
+16  2023-01-03  12:37    BAC    BMO  060505FZ2  ...                                   NaN                   NaN          NaN               NaN    None
+17  2023-01-03  12:37    BAC    BMO  060505GF5  ...                                   NaN                   NaN          NaN               NaN    None
+18  2023-01-03  11:28    BMO    BMO  063679EC4  ...                                   NaN                   NaN          NaN               NaN    None
+19  2023-01-03  11:28    BMO    BMO  06368AAA8  ...                                   NaN                   NaN          NaN               NaN    None
+
+[20 rows x 30 columns]
+
+[DF dtypes before insert]
+Date                                      object
+Time                                      object
+Ticker                                    object
+Dealer                                    object
+CUSIP                                     object
+Reference Security                        object
+Source                                    object
+Security                                  object
+Bid Price                                float64
+Ask Price                                float64
+Bid Spread                               float64
+Ask Spread                               float64
+Benchmark                                 object
+Reference Benchmark                       object
+Bid Size                                 float64
+Ask Size                                 float64
+Bid Yield to Convention                   object
+Ask Yield to Convention                   object
+Bid Discount Margin                      float64
+Ask Discount Margin                      float64
+Sender Name                               object
+Currency                                  object
+Subject                                   object
+Keyword                                   object
+Bid Interpolated Spread to Government    float64
+Ask Interpolated Spread to Government    float64
+Bid Contributed Yield                    float64
+Bid Z-spread                             float64
+Bid Workout Risk                         float64
+Sector                                    object
+dtype: object
+
+Unique PKs: 20667
+[DF after load] shape=(20667, 30)
+   Reference Security       Date      Time Ticker  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+0       AN664941 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp 2023-01-03  08:36:00      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp 2023-01-03  09:19:00  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp 2023-01-03  08:34:00     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp 2023-01-03  11:35:00  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp 2023-01-03  08:34:00  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp 2023-01-03  08:34:00   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp 2023-01-03  14:31:00  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp 2023-01-03  08:34:00   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp 2023-01-03  12:37:00    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp 2023-01-03  11:28:00    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after type conversion] shape=(20667, 30)
+   Reference Security        Date   Time Ticker  ... Bid Contributed Yield Bid Z-spread Bid Workout Risk  Sector
+0       AN664941 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+1       AT979977 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+2       AT979969 Corp  2023-01-03  08:36      T  ...                   NaN          NaN              NaN    None
+3       BQ725347 Corp  2023-01-03  09:19  ACACN  ...                  7.07          NaN              NaN    None
+4       ZQ794229 Corp  2023-01-03  08:34     AL  ...                   NaN          NaN              NaN    None
+5       EK017372 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+6       BO549949 Corp  2023-01-03  11:35  ALACN  ...                   NaN          NaN              NaN    None
+7       AN525689 Corp  2023-01-03  08:34  ABIBB  ...                   NaN          NaN              NaN    None
+8       AO789426 Corp  2023-01-03  08:34   AAPL  ...                   NaN          NaN              NaN    None
+9       BT667687 Corp  2023-01-03  14:31  ACQCN  ...                   NaN          NaN              NaN    None
+10      AS610224 Corp  2023-01-03  08:34   BPLN  ...                   NaN          NaN              NaN    None
+11      AP154342 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+12      AS269330 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+13      ZS250835 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+14      BH017944 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+15      BO673980 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+16      BP987446 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+17      BV136507 Corp  2023-01-03  12:37    BAC  ...                   NaN          NaN              NaN    None
+18      EI399436 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+19      AL608516 Corp  2023-01-03  11:28    BMO  ...                   NaN          NaN              NaN    None
+
+[20 rows x 30 columns]
+
+[DF after alignment] shape=(20667, 30)
+          Date   Time Ticker Dealer      CUSIP  ... Ask Interpolated Spread to Government Bid Contributed Yield Bid Z-spread  Bid Workout Risk  Sector
+0   2023-01-03  08:36      T    BMO  00206RDY5  ...                                   NaN                   NaN          NaN               NaN    None
+1   2023-01-03  08:36      T    BMO  00206RGB2  ...                                   NaN                   NaN          NaN               NaN    None
+2   2023-01-03  08:36      T    BMO  00206RGC0  ...                                   NaN                   NaN          NaN               NaN    None
+3   2023-01-03  09:19  ACACN    BMO  008911BL2  ...                                 371.0                  7.07          NaN               NaN    None
+4   2023-01-03  08:34     AL    BMO  00912XBH6  ...                                   NaN                   NaN          NaN               NaN    None
+5   2023-01-03  11:35  ALACN    BMO  02138ZAH6  ...                                  95.0                   NaN          NaN               NaN    None
+6   2023-01-03  11:35  ALACN    BMO  02138ZAY9  ...                                  96.0                   NaN          NaN               NaN    None
+7   2023-01-03  08:34  ABIBB    BMO  03524BAH9  ...                                   NaN                   NaN          NaN               NaN    None
+8   2023-01-03  08:34   AAPL    BMO  037833CY4  ...                                   NaN                   NaN          NaN               NaN    None
+9   2023-01-03  14:31  ACQCN    BMO  05277BAG5  ...                                   NaN                   NaN          NaN               NaN    None
+10  2023-01-03  08:34   BPLN    BMO  05565QDS4  ...                                   NaN                   NaN          NaN               NaN    None
+11  2023-01-03  12:37    BAC    BMO  060505FG4  ...                                   NaN                   NaN          NaN               NaN    None
+12  2023-01-03  12:37    BAC    BMO  060505FJ8  ...                                   NaN                   NaN          NaN               NaN    None
+13  2023-01-03  12:37    BAC    BMO  060505FM1  ...                                   NaN                   NaN          NaN               NaN    None
+14  2023-01-03  12:37    BAC    BMO  060505FS8  ...                                   NaN                   NaN          NaN               NaN    None
+15  2023-01-03  12:37    BAC    BMO  060505FU3  ...                                   NaN                   NaN          NaN               NaN    None
+16  2023-01-03  12:37    BAC    BMO  060505FZ2  ...                                   NaN                   NaN          NaN               NaN    None
+17  2023-01-03  12:37    BAC    BMO  060505GF5  ...                                   NaN                   NaN          NaN               NaN    None
+18  2023-01-03  11:28    BMO    BMO  063679EC4  ...                                   NaN                   NaN          NaN               NaN    None
+19  2023-01-03  11:28    BMO    BMO  06368AAA8  ...                                   NaN                   NaN          NaN               NaN    None
+
+[20 rows x 30 columns]
+
+[DF dtypes before insert]
+Date                                      object
+Time                                      object
+Ticker                                    object
+Dealer                                    object
+CUSIP                                     object
+Reference Security                        object
+Source                                    object
+Security                                  object
+Bid Price                                float64
+Ask Price                                float64
+Bid Spread                               float64
+Ask Spread                               float64
+Benchmark                                 object
+Reference Benchmark                       object
+Bid Size                                 float64
+Ask Size                                 float64
+Bid Yield to Convention                   object
+Ask Yield to Convention                   object
+Bid Discount Margin                      float64
+Ask Discount Margin                      float64
+Sender Name                               object
+Currency                                  object
+Subject                                   object
+Keyword                                   object
+Bid Interpolated Spread to Government    float64
+Ask Interpolated Spread to Government    float64
+Bid Contributed Yield                    float64
+Bid Z-spread                             float64
+Bid Workout Risk                         float64
+Sector                                    object
+dtype: object
+
+Unique PKs: 20667
