@@ -43,15 +43,24 @@ if not SUPABASE_URL or not SUPABASE_KEY:
     print("ERROR: Supabase credentials not set in .env")
     sys.exit(1)
 
-DEBUG_FILE = os.path.join(os.path.dirname(__file__), '..', 'supabase_etl_debug.txt')
+# Always log to the supabase_etl_debug.txt file in the runs folder
+DEBUG_FILE = os.path.join(os.path.dirname(__file__), 'supabase_etl_debug.txt')
 def log(msg):
+    """Log a message to both the console and the debug log file in the runs folder."""
     full_msg = f"[LOG] {msg}"
     print(full_msg)
-    with open(DEBUG_FILE, 'a', encoding='utf-8') as f:
-        f.write(full_msg + '\n')
+    try:
+        with open(DEBUG_FILE, 'a', encoding='utf-8') as f:
+            f.write(full_msg + '\n')
+    except Exception as e:
+        print(f"[ERROR] Failed to write to debug log file: {e}")
 def debug_log(msg):
-    with open(DEBUG_FILE, 'a', encoding='utf-8') as f:
-        f.write(str(msg) + '\n')
+    """Log a debug message to both the console and the debug log file in the runs folder."""
+    try:
+        with open(DEBUG_FILE, 'a', encoding='utf-8') as f:
+            f.write(f"[DEBUG] {msg}\n")
+    except Exception as e:
+        print(f"[ERROR] Failed to write to debug log file: {e}")
     print(f"[DEBUG] {msg}")
 
 # --- No snake_case conversion. Use original column names throughout. ---
@@ -190,5 +199,100 @@ def main():
     batch_insert(supabase, df, SUPABASE_TABLE, BATCH_SIZE)
     log("ETL complete.")
 
+import datetime
+
+def summarize_latest_log(debug_file):
+    """
+    Reads the latest timestamped section from the debug log file and prints only the logs for the last ETL run.
+    This ensures only the most recent run's logs are shown to the user for clarity.
+    """
+    try:
+        with open(debug_file, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        # Find the last ETL RUN START marker and the next ETL RUN END marker after it
+        start_idx = None
+        end_idx = None
+        for i in range(len(lines)-1, -1, -1):
+            if '===== ETL RUN END' in lines[i] and end_idx is None:
+                end_idx = i
+            if '===== ETL RUN START:' in lines[i] and end_idx is not None:
+                start_idx = i
+                break
+        if start_idx is not None and end_idx is not None and start_idx < end_idx:
+            print("\n===== SUMMARY OF LAST ETL RUN =====")
+            for line in lines[start_idx:end_idx+1]:
+                print(line.rstrip())
+            print("===== END SUMMARY =====\n")
+        else:
+            print("No timestamped log section found in debug file.")
+    except Exception as e:
+        print(f"[ERROR] Failed to read or summarize debug log: {e}")
+
+
 if __name__ == "__main__":
-    main()
+    # Timestamped section start
+    log("\n===== ETL RUN START: {} =====".format(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
+    try:
+        # --- DataFrame Integrity & Validation ---
+        if not os.path.exists(PARQUET_PATH):
+            log(f"[FATAL] Parquet file not found: {PARQUET_PATH}")
+            sys.exit(1)
+        df = pd.read_parquet(PARQUET_PATH)
+        log(f"Loaded Parquet file: {PARQUET_PATH}")
+        log(f"DataFrame shape: {df.shape}")
+        log(f"DataFrame columns: {df.columns.tolist()}")
+        log(f"DataFrame dtypes: {df.dtypes}")
+        # Nulls per column
+        nulls = df.isnull().sum()
+        total = len(df)
+        for col in df.columns:
+            log(f"Nulls in '{col}': {nulls[col]} ({100*nulls[col]/total:.2f}%)")
+        # Duplicates
+        dup_all = df.duplicated().sum()
+        log(f"Duplicate rows (all columns): {dup_all}")
+        # Duplicates by ['Date', 'Dealer', 'CUSIP'] if available
+        key_cols = ['Date', 'Dealer', 'CUSIP']
+        if all(col in df.columns for col in key_cols):
+            dup_keys = df.duplicated(subset=key_cols).sum()
+            log(f"Duplicate rows by {key_cols}: {dup_keys}")
+        # Min/max/unique for key columns
+        for col in df.columns:
+            if pd.api.types.is_numeric_dtype(df[col]):
+                log(f"Column '{col}' min: {df[col].min()} max: {df[col].max()} unique: {df[col].nunique()}")
+                # Negative value check
+                negatives = (df[col] < 0).sum()
+                if negatives > 0:
+                    log(f"[WARNING] Column '{col}' has {negatives} negative values.")
+            elif pd.api.types.is_datetime64_any_dtype(df[col]):
+                log(f"Column '{col}' min: {df[col].min()} max: {df[col].max()} unique: {df[col].nunique()}")
+            else:
+                log(f"Column '{col}' unique: {df[col].nunique()}")
+        # Out-of-range checks: Date in future
+        if 'Date' in df.columns:
+            try:
+                today = pd.Timestamp(datetime.datetime.now().date())
+                future_dates = (pd.to_datetime(df['Date'], errors='coerce') > today).sum()
+                if future_dates > 0:
+                    log(f"[WARNING] 'Date' column has {future_dates} future dates.")
+            except Exception as e:
+                log(f"[ERROR] Date future check failed: {e}")
+        # Time column range check
+        if 'Time' in df.columns:
+            try:
+                invalid_times = df['Time'].apply(lambda t: isinstance(t, str) and not re.match(r'^([01]?\d|2[0-3]):[0-5]\d$', t)).sum()
+                if invalid_times > 0:
+                    log(f"[WARNING] 'Time' column has {invalid_times} invalid time strings.")
+            except Exception as e:
+                log(f"[ERROR] Time range check failed: {e}")
+        # Sample rows
+        log(f"DataFrame head:\n{df.head(3)}")
+        log(f"DataFrame tail:\n{df.tail(3)}")
+        # --- End DataFrame validation section ---
+        main()  # Existing upload and batch logic
+        log("===== ETL RUN END =====\n")
+    except Exception as e:
+        import traceback
+        log(f"[FATAL ERROR] Exception in ETL run: {e}")
+        log(traceback.format_exc())
+        log("===== ETL RUN END (FAILED) =====\n")
+    summarize_latest_log(DEBUG_FILE)

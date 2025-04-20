@@ -113,6 +113,38 @@ def main():
         log(f"ERROR during concatenation: {e}")
         sys.exit(1)
     log(f"Final DataFrame shape: {big_df.shape}")
+    # === DATA CLEANING: Remove rows with any negative numeric values ===
+    log(f"Shape before removing negatives: {big_df.shape}")
+    num_before = big_df.shape[0]
+    # Only check numeric columns for negatives
+    big_df = big_df[~(big_df.select_dtypes(include='number') < 0).any(axis=1)]
+    num_after = big_df.shape[0]
+    log(f"Removed {num_before - num_after} rows with negative values. New shape: {big_df.shape}")
+
+    # === SORT BY DATE COLUMN (earliest to latest) ===
+    if 'Date' in big_df.columns:
+        # Convert to datetime if not already
+        if not pd.api.types.is_datetime64_any_dtype(big_df['Date']):
+            try:
+                big_df['Date'] = pd.to_datetime(big_df['Date'], errors='coerce')
+                log("Converted 'Date' column to datetime.")
+            except Exception as e:
+                log(f"ERROR converting 'Date' to datetime: {e}")
+        try:
+            big_df = big_df.sort_values('Date', ascending=True)
+            log("Sorted DataFrame by 'Date' (earliest to latest).")
+        except Exception as e:
+            log(f"ERROR sorting by 'Date': {e}")
+    else:
+        log("WARNING: 'Date' column not found, skipping sort.")
+
+    # === SAVE TO PARQUET ===
+    try:
+        big_df.to_parquet(output_parquet, index=False)
+        log(f"Saved cleaned DataFrame to Parquet: {output_parquet}")
+    except Exception as e:
+        log(f"ERROR saving to Parquet: {e}")
+
     # 4. Data Integrity & Debugging Output
     print("\n===== DataFrame INFO =====")
     big_df.info()
