@@ -1,9 +1,0 @@
-# Ignore Python virtual environment, credentials, logs, and data files
-.env
-*.parquet
-*.txt
-runs/supabase_etl_debug.txt
-runs/combined_runs.parquet
-__pycache__/
-*.pyc
-.DS_Store
