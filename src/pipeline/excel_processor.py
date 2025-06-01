@@ -58,7 +58,7 @@ class ExcelProcessor(BaseProcessor):
             self.log_stats()
             
             # Update last processed date
-            self._update_last_processed_date()
+            self._update_processed_files(files)
             
             return ProcessingResult.success_result(
                 f"Excel processing completed successfully. Processed {len(files)} files, {len(final_df)} rows",
@@ -75,8 +75,7 @@ class ExcelProcessor(BaseProcessor):
             )
     
     def _get_files_to_process(self) -> List[str]:
-        """Get list of files that need processing"""
-        # Find all Excel files
+        """Get list of files that need to be processed"""
         pattern = os.path.join(self.config.input_dir, self.config.file_pattern)
         all_files = glob(pattern)
         
@@ -84,54 +83,70 @@ class ExcelProcessor(BaseProcessor):
             self.logger.warning(f"No files found matching pattern: {pattern}")
             return []
         
-        # Get last processed date
-        last_processed = self._get_last_processed_date()
+        # Get list of already processed files
+        processed_files = self._get_processed_files()
         
-        if not last_processed:
-            self.logger.info("No previous processing date found, processing all files")
-            return all_files
-        
-        # Filter files based on modification date
-        self.logger.info(f"Last processed date: {last_processed}")
+        # Filter out already processed files
         filtered_files = []
         
         for file_path in all_files:
-            try:
-                mod_time = datetime.fromtimestamp(os.path.getmtime(file_path))
-                mod_date = mod_time.strftime("%Y-%m-%d")
-                
-                if mod_date > last_processed:
-                    filtered_files.append(file_path)
-                    self.logger.info(f"Will process: {os.path.basename(file_path)} (modified: {mod_date})")
-                else:
-                    self.logger.debug(f"Skipping: {os.path.basename(file_path)} (modified: {mod_date})")
-                    
-            except Exception as e:
-                self.logger.warning(f"Error checking file {file_path}: {e}")
-                continue
+            file_name = os.path.basename(file_path)
+            
+            if file_name in processed_files:
+                self.logger.debug(f"Skipping already processed file: {file_name}")
+            else:
+                filtered_files.append(file_path)
+                self.logger.info(f"Will process: {file_name}")
+        
+        if not filtered_files:
+            self.logger.info("No new files to process")
+        else:
+            self.logger.info(f"Found {len(filtered_files)} new files to process")
         
         return filtered_files
     
-    def _get_last_processed_date(self) -> Optional[str]:
-        """Get the last processed date from the tracking file"""
+    def _get_processed_files(self) -> set:
+        """Get the set of already processed files"""
         try:
             if os.path.exists(self.config.last_processed_file):
                 with open(self.config.last_processed_file, 'r') as f:
                     data = json.load(f)
-                    return data.get("last_processed")
+                    # Support both old date-based and new file-based tracking
+                    if 'processed_files' in data:
+                        return set(data['processed_files'])
+                    else:
+                        # Convert old date-based tracking to empty set for fresh start
+                        return set()
+            return set()
         except Exception as e:
-            self.logger.warning(f"Error reading last processed date: {e}")
-        return None
+            self.logger.warning(f"Error reading processed files: {e}")
+            return set()
     
-    def _update_last_processed_date(self):
-        """Update the last processed date"""
+    def _update_processed_files(self, processed_files: List[str]):
+        """Update the list of processed files"""
         try:
+            # Get existing processed files
+            existing_processed = self._get_processed_files()
+            
+            # Add new files to the set
+            new_file_names = [os.path.basename(f) for f in processed_files]
+            updated_processed = existing_processed.union(set(new_file_names))
+            
+            # Save updated list
             today = datetime.now().strftime("%Y-%m-%d")
+            tracking_data = {
+                "last_run": today,
+                "processed_files": list(updated_processed)
+            }
+            
             with open(self.config.last_processed_file, 'w') as f:
-                json.dump({"last_processed": today}, f)
-            self.logger.info(f"Updated last processed date to: {today}")
+                json.dump(tracking_data, f, indent=2)
+            
+            self.logger.info(f"Updated processed files list. Total files tracked: {len(updated_processed)}")
+            self.logger.info(f"Newly processed: {new_file_names}")
+            
         except Exception as e:
-            self.logger.error(f"Error updating last processed date: {e}")
+            self.logger.error(f"Error updating processed files: {e}")
     
     def _process_files(self, files: List[str]) -> List[pd.DataFrame]:
         """Process files in parallel or sequentially"""
@@ -320,3 +335,19 @@ class ExcelProcessor(BaseProcessor):
         self.logger.info(f"Data cleaning complete. Removed {total_removed} rows total")
         
         return df 
+
+    def _get_last_processed_date(self) -> Optional[str]:
+        """Get the last processed date from the tracking file (legacy method)"""
+        try:
+            if os.path.exists(self.config.last_processed_file):
+                with open(self.config.last_processed_file, 'r') as f:
+                    data = json.load(f)
+                    return data.get("last_processed")
+        except Exception as e:
+            self.logger.warning(f"Error reading last processed date: {e}")
+        return None
+    
+    def _update_last_processed_date(self):
+        """Update the last processed date (legacy method - now handled by _update_processed_files)"""
+        # This method is now deprecated in favor of file-based tracking
+        pass 

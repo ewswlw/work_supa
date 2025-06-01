@@ -19,6 +19,8 @@ class SupabaseProcessor(BaseProcessor):
     def __init__(self, config, logger):
         super().__init__(config, logger)
         self.client = self._create_client()
+        # Ensure table has proper constraints for UPSERT functionality
+        self._ensure_primary_key_constraint()
     
     def process(self, df: pd.DataFrame, clear_table: bool = False) -> ProcessingResult:
         """Upload DataFrame to Supabase"""
@@ -244,10 +246,14 @@ class SupabaseProcessor(BaseProcessor):
             return False
     
     def _upload_batch(self, batch_records: List[Dict]) -> bool:
-        """Upload a single batch to Supabase using INSERT for fresh data"""
+        """Upload a single batch to Supabase using UPSERT to handle duplicates"""
         try:
-            # Use INSERT instead of UPSERT for fresh upload after table clearing
-            response = self.client.table(self.config.table).insert(batch_records).execute()
+            # Use UPSERT with ON CONFLICT to handle duplicates properly
+            # This will INSERT new records and UPDATE existing ones based on unique constraints
+            response = self.client.table(self.config.table).upsert(
+                batch_records,
+                on_conflict='Date,CUSIP,Dealer'  # Define the conflict resolution columns
+            ).execute()
             
             # Check for errors in response
             if hasattr(response, 'status_code') and response.status_code >= 400:
@@ -259,8 +265,26 @@ class SupabaseProcessor(BaseProcessor):
             return True
             
         except Exception as e:
-            self.logger.error(f"Exception during batch upload: {e}")
-            return False
+            self.logger.error(f"UPSERT failed: {e}")
+            
+            # Check if it's a constraint-related error
+            error_str = str(e).lower()
+            if any(keyword in error_str for keyword in ['constraint', 'unique', 'primary key', 'conflict']):
+                self.logger.warning("⚠️  UPSERT failed due to missing PRIMARY KEY constraint")
+                self.logger.warning("🔧 Falling back to INSERT mode (may create duplicates)")
+                self.logger.warning("💡 Consider adding PRIMARY KEY constraint manually:")
+                self.logger.warning(f"   ALTER TABLE public.{self.config.table} ADD CONSTRAINT {self.config.table}_pkey PRIMARY KEY (\"Date\", \"CUSIP\", \"Dealer\");")
+            else:
+                self.logger.warning("UPSERT failed for unknown reason, attempting INSERT fallback")
+            
+            # Fallback to INSERT with warning
+            try:
+                response = self.client.table(self.config.table).insert(batch_records).execute()
+                self.logger.info("✅ INSERT fallback succeeded (but may have created duplicates)")
+                return True
+            except Exception as insert_e:
+                self.logger.error(f"INSERT fallback also failed: {insert_e}")
+                return False
     
     def _clean_nans_recursive(self, obj):
         """Recursively replace all float('nan') with None for JSON/SQL compatibility"""
@@ -358,4 +382,125 @@ class SupabaseProcessor(BaseProcessor):
             self.logger.error(f"Failed to clear table: {e}")
             # Don't fail the entire pipeline if table clearing fails
             self.logger.warning("Proceeding with upload anyway - will use upsert to handle duplicates")
-            return True 
+            return True
+    
+    def _ensure_primary_key_constraint(self):
+        """Ensure the table has a PRIMARY KEY constraint for proper UPSERT functionality"""
+        try:
+            self.logger.info("Checking PRIMARY KEY constraint on table...")
+            
+            # Check if constraint already exists
+            if self._check_primary_key_exists():
+                self.logger.info("✅ PRIMARY KEY constraint already exists")
+                return True
+            
+            self.logger.info("🔧 PRIMARY KEY constraint missing, creating it...")
+            return self._create_primary_key_constraint()
+            
+        except Exception as e:
+            self.logger.warning(f"Could not verify/create PRIMARY KEY constraint: {e}")
+            self.logger.warning("UPSERT may not work properly without PRIMARY KEY constraint")
+            return False
+    
+    def _check_primary_key_exists(self) -> bool:
+        """Check if PRIMARY KEY constraint exists on the table"""
+        try:
+            # Query PostgreSQL system tables to check for constraints
+            # Note: This uses a workaround since Supabase doesn't expose constraint info directly
+            
+            # Try to insert a duplicate record to test constraint
+            # If constraint exists, it will fail; if not, we'll delete the test record
+            test_record = {
+                'Date': '1900-01-01',
+                'CUSIP': 'TEST123',
+                'Dealer': 'TEST_DEALER',
+                'Security': 'TEST_CONSTRAINT_CHECK'
+            }
+            
+            # First, clean any existing test records
+            self.client.table(self.config.table).delete().eq('CUSIP', 'TEST123').execute()
+            
+            # Insert test record
+            self.client.table(self.config.table).insert(test_record).execute()
+            
+            # Try to insert duplicate - this should fail if constraint exists
+            try:
+                self.client.table(self.config.table).insert(test_record).execute()
+                # If we get here, no constraint exists (duplicate was allowed)
+                # Clean up test records
+                self.client.table(self.config.table).delete().eq('CUSIP', 'TEST123').execute()
+                return False
+            except Exception as dup_error:
+                # Duplicate was rejected - constraint exists!
+                # Clean up the single test record
+                self.client.table(self.config.table).delete().eq('CUSIP', 'TEST123').execute()
+                return True
+                
+        except Exception as e:
+            self.logger.warning(f"Could not test for PRIMARY KEY constraint: {e}")
+            return False
+    
+    def _create_primary_key_constraint(self) -> bool:
+        """Create PRIMARY KEY constraint on the table"""
+        try:
+            # SQL to create the constraint
+            constraint_sql = f'''
+            ALTER TABLE public.{self.config.table} 
+            ADD CONSTRAINT {self.config.table}_pkey 
+            PRIMARY KEY ("Date", "CUSIP", "Dealer");
+            '''
+            
+            self.logger.info(f"Creating PRIMARY KEY constraint with SQL: {constraint_sql.strip()}")
+            
+            # Try multiple methods to execute the SQL
+            success = False
+            
+            # Method 1: Try using SQL via PostgREST (if available)
+            try:
+                # Some Supabase setups allow direct SQL execution
+                response = self.client.postgrest.session.post(
+                    f"{self.client.supabase_url}/rest/v1/rpc/query",
+                    json={"query": constraint_sql},
+                    headers=self.client.postgrest.session.headers
+                )
+                if response.status_code == 200:
+                    success = True
+                    self.logger.info("✅ PRIMARY KEY constraint created via PostgREST")
+            except Exception as method1_error:
+                self.logger.debug(f"Method 1 failed: {method1_error}")
+            
+            # Method 2: Try using a stored procedure (if it exists)
+            if not success:
+                try:
+                    response = self.client.rpc('execute_ddl', {'ddl_statement': constraint_sql}).execute()
+                    success = True
+                    self.logger.info("✅ PRIMARY KEY constraint created via RPC")
+                except Exception as method2_error:
+                    self.logger.debug(f"Method 2 failed: {method2_error}")
+            
+            # Method 3: Try raw SQL execution (some Supabase configurations allow this)
+            if not success:
+                try:
+                    # This is a fallback that might work in some configurations
+                    import psycopg2
+                    # Note: This would require database credentials, which we don't have
+                    self.logger.debug("Direct PostgreSQL connection not available")
+                except ImportError:
+                    pass
+            
+            if not success:
+                # Provide manual instructions
+                self.logger.warning("⚠️  Automatic constraint creation failed")
+                self.logger.warning("📋 Manual action required:")
+                self.logger.warning("   1. Go to Supabase SQL Editor")
+                self.logger.warning("   2. Execute this SQL:")
+                self.logger.warning(f"      {constraint_sql.strip()}")
+                self.logger.warning("   3. Re-run the pipeline")
+                self.logger.warning("💡 Until then, pipeline will use INSERT with duplicate risk")
+                return False
+            
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Error creating PRIMARY KEY constraint: {e}")
+            return False 

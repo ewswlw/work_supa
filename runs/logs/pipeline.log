@@ -3223,3 +3223,171 @@
 [2025-05-31 22:56:22,226] INFO:   Start time: 2025-05-31 22:55:11.367666
 [2025-05-31 22:56:22,226] INFO:   End time: 2025-05-31 22:56:22.224737
 [2025-05-31 22:56:22,226] INFO: Supabase upload completed successfully
+[2025-06-01 08:15:09,198] INFO: Connected to Supabase at https://frqnggeoptaoosxkozsl.supabase.co
+[2025-06-01 08:15:09,199] INFO: Pipeline initialized successfully
+[2025-06-01 08:15:09,199] INFO: Running Excel processing only
+[2025-06-01 08:15:09,200] INFO: Starting Excel file processing
+[2025-06-01 08:15:09,202] INFO: Will process: RUNS 01.02.24.xlsx
+[2025-06-01 08:15:09,202] INFO: Will process: RUNS 01.02.25.xlsx
+[2025-06-01 08:15:09,202] INFO: Will process: RUNS 01.03.25.xlsx
+[2025-06-01 08:15:09,203] INFO: Will process: RUNS 01.13.25.xlsx
+[2025-06-01 08:15:09,203] INFO: Will process: RUNS 01.14.25.xlsx
+[2025-06-01 08:15:09,203] INFO: Will process: RUNS 02.28.25.xlsx
+[2025-06-01 08:15:09,203] INFO: Will process: RUNS 03.03.25.xlsx
+[2025-06-01 08:15:09,203] INFO: Will process: RUNS 03.24.25.xlsx
+[2025-06-01 08:15:09,203] INFO: Will process: RUNS 03.25.25.xlsx
+[2025-06-01 08:15:09,203] INFO: Will process: RUNS 03.26.25.xlsx
+[2025-06-01 08:15:09,204] INFO: Will process: RUNS 03.27.25.xlsx
+[2025-06-01 08:15:09,204] INFO: Will process: RUNS 03.28.25.xlsx
+[2025-06-01 08:15:09,204] INFO: Will process: RUNS 03.31.25.xlsx
+[2025-06-01 08:15:09,204] INFO: Will process: RUNS 04.01.25.xlsx
+[2025-06-01 08:15:09,204] INFO: Will process: RUNS 04.02.25.xlsx
+[2025-06-01 08:15:09,204] INFO: Will process: RUNS 04.03.25.xlsx
+[2025-06-01 08:15:09,204] INFO: Will process: RUNS 04.04.25.xlsx
+[2025-06-01 08:15:09,205] INFO: Will process: RUNS 04.07.25.xlsx
+[2025-06-01 08:15:09,205] INFO: Will process: RUNS 04.09.25.xlsx
+[2025-06-01 08:15:09,205] INFO: Will process: RUNS 04.10.25.xlsx
+[2025-06-01 08:15:09,205] INFO: Will process: RUNS 04.14.25.xlsx
+[2025-06-01 08:15:09,205] INFO: Will process: RUNS 04.15.25.xlsx
+[2025-06-01 08:15:09,205] INFO: Will process: RUNS 05.01.25.xlsx
+[2025-06-01 08:15:09,205] INFO: Will process: RUNS 05.02.25.xlsx
+[2025-06-01 08:15:09,205] INFO: Will process: RUNS 05.05.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.06.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.07.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.08.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.09.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.12.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.13.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.14.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.15.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.21.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.22.25.xlsx
+[2025-06-01 08:15:09,206] INFO: Will process: RUNS 05.23.25.xlsx
+[2025-06-01 08:15:09,207] INFO: Will process: RUNS 05.26.25.xlsx
+[2025-06-01 08:15:09,207] INFO: Will process: RUNS 05.28.25.xlsx
+[2025-06-01 08:15:09,207] INFO: Will process: RUNS 05.29.25.xlsx
+[2025-06-01 08:15:09,207] INFO: Will process: RUNS 05.30.25.xlsx
+[2025-06-01 08:15:09,207] INFO: Will process: RUNS 11.01.23.xlsx
+[2025-06-01 08:15:09,207] INFO: Will process: RUNS 12.29.23.xlsx
+[2025-06-01 08:15:09,207] INFO: Will process: RUNS 12.31.22.xlsx
+[2025-06-01 08:15:09,207] INFO: Found 43 new files to process
+[2025-06-01 08:15:09,207] INFO: Found 43 files to process
+[2025-06-01 08:15:09,207] INFO: Processing 43 files in parallel with 20 workers
+[2025-06-01 08:15:38,232] INFO: Loaded RUNS 01.03.25.xlsx: shape=(8911, 30)
+[2025-06-01 08:15:44,591] INFO: Loaded RUNS 01.02.25.xlsx: shape=(10401, 30)
+[2025-06-01 08:15:47,911] INFO: Loaded RUNS 03.27.25.xlsx: shape=(12768, 30)
+[2025-06-01 08:15:48,384] INFO: Loaded RUNS 04.01.25.xlsx: shape=(11152, 30)
+[2025-06-01 08:15:49,929] INFO: Loaded RUNS 02.28.25.xlsx: shape=(12376, 30)
+[2025-06-01 08:15:53,599] INFO: Loaded RUNS 03.03.25.xlsx: shape=(14561, 30)
+[2025-06-01 08:15:54,383] INFO: Loaded RUNS 03.26.25.xlsx: shape=(14971, 30)
+[2025-06-01 08:15:54,483] INFO: Loaded RUNS 03.25.25.xlsx: shape=(14501, 30)
+[2025-06-01 08:15:55,102] INFO: Loaded RUNS 03.28.25.xlsx: shape=(13638, 30)
+[2025-06-01 08:15:55,105] INFO: Loaded RUNS 04.04.25.xlsx: shape=(14766, 30)
+[2025-06-01 08:15:55,674] INFO: Loaded RUNS 03.24.25.xlsx: shape=(15135, 30)
+[2025-06-01 08:15:58,053] INFO: Loaded RUNS 04.10.25.xlsx: shape=(16834, 30)
+[2025-06-01 08:15:58,604] INFO: Loaded RUNS 03.31.25.xlsx: shape=(14731, 30)
+[2025-06-01 08:15:58,604] INFO: Loaded RUNS 01.13.25.xlsx: shape=(14883, 30)
+[2025-06-01 08:15:59,184] INFO: Loaded RUNS 04.02.25.xlsx: shape=(12506, 30)
+[2025-06-01 08:15:59,944] INFO: Loaded RUNS 04.03.25.xlsx: shape=(15265, 30)
+[2025-06-01 08:16:00,638] INFO: Loaded RUNS 01.02.24.xlsx: shape=(13856, 30)
+[2025-06-01 08:16:00,866] INFO: Loaded RUNS 01.14.25.xlsx: shape=(15692, 30)
+[2025-06-01 08:16:07,644] INFO: Loaded RUNS 04.09.25.xlsx: shape=(19519, 30)
+[2025-06-01 08:16:17,618] INFO: Loaded RUNS 04.07.25.xlsx: shape=(22399, 30)
+[2025-06-01 08:16:25,782] INFO: Loaded RUNS 05.01.25.xlsx: shape=(11238, 30)
+[2025-06-01 08:16:28,381] INFO: Loaded RUNS 05.02.25.xlsx: shape=(12405, 30)
+[2025-06-01 08:16:30,429] INFO: Loaded RUNS 04.14.25.xlsx: shape=(16204, 30)
+[2025-06-01 08:16:32,451] INFO: Loaded RUNS 05.09.25.xlsx: shape=(10854, 30)
+[2025-06-01 08:16:34,569] INFO: Loaded RUNS 05.05.25.xlsx: shape=(12685, 30)
+[2025-06-01 08:16:39,391] INFO: Loaded RUNS 04.15.25.xlsx: shape=(16137, 30)
+[2025-06-01 08:16:39,676] INFO: Loaded RUNS 05.26.25.xlsx: shape=(10861, 30)
+[2025-06-01 08:16:40,523] INFO: Loaded RUNS 12.31.22.xlsx: shape=(2605, 28)
+[2025-06-01 08:16:40,894] INFO: Loaded RUNS 05.06.25.xlsx: shape=(13625, 30)
+[2025-06-01 08:16:41,726] INFO: Loaded RUNS 05.07.25.xlsx: shape=(13644, 30)
+[2025-06-01 08:16:44,681] INFO: Loaded RUNS 05.28.25.xlsx: shape=(10811, 30)
+[2025-06-01 08:16:45,106] INFO: Loaded RUNS 05.14.25.xlsx: shape=(13657, 30)
+[2025-06-01 08:16:45,431] INFO: Loaded RUNS 05.22.25.xlsx: shape=(13894, 30)
+[2025-06-01 08:16:46,582] INFO: Loaded RUNS 05.08.25.xlsx: shape=(15010, 30)
+[2025-06-01 08:16:46,912] INFO: Loaded RUNS 05.21.25.xlsx: shape=(14488, 30)
+[2025-06-01 08:16:48,526] INFO: Loaded RUNS 05.23.25.xlsx: shape=(13825, 30)
+[2025-06-01 08:16:49,402] INFO: Loaded RUNS 12.29.23.xlsx: shape=(7645, 30)
+[2025-06-01 08:16:49,966] INFO: Loaded RUNS 05.13.25.xlsx: shape=(17233, 30)
+[2025-06-01 08:16:50,381] INFO: Loaded RUNS 05.15.25.xlsx: shape=(14714, 30)
+[2025-06-01 08:16:50,595] INFO: Loaded RUNS 05.12.25.xlsx: shape=(17689, 30)
+[2025-06-01 08:16:50,716] INFO: Loaded RUNS 05.29.25.xlsx: shape=(14783, 30)
+[2025-06-01 08:16:51,319] INFO: Loaded RUNS 11.01.23.xlsx: shape=(11624, 30)
+[2025-06-01 08:16:51,335] INFO: Loaded RUNS 05.30.25.xlsx: shape=(13690, 30)
+[2025-06-01 08:16:51,348] INFO: Successfully loaded 43 files
+[2025-06-01 08:16:51,348] INFO: Combining 43 DataFrames
+[2025-06-01 08:16:51,503] INFO: Combined shape before cleaning: (588186, 30)
+[2025-06-01 08:16:51,982] WARNING: Column 'Bid Discount Margin' has 99.96% null values
+[2025-06-01 08:16:51,982] WARNING: Column 'Ask Discount Margin' has 99.95% null values
+[2025-06-01 08:16:51,982] WARNING: Column 'Keyword' has 82.81% null values
+[2025-06-01 08:16:51,982] WARNING: Column 'Bid Contributed Yield' has 65.11% null values
+[2025-06-01 08:16:51,982] WARNING: Column 'Bid Z-spread' has 86.36% null values
+[2025-06-01 08:16:53,182] WARNING: Found 2 negative values in Bid Price
+[2025-06-01 08:16:53,265] INFO: Data Quality Report:
+[2025-06-01 08:16:53,265] INFO:   Total rows: 588186
+[2025-06-01 08:16:53,265] INFO:   Total columns: 30
+[2025-06-01 08:16:53,265] INFO:   Duplicate rows: 6275
+[2025-06-01 08:16:53,265] INFO:   Validation passed: False
+[2025-06-01 08:16:53,265] WARNING:   Warnings: 5
+[2025-06-01 08:16:53,265] WARNING:     - Column 'Bid Discount Margin' has 99.96% null values
+[2025-06-01 08:16:53,265] WARNING:     - Column 'Ask Discount Margin' has 99.95% null values
+[2025-06-01 08:16:53,265] WARNING:     - Column 'Keyword' has 82.81% null values
+[2025-06-01 08:16:53,265] WARNING:     - Column 'Bid Contributed Yield' has 65.11% null values
+[2025-06-01 08:16:53,265] WARNING:     - Column 'Bid Z-spread' has 86.36% null values
+[2025-06-01 08:16:53,265] INFO: Starting data cleaning and deduplication
+[2025-06-01 08:16:53,453] WARNING: Removed 19691 rows with negative Bid Price
+[2025-06-01 08:16:53,547] WARNING: Removed 3309 rows with negative Ask Price
+[2025-06-01 08:16:53,630] WARNING: Removed 10168 rows with negative Bid Size
+[2025-06-01 08:16:53,713] WARNING: Removed 50637 rows with negative Ask Size
+[2025-06-01 08:16:53,972] INFO: Using deduplication columns: ['Date', 'CUSIP', 'Dealer']
+[2025-06-01 08:16:54,089] INFO: Removed 266853 duplicate rows (same Date/CUSIP/Dealer)
+[2025-06-01 08:16:54,089] INFO: Data cleaning complete. Removed 350658 rows total
+[2025-06-01 08:16:54,090] INFO: Final shape after cleaning: (237528, 30)
+[2025-06-01 08:16:54,112] INFO: Processing Statistics:
+[2025-06-01 08:16:54,113] INFO:   Files processed: 43
+[2025-06-01 08:16:54,113] INFO:   Rows processed: 237528
+[2025-06-01 08:16:54,113] INFO:   Rows loaded: 237528
+[2025-06-01 08:16:54,113] INFO:   Rows duplicated: 266853
+[2025-06-01 08:16:54,113] INFO:   Rows invalid: 0
+[2025-06-01 08:16:54,114] INFO:   Processing time: 104.91 seconds
+[2025-06-01 08:16:54,114] INFO:   Start time: 2025-06-01 08:15:09.200830
+[2025-06-01 08:16:54,114] INFO:   End time: 2025-06-01 08:16:54.112405
+[2025-06-01 08:16:54,117] INFO: Updated processed files list. Total files tracked: 43
+[2025-06-01 08:16:54,118] INFO: Newly processed: ['RUNS 01.02.24.xlsx', 'RUNS 01.02.25.xlsx', 'RUNS 01.03.25.xlsx', 'RUNS 01.13.25.xlsx', 'RUNS 01.14.25.xlsx', 'RUNS 02.28.25.xlsx', 'RUNS 03.03.25.xlsx', 'RUNS 03.24.25.xlsx', 'RUNS 03.25.25.xlsx', 'RUNS 03.26.25.xlsx', 'RUNS 03.27.25.xlsx', 'RUNS 03.28.25.xlsx', 'RUNS 03.31.25.xlsx', 'RUNS 04.01.25.xlsx', 'RUNS 04.02.25.xlsx', 'RUNS 04.03.25.xlsx', 'RUNS 04.04.25.xlsx', 'RUNS 04.07.25.xlsx', 'RUNS 04.09.25.xlsx', 'RUNS 04.10.25.xlsx', 'RUNS 04.14.25.xlsx', 'RUNS 04.15.25.xlsx', 'RUNS 05.01.25.xlsx', 'RUNS 05.02.25.xlsx', 'RUNS 05.05.25.xlsx', 'RUNS 05.06.25.xlsx', 'RUNS 05.07.25.xlsx', 'RUNS 05.08.25.xlsx', 'RUNS 05.09.25.xlsx', 'RUNS 05.12.25.xlsx', 'RUNS 05.13.25.xlsx', 'RUNS 05.14.25.xlsx', 'RUNS 05.15.25.xlsx', 'RUNS 05.21.25.xlsx', 'RUNS 05.22.25.xlsx', 'RUNS 05.23.25.xlsx', 'RUNS 05.26.25.xlsx', 'RUNS 05.28.25.xlsx', 'RUNS 05.29.25.xlsx', 'RUNS 05.30.25.xlsx', 'RUNS 11.01.23.xlsx', 'RUNS 12.29.23.xlsx', 'RUNS 12.31.22.xlsx']
+[2025-06-01 08:16:54,133] INFO: Excel processing completed successfully
+[2025-06-01 08:16:54,133] INFO: Processed 237528 rows
+[2025-06-01 08:25:16,792] INFO: Connected to Supabase at https://frqnggeoptaoosxkozsl.supabase.co
+[2025-06-01 08:25:16,792] INFO: Checking PRIMARY KEY constraint on table...
+[2025-06-01 08:25:17,050] INFO: HTTP Request: DELETE https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs?CUSIP=eq.TEST123 "HTTP/2 200 OK"
+[2025-06-01 08:25:17,123] INFO: HTTP Request: POST https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs "HTTP/2 201 Created"
+[2025-06-01 08:25:17,185] INFO: HTTP Request: POST https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs "HTTP/2 201 Created"
+[2025-06-01 08:25:17,278] INFO: HTTP Request: DELETE https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs?CUSIP=eq.TEST123 "HTTP/2 200 OK"
+[2025-06-01 08:25:17,279] INFO: 🔧 PRIMARY KEY constraint missing, creating it...
+[2025-06-01 08:25:17,279] INFO: Creating PRIMARY KEY constraint with SQL: ALTER TABLE public.runs 
+            ADD CONSTRAINT runs_pkey 
+            PRIMARY KEY ("Date", "CUSIP", "Dealer");
+[2025-06-01 08:25:17,308] INFO: HTTP Request: POST https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/rpc/query "HTTP/2 404 Not Found"
+[2025-06-01 08:25:17,343] INFO: HTTP Request: POST https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/rpc/execute_ddl "HTTP/2 404 Not Found"
+[2025-06-01 08:25:17,344] WARNING: ⚠️  Automatic constraint creation failed
+[2025-06-01 08:25:17,344] WARNING: 📋 Manual action required:
+[2025-06-01 08:25:17,344] WARNING:    1. Go to Supabase SQL Editor
+[2025-06-01 08:25:17,344] WARNING:    2. Execute this SQL:
+[2025-06-01 08:25:17,344] WARNING:       ALTER TABLE public.runs 
+            ADD CONSTRAINT runs_pkey 
+            PRIMARY KEY ("Date", "CUSIP", "Dealer");
+[2025-06-01 08:25:17,344] WARNING:    3. Re-run the pipeline
+[2025-06-01 08:25:17,344] WARNING: 💡 Until then, pipeline will use INSERT with duplicate risk
+[2025-06-01 08:25:17,344] INFO: Pipeline initialized successfully
+[2025-06-01 08:25:17,344] INFO: Testing pipeline connections and configurations
+[2025-06-01 08:25:17,344] INFO: Testing file system access...
+[2025-06-01 08:25:17,352] INFO: Testing Parquet file access...
+[2025-06-01 08:25:17,745] INFO: Parquet file info: {'file_exists': True, 'file_path': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'file_size': 6270365, 'row_count': 237521, 'column_count': 30, 'last_modified': 1748744610.176426}
+[2025-06-01 08:25:17,745] INFO: Testing Supabase connection...
+[2025-06-01 08:25:17,768] INFO: HTTP Request: GET https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs?select=%2A&limit=1 "HTTP/2 200 OK"
+[2025-06-01 08:25:17,768] INFO: Supabase connection test successful
+[2025-06-01 08:25:17,961] INFO: HTTP Request: GET https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs?select=%2A "HTTP/2 206 Partial Content"
+[2025-06-01 08:25:18,023] INFO: HTTP Request: GET https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs?select=%2A&limit=1 "HTTP/2 200 OK"
+[2025-06-01 08:25:18,025] INFO: Supabase table info: {'table_name': 'runs', 'row_count': 237521, 'columns': ['Reference Security', 'Date', 'Time', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector'], 'accessible': True}
+[2025-06-01 08:25:18,026] INFO: All connection tests passed
