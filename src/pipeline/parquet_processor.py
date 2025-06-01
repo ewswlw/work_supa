@@ -152,38 +152,40 @@ class ParquetProcessor(BaseProcessor):
         """Deduplicate the combined DataFrame"""
         initial_count = len(df)
         
-        # Convert Date to string format for consistent deduplication
+        # Ensure Date is datetime for proper sorting
         if 'Date' in df.columns:
-            df['Date'] = pd.to_datetime(df['Date']).dt.strftime('%Y-%m-%d')
+            df['Date'] = pd.to_datetime(df['Date'])
         
-        # Sort by Date and Time
-        try:
-            if 'Date' in df.columns and 'Time' in df.columns:
-                df = df.sort_values(['Date', 'Time'])
-        except Exception as e:
-            self.logger.warning(f"Error sorting combined data: {e}")
+        # Sort by Date, CUSIP, Dealer, and Time to ensure consistent ordering
+        sort_columns = []
+        for col in ['Date', 'CUSIP', 'Dealer', 'Time']:
+            if col in df.columns:
+                sort_columns.append(col)
+        
+        if sort_columns:
+            df = df.sort_values(sort_columns)
+            self.logger.debug(f"Sorted combined data by: {sort_columns}")
         
         # Define deduplication columns - one quote per Date/CUSIP/Dealer
-        key_columns = [
-            'Date', 'CUSIP', 'Dealer'
-        ]
+        key_columns = ['Date', 'CUSIP', 'Dealer']
         
         # Only use columns that exist in the DataFrame
         existing_key_columns = [col for col in key_columns if col in df.columns]
         
-        # Remove duplicates keeping the last occurrence (latest time for same date/cusip/dealer)
-        df = df.drop_duplicates(subset=existing_key_columns, keep='last')
-        
-        # Convert Date back to datetime
-        if 'Date' in df.columns:
-            df['Date'] = pd.to_datetime(df['Date'])
-        
-        final_count = len(df)
-        removed_count = initial_count - final_count
-        
-        if removed_count > 0:
-            self.logger.info(f"Removed {removed_count} duplicate rows during merge")
-            self.stats.rows_duplicated = removed_count
+        if len(existing_key_columns) == len(key_columns):
+            # Remove duplicates keeping the last occurrence (latest time for same date/cusip/dealer)
+            df = df.drop_duplicates(subset=existing_key_columns, keep='last')
+            
+            final_count = len(df)
+            removed_count = initial_count - final_count
+            
+            if removed_count > 0:
+                self.logger.info(f"Removed {removed_count} duplicate rows during merge (same Date/CUSIP/Dealer)")
+                self.stats.rows_duplicated = removed_count
+            else:
+                self.logger.info("No duplicates found during merge")
+        else:
+            self.logger.warning(f"Cannot deduplicate - missing required columns. Have: {existing_key_columns}, Need: {key_columns}")
         
         return df
     

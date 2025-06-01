@@ -279,40 +279,41 @@ class ExcelProcessor(BaseProcessor):
                 if removed_count > 0:
                     self.logger.warning(f"Removed {removed_count} rows with negative {col}")
         
-        # Convert Date to string format for deduplication
+        # Ensure Date is datetime for proper sorting
         if 'Date' in df.columns:
-            df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
+            df['Date'] = pd.to_datetime(df['Date'])
         
-        # Sort by Date and Time
-        try:
-            if 'Date' in df.columns and 'Time' in df.columns:
-                df = df.sort_values(['Date', 'Time'])
-                self.logger.debug("Sorted data by Date and Time")
-        except Exception as e:
-            self.logger.warning(f"Error sorting data: {e}")
+        # Sort by Date, CUSIP, Dealer, and Time to ensure consistent ordering
+        sort_columns = []
+        for col in ['Date', 'CUSIP', 'Dealer', 'Time']:
+            if col in df.columns:
+                sort_columns.append(col)
+        
+        if sort_columns:
+            df = df.sort_values(sort_columns)
+            self.logger.debug(f"Sorted data by: {sort_columns}")
         
         # Define deduplication columns - one quote per Date/CUSIP/Dealer
-        key_columns = [
-            'Date', 'CUSIP', 'Dealer'
-        ]
+        key_columns = ['Date', 'CUSIP', 'Dealer']
         
         # Only use columns that exist in the DataFrame
         existing_key_columns = [col for col in key_columns if col in df.columns]
         self.logger.info(f"Using deduplication columns: {existing_key_columns}")
         
-        # Remove duplicates keeping the last occurrence (latest time for same date/cusip/dealer)
-        before_dedup = len(df)
-        df = df.drop_duplicates(subset=existing_key_columns, keep='last')
-        after_dedup = len(df)
-        removed_dupes = before_dedup - after_dedup
-        
-        if removed_dupes > 0:
-            self.logger.info(f"Removed {removed_dupes} duplicate rows")
-            self.stats.rows_duplicated = removed_dupes
-        
-        # Convert Date back to datetime
-        if 'Date' in df.columns:
-            df['Date'] = pd.to_datetime(df['Date'])
+        if len(existing_key_columns) == len(key_columns):
+            # Remove duplicates keeping the last occurrence (latest time for same date/cusip/dealer)
+            before_dedup = len(df)
+            df = df.drop_duplicates(subset=existing_key_columns, keep='last')
+            after_dedup = len(df)
+            removed_dupes = before_dedup - after_dedup
+            
+            if removed_dupes > 0:
+                self.logger.info(f"Removed {removed_dupes} duplicate rows (same Date/CUSIP/Dealer)")
+                self.stats.rows_duplicated = removed_dupes
+            else:
+                self.logger.info("No duplicates found")
+        else:
+            self.logger.warning(f"Cannot deduplicate - missing required columns. Have: {existing_key_columns}, Need: {key_columns}")
         
         final_count = len(df)
         total_removed = initial_count - final_count
