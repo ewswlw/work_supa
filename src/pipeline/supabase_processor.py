@@ -246,45 +246,126 @@ class SupabaseProcessor(BaseProcessor):
             return False
     
     def _upload_batch(self, batch_records: List[Dict]) -> bool:
-        """Upload a single batch to Supabase using UPSERT to handle duplicates"""
+        """Upload a single batch to Supabase with smart duplicate handling"""
         try:
-            # Use UPSERT with ON CONFLICT to handle duplicates properly
-            # This will INSERT new records and UPDATE existing ones based on unique constraints
+            # First, try UPSERT if we have constraints
+            if self._has_primary_key_constraint():
+                return self._upload_with_upsert(batch_records)
+            else:
+                # Fallback: Check for existing data and only insert new records
+                return self._upload_with_deduplication(batch_records)
+                
+        except Exception as e:
+            self.logger.error(f"Batch upload failed: {e}")
+            return False
+    
+    def _upload_with_upsert(self, batch_records: List[Dict]) -> bool:
+        """Upload using UPSERT when PRIMARY KEY constraint exists"""
+        try:
             response = self.client.table(self.config.table).upsert(
                 batch_records,
-                on_conflict='Date,CUSIP,Dealer'  # Define the conflict resolution columns
+                on_conflict='Date,CUSIP,Dealer'
             ).execute()
             
-            # Check for errors in response
             if hasattr(response, 'status_code') and response.status_code >= 400:
-                self.logger.error(f"Batch upload failed with status {response.status_code}")
-                if hasattr(response, 'data'):
-                    self.logger.error(f"Error details: {response.data}")
+                self.logger.error(f"UPSERT failed with status {response.status_code}")
                 return False
-            
+                
             return True
             
         except Exception as e:
-            self.logger.error(f"UPSERT failed: {e}")
+            self.logger.error(f"UPSERT operation failed: {e}")
+            # Try fallback method
+            return self._upload_with_deduplication(batch_records)
+    
+    def _upload_with_deduplication(self, batch_records: List[Dict]) -> bool:
+        """Upload with manual deduplication check to prevent duplicates"""
+        try:
+            # Check which records already exist
+            new_records = []
             
-            # Check if it's a constraint-related error
-            error_str = str(e).lower()
-            if any(keyword in error_str for keyword in ['constraint', 'unique', 'primary key', 'conflict']):
-                self.logger.warning("⚠️  UPSERT failed due to missing PRIMARY KEY constraint")
-                self.logger.warning("🔧 Falling back to INSERT mode (may create duplicates)")
-                self.logger.warning("💡 Consider adding PRIMARY KEY constraint manually:")
-                self.logger.warning(f"   ALTER TABLE public.{self.config.table} ADD CONSTRAINT {self.config.table}_pkey PRIMARY KEY (\"Date\", \"CUSIP\", \"Dealer\");")
-            else:
-                self.logger.warning("UPSERT failed for unknown reason, attempting INSERT fallback")
+            for record in batch_records:
+                # Check if this record already exists
+                existing = self.client.table(self.config.table).select('Date').eq(
+                    'Date', record['Date']
+                ).eq(
+                    'CUSIP', record['CUSIP'] 
+                ).eq(
+                    'Dealer', record['Dealer']
+                ).execute()
+                
+                # If no existing record found, add to new_records
+                if not existing.data:
+                    new_records.append(record)
             
-            # Fallback to INSERT with warning
+            if not new_records:
+                self.logger.info("No new records to insert (all already exist)")
+                return True
+            
+            self.logger.info(f"Inserting {len(new_records)} new records (skipping {len(batch_records) - len(new_records)} existing)")
+            
+            # Insert only new records
+            response = self.client.table(self.config.table).insert(new_records).execute()
+            
+            if hasattr(response, 'status_code') and response.status_code >= 400:
+                self.logger.error(f"INSERT with deduplication failed with status {response.status_code}")
+                return False
+                
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Manual deduplication insert failed: {e}")
+            # Last resort: try simple insert and accept potential duplicates
             try:
                 response = self.client.table(self.config.table).insert(batch_records).execute()
-                self.logger.info("✅ INSERT fallback succeeded (but may have created duplicates)")
+                self.logger.warning("Used simple INSERT - potential duplicates may exist")
                 return True
-            except Exception as insert_e:
-                self.logger.error(f"INSERT fallback also failed: {insert_e}")
+            except:
                 return False
+    
+    def _has_primary_key_constraint(self) -> bool:
+        """Check if the table has a PRIMARY KEY constraint"""
+        try:
+            # Try a small upsert to see if it works
+            test_record = {
+                'Date': '1900-01-01',
+                'CUSIP': 'TEST123',
+                'Dealer': 'TEST'
+            }
+            
+            # First insert the test record
+            self.client.table(self.config.table).insert([test_record]).execute()
+            
+            # Then try to upsert it (this will fail if no PRIMARY KEY)
+            response = self.client.table(self.config.table).upsert(
+                [test_record], 
+                on_conflict='Date,CUSIP,Dealer'
+            ).execute()
+            
+            # Clean up test record
+            self.client.table(self.config.table).delete().eq(
+                'Date', '1900-01-01'
+            ).eq(
+                'CUSIP', 'TEST123'
+            ).eq(
+                'Dealer', 'TEST'
+            ).execute()
+            
+            return True
+            
+        except Exception:
+            # Clean up any test record that might have been inserted
+            try:
+                self.client.table(self.config.table).delete().eq(
+                    'Date', '1900-01-01'
+                ).eq(
+                    'CUSIP', 'TEST123'
+                ).eq(
+                    'Dealer', 'TEST'
+                ).execute()
+            except:
+                pass
+            return False
     
     def _clean_nans_recursive(self, obj):
         """Recursively replace all float('nan') with None for JSON/SQL compatibility"""
