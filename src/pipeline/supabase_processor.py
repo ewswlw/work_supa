@@ -248,15 +248,53 @@ class SupabaseProcessor(BaseProcessor):
     def _upload_batch(self, batch_records: List[Dict]) -> bool:
         """Upload a single batch to Supabase with smart duplicate handling"""
         try:
-            # First, try UPSERT if we have constraints
-            if self._has_primary_key_constraint():
+            # Check if table is empty first to determine strategy
+            if not hasattr(self, '_table_empty_checked'):
+                self._table_is_empty = self._is_table_empty()
+                self._table_empty_checked = True
+                if self._table_is_empty:
+                    self.logger.info("🚀 Table is empty - using fast bulk INSERT strategy")
+                else:
+                    self.logger.info("📊 Table has data - using smart UPSERT/deduplication strategy")
+            
+            # Use different strategies based on table state
+            if self._table_is_empty:
+                # Fast path: table is empty, just INSERT everything
+                return self._fast_bulk_insert(batch_records)
+            elif self._has_primary_key_constraint():
+                # Smart path: use UPSERT with constraints
                 return self._upload_with_upsert(batch_records)
             else:
-                # Fallback: Check for existing data and only insert new records
-                return self._upload_with_deduplication(batch_records)
+                # Careful path: check for duplicates in batches
+                return self._upload_with_batch_deduplication(batch_records)
                 
         except Exception as e:
             self.logger.error(f"Batch upload failed: {e}")
+            return False
+    
+    def _is_table_empty(self) -> bool:
+        """Check if the table is empty"""
+        try:
+            response = self.client.table(self.config.table).select('*', count='exact').limit(1).execute()
+            count = response.count if hasattr(response, 'count') else len(response.data)
+            return count == 0
+        except Exception as e:
+            self.logger.warning(f"Could not check if table is empty: {e}")
+            return False
+    
+    def _fast_bulk_insert(self, batch_records: List[Dict]) -> bool:
+        """Fast bulk INSERT for empty tables"""
+        try:
+            response = self.client.table(self.config.table).insert(batch_records).execute()
+            
+            if hasattr(response, 'status_code') and response.status_code >= 400:
+                self.logger.error(f"Bulk INSERT failed with status {response.status_code}")
+                return False
+                
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Fast bulk insert failed: {e}")
             return False
     
     def _upload_with_upsert(self, batch_records: List[Dict]) -> bool:
@@ -279,49 +317,10 @@ class SupabaseProcessor(BaseProcessor):
             return self._upload_with_deduplication(batch_records)
     
     def _upload_with_deduplication(self, batch_records: List[Dict]) -> bool:
-        """Upload with manual deduplication check to prevent duplicates"""
-        try:
-            # Check which records already exist
-            new_records = []
-            
-            for record in batch_records:
-                # Check if this record already exists
-                existing = self.client.table(self.config.table).select('Date').eq(
-                    'Date', record['Date']
-                ).eq(
-                    'CUSIP', record['CUSIP'] 
-                ).eq(
-                    'Dealer', record['Dealer']
-                ).execute()
-                
-                # If no existing record found, add to new_records
-                if not existing.data:
-                    new_records.append(record)
-            
-            if not new_records:
-                self.logger.info("No new records to insert (all already exist)")
-                return True
-            
-            self.logger.info(f"Inserting {len(new_records)} new records (skipping {len(batch_records) - len(new_records)} existing)")
-            
-            # Insert only new records
-            response = self.client.table(self.config.table).insert(new_records).execute()
-            
-            if hasattr(response, 'status_code') and response.status_code >= 400:
-                self.logger.error(f"INSERT with deduplication failed with status {response.status_code}")
-                return False
-                
-            return True
-            
-        except Exception as e:
-            self.logger.error(f"Manual deduplication insert failed: {e}")
-            # Last resort: try simple insert and accept potential duplicates
-            try:
-                response = self.client.table(self.config.table).insert(batch_records).execute()
-                self.logger.warning("Used simple INSERT - potential duplicates may exist")
-                return True
-            except:
-                return False
+        """DEPRECATED: Use _upload_with_batch_deduplication instead for better performance"""
+        # This old method was too slow (checking each record individually)
+        # Redirect to the new efficient batch method
+        return self._upload_with_batch_deduplication(batch_records)
     
     def _has_primary_key_constraint(self) -> bool:
         """Check if the table has a PRIMARY KEY constraint"""
@@ -584,4 +583,71 @@ class SupabaseProcessor(BaseProcessor):
             
         except Exception as e:
             self.logger.error(f"Error creating PRIMARY KEY constraint: {e}")
-            return False 
+            return False
+    
+    def _upload_with_batch_deduplication(self, batch_records: List[Dict]) -> bool:
+        """Upload with efficient batch deduplication check to prevent duplicates"""
+        try:
+            if not batch_records:
+                return True
+            
+            # Extract all Date/CUSIP/Dealer combinations from this batch
+            batch_keys = [(r['Date'], r['CUSIP'], r['Dealer']) for r in batch_records]
+            
+            # Check which of these combinations already exist (single query)
+            existing_keys = set()
+            
+            # Build a single query to check all combinations at once
+            # Use OR conditions to check multiple combinations efficiently
+            date_values = list(set(k[0] for k in batch_keys))
+            cusip_values = list(set(k[1] for k in batch_keys))
+            dealer_values = list(set(k[2] for k in batch_keys))
+            
+            # Query for existing records with any of these values
+            existing_response = self.client.table(self.config.table).select(
+                'Date,CUSIP,Dealer'
+            ).in_(
+                'Date', date_values
+            ).in_(
+                'CUSIP', cusip_values  
+            ).in_(
+                'Dealer', dealer_values
+            ).execute()
+            
+            # Create set of existing combinations
+            for record in existing_response.data:
+                existing_keys.add((record['Date'], record['CUSIP'], record['Dealer']))
+            
+            # Filter out records that already exist
+            new_records = []
+            for record in batch_records:
+                key = (record['Date'], record['CUSIP'], record['Dealer'])
+                if key not in existing_keys:
+                    new_records.append(record)
+            
+            if not new_records:
+                self.logger.debug("No new records to insert in this batch (all already exist)")
+                return True
+            
+            skipped_count = len(batch_records) - len(new_records)
+            if skipped_count > 0:
+                self.logger.debug(f"Inserting {len(new_records)} new records (skipping {skipped_count} existing)")
+            
+            # Insert only new records
+            response = self.client.table(self.config.table).insert(new_records).execute()
+            
+            if hasattr(response, 'status_code') and response.status_code >= 400:
+                self.logger.error(f"Batch deduplication INSERT failed with status {response.status_code}")
+                return False
+                
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Batch deduplication failed: {e}")
+            # Last resort: try simple insert and accept potential duplicates
+            try:
+                response = self.client.table(self.config.table).insert(batch_records).execute()
+                self.logger.warning("Used simple INSERT - potential duplicates may exist")
+                return True
+            except:
+                return False 
