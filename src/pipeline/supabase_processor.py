@@ -244,9 +244,10 @@ class SupabaseProcessor(BaseProcessor):
             return False
     
     def _upload_batch(self, batch_records: List[Dict]) -> bool:
-        """Upload a single batch to Supabase"""
+        """Upload a single batch to Supabase using INSERT for fresh data"""
         try:
-            response = self.client.table(self.config.table).upsert(batch_records).execute()
+            # Use INSERT instead of UPSERT for fresh upload after table clearing
+            response = self.client.table(self.config.table).insert(batch_records).execute()
             
             # Check for errors in response
             if hasattr(response, 'status_code') and response.status_code >= 400:

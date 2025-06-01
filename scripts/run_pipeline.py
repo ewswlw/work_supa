@@ -104,12 +104,12 @@ class DataPipeline:
             self.logger.info("STEP 3: Uploading to Supabase")
             self.logger.info("=" * 50)
             
-            supabase_result = self.supabase_processor.process(parquet_result.data)
+            upload_result = self.supabase_processor.process(parquet_result.data, clear_table=False)
             
-            if not supabase_result.success:
+            if not upload_result.success:
                 self.logger.error("Supabase upload failed")
-                if supabase_result.error:
-                    self.logger.error(f"Error: {supabase_result.error}")
+                if upload_result.error:
+                    self.logger.error(f"Error: {upload_result.error}")
                 return False
             
             # Pipeline completed successfully
@@ -122,7 +122,7 @@ class DataPipeline:
             self.logger.info(f"Total duration: {duration}")
             
             # Log summary statistics
-            self._log_pipeline_summary(excel_result, parquet_result, supabase_result)
+            self._log_pipeline_summary(excel_result, parquet_result, upload_result)
             
             return True
             
@@ -130,7 +130,7 @@ class DataPipeline:
             self.logger.error("Pipeline failed with unexpected error", e)
             return False
     
-    def _log_pipeline_summary(self, excel_result, parquet_result, supabase_result):
+    def _log_pipeline_summary(self, excel_result, parquet_result, upload_result):
         """Log a summary of the pipeline execution"""
         self.logger.info("PIPELINE SUMMARY:")
         
@@ -145,9 +145,9 @@ class DataPipeline:
             self.logger.info(f"  Parquet file: {parquet_result.metadata.get('file_path', 'N/A')}")
         
         # Supabase summary
-        if supabase_result.metadata:
-            self.logger.info(f"  Rows uploaded to Supabase: {supabase_result.metadata.get('rows_uploaded', 0)}")
-            self.logger.info(f"  Supabase table: {supabase_result.metadata.get('table', 'N/A')}")
+        if upload_result.metadata:
+            self.logger.info(f"  Rows uploaded to Supabase: {upload_result.metadata.get('rows_uploaded', 0)}")
+            self.logger.info(f"  Supabase table: {upload_result.metadata.get('table', 'N/A')}")
     
     def test_connections(self) -> bool:
         """Test all connections and configurations"""
@@ -208,10 +208,10 @@ class DataPipeline:
             self.logger.error("Failed to load data from Parquet file")
             return False
         
-        # Upload to Supabase
-        supabase_result = self.supabase_processor.process(parquet_result.data)
+        # Upload to Supabase (table should be manually cleared first)
+        upload_result = self.supabase_processor.process(parquet_result.data, clear_table=False)
         
-        if supabase_result.success:
+        if upload_result.success:
             self.logger.info("Supabase upload completed successfully")
             return True
         else:
