@@ -20,7 +20,7 @@ class SupabaseProcessor(BaseProcessor):
         super().__init__(config, logger)
         self.client = self._create_client()
     
-    def process(self, df: pd.DataFrame) -> ProcessingResult:
+    def process(self, df: pd.DataFrame, clear_table: bool = False) -> ProcessingResult:
         """Upload DataFrame to Supabase"""
         try:
             self._start_timer()
@@ -31,6 +31,14 @@ class SupabaseProcessor(BaseProcessor):
                     "No data to upload to Supabase",
                     metadata={'rows_attempted': 0}
                 )
+            
+            # Clear table if requested (default behavior for clean uploads)
+            if clear_table:
+                clear_result = self._clear_table()
+                if not clear_result:
+                    return ProcessingResult.failure_result(
+                        "Failed to clear Supabase table before upload"
+                    )
             
             # Validate and prepare data
             prepared_df = self._prepare_data_for_upload(df)
@@ -299,4 +307,54 @@ class SupabaseProcessor(BaseProcessor):
         except Exception as e:
             self.logger.warning(f"Error getting table info: {e}")
         
-        return info 
+        return info
+    
+    def _clear_table(self) -> bool:
+        """Clear all data from the Supabase table using TRUNCATE"""
+        try:
+            self.logger.info(f"Clearing all data from table: {self.config.table}")
+            
+            # First, get the current row count
+            count_response = self.client.table(self.config.table).select('*', count='exact').execute()
+            current_count = count_response.count if hasattr(count_response, 'count') else 0
+            
+            if current_count == 0:
+                self.logger.info("Table is already empty")
+                return True
+            
+            self.logger.info(f"Found {current_count} existing rows, truncating table...")
+            
+            # Use SQL function to truncate table
+            # This is much faster than deleting row by row
+            try:
+                # Try to execute truncate via RPC
+                truncate_response = self.client.rpc('truncate_table', {'table_name': self.config.table}).execute()
+                self.logger.info("Table truncated using RPC function")
+            except Exception as rpc_error:
+                self.logger.warning(f"RPC truncate failed: {rpc_error}")
+                self.logger.info("Falling back to delete all rows method...")
+                
+                # Fallback: delete all rows with a simple condition
+                delete_response = self.client.table(self.config.table).delete().gte('Date', '1900-01-01').execute()
+                self.logger.info("Attempted to delete all rows using date filter")
+            
+            # Verify table is empty or mostly empty
+            verify_response = self.client.table(self.config.table).select('*', count='exact').execute()
+            remaining_count = verify_response.count if hasattr(verify_response, 'count') else 0
+            
+            if remaining_count == 0:
+                self.logger.info(f"Successfully cleared table. Removed {current_count} rows.")
+                return True
+            elif remaining_count < current_count * 0.1:  # If less than 10% remain
+                self.logger.warning(f"Table mostly cleared. {remaining_count} rows remaining out of {current_count}.")
+                self.logger.info("Proceeding with upload - new data will overwrite duplicates")
+                return True
+            else:
+                self.logger.error(f"Table clearing failed. {remaining_count} rows remaining out of {current_count}.")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"Failed to clear table: {e}")
+            # Don't fail the entire pipeline if table clearing fails
+            self.logger.warning("Proceeding with upload anyway - will use upsert to handle duplicates")
+            return True 
