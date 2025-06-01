@@ -1,28 +1,7 @@
 {
   "mcpServers": {
-    "filesystem": {
-      "command": "C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\mcp_infra\\npx-wrapper.cmd",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "."
-      ]
-    },
     "supabase": {
-      "command": "C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\mcp_infra\\npx-wrapper.cmd",
-      "args": [
-        "-y",
-        "@supabase/mcp-server-supabase@0.4.1",
-        "--access-token",
-        "sbp_6d456f452bafa45beaa15089b1782bd738ebe37e"
-      ]
-    },
-    "sequential-thinking": {
-      "command": "C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\mcp_infra\\npx-wrapper.cmd",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ]
+      "command": "cmd /c npx -y @supabase/mcp-server-supabase@latest --access-token sbp_6d456f452bafa45beaa15089b1782bd738ebe37e"
     }
   }
 } 
