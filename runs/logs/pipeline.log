@@ -21,3 +21,69 @@
 [2025-05-31 21:40:41,686] INFO: Last processed date: 2025-05-31
 [2025-05-31 21:40:41,686] INFO: No new files to process
 [2025-05-31 21:40:41,686] INFO: No new data to process. Pipeline completed.
+[2025-05-31 22:13:59,738] INFO: Connected to Supabase at https://frqnggeoptaoosxkozsl.supabase.co
+[2025-05-31 22:13:59,739] INFO: Pipeline initialized successfully
+[2025-05-31 22:13:59,739] INFO: Running Excel processing only
+[2025-05-31 22:13:59,739] INFO: Starting Excel file processing
+[2025-05-31 22:13:59,742] INFO: Last processed date: 2025-05-31
+[2025-05-31 22:13:59,745] INFO: No new files to process
+[2025-05-31 22:13:59,745] INFO: Excel processing completed successfully
+[2025-05-31 22:14:15,898] INFO: Connected to Supabase at https://frqnggeoptaoosxkozsl.supabase.co
+[2025-05-31 22:14:15,899] INFO: Pipeline initialized successfully
+[2025-05-31 22:14:15,899] INFO: Running Excel processing only
+[2025-05-31 22:14:15,899] INFO: Starting Excel file processing
+[2025-05-31 22:14:15,900] INFO: Last processed date: 2025-05-29
+[2025-05-31 22:14:15,903] INFO: Will process: RUNS 05.30.25.xlsx (modified: 2025-05-30)
+[2025-05-31 22:14:15,904] INFO: Found 1 files to process
+[2025-05-31 22:14:15,904] INFO: Processing 1 files sequentially
+[2025-05-31 22:14:18,001] INFO: Loaded RUNS 05.30.25.xlsx: shape=(13690, 30)
+[2025-05-31 22:14:18,014] INFO: Successfully loaded 1 files
+[2025-05-31 22:14:18,014] INFO: Combining 1 DataFrames
+[2025-05-31 22:14:18,016] INFO: Combined shape before cleaning: (13690, 30)
+[2025-05-31 22:14:18,029] WARNING: Column 'Bid Discount Margin' has 99.88% null values
+[2025-05-31 22:14:18,029] WARNING: Column 'Ask Discount Margin' has 99.88% null values
+[2025-05-31 22:14:18,029] WARNING: Column 'Keyword' has 81.69% null values
+[2025-05-31 22:14:18,030] WARNING: Column 'Bid Contributed Yield' has 67.81% null values
+[2025-05-31 22:14:18,030] WARNING: Column 'Bid Z-spread' has 83.81% null values
+[2025-05-31 22:14:18,064] INFO: Data Quality Report:
+[2025-05-31 22:14:18,064] INFO:   Total rows: 13690
+[2025-05-31 22:14:18,064] INFO:   Total columns: 30
+[2025-05-31 22:14:18,064] INFO:   Duplicate rows: 0
+[2025-05-31 22:14:18,065] INFO:   Validation passed: True
+[2025-05-31 22:14:18,065] WARNING:   Warnings: 5
+[2025-05-31 22:14:18,065] WARNING:     - Column 'Bid Discount Margin' has 99.88% null values
+[2025-05-31 22:14:18,065] WARNING:     - Column 'Ask Discount Margin' has 99.88% null values
+[2025-05-31 22:14:18,065] WARNING:     - Column 'Keyword' has 81.69% null values
+[2025-05-31 22:14:18,065] WARNING:     - Column 'Bid Contributed Yield' has 67.81% null values
+[2025-05-31 22:14:18,065] WARNING:     - Column 'Bid Z-spread' has 83.81% null values
+[2025-05-31 22:14:18,065] INFO: Starting data cleaning and deduplication
+[2025-05-31 22:14:18,072] WARNING: Removed 292 rows with negative Bid Price
+[2025-05-31 22:14:18,076] WARNING: Removed 141 rows with negative Ask Price
+[2025-05-31 22:14:18,078] WARNING: Removed 198 rows with negative Bid Size
+[2025-05-31 22:14:18,080] WARNING: Removed 1304 rows with negative Ask Size
+[2025-05-31 22:14:18,089] INFO: Using deduplication columns: ['Date', 'CUSIP', 'Dealer']
+[2025-05-31 22:14:18,094] INFO: Removed 5610 duplicate rows
+[2025-05-31 22:14:18,097] INFO: Data cleaning complete. Removed 7545 rows total
+[2025-05-31 22:14:18,097] INFO: Final shape after cleaning: (6145, 30)
+[2025-05-31 22:14:18,097] INFO: Processing Statistics:
+[2025-05-31 22:14:18,097] INFO:   Files processed: 1
+[2025-05-31 22:14:18,097] INFO:   Rows processed: 6145
+[2025-05-31 22:14:18,097] INFO:   Rows loaded: 6145
+[2025-05-31 22:14:18,098] INFO:   Rows duplicated: 5610
+[2025-05-31 22:14:18,098] INFO:   Rows invalid: 0
+[2025-05-31 22:14:18,098] INFO:   Processing time: 2.20 seconds
+[2025-05-31 22:14:18,098] INFO:   Start time: 2025-05-31 22:14:15.899503
+[2025-05-31 22:14:18,098] INFO:   End time: 2025-05-31 22:14:18.097937
+[2025-05-31 22:14:18,101] INFO: Updated last processed date to: 2025-05-31
+[2025-05-31 22:14:18,102] INFO: Excel processing completed successfully
+[2025-05-31 22:14:18,102] INFO: Processed 6145 rows
+[2025-05-31 22:14:32,349] INFO: Connected to Supabase at https://frqnggeoptaoosxkozsl.supabase.co
+[2025-05-31 22:14:32,350] INFO: Pipeline initialized successfully
+[2025-05-31 22:14:32,351] INFO: Starting complete data pipeline at 2025-05-31 22:14:32.351315
+[2025-05-31 22:14:32,351] INFO: ==================================================
+[2025-05-31 22:14:32,351] INFO: STEP 1: Processing Excel files
+[2025-05-31 22:14:32,352] INFO: ==================================================
+[2025-05-31 22:14:32,352] INFO: Starting Excel file processing
+[2025-05-31 22:14:32,354] INFO: Last processed date: 2025-05-31
+[2025-05-31 22:14:32,356] INFO: No new files to process
+[2025-05-31 22:14:32,356] INFO: No new data to process. Pipeline completed.

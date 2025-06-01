@@ -163,16 +163,15 @@ class ParquetProcessor(BaseProcessor):
         except Exception as e:
             self.logger.warning(f"Error sorting combined data: {e}")
         
-        # Define deduplication columns
+        # Define deduplication columns - one quote per Date/CUSIP/Dealer
         key_columns = [
-            'Date', 'Time', 'Dealer', 'Security', 'Bid Price', 'Ask Price',
-            'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention'
+            'Date', 'CUSIP', 'Dealer'
         ]
         
         # Only use columns that exist in the DataFrame
         existing_key_columns = [col for col in key_columns if col in df.columns]
         
-        # Remove duplicates keeping the last occurrence
+        # Remove duplicates keeping the last occurrence (latest time for same date/cusip/dealer)
         df = df.drop_duplicates(subset=existing_key_columns, keep='last')
         
         # Convert Date back to datetime
