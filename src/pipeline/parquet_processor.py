@@ -44,6 +44,22 @@ class ParquetProcessor(BaseProcessor):
                 if merged_df is not None:
                     df = merged_df
             
+            # DEBUG: Print rows for F 7 02/10/26, TD, 2025-05-28 to 2025-05-30
+            try:
+                mask = (
+                    (df['Security'] == 'F 7 02/10/26') &
+                    (df['Dealer'] == 'TD') &
+                    (df['Date'] >= '2025-05-28') & (df['Date'] <= '2025-05-30')
+                )
+                debug_rows = df.loc[mask]
+                self.logger.info('DEBUG: Rows for F 7 02/10/26, TD, 2025-05-28 to 2025-05-30 before saving to Parquet:')
+                if not debug_rows.empty:
+                    self.logger.info(f"\n{debug_rows[['Date','Time','CUSIP','Dealer','Bid Price','Ask Price','Bid Spread']].to_string(index=False)}")
+                else:
+                    self.logger.info('No rows found for F 7 02/10/26, TD, 2025-05-28 to 2025-05-30 before saving to Parquet.')
+            except Exception as e:
+                self.logger.error(f'Error in Parquet debug print: {e}')
+            
             # Save to Parquet
             df.to_parquet(file_path, index=False, engine='pyarrow')
             

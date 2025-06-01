@@ -78,6 +78,7 @@ class ExcelProcessor(BaseProcessor):
         """Get list of files that need to be processed"""
         pattern = os.path.join(self.config.input_dir, self.config.file_pattern)
         all_files = glob(pattern)
+        self.logger.debug(f"[DEBUG] All files found by glob: {all_files}")
         
         if not all_files:
             self.logger.warning(f"No files found matching pattern: {pattern}")
@@ -85,6 +86,7 @@ class ExcelProcessor(BaseProcessor):
         
         # Get list of already processed files
         processed_files = self._get_processed_files()
+        self.logger.debug(f"[DEBUG] Processed files set: {processed_files}")
         
         # Filter out already processed files
         filtered_files = []
@@ -224,19 +226,23 @@ class ExcelProcessor(BaseProcessor):
         """Parse Date and Time columns to appropriate types"""
         file_name = os.path.basename(file_path)
         
-        # Parse Date column
+        # Parse Date column robustly
         if 'Date' in df.columns:
             try:
-                df['Date'] = pd.to_datetime(
-                    df['Date'].astype(str).str.strip(), 
-                    format=self.config.date_format, 
-                    errors='coerce'
-                )
+                # Strip whitespace
+                df['Date'] = df['Date'].astype(str).str.strip()
+                # Robust parsing with inference
+                df['Date'] = pd.to_datetime(df['Date'], infer_datetime_format=True, errors='coerce')
                 nat_count = df['Date'].isna().sum()
                 if nat_count > 0:
                     self.logger.warning(f"Found {nat_count} invalid dates in {file_name}")
+                    # Log a sample of unparseable dates
+                    invalid_dates = df[df['Date'].isna()]
+                    self.logger.debug(f"Sample unparseable dates in {file_name}: {invalid_dates['Date'].head(5).tolist()}")
                 else:
                     self.logger.debug(f"Parsed Date column in {file_name}")
+                # Normalize to standard format for deduplication
+                df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
             except Exception as e:
                 self.logger.error(f"Error parsing Date column in {file_name}: {e}")
         
@@ -289,10 +295,19 @@ class ExcelProcessor(BaseProcessor):
         for col in ['Bid Price', 'Ask Price', 'Bid Size', 'Ask Size']:
             if col in df.columns:
                 before_count = len(df)
-                df = df[df[col] >= 0]
+                df = df[~(df[col] < 0)]
                 removed_count = before_count - len(df)
                 if removed_count > 0:
                     self.logger.warning(f"Removed {removed_count} rows with negative {col}")
+        
+        # Drop rows with NA in key columns before deduplication
+        key_na_cols = ['Date', 'CUSIP', 'Dealer', 'Bid Spread']
+        existing_na_cols = [col for col in key_na_cols if col in df.columns]
+        before_na = len(df)
+        df = df.dropna(subset=existing_na_cols)
+        removed_na = before_na - len(df)
+        if removed_na > 0:
+            self.logger.warning(f"Removed {removed_na} rows with NA in {existing_na_cols} before deduplication")
         
         # Ensure Date is datetime for proper sorting
         if 'Date' in df.columns:

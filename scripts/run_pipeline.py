@@ -192,6 +192,15 @@ class DataPipeline:
             self.logger.info("Excel processing completed successfully")
             if excel_result.data is not None:
                 self.logger.info(f"Processed {len(excel_result.data)} rows")
+                # Save to Parquet as well
+                parquet_result = self.parquet_processor.save_to_parquet(excel_result.data)
+                if parquet_result.success:
+                    self.logger.info(f"Successfully saved to Parquet: {parquet_result.metadata.get('file_path', 'N/A')}")
+                else:
+                    self.logger.error("Failed to save to Parquet in --excel-only mode")
+                    if parquet_result.error:
+                        self.logger.error(f"Error: {parquet_result.error}")
+                    return False
             return True
         else:
             self.logger.error("Excel processing failed")
