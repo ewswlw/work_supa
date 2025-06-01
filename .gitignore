@@ -1,0 +1,23 @@
+# Ignore Node.js installer and other binaries
+node-installer.msi
+*.msi
+*.zip
+*.tgz
+*.tar.gz
+
+# Ignore nvm setup files
+nvm-setup/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore Cursor and MCP test folders
+mcp-test/
