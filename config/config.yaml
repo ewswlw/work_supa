@@ -1,0 +1,19 @@
+pipeline:
+  input_dir: "runs/older files"
+  file_pattern: "*.xls*"
+  output_parquet: "runs/combined_runs.parquet"
+  last_processed_file: "runs/last_processed.json"
+  date_format: "%m/%d/%y"
+  time_format: "%H:%M"
+  parallel_load: true
+  n_workers: 20
+  show_rows: 5
+  log_file: "runs/logs/pipeline.log"
+  chunk_size: 10000
+
+supabase:
+  batch_size: 1000
+
+logging:
+  level: "INFO"
+  format: "[%(asctime)s] %(levelname)s: %(message)s" 

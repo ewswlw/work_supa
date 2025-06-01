@@ -1,0 +1,23 @@
+[2025-05-31 21:40:09,091] INFO: Connected to Supabase at https://frqnggeoptaoosxkozsl.supabase.co
+[2025-05-31 21:40:09,091] INFO: Pipeline initialized successfully
+[2025-05-31 21:40:09,091] INFO: Testing pipeline connections and configurations
+[2025-05-31 21:40:09,092] INFO: Testing file system access...
+[2025-05-31 21:40:09,092] INFO: Testing Parquet file access...
+[2025-05-31 21:40:09,379] INFO: Parquet file info: {'file_exists': True, 'file_path': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'file_size': 12064220, 'row_count': 498167, 'column_count': 30, 'last_modified': 1748740329.3173864}
+[2025-05-31 21:40:09,379] INFO: Testing Supabase connection...
+[2025-05-31 21:40:09,996] INFO: HTTP Request: GET https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs?select=%2A&limit=1 "HTTP/2 200 OK"
+[2025-05-31 21:40:09,996] INFO: Supabase connection test successful
+[2025-05-31 21:40:13,717] INFO: HTTP Request: GET https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs?select=%2A "HTTP/2 206 Partial Content"
+[2025-05-31 21:40:13,805] INFO: HTTP Request: GET https://frqnggeoptaoosxkozsl.supabase.co/rest/v1/runs?select=%2A&limit=1 "HTTP/2 200 OK"
+[2025-05-31 21:40:13,805] INFO: Supabase table info: {'table_name': 'runs', 'row_count': 986243, 'columns': ['Reference Security', 'Date', 'Time', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread', 'Bid Workout Risk', 'Sector'], 'accessible': True}
+[2025-05-31 21:40:13,805] INFO: All connection tests passed
+[2025-05-31 21:40:41,686] INFO: Connected to Supabase at https://frqnggeoptaoosxkozsl.supabase.co
+[2025-05-31 21:40:41,686] INFO: Pipeline initialized successfully
+[2025-05-31 21:40:41,686] INFO: Starting complete data pipeline at 2025-05-31 21:40:41.686597
+[2025-05-31 21:40:41,686] INFO: ==================================================
+[2025-05-31 21:40:41,686] INFO: STEP 1: Processing Excel files
+[2025-05-31 21:40:41,686] INFO: ==================================================
+[2025-05-31 21:40:41,686] INFO: Starting Excel file processing
+[2025-05-31 21:40:41,686] INFO: Last processed date: 2025-05-31
+[2025-05-31 21:40:41,686] INFO: No new files to process
+[2025-05-31 21:40:41,686] INFO: No new data to process. Pipeline completed.

@@ -1,0 +1,219 @@
+"""
+Parquet file processing module.
+"""
+import os
+import pandas as pd
+from typing import Optional
+
+from pipeline.base import BaseProcessor
+from models.data_models import ProcessingResult
+from utils.validators import DataValidator
+
+
+class ParquetProcessor(BaseProcessor):
+    """Handles saving and loading Parquet files"""
+    
+    def process(self, df: pd.DataFrame = None, operation: str = "save") -> ProcessingResult:
+        """Process method to satisfy abstract base class"""
+        if operation == "save" and df is not None:
+            return self.save_to_parquet(df)
+        elif operation == "load":
+            return self.load_from_parquet()
+        else:
+            return ProcessingResult.failure_result(
+                "Invalid operation or missing data for ParquetProcessor"
+            )
+    
+    def save_to_parquet(self, df: pd.DataFrame, file_path: str = None) -> ProcessingResult:
+        """Save DataFrame to Parquet file"""
+        try:
+            self._start_timer()
+            
+            # Use configured path if not provided
+            if file_path is None:
+                file_path = self.config.output_parquet
+            
+            self.logger.info(f"Saving DataFrame to Parquet: {file_path}")
+            
+            # Ensure output directory exists
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+            
+            # Check if existing file exists and should be merged
+            if os.path.exists(file_path):
+                merged_df = self._merge_with_existing(df, file_path)
+                if merged_df is not None:
+                    df = merged_df
+            
+            # Save to Parquet
+            df.to_parquet(file_path, index=False, engine='pyarrow')
+            
+            # Update statistics
+            self.stats.rows_loaded = len(df)
+            
+            self._stop_timer()
+            self.log_stats()
+            
+            self.logger.info(f"Successfully saved {len(df)} rows to {file_path}")
+            
+            return ProcessingResult.success_result(
+                f"Successfully saved {len(df)} rows to Parquet file",
+                data=df,
+                metadata={'file_path': file_path, 'rows_saved': len(df)}
+            )
+            
+        except Exception as e:
+            self._stop_timer()
+            self.logger.error("Failed to save Parquet file", e)
+            return ProcessingResult.failure_result(
+                "Failed to save Parquet file",
+                error=e
+            )
+    
+    def load_from_parquet(self, file_path: str = None) -> ProcessingResult:
+        """Load DataFrame from Parquet file"""
+        try:
+            self._start_timer()
+            
+            # Use configured path if not provided
+            if file_path is None:
+                file_path = self.config.output_parquet
+            
+            if not os.path.exists(file_path):
+                self.logger.info(f"Parquet file does not exist: {file_path}")
+                return ProcessingResult.success_result(
+                    "No existing Parquet file found",
+                    data=None,
+                    metadata={'file_exists': False}
+                )
+            
+            self.logger.info(f"Loading DataFrame from Parquet: {file_path}")
+            
+            # Load from Parquet
+            df = pd.read_parquet(file_path)
+            
+            # Validate loaded data
+            if df.empty:
+                self.logger.warning("Loaded Parquet file is empty")
+                return ProcessingResult.warning_result(
+                    "Loaded Parquet file is empty",
+                    data=df
+                )
+            
+            # Update statistics
+            self.stats.rows_processed = len(df)
+            
+            self._stop_timer()
+            
+            self.logger.info(f"Successfully loaded {len(df)} rows from {file_path}")
+            
+            return ProcessingResult.success_result(
+                f"Successfully loaded {len(df)} rows from Parquet file",
+                data=df,
+                metadata={'file_path': file_path, 'rows_loaded': len(df)}
+            )
+            
+        except Exception as e:
+            self._stop_timer()
+            self.logger.error("Failed to load Parquet file", e)
+            return ProcessingResult.failure_result(
+                "Failed to load Parquet file",
+                error=e
+            )
+    
+    def _merge_with_existing(self, new_df: pd.DataFrame, file_path: str) -> Optional[pd.DataFrame]:
+        """Merge new DataFrame with existing Parquet file"""
+        try:
+            self.logger.info("Merging with existing Parquet file")
+            
+            # Load existing data
+            existing_df = pd.read_parquet(file_path)
+            self.logger.info(f"Existing Parquet file shape: {existing_df.shape}")
+            
+            # Validate existing data
+            quality_report = DataValidator.validate_data_quality(existing_df, self.logger)
+            
+            # Combine new and existing data
+            combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+            self.logger.info(f"Combined shape before deduplication: {combined_df.shape}")
+            
+            # Deduplicate combined data
+            combined_df = self._deduplicate_combined_data(combined_df)
+            
+            self.logger.info(f"Final combined shape: {combined_df.shape}")
+            
+            return combined_df
+            
+        except Exception as e:
+            self.logger.error("Error merging with existing Parquet file", e)
+            self.logger.info("Proceeding with new data only")
+            return new_df
+    
+    def _deduplicate_combined_data(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Deduplicate the combined DataFrame"""
+        initial_count = len(df)
+        
+        # Convert Date to string format for consistent deduplication
+        if 'Date' in df.columns:
+            df['Date'] = pd.to_datetime(df['Date']).dt.strftime('%Y-%m-%d')
+        
+        # Sort by Date and Time
+        try:
+            if 'Date' in df.columns and 'Time' in df.columns:
+                df = df.sort_values(['Date', 'Time'])
+        except Exception as e:
+            self.logger.warning(f"Error sorting combined data: {e}")
+        
+        # Define deduplication columns
+        key_columns = [
+            'Date', 'Time', 'Dealer', 'Security', 'Bid Price', 'Ask Price',
+            'Bid Size', 'Ask Size', 'Bid Yield to Convention', 'Ask Yield to Convention'
+        ]
+        
+        # Only use columns that exist in the DataFrame
+        existing_key_columns = [col for col in key_columns if col in df.columns]
+        
+        # Remove duplicates keeping the last occurrence
+        df = df.drop_duplicates(subset=existing_key_columns, keep='last')
+        
+        # Convert Date back to datetime
+        if 'Date' in df.columns:
+            df['Date'] = pd.to_datetime(df['Date'])
+        
+        final_count = len(df)
+        removed_count = initial_count - final_count
+        
+        if removed_count > 0:
+            self.logger.info(f"Removed {removed_count} duplicate rows during merge")
+            self.stats.rows_duplicated = removed_count
+        
+        return df
+    
+    def get_file_info(self, file_path: str = None) -> dict:
+        """Get information about the Parquet file"""
+        if file_path is None:
+            file_path = self.config.output_parquet
+        
+        info = {
+            'file_exists': False,
+            'file_path': file_path,
+            'file_size': 0,
+            'row_count': 0,
+            'column_count': 0,
+            'last_modified': None
+        }
+        
+        try:
+            if os.path.exists(file_path):
+                info['file_exists'] = True
+                info['file_size'] = os.path.getsize(file_path)
+                info['last_modified'] = os.path.getmtime(file_path)
+                
+                # Load file to get row/column counts
+                df = pd.read_parquet(file_path)
+                info['row_count'] = len(df)
+                info['column_count'] = len(df.columns)
+                
+        except Exception as e:
+            self.logger.warning(f"Error getting file info: {e}")
+        
+        return info 
