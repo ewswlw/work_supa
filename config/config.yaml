@@ -16,4 +16,91 @@ supabase:
 
 logging:
   level: "DEBUG"
-  format: "[%(asctime)s] %(levelname)s: %(message)s" 
+  format: "[%(asctime)s] %(levelname)s: %(message)s"
+
+universe_processor:
+  columns_to_keep:
+    - Date
+    - CUSIP
+    - Benchmark Cusip
+    - Custom_Sector
+    - Marketing Sector
+    - Notes
+    - Bloomberg Cusip
+    - Security
+    - Benchmark
+    - Make_Whole
+    - Back End
+    - Floating Index
+    - Stochastic Duration
+    - Stochastic Convexity
+    - Pricing Date
+    - Pricing Date (Bench)
+    - MTD Return
+    - QTD Return
+    - YTD Return
+    - MTD Bench Return
+    - QTD Bench Return
+    - YTD Bench Return
+    - Worst Date
+    - Yrs (Worst)
+    - YTC
+    - Excess MTD
+    - Excess YTD
+    - CPN TYPE
+    - Ticker
+    - G Sprd
+    - Yrs (Cvn)
+    - OAS (Mid)
+    - Currency
+    - CAD Equiv Swap
+    - G (RBC Crv)
+    - vs BI
+    - vs BCE
+    - Equity Ticker
+    - YTD Equity
+    - MTD Equity
+    - Yrs Since Issue
+    - Risk
+    - Rating
+    - Yrs (Mat)
+    - Z Spread
+    - Yrs Since Issue Bucket
+    - Yrs (Mat) Bucket
+  
+  bucketing:
+    yrs_since_issue:
+      column_name: "Yrs Since Issue"
+      new_column_name: "Yrs Since Issue Bucket"
+      bins: [0, 0.25, 0.50, 1, 2, 3, 5, 7, .inf]
+      labels: ['0-0.25', '0.25-0.50', '0.50-1', '1-2', '2-3', '3-5', '5-7', '>7']
+    yrs_to_maturity:
+      column_name: "Yrs (Mat)"
+      new_column_name: "Yrs (Mat) Bucket"
+      bins: [0, 0.50, 1, 2.1, 3.1, 4.1, 5.1, 7.1, 10.1, 25.1, .inf]
+      labels: ['0-0.50', '0.50-1', '1-2.1', '2.1-3.1', '3.1-4.1', '4.1-5.1', '5.1-7.1', '7.1-10.1', '10.1-25.1', '>25.1']
+
+  validation:
+    numeric_columns:
+      - Stochastic Duration
+      - Stochastic Convexity
+      - MTD Return
+      - QTD Return
+      - YTD Return
+      - MTD Bench Return
+      - QTD Bench Return
+      - YTD Bench Return
+      - Yrs (Worst)
+      - YTC
+      - Excess MTD
+      - Excess YTD
+      - G Sprd
+      - Yrs (Cvn)
+      - OAS (Mid)
+      - CAD Equiv Swap
+      - YTD Equity
+      - MTD Equity
+      - Yrs Since Issue
+      - Risk
+      - Yrs (Mat)
+      - Z Spread 

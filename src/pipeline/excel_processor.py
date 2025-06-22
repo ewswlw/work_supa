@@ -10,9 +10,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import List, Tuple, Optional
 from pathlib import Path
 
-from pipeline.base import BaseProcessor, ProcessingError
-from models.data_models import ProcessingResult, ExcelFileInfo
-from utils.validators import DataValidator
+from .base import BaseProcessor, ProcessingError
+from ..models.data_models import ProcessingResult, ExcelFileInfo
+from ..utils.validators import DataValidator
 
 
 class ExcelProcessor(BaseProcessor):

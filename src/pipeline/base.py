@@ -6,8 +6,9 @@ from typing import Any, Optional
 from datetime import datetime
 import time
 
-from models.data_models import ProcessingResult, ProcessingStats
-from utils.logging import LogManager
+from ..models.data_models import ProcessingResult, ProcessingStats
+from ..utils.config import PipelineConfig
+from ..utils.logging import LogManager
 
 
 class BaseProcessor(ABC):

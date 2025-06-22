@@ -11,18 +11,14 @@ import os
 from pathlib import Path
 from datetime import datetime
 
-# Add src to Python path
-project_root = Path(__file__).parent.parent
-src_path = str(project_root / "src")
-if src_path not in sys.path:
-    sys.path.insert(0, src_path)
+# Add project root to Python path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
-# Now import with absolute paths from src
-from pipeline.excel_processor import ExcelProcessor
-from pipeline.parquet_processor import ParquetProcessor
-from pipeline.supabase_processor import SupabaseProcessor
-from utils.config import ConfigManager
-from utils.logging import LogManager
+from src.utils.config import ConfigManager
+from src.utils.logging import get_logger
+from src.pipeline.excel_processor import ExcelProcessor
+from src.pipeline.parquet_processor import ParquetProcessor
+from src.pipeline.supabase_processor import SupabaseProcessor
 from models.data_models import ProcessingResult
 
 
@@ -36,7 +32,7 @@ class DataPipeline:
             self.config_manager = ConfigManager(config_path)
             
             # Setup logging
-            self.logger = LogManager(
+            self.logger = get_logger(
                 log_file=self.config_manager.pipeline_config.log_file,
                 log_level=self.config_manager.logging_config.level,
                 log_format=self.config_manager.logging_config.format

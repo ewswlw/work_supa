@@ -5,9 +5,10 @@ import os
 import pandas as pd
 from typing import Optional
 
-from pipeline.base import BaseProcessor
-from models.data_models import ProcessingResult
-from utils.validators import DataValidator
+from .base import BaseProcessor
+from ..models.data_models import ProcessingResult
+from ..utils.config import PipelineConfig
+from ..utils.validators import DataValidator
 
 
 class ParquetProcessor(BaseProcessor):

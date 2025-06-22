@@ -8,9 +8,10 @@ from typing import List, Dict, Any
 import time
 import math
 
-from pipeline.base import BaseProcessor
-from models.data_models import ProcessingResult
-from utils.validators import DataValidator
+from .base import BaseProcessor
+from ..models.data_models import ProcessingResult
+from ..utils.config import SupabaseConfig
+from ..utils.validators import DataValidator
 
 
 class SupabaseProcessor(BaseProcessor):
