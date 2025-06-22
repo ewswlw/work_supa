@@ -9,8 +9,8 @@ python -m pip install --index-url=https://blpapi.bloomberg.com/repository/releas
 ```bash
 # Fetch and reset to origin
 git fetch origin
-git reset --hard origin/main
-git pull origin main
+git reset --hard origin/master
+git pull origin master
 ```
 
 ## Important Commands
