@@ -1,0 +1,219 @@
+[2025-06-22 17:43:56,545] INFO: Starting universe processing pipeline...
+[2025-06-22 17:43:56,561] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,561] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,561] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,561] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,563] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,563] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,563] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,563] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,564] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,564] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,564] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,564] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-22 17:43:56,564] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-22 17:43:56,722] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-22 17:43:56,722] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-22 17:43:56,722] INFO: Universe processing pipeline finished successfully.
+[2025-06-22 18:01:58,049] INFO: Starting universe processing pipeline...
+[2025-06-22 18:01:58,065] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,065] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,065] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,074] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,075] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,075] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,076] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,076] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,076] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,077] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,077] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,077] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-22 18:01:58,077] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-22 18:01:58,444] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-22 18:01:58,444] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-22 18:01:58,452] INFO: Universe processing pipeline finished successfully.
+[2025-06-22 18:05:13,355] INFO: Starting universe processing pipeline...
+[2025-06-22 18:05:13,371] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,371] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,371] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,376] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,376] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,377] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,377] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,377] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,377] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,378] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,378] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,378] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-22 18:05:13,379] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-22 18:05:13,527] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-22 18:05:13,527] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-22 18:05:13,535] INFO: Universe processing pipeline finished successfully.
+[2025-06-22 18:11:17,596] INFO: Starting universe processing pipeline...
+[2025-06-22 18:11:17,612] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,612] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,612] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,612] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,617] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,617] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,617] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,618] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,618] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,618] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,618] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,618] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-22 18:11:17,619] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-22 18:11:17,782] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-22 18:11:17,783] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-22 18:11:17,789] INFO: Universe processing pipeline finished successfully.
+[2025-06-22 18:11:27,273] INFO: Starting universe processing pipeline...
+[2025-06-22 18:11:27,278] DEBUG: Found new file to process: 'API 05.23.25.xlsx'
+[2025-06-22 18:11:27,278] DEBUG: Found new file to process: 'API 05.26.25.xlsx'
+[2025-06-22 18:11:27,279] DEBUG: Found new file to process: 'API 05.28.25.xlsx'
+[2025-06-22 18:11:27,279] DEBUG: Found new file to process: 'API 06.03.25.xlsx'
+[2025-06-22 18:11:27,279] DEBUG: Found new file to process: 'API 06.06.25.xlsx'
+[2025-06-22 18:11:27,279] DEBUG: Found new file to process: 'API 06.10.25.xlsx'
+[2025-06-22 18:11:27,280] DEBUG: Found new file to process: 'API 06.11.25.xlsx'
+[2025-06-22 18:11:27,280] DEBUG: Found new file to process: 'API 06.20.25.xlsx'
+[2025-06-22 18:11:27,281] DEBUG: Found new file to process: 'API 08.04.23.xlsx'
+[2025-06-22 18:11:27,281] DEBUG: Found new file to process: 'API 10.31.23.xlsx'
+[2025-06-22 18:11:27,281] DEBUG: Found new file to process: 'API 12.20.24.xlsx'
+[2025-06-22 18:11:27,281] DEBUG: Found new file to process: 'API 12.29.23.xlsx'
+[2025-06-22 18:11:27,281] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-22 18:11:27,420] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-22 18:11:27,420] INFO: 
+Found 12 files to process...
+[2025-06-22 18:11:27,420] INFO: Processing 'API 05.23.25.xlsx'...
+[2025-06-22 18:11:29,127] INFO: Processing 'API 05.26.25.xlsx'...
+[2025-06-22 18:11:30,277] INFO: Processing 'API 05.28.25.xlsx'...
+[2025-06-22 18:11:31,392] INFO: Processing 'API 06.03.25.xlsx'...
+[2025-06-22 18:11:32,596] INFO: Processing 'API 06.06.25.xlsx'...
+[2025-06-22 18:11:33,814] INFO: Processing 'API 06.10.25.xlsx'...
+[2025-06-22 18:11:34,973] INFO: Processing 'API 06.11.25.xlsx'...
+[2025-06-22 18:11:36,153] INFO: Processing 'API 06.20.25.xlsx'...
+[2025-06-22 18:11:37,347] INFO: Processing 'API 08.04.23.xlsx'...
+[2025-06-22 18:11:38,017] INFO: Processing 'API 10.31.23.xlsx'...
+[2025-06-22 18:11:38,732] INFO: Processing 'API 12.20.24.xlsx'...
+[2025-06-22 18:11:39,766] INFO: Processing 'API 12.29.23.xlsx'...
+[2025-06-22 18:11:40,618] INFO: 
+--- Starting Data Processing Pipeline ---
+[2025-06-22 18:11:40,681] INFO: Dropped 0 rows with null CUSIPs.
+[2025-06-22 18:11:40,917] INFO: Dropped 467 duplicate rows.
+[2025-06-22 18:11:40,917] INFO: --- Running Data Validation and Quality Analysis ---
+[2025-06-22 18:11:41,973] WARNING: 
+=========================
+=== VALIDATION ERRORS ===
+=========================
+
+--- Non-Numeric Data in Numeric Columns ---
+  - Column 'Stochastic Duration': Found 25006 non-numeric entries.
+  - Column 'Stochastic Convexity': Found 25006 non-numeric entries.
+  - Column 'MTD Return': Found 2505 non-numeric entries.
+  - Column 'QTD Return': Found 2198 non-numeric entries.
+  - Column 'YTD Return': Found 1387 non-numeric entries.
+  - Column 'MTD Bench Return': Found 1571 non-numeric entries.
+  - Column 'QTD Bench Return': Found 1505 non-numeric entries.
+  - Column 'YTD Bench Return': Found 928 non-numeric entries.
+  - Column 'Yrs (Worst)': Found 5258 non-numeric entries.
+  - Column 'YTC': Found 2580 non-numeric entries.
+  - Column 'G Sprd': Found 3116 non-numeric entries.
+  - Column 'Yrs (Cvn)': Found 4719 non-numeric entries.
+  - Column 'OAS (Mid)': Found 1432 non-numeric entries.
+  - Column 'CAD Equiv Swap': Found 2568 non-numeric entries.
+  - Column 'Yrs Since Issue': Found 2431 non-numeric entries.
+  - Column 'Yrs (Mat)': Found 4198 non-numeric entries.
+  - Column 'Z Spread': Found 4963 non-numeric entries.
+[2025-06-22 18:11:41,982] INFO: 
+=========================
+=== DATA QUALITY REPORT ===
+=========================
+
+--- Null Value Analysis (Top 5) ---
+  - Yrs (Mat) Bucket: 29967.0 nulls (100.00%)
+  - Yrs Since Issue Bucket: 29967.0 nulls (100.00%)
+  - BI Interp: 29967.0 nulls (100.00%)
+  - Forward Sprd: 29967.0 nulls (100.00%)
+  - B/E Bench Sprd: 29967.0 nulls (100.00%)
+
+--- Statistical Summary (Numeric Columns) ---
+                          count          mean             std        min     25%     50%     75%                max
+Stochastic Duration    4,280.00          3.89            3.03       0.00    1.77    3.22    5.05              15.83
+Stochastic Convexity   4,280.00         -1.58            5.72     -92.61   -0.07    0.04    0.15               6.95
+MTD Return            24,246.00          0.06           11.57     -22.95   -0.39    0.01    0.30           1,784.13
+QTD Return            24,013.00          0.51           16.94     -26.98   -0.39    0.41    0.71           1,784.13
+YTD Return            23,013.00          2.55           22.20     -50.93    1.20    1.98    2.85           2,170.15
+MTD Bench Return      16,253.00         -0.60            1.97      -5.99   -0.97   -0.26    0.04               8.08
+QTD Bench Return      16,319.00         -1.01            4.23      -9.64   -1.84   -0.29    0.32              19.62
+YTD Bench Return      16,896.00          0.31            3.17      -8.81   -0.75    1.36    1.66              11.66
+Yrs (Worst)           24,522.00         98.12          230.29  -2,889.74   25.30   73.15  120.19           8,115.43
+YTC                   24,362.00          4.81            2.28     -24.55    3.89    4.73    5.35              77.92
+Excess MTD            22,298.00          0.41            0.71     -17.66    0.03    0.20    0.62              17.46
+Excess YTD            19,924.00          0.69            2.02     -27.16    0.00    0.34    1.19              41.60
+G Sprd                23,298.00  9,217,602.92  444,822,389.37  -7,195.32   75.47  116.58  165.11  21,474,836,480.00
+Yrs (Cvn)             25,248.00          7.63            8.93       0.00    1.86    4.02    8.44              57.71
+OAS (Mid)             28,518.00        158.97          158.31    -455.83  117.94  156.10  158.53           4,826.09
+CAD Equiv Swap        24,018.00        125.32          221.10  -2,972.81   61.19  102.45  139.25           6,053.97
+YTD Equity            21,490.00          6.51           15.03     -87.32   -2.19    4.77   13.21             181.24
+MTD Equity            21,499.00          1.02            5.52     -37.86   -2.08    0.20    3.46              40.86
+Yrs Since Issue       21,582.00          3.88            3.44      -0.05    1.30    3.20    5.23              30.88
+Risk                  19,101.00        496.79          425.16       0.27  177.92  365.20  693.15           2,064.86
+Yrs (Mat)             19,815.00          9.83           12.51       0.00    2.18    4.67   10.11              60.20
+Z Spread              19,006.00        149.83          256.58  -2,745.44   79.24  122.39  164.33           8,160.01
+
+--- Categorical Value Distribution (Sample) ---
+  - Column 'CUSIP':
+    '70632ZAF8': 24 (0.08%)
+    '29250NBF1': 24 (0.08%)
+    '38141GZR8': 22 (0.07%)
+  - Column 'Benchmark Cusip':
+    '135087M68': 3426 (11.43%)
+    '135087F82': 948 (3.16%)
+    '135087H23': 804 (2.68%)
+  - Column 'Custom_Sector':
+    'Auto': 2676 (8.93%)
+    'Utility': 2431 (8.11%)
+    'Financial Maples': 2411 (8.05%)
+[2025-06-22 18:11:41,986] DEBUG: Creating bucket for 'Yrs Since Issue'...
+[2025-06-22 18:11:41,991] DEBUG: Creating bucket for 'Yrs (Mat)'...
+[2025-06-22 18:11:42,101] INFO: 
+=========================
+=== FINAL DATA SNAPSHOT ===
+=========================
+Total Rows: 29967
+Total Columns: 47
+Memory Usage: 61.43 MB
+
+--- DataFrame Info ---
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 29967 entries, 0 to 30433
+Columns: 47 entries, Date to Yrs (Mat) Bucket
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 10.6+ MB
+
+[2025-06-22 18:11:42,688] INFO: --- Processing Complete ---
+[2025-06-22 18:11:42,689] INFO: Final DataFrame Shape: (29967, 47)
+[2025-06-22 18:11:42,862] INFO: Successfully saved updated DataFrame to 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\universe.parquet'.
+[2025-06-22 18:11:42,864] INFO: Updated processing state file.
+[2025-06-22 18:11:42,925] INFO: Universe processing pipeline finished successfully.
+[2025-06-22 18:13:03,212] INFO: Starting universe processing pipeline...
+[2025-06-22 18:13:03,217] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,217] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,217] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,218] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,218] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,219] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,219] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,220] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,220] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,220] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,220] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,221] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-22 18:13:03,221] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-22 18:13:03,360] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-22 18:13:03,360] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-22 18:13:03,367] INFO: Universe processing pipeline finished successfully.

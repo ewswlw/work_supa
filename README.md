@@ -126,7 +126,7 @@ logging:
 
 All operations are logged to:
 - Console output
-- Log file: `runs/logs/pipeline.log`
+- Log file: `logs/pipeline.log`
 
 Log levels available: DEBUG, INFO, WARNING, ERROR
 
@@ -157,7 +157,7 @@ poetry run python scripts/run_pipeline.py --test
 **View Detailed Logs**:
 ```bash
 # Check the log file
-cat "runs/logs/pipeline.log"
+cat "logs/pipeline.log"
 ```
 
 **Configuration Issues**:
@@ -176,3 +176,25 @@ cat "runs/logs/pipeline.log"
 2. **Batch Size**: Tune `batch_size` for optimal upload performance
 3. **Chunk Size**: Adjust `chunk_size` for memory management
 4. **Log Level**: Use `WARNING` or `ERROR` for production runs to reduce log volume 
+
+#### Supabase Processor
+
+All pipeline activities are logged. You can monitor the log file to see the progress.
+
+```bash
+# View the last 50 lines of the log
+tail -n 50 "logs/pipeline.log"
+
+# Or on Windows PowerShell
+Get-Content "logs/pipeline.log" -Tail 50
+```
+
+### Manual Triggers
+
+```bash
+# View the last 50 lines of the log
+tail -n 50 "logs/pipeline.log"
+
+# Or on Windows PowerShell
+Get-Content "logs/pipeline.log" -Tail 50
+``` 

@@ -7,6 +7,9 @@ import yaml
 import numpy as np
 from logging import Logger
 
+from ..utils.validators import DataValidator
+from ..utils.reporting import DataReporter
+
 # --- Configuration Loading ---
 def load_config():
     """Loads the main configuration file."""
@@ -72,29 +75,6 @@ def get_files_to_process(raw_data_path, existing_state, logger: Logger):
                 logger.debug(f"Skipping '{file_name}' - already processed and unchanged")
 
     return files_to_process
-
-# --- Data Validation ---
-def validate_numeric_columns(df, numeric_columns, logger: Logger):
-    """Checks specified columns for non-numeric data."""
-    logger.info("Starting data validation...")
-    invalid_rows = {}
-    for col in numeric_columns:
-        if col in df.columns:
-            # Attempt to convert column to numeric, coercing errors
-            numeric_series = pd.to_numeric(df[col], errors='coerce')
-            # Find rows that could not be converted (i.e., are NaN in the numeric series but not in the original)
-            non_numeric_mask = numeric_series.isna() & df[col].notna()
-            if non_numeric_mask.any():
-                invalid_rows[col] = df[non_numeric_mask][[col]].to_dict('index')
-    
-    if invalid_rows:
-        logger.warning("Data validation found non-numeric entries in the following columns:")
-        for col, rows in invalid_rows.items():
-            logger.warning(f"  - Column '{col}': {len(rows)} invalid entries.")
-            logger.debug(f"Invalid entries for '{col}': {rows}")
-    else:
-        logger.info("Data validation passed successfully.")
-    return invalid_rows
 
 # --- Main Processing Logic ---
 def process_universe_files(logger: Logger):
@@ -166,10 +146,35 @@ def process_universe_files(logger: Logger):
 
     logger.info("\n--- Starting Data Processing Pipeline ---")
 
-    validate_numeric_columns(combined_df, config['validation']['numeric_columns'], logger)
-
+    # Clean the data first
     combined_df.dropna(subset=['CUSIP'], inplace=True)
+    logger.info(f"Dropped {new_df.shape[0] - combined_df.shape[0]} rows with null CUSIPs.")
+    
+    initial_rows = combined_df.shape[0]
     combined_df.drop_duplicates(inplace=True)
+    logger.info(f"Dropped {initial_rows - combined_df.shape[0]} duplicate rows.")
+
+
+    # --- Enhanced Validation and Reporting ---
+    logger.info("--- Running Data Validation and Quality Analysis ---")
+    validator = DataValidator(
+        combined_df, 
+        numeric_cols=config['validation']['numeric_columns']
+    )
+    validator.run_all_checks()
+
+    # Log validation errors if any were found
+    if validator.errors:
+        error_report = DataReporter.generate_validation_error_report(validator.errors)
+        logger.warning(error_report)
+    else:
+        logger.info("✅ All data validation checks passed.")
+
+    # Log the detailed data quality report
+    quality_report = DataReporter.generate_data_quality_report(validator.results)
+    logger.info(quality_report)
+    # --- End Validation ---
+
 
     for bucket_name, b_config in config['bucketing'].items():
         col_name = b_config['column_name']
@@ -194,6 +199,11 @@ def process_universe_files(logger: Logger):
 
     cols = ['Date'] + [col for col in final_df.columns if col != 'Date']
     final_df = final_df[cols]
+
+    # --- Final Data Snapshot Report ---
+    summary_report = DataReporter.generate_summary_report(final_df)
+    logger.info(summary_report)
+    # --- End Snapshot ---
 
     for col in final_df.columns:
         if final_df[col].dtype == 'object':

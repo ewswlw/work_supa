@@ -9,8 +9,91 @@ from datetime import datetime
 
 
 class DataValidator:
-    """Handles data validation and quality checks"""
-    
+    """
+    Performs comprehensive data validation and quality checks on a DataFrame.
+    Returns structured dictionaries of results and errors.
+    """
+
+    def __init__(self, df: pd.DataFrame, numeric_cols: List[str] = None, categorical_cols: List[str] = None):
+        """
+        Initializes the validator with the DataFrame and optional column lists.
+        
+        Args:
+            df (pd.DataFrame): The DataFrame to validate.
+            numeric_cols (List[str], optional): List of columns to treat as numeric.
+            categorical_cols (List[str], optional): List of columns for categorical analysis.
+        """
+        self.df = df
+        self.numeric_cols = numeric_cols if numeric_cols else df.select_dtypes(include=np.number).columns.tolist()
+        self.categorical_cols = categorical_cols if categorical_cols else df.select_dtypes(include=['object', 'category']).columns.tolist()
+        self.results: Dict[str, Any] = {}
+        self.errors: Dict[str, Any] = {}
+
+    def run_all_checks(self) -> None:
+        """Runs all available validation checks."""
+        self.check_non_numeric_in_numeric_cols()
+        self.analyze_nulls()
+        self.summarize_statistics()
+        self.analyze_categorical_distribution()
+
+    def check_non_numeric_in_numeric_cols(self) -> None:
+        """
+        Identifies rows where supposedly numeric columns contain non-numeric data.
+        This is a common issue after loading data from sources like Excel.
+        """
+        non_numeric_rows = {}
+        for col in self.numeric_cols:
+            if col in self.df.columns:
+                # Attempt to convert to numeric, coercing errors to NaN
+                numeric_series = pd.to_numeric(self.df[col], errors='coerce')
+                # Find rows that became NaN, but were not NaN originally
+                offenders = self.df[numeric_series.isna() & self.df[col].notna()]
+                if not offenders.empty:
+                    non_numeric_rows[col] = offenders.index.tolist()
+        
+        if non_numeric_rows:
+            self.errors['non_numeric_rows'] = non_numeric_rows
+
+    def analyze_nulls(self) -> None:
+        """Performs a detailed analysis of null values across all columns."""
+        null_counts = self.df.isnull().sum()
+        total_rows = len(self.df)
+        if total_rows == 0:
+            self.results['null_analysis'] = {}
+            return
+
+        null_analysis = {}
+        for col, count in null_counts.items():
+            if count > 0:
+                null_analysis[col] = {
+                    'count': int(count),
+                    'percentage': (count / total_rows) * 100
+                }
+        self.results['null_analysis'] = null_analysis
+
+    def summarize_statistics(self) -> None:
+        """Calculates descriptive statistics for all numeric columns."""
+        # Ensure we only work with columns that are actually numeric
+        numeric_df = self.df[self.numeric_cols].apply(pd.to_numeric, errors='coerce')
+        if not numeric_df.empty:
+            self.results['statistical_summary'] = numeric_df.describe().to_dict()
+
+    def analyze_categorical_distribution(self) -> None:
+        """Analyzes the distribution of values in categorical columns."""
+        categorical_distribution = {}
+        for col in self.categorical_cols:
+            if col in self.df.columns:
+                counts = self.df[col].value_counts()
+                total_rows = len(self.df)
+                if total_rows > 0:
+                    percentages = (counts / total_rows) * 100
+                    categorical_distribution[col] = {
+                        'value_counts': counts.to_dict(),
+                        'percentages': percentages.to_dict(),
+                        'unique_count': len(counts)
+                    }
+        self.results['categorical_distribution'] = categorical_distribution
+
     @staticmethod
     def validate_numeric_ranges(df: pd.DataFrame, logger=None) -> bool:
         """Validate numeric columns are within expected ranges"""

@@ -58,6 +58,12 @@ switch ($choice) {
 
 Write-Host ""
 Write-Host "Pipeline execution completed." -ForegroundColor Green
-Write-Host "Check the log file: runs/logs/pipeline.log for details." -ForegroundColor Cyan
+Write-Host "Check the log file: logs/pipeline.log for details." -ForegroundColor Cyan
 Write-Host ""
-Read-Host "Press Enter to exit" 
+Read-Host "Press Enter to exit"
+
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "Pipeline execution failed." -ForegroundColor Red
+    Write-Host "Check the log file: logs/pipeline.log for details." -ForegroundColor Cyan
+    exit 1
+} 

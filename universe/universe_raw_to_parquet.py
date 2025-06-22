@@ -19,7 +19,7 @@ if __name__ == "__main__":
         config = yaml.safe_load(f)
     
     log_config = config.get('logging', {})
-    log_file = Path(__file__).parent.parent / 'runs' / 'logs' / 'universe_processor.log'
+    log_file = Path(__file__).parent.parent / 'logs' / 'universe_processor.log'
     
     # Setup logger
     logger = LogManager(

@@ -46,6 +46,6 @@ if "%choice%"=="1" (
 
 echo.
 echo Pipeline execution completed.
-echo Check the log file: runs/logs/pipeline.log for details.
+echo Check the log file: logs/pipeline.log for details.
 echo.
 pause 
