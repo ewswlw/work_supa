@@ -217,3 +217,633 @@ memory usage: 10.6+ MB
 [2025-06-22 18:13:03,360] INFO: 
 No new or modified files to process. The Parquet file is up-to-date.
 [2025-06-22 18:13:03,367] INFO: Universe processing pipeline finished successfully.
+[2025-06-27 11:53:21,714] INFO: Starting universe processing pipeline...
+[2025-06-27 11:53:21,714] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,714] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,714] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,714] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,728] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,728] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,728] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,728] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,729] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,729] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,729] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,730] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-27 11:53:21,730] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-27 11:53:22,044] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-27 11:53:22,045] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-27 11:53:22,053] INFO: Universe processing pipeline finished successfully.
+[2025-06-27 12:01:00,815] INFO: Starting universe processing pipeline...
+[2025-06-27 12:01:00,815] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,815] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,815] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,815] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,815] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,824] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,824] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,824] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,824] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,825] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,825] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,825] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-27 12:01:00,828] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-27 12:01:01,015] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-27 12:01:01,093] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 29967 entries, 0 to 29966
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    29967 non-null  datetime64[ns]
+ 1   CUSIP                   29967 non-null  object        
+ 2   Benchmark Cusip         29967 non-null  object        
+ 3   Custom_Sector           29967 non-null  object        
+ 4   Marketing Sector        29967 non-null  object        
+ 5   Notes                   29967 non-null  object        
+ 6   Bloomberg Cusip         29967 non-null  object        
+ 7   Security                29967 non-null  object        
+ 8   Benchmark               29967 non-null  object        
+ 9   Make_Whole              29967 non-null  object        
+ 10  Back End                29967 non-null  object        
+ 11  Floating Index          29967 non-null  object        
+ 12  Stochastic Duration     29967 non-null  object        
+ 13  Stochastic Convexity    29967 non-null  object        
+ 14  Pricing Date            29967 non-null  object        
+ 15  Pricing Date (Bench)    29967 non-null  object        
+ 16  MTD Return              29967 non-null  object        
+ 17  QTD Return              29967 non-null  object        
+ 18  YTD Return              29967 non-null  object        
+ 19  MTD Bench Return        29967 non-null  object        
+ 20  QTD Bench Return        29967 non-null  object        
+ 21  YTD Bench Return        29967 non-null  object        
+ 22  Worst Date              29967 non-null  object        
+ 23  Yrs (Worst)             29967 non-null  object        
+ 24  YTC                     29967 non-null  object        
+ 25  Excess MTD              29967 non-null  object        
+ 26  Excess YTD              29967 non-null  object        
+ 27  CPN TYPE                29967 non-null  object        
+ 28  Ticker                  29967 non-null  object        
+ 29  G Sprd                  29967 non-null  object        
+ 30  Yrs (Cvn)               29967 non-null  object        
+ 31  OAS (Mid)               29967 non-null  object        
+ 32  Currency                29967 non-null  object        
+ 33  CAD Equiv Swap          29967 non-null  object        
+ 34  G (RBC Crv)             29967 non-null  object        
+ 35  vs BI                   29967 non-null  object        
+ 36  vs BCE                  29967 non-null  object        
+ 37  Equity Ticker           29967 non-null  object        
+ 38  YTD Equity              29967 non-null  object        
+ 39  MTD Equity              29967 non-null  object        
+ 40  Yrs Since Issue         29967 non-null  object        
+ 41  Risk                    29967 non-null  object        
+ 42  Rating                  29967 non-null  object        
+ 43  Yrs (Mat)               29967 non-null  object        
+ 44  Z Spread                29967 non-null  object        
+ 45  Yrs Since Issue Bucket  21517 non-null  category      
+ 46  Yrs (Mat) Bucket        19815 non-null  category      
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 10.3+ MB
+
+[2025-06-27 12:01:01,099] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-27 12:01:01,107] INFO: Universe processing pipeline finished successfully.
+[2025-06-27 12:10:16,071] INFO: Starting universe processing pipeline...
+[2025-06-27 12:10:16,077] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,078] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,078] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,078] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,079] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,079] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,079] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,079] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,080] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,080] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,080] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,080] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-27 12:10:16,081] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-27 12:10:16,252] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-27 12:10:16,322] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 29967 entries, 0 to 29966
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    29967 non-null  datetime64[ns]
+ 1   CUSIP                   29967 non-null  object        
+ 2   Benchmark Cusip         29967 non-null  object        
+ 3   Custom_Sector           29967 non-null  object        
+ 4   Marketing Sector        29967 non-null  object        
+ 5   Notes                   29967 non-null  object        
+ 6   Bloomberg Cusip         29967 non-null  object        
+ 7   Security                29967 non-null  object        
+ 8   Benchmark               29967 non-null  object        
+ 9   Make_Whole              29967 non-null  object        
+ 10  Back End                29967 non-null  object        
+ 11  Floating Index          29967 non-null  object        
+ 12  Stochastic Duration     29967 non-null  object        
+ 13  Stochastic Convexity    29967 non-null  object        
+ 14  Pricing Date            29967 non-null  object        
+ 15  Pricing Date (Bench)    29967 non-null  object        
+ 16  MTD Return              29967 non-null  object        
+ 17  QTD Return              29967 non-null  object        
+ 18  YTD Return              29967 non-null  object        
+ 19  MTD Bench Return        29967 non-null  object        
+ 20  QTD Bench Return        29967 non-null  object        
+ 21  YTD Bench Return        29967 non-null  object        
+ 22  Worst Date              29967 non-null  object        
+ 23  Yrs (Worst)             29967 non-null  object        
+ 24  YTC                     29967 non-null  object        
+ 25  Excess MTD              29967 non-null  object        
+ 26  Excess YTD              29967 non-null  object        
+ 27  CPN TYPE                29967 non-null  object        
+ 28  Ticker                  29967 non-null  object        
+ 29  G Sprd                  29967 non-null  object        
+ 30  Yrs (Cvn)               29967 non-null  object        
+ 31  OAS (Mid)               29967 non-null  object        
+ 32  Currency                29967 non-null  object        
+ 33  CAD Equiv Swap          29967 non-null  object        
+ 34  G (RBC Crv)             29967 non-null  object        
+ 35  vs BI                   29967 non-null  object        
+ 36  vs BCE                  29967 non-null  object        
+ 37  Equity Ticker           29967 non-null  object        
+ 38  YTD Equity              29967 non-null  object        
+ 39  MTD Equity              29967 non-null  object        
+ 40  Yrs Since Issue         29967 non-null  object        
+ 41  Risk                    29967 non-null  object        
+ 42  Rating                  29967 non-null  object        
+ 43  Yrs (Mat)               29967 non-null  object        
+ 44  Z Spread                29967 non-null  object        
+ 45  Yrs Since Issue Bucket  21517 non-null  category      
+ 46  Yrs (Mat) Bucket        19815 non-null  category      
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 10.3+ MB
+
+[2025-06-27 12:10:16,322] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-27 12:10:16,340] INFO: Universe processing pipeline finished successfully.
+[2025-06-27 12:10:16,808] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-06-27 12:22:24,204] INFO: Starting universe processing pipeline...
+[2025-06-27 12:22:24,209] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,210] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,210] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,212] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,212] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,212] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,213] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,214] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,214] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,214] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,215] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,215] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-27 12:22:24,215] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-27 12:22:24,383] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-27 12:22:24,462] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 29967 entries, 0 to 29966
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    29967 non-null  datetime64[ns]
+ 1   CUSIP                   29967 non-null  object        
+ 2   Benchmark Cusip         29967 non-null  object        
+ 3   Custom_Sector           29967 non-null  object        
+ 4   Marketing Sector        29967 non-null  object        
+ 5   Notes                   29967 non-null  object        
+ 6   Bloomberg Cusip         29967 non-null  object        
+ 7   Security                29967 non-null  object        
+ 8   Benchmark               29967 non-null  object        
+ 9   Make_Whole              29967 non-null  object        
+ 10  Back End                29967 non-null  object        
+ 11  Floating Index          29967 non-null  object        
+ 12  Stochastic Duration     29967 non-null  object        
+ 13  Stochastic Convexity    29967 non-null  object        
+ 14  Pricing Date            29967 non-null  object        
+ 15  Pricing Date (Bench)    29967 non-null  object        
+ 16  MTD Return              29967 non-null  object        
+ 17  QTD Return              29967 non-null  object        
+ 18  YTD Return              29967 non-null  object        
+ 19  MTD Bench Return        29967 non-null  object        
+ 20  QTD Bench Return        29967 non-null  object        
+ 21  YTD Bench Return        29967 non-null  object        
+ 22  Worst Date              29967 non-null  object        
+ 23  Yrs (Worst)             29967 non-null  object        
+ 24  YTC                     29967 non-null  object        
+ 25  Excess MTD              29967 non-null  object        
+ 26  Excess YTD              29967 non-null  object        
+ 27  CPN TYPE                29967 non-null  object        
+ 28  Ticker                  29967 non-null  object        
+ 29  G Sprd                  29967 non-null  object        
+ 30  Yrs (Cvn)               29967 non-null  object        
+ 31  OAS (Mid)               29967 non-null  object        
+ 32  Currency                29967 non-null  object        
+ 33  CAD Equiv Swap          29967 non-null  object        
+ 34  G (RBC Crv)             29967 non-null  object        
+ 35  vs BI                   29967 non-null  object        
+ 36  vs BCE                  29967 non-null  object        
+ 37  Equity Ticker           29967 non-null  object        
+ 38  YTD Equity              29967 non-null  object        
+ 39  MTD Equity              29967 non-null  object        
+ 40  Yrs Since Issue         29967 non-null  object        
+ 41  Risk                    29967 non-null  object        
+ 42  Rating                  29967 non-null  object        
+ 43  Yrs (Mat)               29967 non-null  object        
+ 44  Z Spread                29967 non-null  object        
+ 45  Yrs Since Issue Bucket  21517 non-null  category      
+ 46  Yrs (Mat) Bucket        19815 non-null  category      
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 10.3+ MB
+
+[2025-06-27 12:22:24,465] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-27 12:22:24,465] INFO: Universe processing pipeline finished successfully.
+[2025-06-27 12:22:24,936] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-06-27 12:22:26,214] INFO: Starting universe processing pipeline...
+[2025-06-27 12:22:26,232] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,232] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,233] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,233] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,234] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,236] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,236] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,236] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,237] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,237] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,238] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,238] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-27 12:22:26,238] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-27 12:22:26,406] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-27 12:22:26,483] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 29967 entries, 0 to 29966
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    29967 non-null  datetime64[ns]
+ 1   CUSIP                   29967 non-null  object        
+ 2   Benchmark Cusip         29967 non-null  object        
+ 3   Custom_Sector           29967 non-null  object        
+ 4   Marketing Sector        29967 non-null  object        
+ 5   Notes                   29967 non-null  object        
+ 6   Bloomberg Cusip         29967 non-null  object        
+ 7   Security                29967 non-null  object        
+ 8   Benchmark               29967 non-null  object        
+ 9   Make_Whole              29967 non-null  object        
+ 10  Back End                29967 non-null  object        
+ 11  Floating Index          29967 non-null  object        
+ 12  Stochastic Duration     29967 non-null  object        
+ 13  Stochastic Convexity    29967 non-null  object        
+ 14  Pricing Date            29967 non-null  object        
+ 15  Pricing Date (Bench)    29967 non-null  object        
+ 16  MTD Return              29967 non-null  object        
+ 17  QTD Return              29967 non-null  object        
+ 18  YTD Return              29967 non-null  object        
+ 19  MTD Bench Return        29967 non-null  object        
+ 20  QTD Bench Return        29967 non-null  object        
+ 21  YTD Bench Return        29967 non-null  object        
+ 22  Worst Date              29967 non-null  object        
+ 23  Yrs (Worst)             29967 non-null  object        
+ 24  YTC                     29967 non-null  object        
+ 25  Excess MTD              29967 non-null  object        
+ 26  Excess YTD              29967 non-null  object        
+ 27  CPN TYPE                29967 non-null  object        
+ 28  Ticker                  29967 non-null  object        
+ 29  G Sprd                  29967 non-null  object        
+ 30  Yrs (Cvn)               29967 non-null  object        
+ 31  OAS (Mid)               29967 non-null  object        
+ 32  Currency                29967 non-null  object        
+ 33  CAD Equiv Swap          29967 non-null  object        
+ 34  G (RBC Crv)             29967 non-null  object        
+ 35  vs BI                   29967 non-null  object        
+ 36  vs BCE                  29967 non-null  object        
+ 37  Equity Ticker           29967 non-null  object        
+ 38  YTD Equity              29967 non-null  object        
+ 39  MTD Equity              29967 non-null  object        
+ 40  Yrs Since Issue         29967 non-null  object        
+ 41  Risk                    29967 non-null  object        
+ 42  Rating                  29967 non-null  object        
+ 43  Yrs (Mat)               29967 non-null  object        
+ 44  Z Spread                29967 non-null  object        
+ 45  Yrs Since Issue Bucket  21517 non-null  category      
+ 46  Yrs (Mat) Bucket        19815 non-null  category      
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 10.3+ MB
+
+[2025-06-27 12:22:26,488] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-27 12:22:26,495] INFO: Universe processing pipeline finished successfully.
+[2025-06-27 12:22:26,956] INFO: Exported processed data to CSV at 'c:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-06-27 12:23:48,518] INFO: Starting universe processing pipeline...
+[2025-06-27 12:23:48,523] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,523] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,524] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,524] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,524] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,524] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,526] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,526] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,526] DEBUG: Found new file to process: 'API 06.26.25.xlsx'
+[2025-06-27 12:23:48,527] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,527] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,527] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,527] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-27 12:23:48,527] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-27 12:23:48,677] INFO: Loaded existing data: 29967 rows, 47 columns
+[2025-06-27 12:23:48,753] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 29967 entries, 0 to 29966
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    29967 non-null  datetime64[ns]
+ 1   CUSIP                   29967 non-null  object        
+ 2   Benchmark Cusip         29967 non-null  object        
+ 3   Custom_Sector           29967 non-null  object        
+ 4   Marketing Sector        29967 non-null  object        
+ 5   Notes                   29967 non-null  object        
+ 6   Bloomberg Cusip         29967 non-null  object        
+ 7   Security                29967 non-null  object        
+ 8   Benchmark               29967 non-null  object        
+ 9   Make_Whole              29967 non-null  object        
+ 10  Back End                29967 non-null  object        
+ 11  Floating Index          29967 non-null  object        
+ 12  Stochastic Duration     29967 non-null  object        
+ 13  Stochastic Convexity    29967 non-null  object        
+ 14  Pricing Date            29967 non-null  object        
+ 15  Pricing Date (Bench)    29967 non-null  object        
+ 16  MTD Return              29967 non-null  object        
+ 17  QTD Return              29967 non-null  object        
+ 18  YTD Return              29967 non-null  object        
+ 19  MTD Bench Return        29967 non-null  object        
+ 20  QTD Bench Return        29967 non-null  object        
+ 21  YTD Bench Return        29967 non-null  object        
+ 22  Worst Date              29967 non-null  object        
+ 23  Yrs (Worst)             29967 non-null  object        
+ 24  YTC                     29967 non-null  object        
+ 25  Excess MTD              29967 non-null  object        
+ 26  Excess YTD              29967 non-null  object        
+ 27  CPN TYPE                29967 non-null  object        
+ 28  Ticker                  29967 non-null  object        
+ 29  G Sprd                  29967 non-null  object        
+ 30  Yrs (Cvn)               29967 non-null  object        
+ 31  OAS (Mid)               29967 non-null  object        
+ 32  Currency                29967 non-null  object        
+ 33  CAD Equiv Swap          29967 non-null  object        
+ 34  G (RBC Crv)             29967 non-null  object        
+ 35  vs BI                   29967 non-null  object        
+ 36  vs BCE                  29967 non-null  object        
+ 37  Equity Ticker           29967 non-null  object        
+ 38  YTD Equity              29967 non-null  object        
+ 39  MTD Equity              29967 non-null  object        
+ 40  Yrs Since Issue         29967 non-null  object        
+ 41  Risk                    29967 non-null  object        
+ 42  Rating                  29967 non-null  object        
+ 43  Yrs (Mat)               29967 non-null  object        
+ 44  Z Spread                29967 non-null  object        
+ 45  Yrs Since Issue Bucket  21517 non-null  category      
+ 46  Yrs (Mat) Bucket        19815 non-null  category      
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 10.3+ MB
+
+[2025-06-27 12:23:48,759] INFO: 
+Found 1 files to process...
+[2025-06-27 12:23:48,760] INFO: Processing 'API 06.26.25.xlsx'...
+[2025-06-27 12:23:50,014] INFO: 
+--- Starting Data Processing Pipeline ---
+[2025-06-27 12:23:50,054] INFO: Dropped -29967 rows with null CUSIPs.
+[2025-06-27 12:23:50,207] INFO: Dropped 38 duplicate rows.
+[2025-06-27 12:23:50,207] INFO: --- Running Data Validation and Quality Analysis ---
+[2025-06-27 12:23:51,162] WARNING: 
+=========================
+=== VALIDATION ERRORS ===
+=========================
+
+--- Non-Numeric Data in Numeric Columns ---
+  - Column 'Stochastic Duration': Found 27485 non-numeric entries.
+  - Column 'Stochastic Convexity': Found 27485 non-numeric entries.
+  - Column 'MTD Return': Found 5778 non-numeric entries.
+  - Column 'QTD Return': Found 6007 non-numeric entries.
+  - Column 'YTD Return': Found 7003 non-numeric entries.
+  - Column 'MTD Bench Return': Found 13755 non-numeric entries.
+  - Column 'QTD Bench Return': Found 13688 non-numeric entries.
+  - Column 'YTD Bench Return': Found 13102 non-numeric entries.
+  - Column 'Yrs (Worst)': Found 5582 non-numeric entries.
+  - Column 'YTC': Found 5611 non-numeric entries.
+  - Column 'Excess MTD': Found 7669 non-numeric entries.
+  - Column 'Excess YTD': Found 10043 non-numeric entries.
+  - Column 'G Sprd': Found 6696 non-numeric entries.
+  - Column 'Yrs (Cvn)': Found 4726 non-numeric entries.
+  - Column 'OAS (Mid)': Found 1500 non-numeric entries.
+  - Column 'CAD Equiv Swap': Found 5955 non-numeric entries.
+  - Column 'YTD Equity': Found 8477 non-numeric entries.
+  - Column 'MTD Equity': Found 8468 non-numeric entries.
+  - Column 'Yrs Since Issue': Found 8394 non-numeric entries.
+  - Column 'Risk': Found 10866 non-numeric entries.
+  - Column 'Yrs (Mat)': Found 10171 non-numeric entries.
+  - Column 'Z Spread': Found 11063 non-numeric entries.
+[2025-06-27 12:23:51,171] INFO: 
+=========================
+=== DATA QUALITY REPORT ===
+=========================
+
+--- Null Value Analysis (Top 5) ---
+  - Forward Sprd: 32223.0 nulls (100.00%)
+  - B/E Bench Sprd: 32223.0 nulls (100.00%)
+  - Retracement24: 31594.0 nulls (98.05%)
+  - Tights 2021: 31580.0 nulls (98.00%)
+  - Wides 2021: 31580.0 nulls (98.00%)
+
+--- Statistical Summary (Numeric Columns) ---
+                          count          mean             std        min     25%     50%     75%                max
+Stochastic Duration    4,683.00          3.87            3.01       0.00    1.76    3.21    5.03              15.83
+Stochastic Convexity   4,683.00         -1.57            5.66     -92.61   -0.08    0.04    0.15               6.95
+MTD Return            26,391.00          0.07           11.10     -22.95   -0.37    0.03    0.33           1,784.13
+QTD Return            26,092.00          0.51           16.35     -26.98   -0.36    0.42    0.75           1,784.13
+YTD Return            24,950.00          2.53           21.66     -50.93    1.23    2.01    2.85           2,170.15
+MTD Bench Return      17,648.00         -0.62            1.92      -5.99   -0.97   -0.26    0.04               8.08
+QTD Bench Return      17,715.00         -1.09            4.16      -9.64   -1.87   -0.29    0.32              19.62
+YTD Bench Return      18,301.00          0.28            3.15      -8.81   -0.75    1.38    1.67              11.66
+Yrs (Worst)           26,641.00        100.04          232.53  -2,889.74   27.67   74.82  121.17           8,115.43
+YTC                   26,516.00          4.78            2.30     -24.55    3.85    4.71    5.32              77.92
+Excess MTD            24,298.00          0.40            0.69     -17.66    0.03    0.20    0.59              17.46
+Excess YTD            21,706.00          0.66            1.96     -27.16    0.00    0.34    1.11              41.60
+G Sprd                25,407.00  8,452,473.61  425,967,270.94  -7,195.32   74.98  115.78  163.41  21,474,836,480.00
+Yrs (Cvn)             27,497.00          7.62            8.92       0.00    1.86    4.02    8.43              57.71
+OAS (Mid)             30,723.00        159.25          160.61    -455.83  118.26  156.10  158.53           4,827.39
+CAD Equiv Swap        26,136.00        124.84          223.12  -2,972.81   60.94  101.73  138.22           6,133.82
+YTD Equity            23,232.00          6.57           14.84     -87.32   -1.94    4.78   13.19             181.24
+MTD Equity            23,241.00          1.05            5.53     -37.86   -2.08    0.29    3.66              46.33
+Yrs Since Issue       23,829.00          3.87            3.44      -0.05    1.28    3.19    5.22              30.88
+Risk                  21,255.00        497.41          425.12       0.27  178.49  366.02  695.32           2,064.86
+Yrs (Mat)             22,052.00          9.84           12.50       0.00    2.19    4.67   10.13              60.20
+Z Spread              21,156.00        149.50          256.42  -2,745.44   79.12  122.23  164.00           8,160.01
+
+--- Categorical Value Distribution (Sample) ---
+  - Column 'CUSIP':
+    '29250NBF1': 26 (0.08%)
+    '70632ZAF8': 26 (0.08%)
+    '38141GZR8': 24 (0.07%)
+  - Column 'Benchmark Cusip':
+    'nan': 12118 (37.61%)
+    '135087M68': 3715 (11.53%)
+    '135087F82': 1027 (3.19%)
+  - Column 'Custom_Sector':
+    'Auto': 2912 (9.04%)
+    'Utility': 2638 (8.19%)
+    'Financial Maples': 2623 (8.14%)
+[2025-06-27 12:23:51,175] DEBUG: Creating bucket for 'Yrs Since Issue'...
+[2025-06-27 12:23:51,183] DEBUG: Creating bucket for 'Yrs (Mat)'...
+[2025-06-27 12:23:51,268] INFO: 
+=========================
+=== FINAL DATA SNAPSHOT ===
+=========================
+Total Rows: 32223
+Total Columns: 47
+Memory Usage: 93.20 MB
+
+--- DataFrame Info ---
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 32223 entries, 0 to 32260
+Columns: 47 entries, Date to Yrs (Mat) Bucket
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 11.4+ MB
+
+[2025-06-27 12:23:51,838] INFO: --- Processing Complete ---
+[2025-06-27 12:23:51,838] INFO: Final DataFrame Shape: (32223, 47)
+[2025-06-27 12:23:51,890] INFO: DataFrame info before saving to Parquet:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 32223 entries, 0 to 32260
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    32223 non-null  datetime64[ns]
+ 1   CUSIP                   32223 non-null  object        
+ 2   Benchmark Cusip         32223 non-null  object        
+ 3   Custom_Sector           32223 non-null  object        
+ 4   Marketing Sector        32223 non-null  object        
+ 5   Notes                   32223 non-null  object        
+ 6   Bloomberg Cusip         32223 non-null  object        
+ 7   Security                32223 non-null  object        
+ 8   Benchmark               32223 non-null  object        
+ 9   Make_Whole              20658 non-null  float64       
+ 10  Back End                5399 non-null   float64       
+ 11  Floating Index          32223 non-null  object        
+ 12  Stochastic Duration     4683 non-null   float64       
+ 13  Stochastic Convexity    4683 non-null   float64       
+ 14  Pricing Date            29627 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    19285 non-null  datetime64[ns]
+ 16  MTD Return              26391 non-null  float64       
+ 17  QTD Return              26092 non-null  float64       
+ 18  YTD Return              24950 non-null  float64       
+ 19  MTD Bench Return        17648 non-null  float64       
+ 20  QTD Bench Return        17715 non-null  float64       
+ 21  YTD Bench Return        18301 non-null  float64       
+ 22  Worst Date              29409 non-null  datetime64[ns]
+ 23  Yrs (Worst)             26641 non-null  float64       
+ 24  YTC                     26516 non-null  float64       
+ 25  Excess MTD              24298 non-null  float64       
+ 26  Excess YTD              21706 non-null  float64       
+ 27  CPN TYPE                32223 non-null  object        
+ 28  Ticker                  32223 non-null  object        
+ 29  G Sprd                  25407 non-null  float64       
+ 30  Yrs (Cvn)               27497 non-null  float64       
+ 31  OAS (Mid)               30723 non-null  float64       
+ 32  Currency                32223 non-null  object        
+ 33  CAD Equiv Swap          26136 non-null  float64       
+ 34  G (RBC Crv)             26097 non-null  float64       
+ 35  vs BI                   20171 non-null  float64       
+ 36  vs BCE                  26097 non-null  float64       
+ 37  Equity Ticker           32223 non-null  object        
+ 38  YTD Equity              23232 non-null  float64       
+ 39  MTD Equity              23241 non-null  float64       
+ 40  Yrs Since Issue         23829 non-null  float64       
+ 41  Risk                    32223 non-null  object        
+ 42  Rating                  32223 non-null  object        
+ 43  Yrs (Mat)               22052 non-null  float64       
+ 44  Z Spread                21156 non-null  float64       
+ 45  Yrs Since Issue Bucket  23749 non-null  category      
+ 46  Yrs (Mat) Bucket        22052 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 11.4+ MB
+
+[2025-06-27 12:23:51,994] INFO: Successfully saved updated DataFrame to 'c:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\universe.parquet'.
+[2025-06-27 12:23:51,996] INFO: Updated processing state file.
+[2025-06-27 12:23:52,023] INFO: Universe processing pipeline finished successfully.
+[2025-06-27 12:23:52,620] INFO: Exported processed data to CSV at 'c:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-06-27 12:43:50,841] INFO: Starting universe processing pipeline...
+[2025-06-27 12:43:50,848] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,848] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,849] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,849] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,850] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,850] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,850] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,851] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,851] DEBUG: Skipping 'API 06.26.25.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,851] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,852] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,852] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,852] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-06-27 12:43:50,853] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-06-27 12:43:50,953] INFO: Loaded existing data: 32223 rows, 47 columns
+[2025-06-27 12:43:50,970] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 32223 entries, 0 to 32222
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    32223 non-null  datetime64[ns]
+ 1   CUSIP                   32223 non-null  object        
+ 2   Benchmark Cusip         32223 non-null  object        
+ 3   Custom_Sector           32223 non-null  object        
+ 4   Marketing Sector        32223 non-null  object        
+ 5   Notes                   32223 non-null  object        
+ 6   Bloomberg Cusip         32223 non-null  object        
+ 7   Security                32223 non-null  object        
+ 8   Benchmark               32223 non-null  object        
+ 9   Make_Whole              20658 non-null  float64       
+ 10  Back End                5399 non-null   float64       
+ 11  Floating Index          32223 non-null  object        
+ 12  Stochastic Duration     4683 non-null   float64       
+ 13  Stochastic Convexity    4683 non-null   float64       
+ 14  Pricing Date            29627 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    19285 non-null  datetime64[ns]
+ 16  MTD Return              26391 non-null  float64       
+ 17  QTD Return              26092 non-null  float64       
+ 18  YTD Return              24950 non-null  float64       
+ 19  MTD Bench Return        17648 non-null  float64       
+ 20  QTD Bench Return        17715 non-null  float64       
+ 21  YTD Bench Return        18301 non-null  float64       
+ 22  Worst Date              29409 non-null  datetime64[ns]
+ 23  Yrs (Worst)             26641 non-null  float64       
+ 24  YTC                     26516 non-null  float64       
+ 25  Excess MTD              24298 non-null  float64       
+ 26  Excess YTD              21706 non-null  float64       
+ 27  CPN TYPE                32223 non-null  object        
+ 28  Ticker                  32223 non-null  object        
+ 29  G Sprd                  25407 non-null  float64       
+ 30  Yrs (Cvn)               27497 non-null  float64       
+ 31  OAS (Mid)               30723 non-null  float64       
+ 32  Currency                32223 non-null  object        
+ 33  CAD Equiv Swap          26136 non-null  float64       
+ 34  G (RBC Crv)             26097 non-null  float64       
+ 35  vs BI                   20171 non-null  float64       
+ 36  vs BCE                  26097 non-null  float64       
+ 37  Equity Ticker           32223 non-null  object        
+ 38  YTD Equity              23232 non-null  float64       
+ 39  MTD Equity              23241 non-null  float64       
+ 40  Yrs Since Issue         23829 non-null  float64       
+ 41  Risk                    32223 non-null  object        
+ 42  Rating                  32223 non-null  object        
+ 43  Yrs (Mat)               22052 non-null  float64       
+ 44  Z Spread                21156 non-null  float64       
+ 45  Yrs Since Issue Bucket  23749 non-null  category      
+ 46  Yrs (Mat) Bucket        22052 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 11.1+ MB
+
+[2025-06-27 12:43:50,989] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-06-27 12:43:50,990] INFO: Universe processing pipeline finished successfully.
+[2025-06-27 12:43:51,596] INFO: Exported processed data to CSV at 'c:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.

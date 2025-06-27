@@ -6,6 +6,7 @@ from datetime import datetime
 import yaml
 import numpy as np
 from logging import Logger
+import io
 
 from ..utils.validators import DataValidator
 from ..utils.reporting import DataReporter
@@ -97,6 +98,10 @@ def process_universe_files(logger: Logger):
         try:
             existing_df = pd.read_parquet(parquet_path)
             logger.info(f"Loaded existing data: {existing_df.shape[0]} rows, {existing_df.shape[1]} columns")
+            # Log DataFrame info after loading from Parquet
+            buf = io.StringIO()
+            existing_df.info(buf=buf)
+            logger.info("DataFrame info after loading from Parquet:\n" + buf.getvalue())
         except Exception as e:
             logger.error(f"Error loading existing Parquet file: {e}. Will rebuild from scratch.")
             existing_df = None
@@ -151,8 +156,16 @@ def process_universe_files(logger: Logger):
     logger.info(f"Dropped {new_df.shape[0] - combined_df.shape[0]} rows with null CUSIPs.")
     
     initial_rows = combined_df.shape[0]
-    combined_df.drop_duplicates(inplace=True)
-    logger.info(f"Dropped {initial_rows - combined_df.shape[0]} duplicate rows.")
+    # Deduplicate by (Date, CUSIP), keep last
+    if 'Date' in combined_df.columns and 'CUSIP' in combined_df.columns:
+        combined_df['Date'] = pd.to_datetime(combined_df['Date'], errors='coerce')
+        combined_df = combined_df.sort_values(['Date', 'CUSIP'])
+        before_dedup = combined_df.shape[0]
+        combined_df = combined_df.drop_duplicates(subset=['Date', 'CUSIP'], keep='last')
+        logger.info(f"Dropped {before_dedup - combined_df.shape[0]} duplicate (Date, CUSIP) rows.")
+    else:
+        combined_df.drop_duplicates(inplace=True)
+        logger.info(f"Dropped {initial_rows - combined_df.shape[0]} duplicate rows.")
 
 
     # --- Enhanced Validation and Reporting ---
@@ -208,10 +221,31 @@ def process_universe_files(logger: Logger):
     for col in final_df.columns:
         if final_df[col].dtype == 'object':
             final_df[col] = final_df[col].astype(str)
-    
+
+    # Convert specified columns to float
+    float_columns = [
+        'Make_Whole', 'Back End', 'Stochastic Duration', 'Stochastic Convexity',
+        'MTD Return', 'QTD Return', 'YTD Return', 'MTD Bench Return', 'QTD Bench Return',
+        'YTD Bench Return', 'Yrs (Worst)', 'YTC', 'Excess MTD', 'Excess YTD', 'G Sprd',
+        'Yrs (Cvn)', 'OAS (Mid)', 'CAD Equiv Swap', 'G (RBC Crv)', 'vs BI', 'vs BCE',
+        'YTD Equity', 'MTD Equity', 'Yrs Since Issue', 'Yrs (Mat)', 'Z Spread'
+    ]
+    for col in float_columns:
+        if col in final_df.columns:
+            final_df[col] = pd.to_numeric(final_df[col], errors='coerce')
+
+    # Convert specified columns to datetime
+    datetime_columns = ['Pricing Date', 'Pricing Date (Bench)', 'Worst Date']
+    for col in datetime_columns:
+        if col in final_df.columns:
+            final_df[col] = pd.to_datetime(final_df[col], errors='coerce')
+
     logger.info(f"--- Processing Complete ---")
     logger.info(f"Final DataFrame Shape: {final_df.shape}")
-    
+    # Log DataFrame info before saving to Parquet
+    buf = io.StringIO()
+    final_df.info(buf=buf)
+    logger.info("DataFrame info before saving to Parquet:\n" + buf.getvalue())
     try:
         final_df.to_parquet(parquet_path, index=False, engine='pyarrow')
         logger.info(f"Successfully saved updated DataFrame to '{parquet_path}'.")

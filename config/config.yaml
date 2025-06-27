@@ -79,8 +79,8 @@ universe_processor:
     yrs_to_maturity:
       column_name: "Yrs (Mat)"
       new_column_name: "Yrs (Mat) Bucket"
-      bins: [0, 0.50, 1, 2.1, 3.1, 4.1, 5.1, 7.1, 10.1, 25.1, .inf]
-      labels: ['0-0.50', '0.50-1', '1-2.1', '2.1-3.1', '3.1-4.1', '4.1-5.1', '5.1-7.1', '7.1-10.1', '10.1-25.1', '>25.1']
+      bins: [0, 0.25, 0.50, 1, 2.1, 3.1, 4.1, 5.1, 7.1, 10.1, 25.1, .inf]
+      labels: ['0-0.25', '0.25-0.50', '0.50-1', '1-2.1', '2.1-3.1', '3.1-4.1', '4.1-5.1', '5.1-7.1', '7.1-10.1', '10.1-25.1', '>25.1']
 
   validation:
     numeric_columns:
@@ -106,3 +106,73 @@ universe_processor:
       - Risk
       - Yrs (Mat)
       - Z Spread 
+
+portfolio_processor:
+  columns_to_drop:
+    - BBG YIELD SPREAD
+    - CURRENT YIELD
+    - BBG 1D CHANGE
+    - CHANGE
+    - CHANGE PCT
+    - CHANGE BPS NAV
+    - INDUSTRY
+    - SECTOR
+    - OWNER
+    - DAY PROFIT
+    - AVERAGE PRICE
+    - PROFIT
+    - REALIZED
+    - UNREALIZED
+    - TOTAL COST SETTLE CCY
+    - TOTAL COST
+    - COST PCT NAV
+    - INTEREST
+    - REALIZED SETTLE CCY
+    - PAID INTEREST LOCAL CCY
+    - PAID INTEREST
+    - UNREALIZED SETTLE CCY
+    - FX EXPOSURE LOCAL CCY
+    - FX EXPOSURE DISPLAY CCY
+    - FX EXPOSURE PCT NAV
+    - PREVIOUS PROFIT
+    - PREVIOUS DAY PRICE
+    - ACCRUED INTEREST
+    - ANNUALIZED INCOME
+    - BBG MTD YIELD CHANGE
+    - Unnamed: 0
+    - Unnamed: 1
+  
+  cusip_mappings:
+    CDX:
+      security_type: "CDX"
+      security_name: "CDX"
+      cusip: "460"
+    CASH_CAD:
+      security_name: "CASH CAD"
+      cusip: "123"
+    CASH_USD:
+      security_name: "CASH USD"
+      cusip: "789"
+  
+  validation:
+    required_columns:
+      - Date
+      - SECURITY
+      - CUSIP
+    numeric_columns:
+      - MODIFIED DURATION
+      - QUANTITY
+      - PRICE
+      - YIELD TO MAT
+      - POSITION CR01
+      - VALUE PCT NAV
+      - POSITION PVBP
+      - VALUE
+      - COUPON
+      - SECURITY PVBP
+      - SECURITY CR01
+      - PCT OF OUTSTANDING
+      - FACE VALUE OUTSTANDING
+    datetime_columns:
+      - MATURITY DATE
+      - BENCHMARK MATURITY DATE 

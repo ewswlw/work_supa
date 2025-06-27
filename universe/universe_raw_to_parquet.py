@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 import yaml
+import pandas as pd
 
 # This allows the script to import modules from the 'src' directory
 sys.path.append(str(Path(__file__).parent.parent))
@@ -32,5 +33,11 @@ if __name__ == "__main__":
     try:
         process_universe_files(logger)
         logger.info("Universe processing pipeline finished successfully.")
+        # Export the processed Parquet to CSV
+        parquet_path = Path(__file__).parent / 'universe.parquet'
+        csv_path = Path(__file__).parent / 'processed data' / 'universe_processed.csv'
+        df = pd.read_parquet(parquet_path)
+        df.to_csv(csv_path, index=False)
+        logger.info(f"Exported processed data to CSV at '{csv_path}'.")
     except Exception as e:
         logger.error("Universe processing pipeline failed.", exc=e) 
