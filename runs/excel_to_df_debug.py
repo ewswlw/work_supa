@@ -21,6 +21,7 @@ from glob import glob
 from datetime import datetime
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import numpy as np
 
 # ===================== CONFIG SECTION =====================
 CONFIG = {
@@ -56,23 +57,51 @@ logging.basicConfig(
     ]
 )
 
+# Add import for LogManager
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from src.utils.logging import LogManager
+
+# Set up new LogManager logger for runs_processor.log
+RUNS_LOG_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'logs', 'runs_processor.log'))
+runs_logger = LogManager(
+    log_file=RUNS_LOG_PATH,
+    log_level='INFO',
+    log_format='[%(asctime)s] %(levelname)s: %(message)s'
+)
+
 def log(msg):
     """Log message to both file and console."""
     logging.info(msg)
 
+def log_runs(msg, level="info"):
+    """Log message to runs_processor.log using LogManager-style logger."""
+    if level == "info":
+        runs_logger.info(msg)
+    elif level == "debug":
+        runs_logger.debug(msg)
+    elif level == "warning":
+        runs_logger.warning(msg)
+    elif level == "error":
+        runs_logger.error(msg)
+    else:
+        runs_logger.info(msg)
+
 def load_last_processed():
-    """Load the last processed date from JSON file."""
-    if os.path.exists(CONFIG['LAST_PROCESSED_FILE']):
-        with open(CONFIG['LAST_PROCESSED_FILE'], "r") as f:
-            data = json.load(f)
-            last_processed = data.get("last_processed")
-            if last_processed:
-                # Check if the date is in the future
-                last_date = datetime.strptime(last_processed, "%Y-%m-%d")
-                if last_date > datetime.now():
-                    log(f"Warning: Last processed date ({last_processed}) is in the future. Resetting.")
-                    return {"last_processed": None}
-            return data
+    """Load the last processed date from JSON file. Always return a dict with 'last_processed' key."""
+    try:
+        if os.path.exists(CONFIG['LAST_PROCESSED_FILE']):
+            with open(CONFIG['LAST_PROCESSED_FILE'], "r") as f:
+                data = json.load(f)
+                last_processed = data.get("last_processed")
+                if last_processed:
+                    # Check if the date is in the future
+                    last_date = datetime.strptime(last_processed, "%Y-%m-%d")
+                    if last_date > datetime.now():
+                        log(f"Warning: Last processed date ({last_processed}) is in the future. Resetting.")
+                        return {"last_processed": None}
+                return {"last_processed": last_processed}
+    except Exception as e:
+        log(f"Warning: Could not read or parse last_processed.json: {e}")
     return {"last_processed": None}
 
 def save_last_processed(date):
@@ -83,25 +112,43 @@ def save_last_processed(date):
 def validate_dataframe(df, stage=""):
     """Validate DataFrame and log statistics."""
     log(f"\n===== DataFrame Validation {stage} =====")
+    log_runs(f"\n===== DataFrame Validation {stage} =====")
     log(f"Shape: {df.shape}")
+    log_runs(f"Shape: {df.shape}")
     log(f"Columns: {df.columns.tolist()}")
+    log_runs(f"Columns: {df.columns.tolist()}")
     log(f"Data types:\n{df.dtypes}")
+    log_runs(f"Data types:\n{df.dtypes}")
+    
+    # DataFrame info
+    from io import StringIO
+    buf = StringIO()
+    df.info(buf=buf)
+    info_str = buf.getvalue()
+    log(f"DataFrame info:\n{info_str}")
+    log_runs(f"DataFrame info:\n{info_str}")
     
     # Check for nulls
     nulls = df.isnull().sum()
     log("\nNull values per column:")
+    log_runs("\nNull values per column:")
     for col in df.columns:
         null_count = nulls[col]
         null_pct = (null_count / len(df)) * 100
         log(f"{col}: {null_count} ({null_pct:.2f}%)")
+        log_runs(f"{col}: {null_count} ({null_pct:.2f}%)")
     
     # Check for duplicates
     dupes = df.duplicated().sum()
     log(f"\nDuplicate rows: {dupes}")
+    log_runs(f"\nDuplicate rows: {dupes}")
     
     # Basic statistics for numeric columns
     log("\nNumeric columns statistics:")
-    log(str(df.describe()))
+    log_runs("\nNumeric columns statistics:")
+    stats = str(df.describe())
+    log(stats)
+    log_runs(stats)
     
     return df
 
@@ -192,6 +239,34 @@ def clean_and_deduplicate(df):
     log(f"Final clean_and_deduplicate result: {len(df)} rows")
     
     return df
+
+def log_date_coverage(df, label="Final DataFrame"):
+    if 'Date' in df.columns:
+        unique_dates = sorted(df['Date'].dropna().unique())
+        log_runs(f"\n=========================")
+        log_runs(f"=== DATE COVERAGE ANALYSIS ({label}) ===")
+        log_runs(f"=========================")
+        log_runs(f"Total unique dates: {len(unique_dates)}")
+        if unique_dates:
+            # Convert to pandas datetime for formatting
+            start_date = pd.to_datetime(unique_dates[0]).strftime('%Y-%m-%d')
+            end_date = pd.to_datetime(unique_dates[-1]).strftime('%Y-%m-%d')
+            log_runs(f"Date range: {start_date} to {end_date}")
+            log_runs(f"Unique dates in dataset:")
+            for date in unique_dates:
+                date_count = (df['Date'] == date).sum()
+                date_str = pd.to_datetime(date).strftime('%Y-%m-%d')
+                log_runs(f"  - {date_str}: {date_count} records")
+
+def log_blank_key_analysis(df):
+    log_runs(f"\n=========================")
+    log_runs(f"=== BLANK/INVALID KEY ANALYSIS ===")
+    log_runs(f"=========================")
+    total_rows = len(df)
+    for col in df.columns:
+        blank_count = df[col].isna().sum() + (df[col].astype(str).str.strip() == '').sum()
+        if blank_count > 0:
+            log_runs(f"Column '{col}': {blank_count} blank/invalid out of {total_rows} rows")
 
 def main():
     log(f"\n===== Starting Data Pipeline: {datetime.now()} =====")
@@ -290,6 +365,10 @@ def main():
     
     # Validate final data
     combined_df = validate_dataframe(combined_df, "FINAL COMBINED DATA")
+    # Date coverage analysis
+    log_date_coverage(combined_df, label="FINAL COMBINED DATA")
+    # Blank/invalid key analysis
+    log_blank_key_analysis(combined_df)
     
     # Save the combined DataFrame to Parquet
     try:
