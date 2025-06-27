@@ -176,3 +176,57 @@ portfolio_processor:
     datetime_columns:
       - MATURITY DATE
       - BENCHMARK MATURITY DATE 
+
+g_spread_processor:
+  input_file: "historical g spread/raw data/bond_g_sprd_time_series.csv"
+  output_parquet: "historical g spread/bond_g_sprd_time_series.parquet"
+  output_csv: "historical g spread/processed data/bond_g_sprd_processed.csv"
+  universe_reference: "universe/universe.parquet"
+  
+  fuzzy_matching:
+    default_threshold: 85
+    scoring_methods: 
+      - "ratio"
+      - "partial_ratio" 
+      - "token_sort_ratio"
+    bond_type_thresholds:
+      government: 90
+      corporate: 85
+      municipal: 80
+    enable_reporting: true
+    
+  column_handling:
+    date_column: "DATE"
+    drop_duplicates: true
+    keep_first_duplicate: true
+    exclude_columns:
+      - "Unnamed"
+      - ".1"
+    
+  validation:
+    required_columns:
+      - "DATE"
+    date_formats:
+      - "%m/%d/%Y"
+      - "%Y-%m-%d"
+      - "%d/%m/%Y"
+    numeric_validation:
+      min_non_null_percentage: 10
+      allow_negative: true
+      check_outliers: true
+    data_quality:
+      max_missing_percentage: 95
+      min_rows: 100
+      check_universe_integrity: true
+      
+  error_handling:
+    fail_on_missing_universe: true
+    fail_on_no_matches: true
+    fail_on_validation_errors: true
+    fail_on_all_duplicates: true
+    
+  logging:
+    log_mapping_details: true
+    log_statistics: true
+    log_date_coverage: true
+    log_console_and_file: true 
