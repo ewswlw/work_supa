@@ -98,10 +98,26 @@ def process_universe_files(logger: Logger):
         try:
             existing_df = pd.read_parquet(parquet_path)
             logger.info(f"Loaded existing data: {existing_df.shape[0]} rows, {existing_df.shape[1]} columns")
-            # Log DataFrame info after loading from Parquet
+            # Log DataFrame info after loading
             buf = io.StringIO()
             existing_df.info(buf=buf)
             logger.info("DataFrame info after loading from Parquet:\n" + buf.getvalue())
+            
+            # Log existing date coverage
+            if 'Date' in existing_df.columns:
+                existing_dates = sorted(existing_df['Date'].dropna().unique())
+                logger.info(f"\n=========================")
+                logger.info(f"=== EXISTING DATE COVERAGE ===")
+                logger.info(f"=========================")
+                logger.info(f"Total unique dates in existing data: {len(existing_dates)}")
+                if existing_dates:
+                    logger.info(f"Existing date range: {existing_dates[0]} to {existing_dates[-1]}")
+                    logger.info(f"Existing dates in Parquet:")
+                    for date in existing_dates:
+                        date_count = (existing_df['Date'] == date).sum()
+                        # Convert numpy datetime64 to pandas datetime for strftime
+                        date_str = pd.to_datetime(date).strftime('%Y-%m-%d')
+                        logger.info(f"  - {date_str}: {date_count} records")
         except Exception as e:
             logger.error(f"Error loading existing Parquet file: {e}. Will rebuild from scratch.")
             existing_df = None
@@ -242,7 +258,25 @@ def process_universe_files(logger: Logger):
 
     logger.info(f"--- Processing Complete ---")
     logger.info(f"Final DataFrame Shape: {final_df.shape}")
-    # Log DataFrame info before saving to Parquet
+    
+    # Log unique dates analysis
+    if 'Date' in final_df.columns:
+        unique_dates = sorted(final_df['Date'].dropna().unique())
+        logger.info(f"\n=========================")
+        logger.info(f"=== DATE COVERAGE ANALYSIS ===")
+        logger.info(f"=========================")
+        logger.info(f"Total unique dates: {len(unique_dates)}")
+        if unique_dates:
+            logger.info(f"Date range: {unique_dates[0]} to {unique_dates[-1]}")
+            logger.info(f"Unique dates in dataset:")
+            for date in unique_dates:
+                date_count = (final_df['Date'] == date).sum()
+                # Convert numpy datetime64 to pandas datetime for strftime
+                date_str = pd.to_datetime(date).strftime('%Y-%m-%d')
+                logger.info(f"  - {date_str}: {date_count} records")
+        else:
+            logger.warning("No valid dates found in dataset")
+    
     buf = io.StringIO()
     final_df.info(buf=buf)
     logger.info("DataFrame info before saving to Parquet:\n" + buf.getvalue())

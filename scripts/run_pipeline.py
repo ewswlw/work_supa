@@ -15,11 +15,11 @@ from datetime import datetime
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.utils.config import ConfigManager
-from src.utils.logging import get_logger
+from src.utils.logging import LogManager
 from src.pipeline.excel_processor import ExcelProcessor
 from src.pipeline.parquet_processor import ParquetProcessor
 from src.pipeline.supabase_processor import SupabaseProcessor
-from models.data_models import ProcessingResult
+from src.models.data_models import ProcessingResult
 
 
 class DataPipeline:
@@ -32,11 +32,12 @@ class DataPipeline:
             self.config_manager = ConfigManager(config_path)
             
             # Setup logging
-            self.logger = get_logger(
+            self.log_manager = LogManager(
                 log_file=self.config_manager.pipeline_config.log_file,
                 log_level=self.config_manager.logging_config.level,
                 log_format=self.config_manager.logging_config.format
             )
+            self.logger = self.log_manager.logger
             
             # Initialize processors
             self.excel_processor = ExcelProcessor(

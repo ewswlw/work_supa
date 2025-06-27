@@ -67,6 +67,26 @@ class ParquetProcessor(BaseProcessor):
             # Update statistics
             self.stats.rows_loaded = len(df)
             
+            # Log date coverage analysis
+            if 'Date' in df.columns:
+                unique_dates = sorted(df['Date'].dropna().unique())
+                self.logger.info(f"\n=========================")
+                self.logger.info(f"=== DATE COVERAGE ANALYSIS (PARQUET) ===")
+                self.logger.info(f"=========================")
+                self.logger.info(f"Total unique dates: {len(unique_dates)}")
+                if unique_dates:
+                    # Convert numpy datetime64 to pandas datetime for proper formatting
+                    start_date = pd.to_datetime(unique_dates[0]).strftime('%Y-%m-%d')
+                    end_date = pd.to_datetime(unique_dates[-1]).strftime('%Y-%m-%d')
+                    self.logger.info(f"Date range: {start_date} to {end_date}")
+                    self.logger.info(f"Unique dates saved to Parquet:")
+                    for date in unique_dates:
+                        date_count = (df['Date'] == date).sum()
+                        date_str = pd.to_datetime(date).strftime('%Y-%m-%d')
+                        self.logger.info(f"  - {date_str}: {date_count} records")
+                else:
+                    self.logger.warning("No valid dates found in dataset")
+            
             self._stop_timer()
             self.log_stats()
             
@@ -118,6 +138,26 @@ class ParquetProcessor(BaseProcessor):
             
             # Update statistics
             self.stats.rows_processed = len(df)
+            
+            # Log date coverage analysis
+            if 'Date' in df.columns:
+                unique_dates = sorted(df['Date'].dropna().unique())
+                self.logger.info(f"\n=========================")
+                self.logger.info(f"=== DATE COVERAGE ANALYSIS (LOADED FROM PARQUET) ===")
+                self.logger.info(f"=========================")
+                self.logger.info(f"Total unique dates: {len(unique_dates)}")
+                if unique_dates:
+                    # Convert numpy datetime64 to pandas datetime for proper formatting
+                    start_date = pd.to_datetime(unique_dates[0]).strftime('%Y-%m-%d')
+                    end_date = pd.to_datetime(unique_dates[-1]).strftime('%Y-%m-%d')
+                    self.logger.info(f"Date range: {start_date} to {end_date}")
+                    self.logger.info(f"Unique dates loaded from Parquet:")
+                    for date in unique_dates:
+                        date_count = (df['Date'] == date).sum()
+                        date_str = pd.to_datetime(date).strftime('%Y-%m-%d')
+                        self.logger.info(f"  - {date_str}: {date_count} records")
+                else:
+                    self.logger.warning("No valid dates found in dataset")
             
             self._stop_timer()
             

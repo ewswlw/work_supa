@@ -56,6 +56,26 @@ class SupabaseProcessor(BaseProcessor):
                     "Schema validation failed"
                 )
             
+            # Log date coverage analysis before upload
+            if 'Date' in prepared_df.columns:
+                unique_dates = sorted(prepared_df['Date'].dropna().unique())
+                self.logger.info(f"\n=========================")
+                self.logger.info(f"=== DATE COVERAGE ANALYSIS (SUPABASE UPLOAD) ===")
+                self.logger.info(f"=========================")
+                self.logger.info(f"Total unique dates: {len(unique_dates)}")
+                if unique_dates:
+                    # Convert numpy datetime64 to pandas datetime for proper formatting
+                    start_date = pd.to_datetime(unique_dates[0]).strftime('%Y-%m-%d')
+                    end_date = pd.to_datetime(unique_dates[-1]).strftime('%Y-%m-%d')
+                    self.logger.info(f"Date range: {start_date} to {end_date}")
+                    self.logger.info(f"Unique dates being uploaded to Supabase:")
+                    for date in unique_dates:
+                        date_count = (prepared_df['Date'] == date).sum()
+                        date_str = pd.to_datetime(date).strftime('%Y-%m-%d')
+                        self.logger.info(f"  - {date_str}: {date_count} records")
+                else:
+                    self.logger.warning("No valid dates found in dataset")
+            
             # Upload data in batches
             upload_result = self._upload_data_in_batches(prepared_df)
             
