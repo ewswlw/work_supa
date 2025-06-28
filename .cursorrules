@@ -25,6 +25,8 @@
 - Add proper TypeScript return types for all functions
 - Use proper async/await instead of promises where possible
 - Implement proper component lifecycle management
+- always create tests in the test folder where applicable
+- you must always exececute all code in my current poetry env
 
 ## BEFORE ANY CODE CHANGE
 1. Analyze the entire project structure
