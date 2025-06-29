@@ -136,17 +136,17 @@ def main():
     
     # Parquet files
     parquet_files = [
-        "runs/combined_runs.parquet",
-        "universe/universe.parquet", 
-        "portfolio/portfolio.parquet",
-        "historical g spread/bond_g_sprd_time_series.parquet"
+        "../runs/combined_runs.parquet",
+        "../universe/universe.parquet", 
+        "../portfolio/portfolio.parquet",
+        "../historical g spread/bond_g_sprd_time_series.parquet"
     ]
     
     # CSV files
     csv_files = [
-        "universe/processed data/universe_processed.csv",
-        "portfolio/processed data/portfolio.csv",
-        "historical g spread/processed data/bond_g_sprd_processed.csv"
+        "../universe/processed data/universe_processed.csv",
+        "../portfolio/processed data/portfolio.csv",
+        "../historical g spread/processed data/bond_g_sprd_processed.csv"
     ]
     
     data_structures = {}

@@ -13,6 +13,14 @@ git reset --hard origin/master
 git pull origin master
 ```
 
+## Git Commands
+```bash
+# Fetch and reset to origin
+git fetch db
+git reset --hard origin/db
+git pull origin db
+```
+
 ## Important Commands
 ```bash
 # Run data pipeline

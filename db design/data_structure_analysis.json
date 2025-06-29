@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-06-28T10:34:04.765232",
+  "timestamp": "2025-06-28T22:02:31.420849",
   "data_structures": {
     "combined_runs": {
-      "file_path": "runs/combined_runs.parquet",
+      "file_path": "../runs/combined_runs.parquet",
       "total_rows": 573893,
       "total_columns": 30,
       "columns": {
@@ -405,7 +405,7 @@
       }
     },
     "universe": {
-      "file_path": "universe/universe.parquet",
+      "file_path": "../universe/universe.parquet",
       "total_rows": 32223,
       "total_columns": 47,
       "columns": {
@@ -1032,7 +1032,7 @@
       }
     },
     "portfolio": {
-      "file_path": "portfolio/portfolio.parquet",
+      "file_path": "../portfolio/portfolio.parquet",
       "total_rows": 1937,
       "total_columns": 51,
       "columns": {
@@ -1724,7 +1724,7 @@
       }
     },
     "bond_g_sprd_time_series": {
-      "file_path": "historical g spread/bond_g_sprd_time_series.parquet",
+      "file_path": "../historical g spread/bond_g_sprd_time_series.parquet",
       "total_rows": 1462,
       "total_columns": 2012,
       "columns": {
@@ -25879,7 +25879,7 @@
       }
     },
     "universe_csv": {
-      "file_path": "universe/processed data/universe_processed.csv",
+      "file_path": "../universe/processed data/universe_processed.csv",
       "total_rows": 32223,
       "total_columns": 47,
       "columns": {
@@ -26506,7 +26506,7 @@
       }
     },
     "portfolio_csv": {
-      "file_path": "portfolio/processed data/portfolio.csv",
+      "file_path": "../portfolio/processed data/portfolio.csv",
       "total_rows": 1937,
       "total_columns": 51,
       "columns": {
@@ -27198,7 +27198,7 @@
       }
     },
     "bond_g_sprd_csv": {
-      "file_path": "historical g spread/processed data/bond_g_sprd_processed.csv",
+      "file_path": "../historical g spread/processed data/bond_g_sprd_processed.csv",
       "total_rows": 1462,
       "total_columns": 2012,
       "columns": {
