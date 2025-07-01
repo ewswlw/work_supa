@@ -1,0 +1,232 @@
+pipeline:
+  input_dir: "runs/older files"
+  file_pattern: "*.xls*"
+  output_parquet: "runs/combined_runs.parquet"
+  last_processed_file: "runs/last_processed.json"
+  date_format: "%m/%d/%y"
+  time_format: "%H:%M"
+  parallel_load: true
+  n_workers: 4
+  show_rows: 5
+  log_file: "logs/pipeline.log"
+  chunk_size: 10000
+
+supabase:
+  batch_size: 1000
+
+logging:
+  level: "DEBUG"
+  format: "[%(asctime)s] %(levelname)s: %(message)s"
+
+universe_processor:
+  columns_to_keep:
+    - Date
+    - CUSIP
+    - Benchmark Cusip
+    - Custom_Sector
+    - Marketing Sector
+    - Notes
+    - Bloomberg Cusip
+    - Security
+    - Benchmark
+    - Make_Whole
+    - Back End
+    - Floating Index
+    - Stochastic Duration
+    - Stochastic Convexity
+    - Pricing Date
+    - Pricing Date (Bench)
+    - MTD Return
+    - QTD Return
+    - YTD Return
+    - MTD Bench Return
+    - QTD Bench Return
+    - YTD Bench Return
+    - Worst Date
+    - Yrs (Worst)
+    - YTC
+    - Excess MTD
+    - Excess YTD
+    - CPN TYPE
+    - Ticker
+    - Forward Sprd
+    - B/E Bench Sprd
+    - G Sprd
+    - Yrs (Cvn)
+    - OAS (Mid)
+    - Currency
+    - CAD Equiv Swap
+    - G (RBC Crv)
+    - vs BI
+    - vs BCE
+    - Equity Ticker
+    - YTD Equity
+    - MTD Equity
+    - Yrs Since Issue
+    - Risk
+    - Rating
+    - Yrs (Mat)
+    - Z Spread
+    - Yrs Since Issue Bucket
+    - Yrs (Mat) Bucket
+  
+  bucketing:
+    yrs_since_issue:
+      column_name: "Yrs Since Issue"
+      new_column_name: "Yrs Since Issue Bucket"
+      bins: [0, 0.25, 0.50, 1, 2, 3, 5, 7, .inf]
+      labels: ['0-0.25', '0.25-0.50', '0.50-1', '1-2', '2-3', '3-5', '5-7', '>7']
+    yrs_to_maturity:
+      column_name: "Yrs (Mat)"
+      new_column_name: "Yrs (Mat) Bucket"
+      bins: [0, 0.25, 0.50, 1, 2.1, 3.1, 4.1, 5.1, 7.1, 10.1, 25.1, .inf]
+      labels: ['0-0.25', '0.25-0.50', '0.50-1', '1-2.1', '2.1-3.1', '3.1-4.1', '4.1-5.1', '5.1-7.1', '7.1-10.1', '10.1-25.1', '>25.1']
+
+  validation:
+    numeric_columns:
+      - Stochastic Duration
+      - Stochastic Convexity
+      - MTD Return
+      - QTD Return
+      - YTD Return
+      - MTD Bench Return
+      - QTD Bench Return
+      - YTD Bench Return
+      - Yrs (Worst)
+      - YTC
+      - Excess MTD
+      - Excess YTD
+      - G Sprd
+      - Yrs (Cvn)
+      - OAS (Mid)
+      - CAD Equiv Swap
+      - YTD Equity
+      - MTD Equity
+      - Yrs Since Issue
+      - Risk
+      - Yrs (Mat)
+      - Z Spread 
+
+portfolio_processor:
+  columns_to_drop:
+    - BBG YIELD SPREAD
+    - CURRENT YIELD
+    - BBG 1D CHANGE
+    - CHANGE
+    - CHANGE PCT
+    - CHANGE BPS NAV
+    - INDUSTRY
+    - SECTOR
+    - OWNER
+    - DAY PROFIT
+    - AVERAGE PRICE
+    - PROFIT
+    - REALIZED
+    - UNREALIZED
+    - TOTAL COST SETTLE CCY
+    - TOTAL COST
+    - COST PCT NAV
+    - INTEREST
+    - REALIZED SETTLE CCY
+    - PAID INTEREST LOCAL CCY
+    - PAID INTEREST
+    - UNREALIZED SETTLE CCY
+    - FX EXPOSURE LOCAL CCY
+    - FX EXPOSURE DISPLAY CCY
+    - FX EXPOSURE PCT NAV
+    - PREVIOUS PROFIT
+    - PREVIOUS DAY PRICE
+    - ACCRUED INTEREST
+    - ANNUALIZED INCOME
+    - BBG MTD YIELD CHANGE
+    - Unnamed: 0
+    - Unnamed: 1
+  
+  cusip_mappings:
+    CDX:
+      security_type: "CDX"
+      security_name: "CDX"
+      cusip: "460"
+    CASH_CAD:
+      security_name: "CASH CAD"
+      cusip: "123"
+    CASH_USD:
+      security_name: "CASH USD"
+      cusip: "789"
+  
+  validation:
+    required_columns:
+      - Date
+      - SECURITY
+      - CUSIP
+    numeric_columns:
+      - MODIFIED DURATION
+      - QUANTITY
+      - PRICE
+      - YIELD TO MAT
+      - POSITION CR01
+      - VALUE PCT NAV
+      - POSITION PVBP
+      - VALUE
+      - COUPON
+      - SECURITY PVBP
+      - SECURITY CR01
+      - PCT OF OUTSTANDING
+      - FACE VALUE OUTSTANDING
+    datetime_columns:
+      - MATURITY DATE
+      - BENCHMARK MATURITY DATE 
+
+g_spread_processor:
+  input_file: "historical g spread/raw data/bond_g_sprd_time_series.csv"
+  output_parquet: "historical g spread/bond_g_sprd_time_series.parquet"
+  output_csv: "historical g spread/processed data/bond_g_sprd_processed.csv"
+  universe_reference: "universe/universe.parquet"
+  
+  fuzzy_matching:
+    default_threshold: 85
+    scoring_methods: 
+      - "ratio"
+      - "partial_ratio" 
+      - "token_sort_ratio"
+    bond_type_thresholds:
+      government: 90
+      corporate: 85
+      municipal: 80
+    enable_reporting: true
+    
+  column_handling:
+    date_column: "DATE"
+    drop_duplicates: true
+    keep_first_duplicate: true
+    exclude_columns:
+      - "Unnamed"
+      - ".1"
+    
+  validation:
+    required_columns:
+      - "DATE"
+    date_formats:
+      - "%m/%d/%Y"
+      - "%Y-%m-%d"
+      - "%d/%m/%Y"
+    numeric_validation:
+      min_non_null_percentage: 10
+      allow_negative: true
+      check_outliers: true
+    data_quality:
+      max_missing_percentage: 95
+      min_rows: 100
+      check_universe_integrity: true
+      
+  error_handling:
+    fail_on_missing_universe: true
+    fail_on_no_matches: true
+    fail_on_validation_errors: true
+    fail_on_all_duplicates: true
+    
+  logging:
+    log_mapping_details: true
+    log_statistics: true
+    log_date_coverage: true
+    log_console_and_file: true 

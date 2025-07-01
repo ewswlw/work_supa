@@ -1,0 +1,222 @@
+
+## PROJECT AWARENESS & FILE MANAGEMENT
+- ALWAYS analyze the entire codebase before making changes
+- Map out all file dependencies and relationships before suggesting edits
+- Identify ALL files that need modification for any feature request
+- NEVER create new files when existing logic can be extended or refactored
+- Before suggesting new components, check if existing ones can be modified
+- Always consider the ripple effects of changes across the entire application
+- Provide a comprehensive list of files to edit with reasoning for each change
+
+## GENERAL
+- where applicable, ask me clarifying questions until you are 95% confident you can complete the task successfully 
+- What would a top 0.1% person in this field think, and solve the problem that way
+- where applicable, explain visually using analogies or mental models, identify hidden bias in your answer and correct them, roleplay as Nobel laureate solving this problem
+
+
+## GENERAL CODING STANDARDS
+- Use functional programming principles where possible
+- Prefer composition over inheritance
+- Use descriptive variable and function names
+- Keep functions small and focused
+- Use early returns to reduce nesting
+- Implement proper error messages that are user-friendly
+- Use consistent naming conventions throughout the project
+- Add proper TypeScript return types for all functions
+- Use proper async/await instead of promises where possible
+- Implement proper component lifecycle management
+- always create tests in the test folder where applicable
+- you must always exececute all code in my current poetry env
+
+## BEFORE ANY CODE CHANGE
+1. Analyze the entire project structure
+2. Identify all affected files and their relationships
+3. Consider performance implications
+4. Verify TypeScript compatibility
+5. Plan proper error handling
+6. Consider testing requirements
+7. Document the change reasoning
+8. Provide a comprehensive modification plan
+
+### Code Organization
+- Group related functionality into feature folders
+- Keep components small and focused on single responsibility
+
+### Documentation
+- Document all business logic with clear explanations
+- Add README files for complex features
+- Add inline comments for complex calculations
+- constantly update the project_changelog.md as you go in great technical detail so that any other dev can understand where we left off
+
+
+## DATA VALIDATION & INTEGRITY
+
+### Input Validation
+- Validate ALL data before database insertion using schema validation 
+- Implement proper type checking for all database fields
+- Add range validation for numerical fields (prices, quantities, dates)
+- Validate foreign key relationships before insertion
+- Check for required fields and proper data formats
+- Implement business rule validation (e.g., order quantity > 0, price > 0)
+- Add checksum validation for critical financial data
+- Validate date ranges and logical consistency (start_date < end_date)
+
+### Data Integrity Checks
+- Implement database constraints (NOT NULL, CHECK, UNIQUE, FOREIGN KEY)
+- Add triggers for complex business rule enforcement
+- Use database-level check constraints for financial ranges
+- Implement soft deletes with proper audit trails
+- Add version control for critical records (optimistic locking)
+- Use proper indexes for data integrity enforcement
+- Implement cascading deletes/updates carefully with business logic
+- Add data reconciliation checks between related tables
+
+### Output Validation
+- Validate all data retrieved from database before using
+- Add null checks and default value handling
+- Implement proper data transformation and sanitization
+- Validate calculated fields against business rules
+- Add consistency checks for aggregated data
+- Implement proper date/time zone handling
+
+## DETAILED LOGGING & AUDITING
+
+### Audit Trail Requirements
+- Log ALL database operations (INSERT, UPDATE, DELETE) with:
+  - User ID and session information
+  - Timestamp with timezone
+  - Old and new values for updates
+  - Operation type and table affected
+  - IP address and user agent
+  - Business context (order ID, trade ID, etc.)
+- Implement immutable audit logs (append-only)
+- Add digital signatures for critical audit records
+- Store audit logs in separate database/schema
+- Implement audit log retention policies
+
+### Error Logging
+- Log ALL database errors with full context
+- Include SQL query and parameters (sanitized)
+- Add stack traces for debugging
+- Log retry attempts and final outcomes
+- Include performance metrics for failed operations
+- Add alerting for critical database errors
+- Log connection pool exhaustion and recovery
+
+## PERFORMANCE & MONITORING
+
+### Query Optimization
+- Always use parameterized queries (prevent SQL injection)
+- Implement proper indexing strategies s
+- Add query execution plan analysis for slow queries
+- Use EXPLAIN/ANALYZE for all critical queries
+- Implement query result caching where appropriate
+- Add pagination for large result sets
+- Use proper JOIN strategies and avoid N+1 queries
+- Implement database query timeout handling
+
+### Monitoring & Metrics
+- Monitor database connection pool utilization
+- Track query execution times and identify slow queries
+- Monitor database deadlocks and lock waits
+- Add alerting for database performance degradation
+- Track database growth and space utilization
+- Monitor replication lag for read replicas
+- Add real-time monitoring for critical trading tables
+- Implement health checks for database connectivity
+
+## DATA MIGRATION & SCHEMA CHANGES
+
+### Migration Best Practices
+- Version all database schema changes
+- Implement rollback procedures for all migrations
+- Test migrations in production-like environments
+- Add data validation after migrations
+- Implement zero-downtime migration strategies
+- Use feature flags for gradual rollouts
+- Add comprehensive testing for migration procedures
+- Document all schema changes with business justification
+
+### Backward Compatibility
+- Maintain backward compatibility during schema changes
+- Use database views for API compatibility
+- Implement gradual column additions/removals
+- Add proper deprecation warnings for schema changes
+- Test compatibility with existing application versions
+- Implement proper API versioning for database changes
+
+## BACKUP & RECOVERY
+
+### Backup Strategies
+- Implement automated daily backups with verification
+- Use point-in-time recovery capabilities
+- Test backup restoration procedures regularly
+- Implement cross-region backup replication
+- Add backup encryption and secure storage
+- Monitor backup success/failure with alerting
+- Document recovery procedures with RTO/RPO targets
+- Implement incremental and differential backup strategies
+
+### Disaster Recovery
+- Implement database clustering for high availability
+- Use automatic failover for critical systems
+- Add proper monitoring for replica lag
+- Test disaster recovery procedures regularly
+- Implement cross-region disaster recovery
+- Document emergency procedures and contacts
+- Add automated failover testing
+
+## SPECIFIC TRADING DATABASE PATTERNS
+
+### Financial Data Handling
+- Store all monetary values as integers (avoid floating point)
+- Use proper precision for different asset classes
+- Implement proper rounding and precision handling
+- Add currency conversion tracking and audit
+- Store exchange rates with proper timestamps
+- Implement proper settlement date handling
+- Add trade lifecycle state management
+
+### Time-Series Data
+- Use proper time-series database patterns for market data
+- Implement data partitioning by date ranges
+- Add proper indexing for time-based queries
+- Use compression for historical market data
+- Implement proper data retention policies
+- Add efficient aggregation strategies for OHLCV data
+
+### Reference Data Management
+- Implement proper caching for static reference data
+- Add versioning for regulatory reference data changes
+- Use proper normalization for instrument hierarchies
+- Implement proper holiday calendar management
+- Add market hours and trading session handling
+
+## DEVELOPMENT BEST PRACTICES
+
+### Code Standards
+- Use database migration tools 
+- Implement proper ORM usage patterns
+- Add comprehensive unit tests for database logic
+- Use database seeding for consistent test data
+- Implement proper mocking for database tests
+- Add integration tests for critical database operations
+- Document all complex queries and business logic
+
+Remember: Trading databases handle financial transactions and must maintain perfect accuracy and auditability at all times.
+"""
+
+with open('database-rules.md', 'w') as f:
+    f.write(db_rules_content)
+
+print("Comprehensive database rules created!")
+print(f"File size: {len(db_rules_content)} characters")
+print("\nKey sections covered:")
+print("✅ Data Validation & Integrity")
+print("✅ Transaction Management") 
+print("✅ Detailed Logging & Auditing")
+print("✅ Performance & Monitoring")
+print("✅ Security & Compliance")
+print("✅ Migration & Schema Changes")
+print("✅ Backup & Recovery")
+print("✅ Trading-Specific Patterns")
