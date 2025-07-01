@@ -216,6 +216,7 @@ def set_config(max_bonds=None, lookback_days=None, enable_filters=None, enable_u
     print("\n📋 Updated configuration:")
     get_config_summary()
 
+
 # ==========================================
 # FILTER OPERATORS SYSTEM
 # ==========================================
@@ -683,7 +684,7 @@ def parallel_chunk_processing(matrix_chunk, lookback_days, chunk_id):
     """Process a chunk of the matrix in parallel."""
     return vectorized_pairwise_analysis(matrix_chunk, lookback_days)
 
-def save_results(results_df: pd.DataFrame):
+def save_results(results_df: pd.DataFrame, cusip_mapping: dict = None):
     """Save results to parquet and CSV, and add Own? and XCCY columns."""
     print("💾 Saving results...")
     
@@ -706,17 +707,52 @@ def save_results(results_df: pd.DataFrame):
         if 'Date' in universe.columns:
             universe = universe[universe['Date'] == universe['Date'].max()]
         universe = universe.rename(columns={'CPN TYPE': 'CPN_TYPE', 'Equity Ticker': 'Equity_Ticker', 'Yrs Since Issue Bucket': 'Yrs_Since_Issue_Bucket', 'Yrs (Mat) Bucket': 'Yrs_Mat_Bucket'})
+        
+        # Create CUSIP to CAD Equiv Swap mapping
         cad_swap = universe.set_index('CUSIP')['CAD Equiv Swap'].to_dict()
-        results_df['XCCY'] = results_df['Security_1'].map(cad_swap).fillna(0) - results_df['Security_2'].map(cad_swap).fillna(0)
-        print("   ✅ Added 'XCCY' column")
+        
+        if cusip_mapping is not None:
+            # CORRECTED LOGIC: Use proper CUSIP mapping
+            # Step 1: Map Security names to CUSIPs
+            security1_cusips = results_df['Security_1'].map(cusip_mapping)
+            security2_cusips = results_df['Security_2'].map(cusip_mapping)
+            
+            # Step 2: Map CUSIPs to CAD Equiv Swap values
+            cad_swap_1 = security1_cusips.map(cad_swap)
+            cad_swap_2 = security2_cusips.map(cad_swap)
+            
+            # Step 3: Calculate XCCY as the difference
+            results_df['XCCY'] = cad_swap_1.fillna(0) - cad_swap_2.fillna(0)
+            
+            # Add debugging information
+            total_pairs = len(results_df)
+            matched_1 = cad_swap_1.notna().sum()
+            matched_2 = cad_swap_2.notna().sum()
+            both_matched = (cad_swap_1.notna() & cad_swap_2.notna()).sum()
+            
+            print(f"   ✅ Added 'XCCY' column (CORRECTED LOGIC)")
+            print(f"   📊 XCCY matching statistics:")
+            print(f"      • Security_1 matches: {matched_1:,}/{total_pairs:,} ({matched_1/total_pairs*100:.1f}%)")
+            print(f"      • Security_2 matches: {matched_2:,}/{total_pairs:,} ({matched_2/total_pairs*100:.1f}%)")
+            print(f"      • Both matched: {both_matched:,}/{total_pairs:,} ({both_matched/total_pairs*100:.1f}%)")
+            print(f"      • XCCY range: {results_df['XCCY'].min():.2f} to {results_df['XCCY'].max():.2f}")
+        else:
+            # Fallback to old logic if cusip_mapping not provided
+            print("   ⚠️  No CUSIP mapping provided, using fallback logic")
+            results_df['XCCY'] = results_df['Security_1'].map(cad_swap).fillna(0) - results_df['Security_2'].map(cad_swap).fillna(0)
+            print("   ✅ Added 'XCCY' column (FALLBACK)")
+        
         # Move XCCY beside Percentile if present
         if 'Percentile' in results_df.columns:
             cols = results_df.columns.tolist()
             idx = cols.index('Percentile') + 1
             cols = cols[:idx] + ['XCCY'] + [c for c in cols if c != 'XCCY' and c not in cols[:idx]]
             results_df = results_df[cols]
+            
     except Exception as e:
         print(f"   ⚠️  Could not add 'XCCY': {e}")
+        import traceback
+        traceback.print_exc()
 
     # --- ENRICHMENT: Add runs monitor data ---
     try:
@@ -975,7 +1011,7 @@ def main():
         print(f"   • Reduction factor: {total_pairs/len(results_df):.1f}x fewer pairs")
         
         # 11. Save results
-        save_results(results_df)
+        save_results(results_df, cusip_mapping)
         
         # Performance summary
         end_time = datetime.now()
