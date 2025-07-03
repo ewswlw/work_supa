@@ -220,5 +220,3 @@ git push -u origin feature/frontend
 
 ---
 
-**In short:**  
-Your local changes weren’t committed, so they weren’t pushed. Once we staged, committed, and pushed them, everything synced up with GitHub.
