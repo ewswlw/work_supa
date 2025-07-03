@@ -16,5 +16,5 @@ These restrictions are in place to protect your sensitive data, prevent accident
 If you need to work with these files, the safest way is to edit them manually, as you've done. If you want to override these restrictions, you'd need to adjust your workspace or tool settings, but this is generally not recommended unless you're sure of the security implications.
 Let me know if you want more technical details or guidance on managing dotfiles securely!
 
-
+this is a random test 
 
