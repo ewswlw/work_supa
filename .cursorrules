@@ -1,5 +1,5 @@
 
-## PROJECT AWARENESS & FILE MANAGEMENT
+## PROJECT AWARENESS & FILE MANAGEMENT + GENERAL
 - ALWAYS analyze the entire codebase before making changes
 - Map out all file dependencies and relationships before suggesting edits
 - Identify ALL files that need modification for any feature request
@@ -7,6 +7,9 @@
 - Before suggesting new components, check if existing ones can be modified
 - Always consider the ripple effects of changes across the entire application
 - Provide a comprehensive list of files to edit with reasoning for each change
+- always include the .cursorrules file for context
+- always create tests in the test folder where applicable
+- you must always exececute all code in my current poetry env
 
 ## GENERAL
 - where applicable, ask me clarifying questions until you are 95% confident you can complete the task successfully 
@@ -25,8 +28,7 @@
 - Add proper TypeScript return types for all functions
 - Use proper async/await instead of promises where possible
 - Implement proper component lifecycle management
-- always create tests in the test folder where applicable
-- you must always exececute all code in my current poetry env
+
 
 ## BEFORE ANY CODE CHANGE
 1. Analyze the entire project structure
