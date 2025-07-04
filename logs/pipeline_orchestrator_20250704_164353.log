@@ -1,0 +1,29 @@
+[2025-07-04 16:43:53,155] INFO: [INFO] MASTER PIPELINE ORCHESTRATOR STARTING
+[2025-07-04 16:43:53,155] INFO: ============================================================
+[2025-07-04 16:43:53,156] INFO: Timestamp: 2025-07-04T16:43:53.156277
+[2025-07-04 16:43:53,156] INFO: Arguments: {'full': False, 'universe': False, 'portfolio': False, 'historical_gspread': False, 'gspread_analytics': False, 'runs': False, 'dry_run': False, 'validate_only': False, 'resume_from': None, 'force': False, 'parallel': False, 'config': 'config/config.yaml', 'log_level': 'INFO', 'log_file': None, 'monitor': False, 'report': False, 'notify': None, 'menu': False}
+[2025-07-04 16:43:53,158] INFO: ============================================================
+[2025-07-04 16:43:53,160] INFO: [PLAN] Creating pipeline execution plan...
+[2025-07-04 16:43:53,160] INFO: [PLAN] Execution plan created:
+[2025-07-04 16:43:53,160] INFO:   Stages: 6
+[2025-07-04 16:43:53,160] INFO:   Parallel groups: 2
+[2025-07-04 16:43:53,168] INFO:   Estimated duration: 0:07:00
+[2025-07-04 16:43:53,168] INFO: [START] Starting pipeline execution...
+[2025-07-04 16:43:53,168] INFO: [STEP] Executing step 1/2: ['universe', 'portfolio', 'runs-excel', 'historical-gspread']
+[2025-07-04 16:43:53,168] INFO: [RUN] Executing universe...
+[2025-07-04 16:43:56,938] INFO: [OK] universe completed in 0:00:03.769080
+[2025-07-04 16:43:56,939] INFO:    Records processed: 56,136
+[2025-07-04 16:43:56,939] INFO:    Output files: 1
+[2025-07-04 16:43:56,940] INFO: [RUN] Executing portfolio...
+[2025-07-04 16:44:00,072] INFO: [OK] portfolio completed in 0:00:03.132316
+[2025-07-04 16:44:00,073] INFO:    Records processed: 59,686
+[2025-07-04 16:44:00,073] INFO:    Output files: 1
+[2025-07-04 16:44:00,073] INFO: [RUN] Executing runs-excel...
+[2025-07-04 16:44:02,385] ERROR: [FAIL] runs-excel failed after 0:00:02.309573
+[2025-07-04 16:44:02,385] ERROR: [FAIL] Stage runs-excel failed, stopping execution
+[2025-07-04 16:44:02,385] INFO: [STEP] Executing step 2/2: ['gspread-analytics', 'runs-monitor']
+[2025-07-04 16:44:02,385] INFO: [RUN] Executing gspread-analytics...
+[2025-07-04 16:44:06,432] ERROR: Stage gspread-analytics failed: 'utf-8' codec can't decode byte 0x95 in position 186: invalid start byte: 'utf-8' codec can't decode byte 0x95 in position 186: invalid start byte
+[2025-07-04 16:44:06,432] ERROR: [FAIL] Stage gspread-analytics failed, stopping execution
+[2025-07-04 16:44:06,432] INFO: [COMPLETE] PIPELINE ORCHESTRATION COMPLETE
+[2025-07-04 16:44:06,432] INFO: [DONE] Pipeline orchestrator shutdown complete

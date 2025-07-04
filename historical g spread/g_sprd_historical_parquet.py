@@ -137,7 +137,7 @@ def merge_runs_monitor_with_bond_z(logger):
         return bond_z_enhanced
         
     except Exception as e:
-        logger.error(f"Error enhancing bond_z with runs monitor data: {str(e)}", exc_info=True)
+        logger.error(f"Error enhancing bond_z with runs monitor data: {str(e)}")
         return None
 
 if __name__ == "__main__":
@@ -202,5 +202,5 @@ if __name__ == "__main__":
             logger.error("Bond Z enhancement failed!")
             
     except Exception as e:
-        logger.error("Enhanced G spread processing pipeline failed.", exc_info=True)
+        logger.error("Enhanced G spread processing pipeline failed.")
         raise 

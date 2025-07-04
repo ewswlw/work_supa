@@ -46,7 +46,7 @@ class LogManager:
     def error(self, msg: str, exc: Optional[Exception] = None):
         """Log an error message with optional exception"""
         if exc:
-            self.logger.error(f"{msg}: {str(exc)}", exc_info=True)
+            self.logger.error(f"{msg}: {str(exc)}")
         else:
             self.logger.error(msg)
     
@@ -62,6 +62,6 @@ class LogManager:
     def log_error(msg: str, exc: Optional[Exception] = None):
         """Static method to log an error message with optional exception"""
         if exc:
-            logging.error(f"{msg}: {str(exc)}", exc_info=True)
+            logging.error(f"{msg}: {str(exc)}")
         else:
             logging.error(msg) 

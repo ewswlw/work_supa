@@ -840,3 +840,535 @@ Sample dates:
 [2025-07-04 15:52:36,014] INFO: Total rows in final dataset: 232284
 [2025-07-04 15:52:36,014] INFO: 
 ===== Pipeline Complete: 2025-07-04 15:52:36.014728 =====
+[2025-07-04 16:17:20,822] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:17:20.822718 =====
+[2025-07-04 16:17:20,823] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:17:20,824] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:17:20,824] INFO: Found 22 Excel files.
+[2025-07-04 16:17:20,824] INFO: 
+Checking file modification dates:
+[2025-07-04 16:17:20,825] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:17:20,825] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:17:20,825] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:17:20,825] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:17:20,826] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:17:20,826] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:17:20,826] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:17:20,826] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:17:20,826] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:17:20,826] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:17:20,826] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:17:20,826] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:17:20,826] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:17:20,826] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:17:20,827] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:17:20,827] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:17:20,827] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:17:20,827] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:17:20,827] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:17:20,827] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:17:20,827] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:17:20,828] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:17:20,828] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:17:20,828] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:35:59,472] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:35:59.472014 =====
+[2025-07-04 16:35:59,472] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:35:59,473] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:35:59,473] INFO: Found 22 Excel files.
+[2025-07-04 16:35:59,473] INFO: 
+Checking file modification dates:
+[2025-07-04 16:35:59,473] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:35:59,474] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:35:59,474] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:35:59,474] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:35:59,474] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:35:59,474] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:35:59,474] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:35:59,474] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:35:59,474] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:35:59,474] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:35:59,474] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:35:59,474] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:35:59,474] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:35:59,474] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:35:59,474] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:35:59,474] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:35:59,474] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:35:59,474] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:35:59,474] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:35:59,474] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:35:59,474] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:35:59,474] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:35:59,474] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:35:59,474] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:36:14,496] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:36:14.496310 =====
+[2025-07-04 16:36:14,496] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:36:14,497] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:36:14,497] INFO: Found 22 Excel files.
+[2025-07-04 16:36:14,497] INFO: 
+Checking file modification dates:
+[2025-07-04 16:36:14,497] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:36:14,497] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:36:14,498] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:36:14,498] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:36:14,498] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:36:14,498] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:36:14,498] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:36:14,498] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:36:14,498] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:36:14,498] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:36:14,498] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:36:14,498] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:36:14,498] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:36:14,499] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:36:14,499] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:36:14,499] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:36:14,499] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:36:14,499] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:36:14,499] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:36:14,499] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:36:14,499] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:36:14,499] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:36:14,499] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:36:14,499] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:36:48,335] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:36:48.335547 =====
+[2025-07-04 16:36:48,335] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:36:48,336] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:36:48,337] INFO: Found 22 Excel files.
+[2025-07-04 16:36:48,337] INFO: 
+Checking file modification dates:
+[2025-07-04 16:36:48,337] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:36:48,337] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:36:48,337] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:36:48,337] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:36:48,338] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:36:48,338] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:36:48,338] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:36:48,338] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:36:48,338] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:36:48,338] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:36:48,338] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:36:48,338] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:36:48,338] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:36:48,338] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:36:48,338] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:36:48,339] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:36:48,339] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:36:48,339] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:36:48,339] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:36:48,339] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:36:48,339] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:36:48,339] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:36:48,339] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:36:48,339] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:38:34,743] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:38:34.743093 =====
+[2025-07-04 16:38:34,743] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:38:34,744] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:38:34,745] INFO: Found 22 Excel files.
+[2025-07-04 16:38:34,745] INFO: 
+Checking file modification dates:
+[2025-07-04 16:38:34,745] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:38:34,745] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:38:34,745] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:38:34,745] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:38:34,745] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:38:34,746] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:38:34,746] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:38:34,746] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:38:34,746] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:38:34,746] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:38:34,746] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:38:34,746] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:38:34,746] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:38:34,746] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:38:34,746] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:38:34,747] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:38:34,747] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:38:34,747] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:38:34,747] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:38:34,747] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:38:34,747] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:38:34,747] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:38:34,747] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:38:34,747] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:42:17,522] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:42:17.522495 =====
+[2025-07-04 16:42:17,523] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:42:17,524] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:42:17,524] INFO: Found 22 Excel files.
+[2025-07-04 16:42:17,524] INFO: 
+Checking file modification dates:
+[2025-07-04 16:42:17,524] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:42:17,524] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:42:17,524] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:42:17,525] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:42:17,525] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:42:17,525] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:42:17,525] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:42:17,525] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:42:17,526] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:42:17,526] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:42:17,526] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:42:17,526] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:42:17,526] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:42:17,526] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:42:17,526] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:42:17,526] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:42:17,526] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:42:17,526] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:42:17,526] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:42:17,527] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:42:17,527] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:42:17,527] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:42:17,527] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:42:17,527] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:43:26,550] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:43:26.550423 =====
+[2025-07-04 16:43:26,550] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:43:26,550] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:43:26,550] INFO: Found 22 Excel files.
+[2025-07-04 16:43:26,550] INFO: 
+Checking file modification dates:
+[2025-07-04 16:43:26,550] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:43:26,550] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:43:26,550] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:43:26,550] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:43:26,550] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:43:26,550] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:43:26,550] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:43:26,550] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:43:26,550] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:43:26,550] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:43:26,550] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:43:26,550] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:43:26,550] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:43:26,550] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:43:26,550] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:43:26,550] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:43:26,550] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:43:26,550] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:43:26,550] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:43:26,550] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:43:26,550] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:43:26,550] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:43:26,550] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:43:26,550] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:44:02,271] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:44:02.271585 =====
+[2025-07-04 16:44:02,271] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:44:02,271] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:44:02,271] INFO: Found 22 Excel files.
+[2025-07-04 16:44:02,271] INFO: 
+Checking file modification dates:
+[2025-07-04 16:44:02,271] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:44:02,271] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:44:02,271] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:44:02,271] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:44:02,271] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:44:02,271] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:44:02,271] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:44:02,271] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:44:02,271] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:44:02,271] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:44:02,271] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:44:02,271] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:44:02,271] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:44:02,271] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:44:02,271] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:44:02,271] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:44:02,271] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:44:02,271] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:44:02,276] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:44:02,276] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:44:02,276] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:44:02,276] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:44:02,276] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:44:02,276] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:46:54,308] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:46:54.308565 =====
+[2025-07-04 16:46:54,308] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:46:54,309] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:46:54,310] INFO: Found 22 Excel files.
+[2025-07-04 16:46:54,310] INFO: 
+Checking file modification dates:
+[2025-07-04 16:46:54,310] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:46:54,310] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:46:54,310] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:46:54,310] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:46:54,310] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:46:54,311] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:46:54,311] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:46:54,311] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:46:54,311] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:46:54,311] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:46:54,311] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:46:54,311] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:46:54,311] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:46:54,311] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:46:54,311] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:46:54,312] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:46:54,312] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:46:54,312] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:46:54,312] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:46:54,312] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:46:54,312] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:46:54,312] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:46:54,312] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:46:54,312] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:49:02,648] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:49:02.648663 =====
+[2025-07-04 16:49:02,648] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:49:02,649] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:49:02,650] INFO: Found 22 Excel files.
+[2025-07-04 16:49:02,650] INFO: 
+Checking file modification dates:
+[2025-07-04 16:49:02,650] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:49:02,650] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:49:02,650] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:49:02,650] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:49:02,650] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:49:02,650] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:49:02,651] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:49:02,651] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:49:02,651] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:49:02,652] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:49:02,652] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:49:02,652] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:49:02,652] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:49:02,652] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:49:02,652] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:49:02,652] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:49:02,652] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:49:02,652] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:49:02,652] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:49:02,652] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:49:02,652] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:49:02,652] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:49:02,653] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:49:02,653] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:49:37,375] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:49:37.375528 =====
+[2025-07-04 16:49:37,375] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:49:37,377] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:49:37,377] INFO: Found 22 Excel files.
+[2025-07-04 16:49:37,377] INFO: 
+Checking file modification dates:
+[2025-07-04 16:49:37,377] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:49:37,377] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:49:37,378] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:49:37,378] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:49:37,378] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:49:37,378] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:49:37,378] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:49:37,378] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:49:37,378] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:49:37,378] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:49:37,378] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:49:37,378] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:49:37,379] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:49:37,379] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:49:37,379] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:49:37,379] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:49:37,379] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:49:37,379] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:49:37,379] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:49:37,379] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:49:37,379] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:49:37,379] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:49:37,380] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:49:37,380] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:51:21,072] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:51:21.072731 =====
+[2025-07-04 16:51:21,072] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:51:21,072] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:51:21,072] INFO: Found 22 Excel files.
+[2025-07-04 16:51:21,072] INFO: 
+Checking file modification dates:
+[2025-07-04 16:51:21,072] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:51:21,072] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:51:21,072] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:51:21,072] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:51:21,072] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:51:21,072] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:51:21,082] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:51:21,082] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:51:21,082] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:51:21,082] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:51:21,082] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:51:21,082] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:51:21,082] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:51:21,082] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:51:21,082] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:51:21,082] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:51:21,082] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:51:21,082] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:51:21,082] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:51:21,082] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:51:21,082] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:51:21,082] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:51:21,082] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:51:21,082] INFO: No DataFrames loaded successfully. Exiting.
+[2025-07-04 16:51:41,709] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:51:41.709199 =====
+[2025-07-04 16:51:41,709] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:51:41,709] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:51:41,709] INFO: FORCE-ALL mode: Will process all files regardless of modification date
+[2025-07-04 16:51:41,709] INFO: Found 22 Excel files.
+[2025-07-04 16:51:41,709] INFO: 
+FORCE-ALL mode: Processing all files:
+[2025-07-04 16:51:41,709] INFO: File 1: RUNS 01.02.24.xlsx
+[2025-07-04 16:51:41,709] INFO: File 2: RUNS 01.02.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 3: RUNS 01.03.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 4: RUNS 01.13.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 5: RUNS 01.14.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 6: RUNS 04.01.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 7: RUNS 05.01.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 8: RUNS 05.28.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 9: RUNS 05.29.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 10: RUNS 05.30.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 11: RUNS 06.02.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 12: RUNS 06.10.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 13: RUNS 06.11.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 14: RUNS 06.12.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 15: RUNS 06.13.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 16: RUNS 06.17.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 17: RUNS 06.26.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 18: RUNS 06.30.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 19: RUNS 07.02.25.xlsx
+[2025-07-04 16:51:41,709] INFO: File 20: RUNS 11.01.23.xlsx
+[2025-07-04 16:51:41,709] INFO: File 21: RUNS 12.29.23.xlsx
+[2025-07-04 16:51:41,709] INFO: File 22: RUNS 12.31.22.xlsx
+[2025-07-04 16:51:41,709] INFO: Loading files in parallel with 20 workers...
+[2025-07-04 16:53:37,688] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:53:37.688738 =====
+[2025-07-04 16:53:37,688] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:53:37,689] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:53:37,690] INFO: Found 22 Excel files.
+[2025-07-04 16:53:37,690] INFO: 
+Checking file modification dates:
+[2025-07-04 16:53:37,690] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:53:37,690] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:53:37,690] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:53:37,691] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:53:37,691] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:53:37,691] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:53:37,691] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:53:37,691] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:53:37,691] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:53:37,692] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:53:37,692] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:53:37,692] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:53:37,692] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:53:37,692] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:53:37,692] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:53:37,692] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:53:37,692] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:53:37,693] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:53:37,693] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:53:37,693] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:53:37,693] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:53:37,693] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:53:37,694] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:53:37,694] INFO: No new files to process. Checking if existing data is available...
+[2025-07-04 16:53:37,694] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-04 16:53:37,970] INFO: Existing data shape: (232284, 30)
+[2025-07-04 16:53:37,970] INFO: Records processed: 232284
+[2025-07-04 16:53:37,970] INFO: Output files: 1
+[2025-07-04 16:53:37,970] INFO: No processing needed - using existing data.
+[2025-07-04 16:53:37,970] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-04 16:53:37.970366 =====
+[2025-07-04 16:54:09,387] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:54:09.387990 =====
+[2025-07-04 16:54:09,388] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:54:09,389] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:54:09,389] INFO: Found 22 Excel files.
+[2025-07-04 16:54:09,389] INFO: 
+Checking file modification dates:
+[2025-07-04 16:54:09,389] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:54:09,389] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:54:09,389] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:54:09,390] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:54:09,390] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:54:09,390] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:54:09,390] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:54:09,390] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:54:09,390] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:54:09,390] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:54:09,390] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:54:09,390] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:54:09,390] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:54:09,390] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:54:09,391] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:54:09,391] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:54:09,391] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:54:09,391] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:54:09,391] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:54:09,391] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:54:09,391] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:54:09,391] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:54:09,391] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:54:09,391] INFO: No new files to process. Checking if existing data is available...
+[2025-07-04 16:54:09,391] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-04 16:54:09,561] INFO: Existing data shape: (232284, 30)
+[2025-07-04 16:54:09,561] INFO: Records processed: 232284
+[2025-07-04 16:54:09,561] INFO: Output files: 1
+[2025-07-04 16:54:09,561] INFO: No processing needed - using existing data.
+[2025-07-04 16:54:09,561] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-04 16:54:09.561201 =====
+[2025-07-04 16:54:12,690] INFO: 
+===== Starting Data Pipeline: 2025-07-04 16:54:12.690731 =====
+[2025-07-04 16:54:12,690] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 16:54:12,691] INFO: Last processed date: 2025-07-04
+[2025-07-04 16:54:12,692] INFO: Found 22 Excel files.
+[2025-07-04 16:54:12,692] INFO: 
+Checking file modification dates:
+[2025-07-04 16:54:12,692] INFO: File: RUNS 01.02.24.xlsx, Modified: 2024-01-02
+[2025-07-04 16:54:12,692] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-01-02
+[2025-07-04 16:54:12,692] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-01-03
+[2025-07-04 16:54:12,692] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-01-13
+[2025-07-04 16:54:12,692] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-01-14
+[2025-07-04 16:54:12,692] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-04-01
+[2025-07-04 16:54:12,692] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-05-01
+[2025-07-04 16:54:12,692] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-05-28
+[2025-07-04 16:54:12,692] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-05-29
+[2025-07-04 16:54:12,692] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-05-30
+[2025-07-04 16:54:12,693] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-06-02
+[2025-07-04 16:54:12,693] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-06-10
+[2025-07-04 16:54:12,693] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-06-11
+[2025-07-04 16:54:12,693] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-06-12
+[2025-07-04 16:54:12,693] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-06-13
+[2025-07-04 16:54:12,693] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-06-17
+[2025-07-04 16:54:12,694] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-06-26
+[2025-07-04 16:54:12,694] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-06-30
+[2025-07-04 16:54:12,694] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-02
+[2025-07-04 16:54:12,694] INFO: File: RUNS 11.01.23.xlsx, Modified: 2023-11-01
+[2025-07-04 16:54:12,695] INFO: File: RUNS 12.29.23.xlsx, Modified: 2023-12-29
+[2025-07-04 16:54:12,695] INFO: File: RUNS 12.31.22.xlsx, Modified: 2023-05-20
+[2025-07-04 16:54:12,695] INFO: 
+Found 0 new or modified files to process.
+[2025-07-04 16:54:12,695] INFO: No new files to process. Checking if existing data is available...
+[2025-07-04 16:54:12,695] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-04 16:54:12,877] INFO: Existing data shape: (232284, 30)
+[2025-07-04 16:54:12,877] INFO: Records processed: 232284
+[2025-07-04 16:54:12,877] INFO: Output files: 1
+[2025-07-04 16:54:12,877] INFO: No processing needed - using existing data.
+[2025-07-04 16:54:12,878] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-04 16:54:12.878374 =====

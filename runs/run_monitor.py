@@ -42,9 +42,9 @@ class RunMonitor:
         self.min_size_threshold = 2_000_000  # 2M minimum size
         
         print("="*80)
-        print("🎯 ADVANCED RUN MONITOR - TRADING ANALYSIS SYSTEM")
+        print("[INFO] ADVANCED RUN MONITOR - TRADING ANALYSIS SYSTEM")
         print("="*80)
-        print(f"📁 Source File: {self.source_file}")
+        print(f"[FILE] Source File: {self.source_file}")
         print(f"📂 Output Directory: {self.output_dir}")
         print(f"💰 Size Threshold: {self.min_size_threshold:,}")
         print("="*80)
@@ -56,7 +56,7 @@ class RunMonitor:
         
         try:
             # Load the data
-            print(f"📈 Loading data from {self.source_file}...")
+            print(f"[INFO] Loading data from {self.source_file}...")
             self.df = pd.read_parquet(self.source_file)
             print(f"✅ Loaded {len(self.df):,} records with {self.df.shape[1]} columns")
             
@@ -94,7 +94,7 @@ class RunMonitor:
             print(f"🧾 Unique CUSIPs: {self.df['CUSIP'].nunique()}")
             
         except Exception as e:
-            print(f"❌ ERROR loading data: {e}")
+            print(f"[FAIL] ERROR loading data: {e}")
             raise
 
     def calculate_period_changes(self):
@@ -342,7 +342,7 @@ class RunMonitor:
         print("-" * 50)
         
         if self.results is None:
-            print("❌ No results to save. Run generate_final_report() first.")
+            print("[FAIL] No results to save. Run generate_final_report() first.")
             return
         
         # Ensure output directory exists
@@ -374,7 +374,7 @@ class RunMonitor:
             print(f"   Analysis Date: {self.most_recent_date.strftime('%Y-%m-%d')}")
             
         except Exception as e:
-            print(f"❌ ERROR saving files: {e}")
+            print(f"[FAIL] ERROR saving files: {e}")
             raise
 
     def _get_quarter_start(self, date):
@@ -417,7 +417,7 @@ class RunMonitor:
             print(f"⏰ Completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
             print(f"📊 Final dataset: {len(results):,} records × {len(results.columns)} columns")
             print(f"📅 Analysis date: {self.most_recent_date.strftime('%Y-%m-%d')}")
-            print(f"📁 Files saved:")
+            print(f"[FILE] Files saved:")
             print(f"   • Parquet: runs/run_monitor.parquet")
             print(f"   • CSV: runs/processed runs data/run_monitor.csv")
             print("="*80)
@@ -425,7 +425,7 @@ class RunMonitor:
             return results
             
         except Exception as e:
-            print(f"\n❌ ANALYSIS FAILED: {e}")
+            print(f"\n[FAIL] ANALYSIS FAILED: {e}")
             print("="*80)
             raise
 
@@ -450,7 +450,7 @@ def main():
         return results
         
     except Exception as e:
-        print(f"❌ FATAL ERROR: {e}")
+        print(f"[FAIL] FATAL ERROR: {e}")
         return None
 
 if __name__ == "__main__":

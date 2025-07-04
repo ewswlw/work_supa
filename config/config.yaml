@@ -1,3 +1,17 @@
+# Pipeline Orchestration Configuration
+orchestration:
+  max_parallel_stages: 3
+  retry_attempts: 2
+  retry_delay_seconds: 30
+  timeout_minutes: 60
+  enable_monitoring: true
+  notification_endpoints:
+    - "console"
+  checkpoint_interval: 5  # minutes
+  fail_fast: false
+  continue_on_warnings: true
+  save_partial_results: true
+
 pipeline:
   input_dir: "runs/older files"
   file_pattern: "*.xls*"

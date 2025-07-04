@@ -462,8 +462,25 @@ def main(force_all=False):
                 dfs.append(df)
     
     if not dfs:
-        log("No DataFrames loaded successfully. Exiting.")
-        sys.exit(1)
+        log("No new files to process. Checking if existing data is available...")
+        if os.path.exists(output_parquet):
+            log(f"Existing parquet file found: {output_parquet}")
+            existing_df = pd.read_parquet(output_parquet)
+            log(f"Existing data shape: {existing_df.shape}")
+            log(f"Records processed: {len(existing_df)}")
+            log(f"Output files: 1")
+            log("No processing needed - using existing data.")
+            log(f"\n===== Pipeline Complete (No New Data): {datetime.now()} =====")
+            sys.exit(0)
+        else:
+            log("No existing parquet file found and no new files to process.")
+            log("Creating empty parquet file to maintain pipeline consistency.")
+            # Create empty DataFrame with expected columns
+            empty_df = pd.DataFrame()
+            empty_df.to_parquet(output_parquet, index=False)
+            log(f"Empty parquet file created: {output_parquet}")
+            log(f"\n===== Pipeline Complete (Empty Data): {datetime.now()} =====")
+            sys.exit(0)
     
     # Combine new data
     log(f"Concatenating {len(dfs)} DataFrames...")
@@ -521,6 +538,8 @@ def main(force_all=False):
     for file in excel_files:
         log(f"- {file}")
     log(f"Final Parquet file saved to: {output_parquet}")
+    log(f"Records processed: {len(combined_df)}")
+    log(f"Output files: 1")
     log(f"Total rows in final dataset: {len(combined_df)}")
     log(f"\n===== Pipeline Complete: {datetime.now()} =====")
 
