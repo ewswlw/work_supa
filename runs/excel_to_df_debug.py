@@ -33,7 +33,7 @@ import argparse
 # ===================== CONFIG SECTION =====================
 CONFIG = {
     # Directory containing Excel files
-    'INPUT_DIR': os.path.join(os.path.dirname(__file__), 'older files'),
+    'INPUT_DIR': os.path.join(os.path.dirname(__file__), 'raw'),
     # Glob pattern for Excel files
     'FILE_PATTERN': '*.xls*',
     # Output Parquet file

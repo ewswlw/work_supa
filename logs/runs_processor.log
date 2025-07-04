@@ -1,0 +1,842 @@
+[2025-07-04 15:51:20,607] INFO: 
+===== Starting Data Pipeline: 2025-07-04 15:51:20.607929 =====
+[2025-07-04 15:51:20,607] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\older files', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 15:51:20,607] INFO: Last processed date: None
+[2025-07-04 15:51:20,607] INFO: ERROR: Directory not found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\older files
+[2025-07-04 15:51:44,437] INFO: 
+===== Starting Data Pipeline: 2025-07-04 15:51:44.437226 =====
+[2025-07-04 15:51:44,437] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-04 15:51:44,439] INFO: Last processed date: None
+[2025-07-04 15:51:44,440] INFO: Found 22 Excel files.
+[2025-07-04 15:51:44,440] INFO: 
+No last processed date found. Processing all files:
+[2025-07-04 15:51:44,440] INFO: File 1: RUNS 01.02.24.xlsx
+[2025-07-04 15:51:44,440] INFO: File 2: RUNS 01.02.25.xlsx
+[2025-07-04 15:51:44,440] INFO: File 3: RUNS 01.03.25.xlsx
+[2025-07-04 15:51:44,440] INFO: File 4: RUNS 01.13.25.xlsx
+[2025-07-04 15:51:44,440] INFO: File 5: RUNS 01.14.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 6: RUNS 04.01.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 7: RUNS 05.01.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 8: RUNS 05.28.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 9: RUNS 05.29.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 10: RUNS 05.30.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 11: RUNS 06.02.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 12: RUNS 06.10.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 13: RUNS 06.11.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 14: RUNS 06.12.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 15: RUNS 06.13.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 16: RUNS 06.17.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 17: RUNS 06.26.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 18: RUNS 06.30.25.xlsx
+[2025-07-04 15:51:44,441] INFO: File 19: RUNS 07.02.25.xlsx
+[2025-07-04 15:51:44,442] INFO: File 20: RUNS 11.01.23.xlsx
+[2025-07-04 15:51:44,442] INFO: File 21: RUNS 12.29.23.xlsx
+[2025-07-04 15:51:44,442] INFO: File 22: RUNS 12.31.22.xlsx
+[2025-07-04 15:51:44,442] INFO: Loading files in parallel with 20 workers...
+[2025-07-04 15:52:10,558] INFO: Loaded RUNS 01.03.25.xlsx: shape=(8911, 30)
+[2025-07-04 15:52:10,610] INFO: Parsing date/time columns for RUNS 01.03.25.xlsx
+[2025-07-04 15:52:10,643] INFO:   Original Date column type: object
+[2025-07-04 15:52:10,831] INFO:   Successfully parsed 8911 dates using format '%m/%d/%y'
+[2025-07-04 15:52:10,991] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:11,061] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:11,104] INFO:   Original Time column type: object
+[2025-07-04 15:52:11,443] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:11,581] INFO:   Final Time column type: object
+[2025-07-04 15:52:11,599] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:12,942] INFO: Loaded RUNS 01.02.25.xlsx: shape=(10401, 30)
+[2025-07-04 15:52:12,974] INFO: Parsing date/time columns for RUNS 01.02.25.xlsx
+[2025-07-04 15:52:12,999] INFO:   Original Date column type: object
+[2025-07-04 15:52:13,421] INFO:   Successfully parsed 10401 dates using format '%m/%d/%y'
+[2025-07-04 15:52:13,505] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:13,557] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:13,599] INFO:   Original Time column type: object
+[2025-07-04 15:52:13,768] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:13,852] INFO:   Final Time column type: object
+[2025-07-04 15:52:13,882] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:20,377] INFO: Loaded RUNS 04.01.25.xlsx: shape=(11152, 30)
+[2025-07-04 15:52:20,410] INFO: Parsing date/time columns for RUNS 04.01.25.xlsx
+[2025-07-04 15:52:20,453] INFO:   Original Date column type: object
+[2025-07-04 15:52:20,801] INFO:   Successfully parsed 11152 dates using format '%m/%d/%y'
+[2025-07-04 15:52:20,832] INFO: Loaded RUNS 11.01.23.xlsx: shape=(11624, 30)
+[2025-07-04 15:52:20,890] INFO: Parsing date/time columns for RUNS 11.01.23.xlsx
+[2025-07-04 15:52:20,934] INFO:   Original Date column type: object
+[2025-07-04 15:52:20,971] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:21,069] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:21,087] INFO:   Original Time column type: object
+[2025-07-04 15:52:21,190] INFO:   Successfully parsed 11624 dates using format '%m/%d/%y'
+[2025-07-04 15:52:21,495] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:21,533] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:21,609] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:21,632] INFO:   Final Time column type: object
+[2025-07-04 15:52:21,683] INFO:   Original Time column type: object
+[2025-07-04 15:52:21,735] INFO: Loaded RUNS 06.10.25.xlsx: shape=(12615, 30)
+[2025-07-04 15:52:21,751] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:21,836] INFO: Parsing date/time columns for RUNS 06.10.25.xlsx
+[2025-07-04 15:52:21,885] INFO:   Original Date column type: object
+[2025-07-04 15:52:21,923] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:22,142] INFO:   Successfully parsed 12615 dates using format '%m/%d/%y'
+[2025-07-04 15:52:22,251] INFO:   Final Time column type: object
+[2025-07-04 15:52:22,289] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:22,290] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:22,319] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:22,419] INFO:   Original Time column type: object
+[2025-07-04 15:52:22,431] INFO: Loaded RUNS 12.31.22.xlsx: shape=(2605, 28)
+[2025-07-04 15:52:22,537] INFO: Parsing date/time columns for RUNS 12.31.22.xlsx
+[2025-07-04 15:52:22,567] INFO:   Original Date column type: object
+[2025-07-04 15:52:22,858] INFO:   Successfully parsed 2605 dates using format '%m/%d/%y'
+[2025-07-04 15:52:22,858] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:22,988] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:23,032] INFO:   Final Time column type: object
+[2025-07-04 15:52:23,050] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:23,085] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:23,124] INFO:   Original Time column type: object
+[2025-07-04 15:52:23,236] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:23,310] INFO:   Final Time column type: object
+[2025-07-04 15:52:23,324] INFO: Loaded RUNS 05.01.25.xlsx: shape=(11238, 30)
+[2025-07-04 15:52:23,352] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:23,394] INFO: Parsing date/time columns for RUNS 05.01.25.xlsx
+[2025-07-04 15:52:23,508] INFO:   Original Date column type: object
+[2025-07-04 15:52:23,663] INFO:   Successfully parsed 11238 dates using format '%m/%d/%y'
+[2025-07-04 15:52:23,801] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:23,853] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:23,891] INFO:   Original Time column type: object
+[2025-07-04 15:52:24,311] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:24,481] INFO:   Final Time column type: object
+[2025-07-04 15:52:24,496] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:24,574] INFO: Loaded RUNS 06.12.25.xlsx: shape=(13913, 30)
+[2025-07-04 15:52:24,625] INFO: Parsing date/time columns for RUNS 06.12.25.xlsx
+[2025-07-04 15:52:24,661] INFO:   Original Date column type: object
+[2025-07-04 15:52:24,855] INFO:   Successfully parsed 13913 dates using format '%m/%d/%y'
+[2025-07-04 15:52:24,956] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:25,005] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:25,023] INFO:   Original Time column type: object
+[2025-07-04 15:52:25,129] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:25,246] INFO:   Final Time column type: object
+[2025-07-04 15:52:25,277] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:25,672] INFO: Loaded RUNS 06.13.25.xlsx: shape=(13512, 30)
+[2025-07-04 15:52:25,713] INFO: Parsing date/time columns for RUNS 06.13.25.xlsx
+[2025-07-04 15:52:25,760] INFO:   Original Date column type: object
+[2025-07-04 15:52:25,870] INFO:   Successfully parsed 13512 dates using format '%m/%d/%y'
+[2025-07-04 15:52:25,923] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:25,950] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:25,975] INFO:   Original Time column type: object
+[2025-07-04 15:52:26,085] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:26,154] INFO:   Final Time column type: object
+[2025-07-04 15:52:26,206] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:27,309] INFO: Loaded RUNS 05.28.25.xlsx: shape=(10811, 30)
+[2025-07-04 15:52:27,355] INFO: Parsing date/time columns for RUNS 05.28.25.xlsx
+[2025-07-04 15:52:27,374] INFO:   Original Date column type: object
+[2025-07-04 15:52:27,548] INFO:   Successfully parsed 10811 dates using format '%m/%d/%y'
+[2025-07-04 15:52:27,573] INFO: Loaded RUNS 06.30.25.xlsx: shape=(12968, 30)
+[2025-07-04 15:52:27,579] INFO: Parsing date/time columns for RUNS 06.30.25.xlsx
+[2025-07-04 15:52:27,629] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:27,641] INFO: Loaded RUNS 01.13.25.xlsx: shape=(14883, 30)
+[2025-07-04 15:52:27,645] INFO:   Original Date column type: object
+[2025-07-04 15:52:27,654] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:27,693] INFO: Parsing date/time columns for RUNS 01.13.25.xlsx
+[2025-07-04 15:52:27,777] INFO:   Original Time column type: object
+[2025-07-04 15:52:27,791] INFO:   Successfully parsed 12968 dates using format '%m/%d/%y'
+[2025-07-04 15:52:28,031] INFO:   Original Date column type: object
+[2025-07-04 15:52:28,097] INFO:   Successfully parsed 14883 dates using format '%m/%d/%y'
+[2025-07-04 15:52:28,113] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:28,134] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:28,146] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:28,147] INFO:   Original Time column type: object
+[2025-07-04 15:52:28,193] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:28,220] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:28,226] INFO:   Original Time column type: object
+[2025-07-04 15:52:28,259] INFO:   Final Time column type: object
+[2025-07-04 15:52:28,266] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:28,291] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:28,375] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:28,394] INFO:   Final Time column type: object
+[2025-07-04 15:52:28,408] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:28,438] INFO:   Final Time column type: object
+[2025-07-04 15:52:28,457] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:28,491] INFO: Loaded RUNS 01.02.24.xlsx: shape=(13856, 30)
+[2025-07-04 15:52:28,518] INFO: Parsing date/time columns for RUNS 01.02.24.xlsx
+[2025-07-04 15:52:28,530] INFO:   Original Date column type: object
+[2025-07-04 15:52:28,625] INFO:   Successfully parsed 13856 dates using format '%m/%d/%y'
+[2025-07-04 15:52:28,742] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:28,773] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:28,959] INFO:   Original Time column type: object
+[2025-07-04 15:52:29,043] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:29,078] INFO:   Final Time column type: object
+[2025-07-04 15:52:29,098] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:29,261] INFO: Loaded RUNS 05.30.25.xlsx: shape=(13690, 30)
+[2025-07-04 15:52:29,289] INFO: Parsing date/time columns for RUNS 05.30.25.xlsx
+[2025-07-04 15:52:29,297] INFO:   Original Date column type: object
+[2025-07-04 15:52:29,352] INFO:   Successfully parsed 13690 dates using format '%m/%d/%y'
+[2025-07-04 15:52:29,379] INFO: Loaded RUNS 06.26.25.xlsx: shape=(13919, 30)
+[2025-07-04 15:52:29,379] INFO: Parsing date/time columns for RUNS 06.26.25.xlsx
+[2025-07-04 15:52:29,386] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:29,386] INFO:   Original Date column type: object
+[2025-07-04 15:52:29,407] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:29,432] INFO:   Original Time column type: object
+[2025-07-04 15:52:29,475] INFO:   Successfully parsed 13919 dates using format '%m/%d/%y'
+[2025-07-04 15:52:29,524] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:29,535] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:29,542] INFO:   Original Time column type: object
+[2025-07-04 15:52:29,545] INFO: Loaded RUNS 01.14.25.xlsx: shape=(15692, 30)
+[2025-07-04 15:52:29,565] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:29,587] INFO: Parsing date/time columns for RUNS 01.14.25.xlsx
+[2025-07-04 15:52:29,617] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:29,621] INFO:   Original Date column type: object
+[2025-07-04 15:52:29,626] INFO:   Final Time column type: object
+[2025-07-04 15:52:29,661] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:29,692] INFO:   Final Time column type: object
+[2025-07-04 15:52:29,692] INFO:   Successfully parsed 15692 dates using format '%m/%d/%y'
+[2025-07-04 15:52:29,692] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:29,738] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:29,762] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:29,775] INFO:   Original Time column type: object
+[2025-07-04 15:52:30,013] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:30,048] INFO:   Final Time column type: object
+[2025-07-04 15:52:30,058] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:30,282] INFO: Loaded RUNS 05.29.25.xlsx: shape=(14783, 30)
+[2025-07-04 15:52:30,282] INFO: Parsing date/time columns for RUNS 05.29.25.xlsx
+[2025-07-04 15:52:30,292] INFO:   Original Date column type: object
+[2025-07-04 15:52:30,370] INFO:   Successfully parsed 14783 dates using format '%m/%d/%y'
+[2025-07-04 15:52:30,422] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:30,560] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:30,572] INFO:   Original Time column type: object
+[2025-07-04 15:52:30,633] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:30,663] INFO:   Final Time column type: object
+[2025-07-04 15:52:30,669] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:30,707] INFO: Loaded RUNS 07.02.25.xlsx: shape=(15059, 30)
+[2025-07-04 15:52:30,712] INFO: Parsing date/time columns for RUNS 07.02.25.xlsx
+[2025-07-04 15:52:30,712] INFO:   Original Date column type: object
+[2025-07-04 15:52:30,749] INFO:   Successfully parsed 15059 dates using format '%m/%d/%y'
+[2025-07-04 15:52:30,775] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:30,775] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:30,790] INFO:   Original Time column type: object
+[2025-07-04 15:52:30,799] INFO: Loaded RUNS 06.17.25.xlsx: shape=(16854, 30)
+[2025-07-04 15:52:30,808] INFO: Parsing date/time columns for RUNS 06.17.25.xlsx
+[2025-07-04 15:52:30,812] INFO:   Original Date column type: object
+[2025-07-04 15:52:30,822] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:30,840] INFO:   Successfully parsed 16854 dates using format '%m/%d/%y'
+[2025-07-04 15:52:30,850] INFO:   Final Time column type: object
+[2025-07-04 15:52:30,879] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:30,889] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:30,895] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:30,906] INFO:   Original Time column type: object
+[2025-07-04 15:52:30,926] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:30,949] INFO:   Final Time column type: object
+[2025-07-04 15:52:30,956] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:31,153] INFO: Loaded RUNS 06.02.25.xlsx: shape=(15900, 30)
+[2025-07-04 15:52:31,155] INFO: Parsing date/time columns for RUNS 06.02.25.xlsx
+[2025-07-04 15:52:31,156] INFO:   Original Date column type: object
+[2025-07-04 15:52:31,160] INFO: Loaded RUNS 12.29.23.xlsx: shape=(7645, 30)
+[2025-07-04 15:52:31,161] INFO: Parsing date/time columns for RUNS 12.29.23.xlsx
+[2025-07-04 15:52:31,162] INFO:   Successfully parsed 15900 dates using format '%m/%d/%y'
+[2025-07-04 15:52:31,162] INFO:   Original Date column type: object
+[2025-07-04 15:52:31,164] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:31,168] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:31,168] INFO:   Successfully parsed 7645 dates using format '%m/%d/%y'
+[2025-07-04 15:52:31,168] INFO:   Original Time column type: object
+[2025-07-04 15:52:31,175] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:31,178] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:31,178] INFO: Loaded RUNS 06.11.25.xlsx: shape=(19142, 30)
+[2025-07-04 15:52:31,178] INFO:   Original Time column type: object
+[2025-07-04 15:52:31,178] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:31,178] INFO: Parsing date/time columns for RUNS 06.11.25.xlsx
+[2025-07-04 15:52:31,187] INFO:   Original Date column type: object
+[2025-07-04 15:52:31,188] INFO:   Final Time column type: object
+[2025-07-04 15:52:31,189] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:31,193] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:31,195] INFO:   Final Time column type: object
+[2025-07-04 15:52:31,196] INFO:   Successfully parsed 19142 dates using format '%m/%d/%y'
+[2025-07-04 15:52:31,196] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:31,198] INFO:   Final Date column type: datetime64[ns]
+[2025-07-04 15:52:31,199] INFO:   NaT (invalid dates) count: 0
+[2025-07-04 15:52:31,199] INFO:   Original Time column type: object
+[2025-07-04 15:52:31,206] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-04 15:52:31,208] INFO:   Final Time column type: object
+[2025-07-04 15:52:31,209] INFO:   NaN (invalid times) count: 0
+[2025-07-04 15:52:31,210] INFO: Concatenating 22 DataFrames...
+[2025-07-04 15:52:31,286] INFO: 
+===== DataFrame Validation NEW DATA =====
+[2025-07-04 15:52:31,286] INFO: 
+===== DataFrame Validation NEW DATA =====
+[2025-07-04 15:52:31,288] INFO: Shape: (281173, 30)
+[2025-07-04 15:52:31,288] INFO: Shape: (281173, 30)
+[2025-07-04 15:52:31,288] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-04 15:52:31,288] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-04 15:52:31,289] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-04 15:52:31,290] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-04 15:52:31,527] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 281173 entries, 0 to 281172
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     281173 non-null  object        
+ 1   Date                                   281173 non-null  datetime64[ns]
+ 2   Time                                   281173 non-null  object        
+ 3   Bid Workout Risk                       269598 non-null  float64       
+ 4   Ticker                                 281173 non-null  object        
+ 5   Dealer                                 281173 non-null  object        
+ 6   Source                                 281173 non-null  object        
+ 7   Security                               281173 non-null  object        
+ 8   Bid Price                              273338 non-null  float64       
+ 9   Ask Price                              275422 non-null  float64       
+ 10  Bid Spread                             277159 non-null  float64       
+ 11  Ask Spread                             279196 non-null  float64       
+ 12  Benchmark                              280885 non-null  object        
+ 13  Reference Benchmark                    280885 non-null  object        
+ 14  Bid Size                               273030 non-null  float64       
+ 15  Ask Size                               246987 non-null  float64       
+ 16  Sector                                 278568 non-null  object        
+ 17  Bid Yield To Convention                274552 non-null  float64       
+ 18  Ask Yield To Convention                275691 non-null  float64       
+ 19  Bid Discount Margin                    167 non-null     float64       
+ 20  Ask Discount Margin                    196 non-null     float64       
+ 21  CUSIP                                  281173 non-null  object        
+ 22  Sender Name                            281061 non-null  object        
+ 23  Currency                               281173 non-null  object        
+ 24  Subject                                276131 non-null  object        
+ 25  Keyword                                52478 non-null   object        
+ 26  Bid Interpolated Spread to Government  260688 non-null  float64       
+ 27  Ask Interpolated Spread to Government  235126 non-null  float64       
+ 28  Bid Contributed Yield                  98718 non-null   float64       
+ 29  Bid Z-spread                           41359 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 64.4+ MB
+
+[2025-07-04 15:52:31,527] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 281173 entries, 0 to 281172
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     281173 non-null  object        
+ 1   Date                                   281173 non-null  datetime64[ns]
+ 2   Time                                   281173 non-null  object        
+ 3   Bid Workout Risk                       269598 non-null  float64       
+ 4   Ticker                                 281173 non-null  object        
+ 5   Dealer                                 281173 non-null  object        
+ 6   Source                                 281173 non-null  object        
+ 7   Security                               281173 non-null  object        
+ 8   Bid Price                              273338 non-null  float64       
+ 9   Ask Price                              275422 non-null  float64       
+ 10  Bid Spread                             277159 non-null  float64       
+ 11  Ask Spread                             279196 non-null  float64       
+ 12  Benchmark                              280885 non-null  object        
+ 13  Reference Benchmark                    280885 non-null  object        
+ 14  Bid Size                               273030 non-null  float64       
+ 15  Ask Size                               246987 non-null  float64       
+ 16  Sector                                 278568 non-null  object        
+ 17  Bid Yield To Convention                274552 non-null  float64       
+ 18  Ask Yield To Convention                275691 non-null  float64       
+ 19  Bid Discount Margin                    167 non-null     float64       
+ 20  Ask Discount Margin                    196 non-null     float64       
+ 21  CUSIP                                  281173 non-null  object        
+ 22  Sender Name                            281061 non-null  object        
+ 23  Currency                               281173 non-null  object        
+ 24  Subject                                276131 non-null  object        
+ 25  Keyword                                52478 non-null   object        
+ 26  Bid Interpolated Spread to Government  260688 non-null  float64       
+ 27  Ask Interpolated Spread to Government  235126 non-null  float64       
+ 28  Bid Contributed Yield                  98718 non-null   float64       
+ 29  Bid Z-spread                           41359 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 64.4+ MB
+
+[2025-07-04 15:52:31,760] INFO: 
+Null values per column:
+[2025-07-04 15:52:31,760] INFO: 
+Null values per column:
+[2025-07-04 15:52:31,761] INFO: Reference Security: 0 (0.00%)
+[2025-07-04 15:52:31,761] INFO: Reference Security: 0 (0.00%)
+[2025-07-04 15:52:31,761] INFO: Date: 0 (0.00%)
+[2025-07-04 15:52:31,761] INFO: Date: 0 (0.00%)
+[2025-07-04 15:52:31,761] INFO: Time: 0 (0.00%)
+[2025-07-04 15:52:31,761] INFO: Time: 0 (0.00%)
+[2025-07-04 15:52:31,761] INFO: Bid Workout Risk: 11575 (4.12%)
+[2025-07-04 15:52:31,761] INFO: Bid Workout Risk: 11575 (4.12%)
+[2025-07-04 15:52:31,761] INFO: Ticker: 0 (0.00%)
+[2025-07-04 15:52:31,762] INFO: Ticker: 0 (0.00%)
+[2025-07-04 15:52:31,762] INFO: Dealer: 0 (0.00%)
+[2025-07-04 15:52:31,762] INFO: Dealer: 0 (0.00%)
+[2025-07-04 15:52:31,762] INFO: Source: 0 (0.00%)
+[2025-07-04 15:52:31,762] INFO: Source: 0 (0.00%)
+[2025-07-04 15:52:31,762] INFO: Security: 0 (0.00%)
+[2025-07-04 15:52:31,762] INFO: Security: 0 (0.00%)
+[2025-07-04 15:52:31,762] INFO: Bid Price: 7835 (2.79%)
+[2025-07-04 15:52:31,762] INFO: Bid Price: 7835 (2.79%)
+[2025-07-04 15:52:31,762] INFO: Ask Price: 5751 (2.05%)
+[2025-07-04 15:52:31,762] INFO: Ask Price: 5751 (2.05%)
+[2025-07-04 15:52:31,762] INFO: Bid Spread: 4014 (1.43%)
+[2025-07-04 15:52:31,763] INFO: Bid Spread: 4014 (1.43%)
+[2025-07-04 15:52:31,763] INFO: Ask Spread: 1977 (0.70%)
+[2025-07-04 15:52:31,763] INFO: Ask Spread: 1977 (0.70%)
+[2025-07-04 15:52:31,763] INFO: Benchmark: 288 (0.10%)
+[2025-07-04 15:52:31,763] INFO: Benchmark: 288 (0.10%)
+[2025-07-04 15:52:31,763] INFO: Reference Benchmark: 288 (0.10%)
+[2025-07-04 15:52:31,763] INFO: Reference Benchmark: 288 (0.10%)
+[2025-07-04 15:52:31,763] INFO: Bid Size: 8143 (2.90%)
+[2025-07-04 15:52:31,763] INFO: Bid Size: 8143 (2.90%)
+[2025-07-04 15:52:31,763] INFO: Ask Size: 34186 (12.16%)
+[2025-07-04 15:52:31,763] INFO: Ask Size: 34186 (12.16%)
+[2025-07-04 15:52:31,764] INFO: Sector: 2605 (0.93%)
+[2025-07-04 15:52:31,764] INFO: Sector: 2605 (0.93%)
+[2025-07-04 15:52:31,764] INFO: Bid Yield To Convention: 6621 (2.35%)
+[2025-07-04 15:52:31,764] INFO: Bid Yield To Convention: 6621 (2.35%)
+[2025-07-04 15:52:31,764] INFO: Ask Yield To Convention: 5482 (1.95%)
+[2025-07-04 15:52:31,764] INFO: Ask Yield To Convention: 5482 (1.95%)
+[2025-07-04 15:52:31,764] INFO: Bid Discount Margin: 281006 (99.94%)
+[2025-07-04 15:52:31,764] INFO: Bid Discount Margin: 281006 (99.94%)
+[2025-07-04 15:52:31,764] INFO: Ask Discount Margin: 280977 (99.93%)
+[2025-07-04 15:52:31,764] INFO: Ask Discount Margin: 280977 (99.93%)
+[2025-07-04 15:52:31,765] INFO: CUSIP: 0 (0.00%)
+[2025-07-04 15:52:31,765] INFO: CUSIP: 0 (0.00%)
+[2025-07-04 15:52:31,765] INFO: Sender Name: 112 (0.04%)
+[2025-07-04 15:52:31,765] INFO: Sender Name: 112 (0.04%)
+[2025-07-04 15:52:31,765] INFO: Currency: 0 (0.00%)
+[2025-07-04 15:52:31,765] INFO: Currency: 0 (0.00%)
+[2025-07-04 15:52:31,765] INFO: Subject: 5042 (1.79%)
+[2025-07-04 15:52:31,765] INFO: Subject: 5042 (1.79%)
+[2025-07-04 15:52:31,765] INFO: Keyword: 228695 (81.34%)
+[2025-07-04 15:52:31,766] INFO: Keyword: 228695 (81.34%)
+[2025-07-04 15:52:31,767] INFO: Bid Interpolated Spread to Government: 20485 (7.29%)
+[2025-07-04 15:52:31,767] INFO: Bid Interpolated Spread to Government: 20485 (7.29%)
+[2025-07-04 15:52:31,768] INFO: Ask Interpolated Spread to Government: 46047 (16.38%)
+[2025-07-04 15:52:31,768] INFO: Ask Interpolated Spread to Government: 46047 (16.38%)
+[2025-07-04 15:52:31,768] INFO: Bid Contributed Yield: 182455 (64.89%)
+[2025-07-04 15:52:31,768] INFO: Bid Contributed Yield: 182455 (64.89%)
+[2025-07-04 15:52:31,769] INFO: Bid Z-spread: 239814 (85.29%)
+[2025-07-04 15:52:31,769] INFO: Bid Z-spread: 239814 (85.29%)
+[2025-07-04 15:52:32,122] INFO: 
+Duplicate rows: 8708
+[2025-07-04 15:52:32,123] INFO: 
+Duplicate rows: 8708
+[2025-07-04 15:52:32,123] INFO: 
+Numeric columns statistics:
+[2025-07-04 15:52:32,123] INFO: 
+Numeric columns statistics:
+[2025-07-04 15:52:32,347] INFO:        Bid Workout Risk      Bid Price      Ask Price  ...  Ask Interpolated Spread to Government  Bid Contributed Yield  Bid Z-spread
+count     269598.000000  273338.000000  275422.000000  ...                          235126.000000           98718.000000  41359.000000
+mean           5.523068      97.870608      98.208289  ...                             111.814716               4.226779    129.128132
+std            4.535364       7.513523       7.394968  ...                             128.072683               1.525158     62.352920
+min            0.010000       1.000000       1.000000  ...                           -3605.660000             -10.000000    -21.000000
+25%            2.090000      95.403000      95.797000  ...                              64.000000               3.420000     89.000000
+50%            3.860000      99.753000      99.923000  ...                              99.250000               4.110000    128.000000
+75%            7.880000     102.445000     102.668000  ...                             126.070000               4.790000    158.000000
+max           19.180000     121.830000     132.300000  ...                            9936.340000             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-04 15:52:32,347] INFO:        Bid Workout Risk      Bid Price      Ask Price  ...  Ask Interpolated Spread to Government  Bid Contributed Yield  Bid Z-spread
+count     269598.000000  273338.000000  275422.000000  ...                          235126.000000           98718.000000  41359.000000
+mean           5.523068      97.870608      98.208289  ...                             111.814716               4.226779    129.128132
+std            4.535364       7.513523       7.394968  ...                             128.072683               1.525158     62.352920
+min            0.010000       1.000000       1.000000  ...                           -3605.660000             -10.000000    -21.000000
+25%            2.090000      95.403000      95.797000  ...                              64.000000               3.420000     89.000000
+50%            3.860000      99.753000      99.923000  ...                              99.250000               4.110000    128.000000
+75%            7.880000     102.445000     102.668000  ...                             126.070000               4.790000    158.000000
+max           19.180000     121.830000     132.300000  ...                            9936.340000             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-04 15:52:32,347] INFO: Starting clean_and_deduplicate with 281173 rows
+[2025-07-04 15:52:32,450] INFO: After filtering negative Bid Size: 273030 rows (removed 8143)
+[2025-07-04 15:52:32,499] INFO: After filtering negative Ask Size: 242796 rows (removed 30234)
+[2025-07-04 15:52:32,539] INFO: After filtering negative Bid Price: 239335 rows (removed 3461)
+[2025-07-04 15:52:32,577] INFO: After filtering negative Ask Price: 239284 rows (removed 51)
+[2025-07-04 15:52:32,577] INFO: Date column type before sorting: datetime64[ns]
+[2025-07-04 15:52:32,577] INFO: Date column type after conversion: datetime64[ns]
+[2025-07-04 15:52:32,577] INFO: Sorting by Date and Time...
+[2025-07-04 15:52:32,638] INFO: After sorting by ['Date', 'Time']: 239284 rows
+[2025-07-04 15:52:32,639] INFO: Using deduplication columns: ['Date', 'Time', 'Dealer', 'Security', 'Bid Price', 'Ask Price', 'Bid Size', 'Ask Size', 'Bid Yield To Convention', 'Ask Yield To Convention']
+[2025-07-04 15:52:32,760] INFO: After deduplication: 232284 rows (removed 7000)
+[2025-07-04 15:52:32,760] INFO: Final Date column type: datetime64[ns]
+[2025-07-04 15:52:32,760] INFO: Final clean_and_deduplicate result: 232284 rows
+[2025-07-04 15:52:32,778] INFO: Cleaned new data shape: (232284, 30)
+[2025-07-04 15:52:32,778] INFO: No existing Parquet file found. Using only new data.
+[2025-07-04 15:52:32,778] INFO: 
+===== DataFrame Validation FINAL COMBINED DATA =====
+[2025-07-04 15:52:32,778] INFO: 
+===== DataFrame Validation FINAL COMBINED DATA =====
+[2025-07-04 15:52:32,778] INFO: Shape: (232284, 30)
+[2025-07-04 15:52:32,779] INFO: Shape: (232284, 30)
+[2025-07-04 15:52:32,779] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-04 15:52:32,779] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-04 15:52:32,780] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-04 15:52:32,781] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-04 15:52:32,974] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 232284 entries, 57280 to 209664
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     232284 non-null  object        
+ 1   Date                                   232284 non-null  datetime64[ns]
+ 2   Time                                   232284 non-null  object        
+ 3   Bid Workout Risk                       229640 non-null  float64       
+ 4   Ticker                                 232284 non-null  object        
+ 5   Dealer                                 232284 non-null  object        
+ 6   Source                                 232284 non-null  object        
+ 7   Security                               232284 non-null  object        
+ 8   Bid Price                              232284 non-null  float64       
+ 9   Ask Price                              232284 non-null  float64       
+ 10  Bid Spread                             232277 non-null  float64       
+ 11  Ask Spread                             232237 non-null  float64       
+ 12  Benchmark                              232163 non-null  object        
+ 13  Reference Benchmark                    232163 non-null  object        
+ 14  Bid Size                               232284 non-null  float64       
+ 15  Ask Size                               232284 non-null  float64       
+ 16  Sector                                 230288 non-null  object        
+ 17  Bid Yield To Convention                232279 non-null  float64       
+ 18  Ask Yield To Convention                232277 non-null  float64       
+ 19  Bid Discount Margin                    10 non-null      float64       
+ 20  Ask Discount Margin                    10 non-null      float64       
+ 21  CUSIP                                  232284 non-null  object        
+ 22  Sender Name                            232284 non-null  object        
+ 23  Currency                               232284 non-null  object        
+ 24  Subject                                230640 non-null  object        
+ 25  Keyword                                40945 non-null   object        
+ 26  Bid Interpolated Spread to Government  221442 non-null  float64       
+ 27  Ask Interpolated Spread to Government  205809 non-null  float64       
+ 28  Bid Contributed Yield                  87614 non-null   float64       
+ 29  Bid Z-spread                           30301 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 54.9+ MB
+
+[2025-07-04 15:52:32,975] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 232284 entries, 57280 to 209664
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     232284 non-null  object        
+ 1   Date                                   232284 non-null  datetime64[ns]
+ 2   Time                                   232284 non-null  object        
+ 3   Bid Workout Risk                       229640 non-null  float64       
+ 4   Ticker                                 232284 non-null  object        
+ 5   Dealer                                 232284 non-null  object        
+ 6   Source                                 232284 non-null  object        
+ 7   Security                               232284 non-null  object        
+ 8   Bid Price                              232284 non-null  float64       
+ 9   Ask Price                              232284 non-null  float64       
+ 10  Bid Spread                             232277 non-null  float64       
+ 11  Ask Spread                             232237 non-null  float64       
+ 12  Benchmark                              232163 non-null  object        
+ 13  Reference Benchmark                    232163 non-null  object        
+ 14  Bid Size                               232284 non-null  float64       
+ 15  Ask Size                               232284 non-null  float64       
+ 16  Sector                                 230288 non-null  object        
+ 17  Bid Yield To Convention                232279 non-null  float64       
+ 18  Ask Yield To Convention                232277 non-null  float64       
+ 19  Bid Discount Margin                    10 non-null      float64       
+ 20  Ask Discount Margin                    10 non-null      float64       
+ 21  CUSIP                                  232284 non-null  object        
+ 22  Sender Name                            232284 non-null  object        
+ 23  Currency                               232284 non-null  object        
+ 24  Subject                                230640 non-null  object        
+ 25  Keyword                                40945 non-null   object        
+ 26  Bid Interpolated Spread to Government  221442 non-null  float64       
+ 27  Ask Interpolated Spread to Government  205809 non-null  float64       
+ 28  Bid Contributed Yield                  87614 non-null   float64       
+ 29  Bid Z-spread                           30301 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 54.9+ MB
+
+[2025-07-04 15:52:33,160] INFO: 
+Null values per column:
+[2025-07-04 15:52:33,160] INFO: 
+Null values per column:
+[2025-07-04 15:52:33,160] INFO: Reference Security: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Reference Security: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Date: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Date: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Time: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Time: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Bid Workout Risk: 2644 (1.14%)
+[2025-07-04 15:52:33,160] INFO: Bid Workout Risk: 2644 (1.14%)
+[2025-07-04 15:52:33,160] INFO: Ticker: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Ticker: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Dealer: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Dealer: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Source: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Source: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Security: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Security: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Bid Price: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Bid Price: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Ask Price: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Ask Price: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Bid Spread: 7 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Bid Spread: 7 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Ask Spread: 47 (0.02%)
+[2025-07-04 15:52:33,160] INFO: Ask Spread: 47 (0.02%)
+[2025-07-04 15:52:33,160] INFO: Benchmark: 121 (0.05%)
+[2025-07-04 15:52:33,160] INFO: Benchmark: 121 (0.05%)
+[2025-07-04 15:52:33,160] INFO: Reference Benchmark: 121 (0.05%)
+[2025-07-04 15:52:33,160] INFO: Reference Benchmark: 121 (0.05%)
+[2025-07-04 15:52:33,160] INFO: Bid Size: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Bid Size: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Ask Size: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Ask Size: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Sector: 1996 (0.86%)
+[2025-07-04 15:52:33,160] INFO: Sector: 1996 (0.86%)
+[2025-07-04 15:52:33,160] INFO: Bid Yield To Convention: 5 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Bid Yield To Convention: 5 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Ask Yield To Convention: 7 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Ask Yield To Convention: 7 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Bid Discount Margin: 232274 (100.00%)
+[2025-07-04 15:52:33,160] INFO: Bid Discount Margin: 232274 (100.00%)
+[2025-07-04 15:52:33,160] INFO: Ask Discount Margin: 232274 (100.00%)
+[2025-07-04 15:52:33,160] INFO: Ask Discount Margin: 232274 (100.00%)
+[2025-07-04 15:52:33,160] INFO: CUSIP: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: CUSIP: 0 (0.00%)
+[2025-07-04 15:52:33,160] INFO: Sender Name: 0 (0.00%)
+[2025-07-04 15:52:33,170] INFO: Sender Name: 0 (0.00%)
+[2025-07-04 15:52:33,170] INFO: Currency: 0 (0.00%)
+[2025-07-04 15:52:33,170] INFO: Currency: 0 (0.00%)
+[2025-07-04 15:52:33,170] INFO: Subject: 1644 (0.71%)
+[2025-07-04 15:52:33,170] INFO: Subject: 1644 (0.71%)
+[2025-07-04 15:52:33,170] INFO: Keyword: 191339 (82.37%)
+[2025-07-04 15:52:33,170] INFO: Keyword: 191339 (82.37%)
+[2025-07-04 15:52:33,170] INFO: Bid Interpolated Spread to Government: 10842 (4.67%)
+[2025-07-04 15:52:33,170] INFO: Bid Interpolated Spread to Government: 10842 (4.67%)
+[2025-07-04 15:52:33,170] INFO: Ask Interpolated Spread to Government: 26475 (11.40%)
+[2025-07-04 15:52:33,170] INFO: Ask Interpolated Spread to Government: 26475 (11.40%)
+[2025-07-04 15:52:33,170] INFO: Bid Contributed Yield: 144670 (62.28%)
+[2025-07-04 15:52:33,170] INFO: Bid Contributed Yield: 144670 (62.28%)
+[2025-07-04 15:52:33,170] INFO: Bid Z-spread: 201983 (86.96%)
+[2025-07-04 15:52:33,170] INFO: Bid Z-spread: 201983 (86.96%)
+[2025-07-04 15:52:33,458] INFO: 
+Duplicate rows: 0
+[2025-07-04 15:52:33,458] INFO: 
+Duplicate rows: 0
+[2025-07-04 15:52:33,458] INFO: 
+Numeric columns statistics:
+[2025-07-04 15:52:33,458] INFO: 
+Numeric columns statistics:
+[2025-07-04 15:52:33,608] INFO:        Bid Workout Risk      Bid Price      Ask Price  ...  Ask Interpolated Spread to Government  Bid Contributed Yield  Bid Z-spread
+count     229640.000000  232284.000000  232284.000000  ...                          205809.000000           87614.000000  30301.000000
+mean           5.635558      98.062332      98.384996  ...                             108.689275               4.200150    130.812888
+std            4.543566       7.437887       7.346964  ...                             109.171161               1.210512     59.372801
+min            0.010000       1.000000       1.000000  ...                           -1845.220000               1.630000    -21.000000
+25%            2.170000      95.722000      96.073750  ...                              64.740000               3.440000     92.000000
+50%            3.950000      99.872000     100.002000  ...                              99.180000               4.120000    131.000000
+75%            9.170000     102.643000     102.867000  ...                             124.790000               4.780000    157.000000
+max           19.180000     121.830000     122.790000  ...                            9936.340000             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-04 15:52:33,609] INFO:        Bid Workout Risk      Bid Price      Ask Price  ...  Ask Interpolated Spread to Government  Bid Contributed Yield  Bid Z-spread
+count     229640.000000  232284.000000  232284.000000  ...                          205809.000000           87614.000000  30301.000000
+mean           5.635558      98.062332      98.384996  ...                             108.689275               4.200150    130.812888
+std            4.543566       7.437887       7.346964  ...                             109.171161               1.210512     59.372801
+min            0.010000       1.000000       1.000000  ...                           -1845.220000               1.630000    -21.000000
+25%            2.170000      95.722000      96.073750  ...                              64.740000               3.440000     92.000000
+50%            3.950000      99.872000     100.002000  ...                              99.180000               4.120000    131.000000
+75%            9.170000     102.643000     102.867000  ...                             124.790000               4.780000    157.000000
+max           19.180000     121.830000     122.790000  ...                            9936.340000             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-04 15:52:33,612] INFO: 
+=========================
+[2025-07-04 15:52:33,612] INFO: === DATE COVERAGE ANALYSIS (FINAL COMBINED DATA) ===
+[2025-07-04 15:52:33,612] INFO: =========================
+[2025-07-04 15:52:33,612] INFO: Total unique dates: 22
+[2025-07-04 15:52:33,613] INFO: Date column dtype: datetime64[ns]
+[2025-07-04 15:52:33,613] INFO: Date range: 2023-01-03 to 2025-07-02
+[2025-07-04 15:52:33,613] INFO: Time span: 911 days (2.5 years)
+[2025-07-04 15:52:33,699] INFO: 
+Year distribution:
+[2025-07-04 15:52:33,699] INFO:   - 2023: 16115 records
+[2025-07-04 15:52:33,699] INFO:   - 2024: 8330 records
+[2025-07-04 15:52:33,699] INFO:   - 2025: 207839 records
+[2025-07-04 15:52:33,777] INFO: 
+Business day analysis:
+[2025-07-04 15:52:33,777] INFO:   - Business days: 232284 (100.0%)
+[2025-07-04 15:52:33,777] INFO:   - Weekend days: 0 (0.0%)
+[2025-07-04 15:52:33,777] INFO: 
+Sample dates:
+[2025-07-04 15:52:33,777] INFO:   - 2023-01-03 (Tue): 1996 records
+[2025-07-04 15:52:33,777] INFO:   - 2023-11-01 (Wed): 9540 records
+[2025-07-04 15:52:33,777] INFO:   - 2023-12-29 (Fri): 4579 records
+[2025-07-04 15:52:33,777] INFO:   - 2024-01-02 (Tue): 8330 records
+[2025-07-04 15:52:33,777] INFO:   - 2025-01-02 (Thu): 8968 records
+[2025-07-04 15:52:33,782] INFO:   ... (12 more dates) ...
+[2025-07-04 15:52:33,782] INFO:   - 2025-06-13 (Fri): 11705 records
+[2025-07-04 15:52:33,782] INFO:   - 2025-06-17 (Tue): 14694 records
+[2025-07-04 15:52:33,784] INFO:   - 2025-06-26 (Thu): 11988 records
+[2025-07-04 15:52:33,784] INFO:   - 2025-06-30 (Mon): 11038 records
+[2025-07-04 15:52:33,784] INFO:   - 2025-07-02 (Wed): 12903 records
+[2025-07-04 15:52:33,785] INFO: 
+=== END DATE ANALYSIS ===
+
+[2025-07-04 15:52:33,809] INFO: 
+=========================
+[2025-07-04 15:52:33,810] INFO: === BLANK/INVALID KEY ANALYSIS ===
+[2025-07-04 15:52:33,810] INFO: =========================
+[2025-07-04 15:52:34,143] INFO: Column 'Bid Workout Risk': 2644 blank/invalid out of 232284 rows
+[2025-07-04 15:52:34,511] INFO: Column 'Bid Spread': 7 blank/invalid out of 232284 rows
+[2025-07-04 15:52:34,581] INFO: Column 'Ask Spread': 47 blank/invalid out of 232284 rows
+[2025-07-04 15:52:34,613] INFO: Column 'Benchmark': 121 blank/invalid out of 232284 rows
+[2025-07-04 15:52:34,645] INFO: Column 'Reference Benchmark': 121 blank/invalid out of 232284 rows
+[2025-07-04 15:52:34,810] INFO: Column 'Sector': 1996 blank/invalid out of 232284 rows
+[2025-07-04 15:52:34,877] INFO: Column 'Bid Yield To Convention': 5 blank/invalid out of 232284 rows
+[2025-07-04 15:52:34,954] INFO: Column 'Ask Yield To Convention': 7 blank/invalid out of 232284 rows
+[2025-07-04 15:52:35,030] INFO: Column 'Bid Discount Margin': 232274 blank/invalid out of 232284 rows
+[2025-07-04 15:52:35,102] INFO: Column 'Ask Discount Margin': 232274 blank/invalid out of 232284 rows
+[2025-07-04 15:52:35,227] INFO: Column 'Subject': 1644 blank/invalid out of 232284 rows
+[2025-07-04 15:52:35,278] INFO: Column 'Keyword': 191339 blank/invalid out of 232284 rows
+[2025-07-04 15:52:35,354] INFO: Column 'Bid Interpolated Spread to Government': 10842 blank/invalid out of 232284 rows
+[2025-07-04 15:52:35,429] INFO: Column 'Ask Interpolated Spread to Government': 26475 blank/invalid out of 232284 rows
+[2025-07-04 15:52:35,513] INFO: Column 'Bid Contributed Yield': 144670 blank/invalid out of 232284 rows
+[2025-07-04 15:52:35,585] INFO: Column 'Bid Z-spread': 201983 blank/invalid out of 232284 rows
+[2025-07-04 15:52:36,008] INFO: Saved combined DataFrame to Parquet: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-04 15:52:36,010] INFO: 
+===== Pipeline Summary =====
+[2025-07-04 15:52:36,010] INFO: Processed 22 files:
+[2025-07-04 15:52:36,010] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.02.24.xlsx
+[2025-07-04 15:52:36,010] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.02.25.xlsx
+[2025-07-04 15:52:36,010] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.03.25.xlsx
+[2025-07-04 15:52:36,010] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.13.25.xlsx
+[2025-07-04 15:52:36,010] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.14.25.xlsx
+[2025-07-04 15:52:36,011] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 04.01.25.xlsx
+[2025-07-04 15:52:36,011] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 05.01.25.xlsx
+[2025-07-04 15:52:36,011] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 05.28.25.xlsx
+[2025-07-04 15:52:36,011] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 05.29.25.xlsx
+[2025-07-04 15:52:36,011] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 05.30.25.xlsx
+[2025-07-04 15:52:36,011] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.02.25.xlsx
+[2025-07-04 15:52:36,012] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.10.25.xlsx
+[2025-07-04 15:52:36,012] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.11.25.xlsx
+[2025-07-04 15:52:36,012] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.12.25.xlsx
+[2025-07-04 15:52:36,012] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.13.25.xlsx
+[2025-07-04 15:52:36,013] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.17.25.xlsx
+[2025-07-04 15:52:36,013] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.26.25.xlsx
+[2025-07-04 15:52:36,013] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.30.25.xlsx
+[2025-07-04 15:52:36,013] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 07.02.25.xlsx
+[2025-07-04 15:52:36,013] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 11.01.23.xlsx
+[2025-07-04 15:52:36,013] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 12.29.23.xlsx
+[2025-07-04 15:52:36,013] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 12.31.22.xlsx
+[2025-07-04 15:52:36,014] INFO: Final Parquet file saved to: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-04 15:52:36,014] INFO: Total rows in final dataset: 232284
+[2025-07-04 15:52:36,014] INFO: 
+===== Pipeline Complete: 2025-07-04 15:52:36.014728 =====

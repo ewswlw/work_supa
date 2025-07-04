@@ -1,0 +1,936 @@
+[2025-07-04 15:47:58,855] INFO: Starting portfolio processing pipeline...
+[2025-07-04 15:47:58,855] INFO: Starting portfolio processing pipeline...
+[2025-07-04 15:47:58,862] DEBUG: Loaded portfolio processor configuration
+[2025-07-04 15:47:58,862] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-04 15:47:58,862] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-04 15:47:58,867] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-04 15:47:58,867] INFO: No existing processing state found. Starting fresh.
+[2025-07-04 15:47:58,867] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-04 15:47:58,868] DEBUG: Found new file to process: 'Aggies 01.02.25.xlsx'
+[2025-07-04 15:47:58,868] DEBUG: Found new file to process: 'Aggies 02.25.25.xlsx'
+[2025-07-04 15:47:58,868] DEBUG: Found new file to process: 'Aggies 05.09.25.xlsx'
+[2025-07-04 15:47:58,868] DEBUG: Found new file to process: 'Aggies 06.06.25.xlsx'
+[2025-07-04 15:47:58,868] DEBUG: Found new file to process: 'Aggies 06.10.25.xlsx'
+[2025-07-04 15:47:58,869] DEBUG: Found new file to process: 'Aggies 06.13.25.xlsx'
+[2025-07-04 15:47:58,870] DEBUG: Found new file to process: 'Aggies 06.19.25.xlsx'
+[2025-07-04 15:47:58,870] DEBUG: Found new file to process: 'Aggies 06.26.25.xlsx'
+[2025-07-04 15:47:58,870] DEBUG: Found new file to process: 'Aggies 06.30.25.xlsx'
+[2025-07-04 15:47:58,870] DEBUG: Found new file to process: 'Aggies 07.09.24.xlsx'
+[2025-07-04 15:47:58,870] DEBUG: Found new file to process: 'Aggies 12.04.24.xlsx'
+[2025-07-04 15:47:58,870] DEBUG: Found new file to process: 'Aggies 12.18.24.xlsx'
+[2025-07-04 15:47:58,870] DEBUG: Found new file to process: 'Aggies 12.20.24.xlsx'
+[2025-07-04 15:47:58,870] DEBUG: Found new file to process: 'Aggies 12.29.23.xlsx'
+[2025-07-04 15:47:58,870] INFO: Identified 14 files for processing
+[2025-07-04 15:47:58,870] INFO: Processing 14 files...
+[2025-07-04 15:47:58,870] INFO: Processing file: Aggies 01.02.25.xlsx
+[2025-07-04 15:47:58,870] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 01.02.25.xlsx
+[2025-07-04 15:47:59,469] INFO:   Initial shape: (655, 82)
+[2025-07-04 15:47:59,469] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:47:59,469] DEBUG: Extracted date '01/02/2025' from filename 'Aggies 01.02.25.xlsx'
+[2025-07-04 15:47:59,469] INFO:   Added Date column with datetime value: 2025-01-02
+[2025-07-04 15:47:59,469] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:47:59,469] INFO:   Shape after adding Date: (655, 83)
+[2025-07-04 15:47:59,478] INFO: Processing file: Aggies 02.25.25.xlsx
+[2025-07-04 15:47:59,478] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 02.25.25.xlsx
+[2025-07-04 15:47:59,747] INFO:   Initial shape: (612, 82)
+[2025-07-04 15:47:59,747] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:47:59,747] DEBUG: Extracted date '02/25/2025' from filename 'Aggies 02.25.25.xlsx'
+[2025-07-04 15:47:59,747] INFO:   Added Date column with datetime value: 2025-02-25
+[2025-07-04 15:47:59,747] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:47:59,747] INFO:   Shape after adding Date: (612, 83)
+[2025-07-04 15:47:59,747] INFO: Processing file: Aggies 05.09.25.xlsx
+[2025-07-04 15:47:59,747] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 05.09.25.xlsx
+[2025-07-04 15:48:00,062] INFO:   Initial shape: (664, 82)
+[2025-07-04 15:48:00,063] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:00,063] DEBUG: Extracted date '05/09/2025' from filename 'Aggies 05.09.25.xlsx'
+[2025-07-04 15:48:00,064] INFO:   Added Date column with datetime value: 2025-05-09
+[2025-07-04 15:48:00,064] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:00,064] INFO:   Shape after adding Date: (664, 83)
+[2025-07-04 15:48:00,064] INFO: Processing file: Aggies 06.06.25.xlsx
+[2025-07-04 15:48:00,064] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.06.25.xlsx
+[2025-07-04 15:48:00,347] INFO:   Initial shape: (645, 82)
+[2025-07-04 15:48:00,347] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:00,347] DEBUG: Extracted date '06/06/2025' from filename 'Aggies 06.06.25.xlsx'
+[2025-07-04 15:48:00,347] INFO:   Added Date column with datetime value: 2025-06-06
+[2025-07-04 15:48:00,347] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:00,347] INFO:   Shape after adding Date: (645, 83)
+[2025-07-04 15:48:00,347] INFO: Processing file: Aggies 06.10.25.xlsx
+[2025-07-04 15:48:00,347] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.10.25.xlsx
+[2025-07-04 15:48:00,653] INFO:   Initial shape: (643, 82)
+[2025-07-04 15:48:00,653] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:00,654] DEBUG: Extracted date '06/10/2025' from filename 'Aggies 06.10.25.xlsx'
+[2025-07-04 15:48:00,654] INFO:   Added Date column with datetime value: 2025-06-10
+[2025-07-04 15:48:00,655] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:00,655] INFO:   Shape after adding Date: (643, 83)
+[2025-07-04 15:48:00,655] INFO: Processing file: Aggies 06.13.25.xlsx
+[2025-07-04 15:48:00,655] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.13.25.xlsx
+[2025-07-04 15:48:00,964] INFO:   Initial shape: (646, 82)
+[2025-07-04 15:48:00,964] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:00,965] DEBUG: Extracted date '06/13/2025' from filename 'Aggies 06.13.25.xlsx'
+[2025-07-04 15:48:00,966] INFO:   Added Date column with datetime value: 2025-06-13
+[2025-07-04 15:48:00,966] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:00,966] INFO:   Shape after adding Date: (646, 83)
+[2025-07-04 15:48:00,966] INFO: Processing file: Aggies 06.19.25.xlsx
+[2025-07-04 15:48:00,966] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.19.25.xlsx
+[2025-07-04 15:48:01,280] INFO:   Initial shape: (657, 82)
+[2025-07-04 15:48:01,280] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:01,281] DEBUG: Extracted date '06/19/2025' from filename 'Aggies 06.19.25.xlsx'
+[2025-07-04 15:48:01,282] INFO:   Added Date column with datetime value: 2025-06-19
+[2025-07-04 15:48:01,282] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:01,282] INFO:   Shape after adding Date: (657, 83)
+[2025-07-04 15:48:01,282] INFO: Processing file: Aggies 06.26.25.xlsx
+[2025-07-04 15:48:01,282] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.26.25.xlsx
+[2025-07-04 15:48:01,587] INFO:   Initial shape: (667, 82)
+[2025-07-04 15:48:01,590] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:01,590] DEBUG: Extracted date '06/26/2025' from filename 'Aggies 06.26.25.xlsx'
+[2025-07-04 15:48:01,591] INFO:   Added Date column with datetime value: 2025-06-26
+[2025-07-04 15:48:01,591] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:01,591] INFO:   Shape after adding Date: (667, 83)
+[2025-07-04 15:48:01,592] INFO: Processing file: Aggies 06.30.25.xlsx
+[2025-07-04 15:48:01,592] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.30.25.xlsx
+[2025-07-04 15:48:01,859] INFO:   Initial shape: (657, 82)
+[2025-07-04 15:48:01,859] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:01,859] DEBUG: Extracted date '06/30/2025' from filename 'Aggies 06.30.25.xlsx'
+[2025-07-04 15:48:01,859] INFO:   Added Date column with datetime value: 2025-06-30
+[2025-07-04 15:48:01,865] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:01,866] INFO:   Shape after adding Date: (657, 83)
+[2025-07-04 15:48:01,866] INFO: Processing file: Aggies 07.09.24.xlsx
+[2025-07-04 15:48:01,866] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 07.09.24.xlsx
+[2025-07-04 15:48:02,152] INFO:   Initial shape: (598, 81)
+[2025-07-04 15:48:02,152] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)']
+[2025-07-04 15:48:02,152] DEBUG: Extracted date '07/09/2024' from filename 'Aggies 07.09.24.xlsx'
+[2025-07-04 15:48:02,152] INFO:   Added Date column with datetime value: 2024-07-09
+[2025-07-04 15:48:02,152] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:02,152] INFO:   Shape after adding Date: (598, 82)
+[2025-07-04 15:48:02,152] INFO: Processing file: Aggies 12.04.24.xlsx
+[2025-07-04 15:48:02,152] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.04.24.xlsx
+[2025-07-04 15:48:02,455] INFO:   Initial shape: (700, 82)
+[2025-07-04 15:48:02,455] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:02,456] DEBUG: Extracted date '12/04/2024' from filename 'Aggies 12.04.24.xlsx'
+[2025-07-04 15:48:02,456] INFO:   Added Date column with datetime value: 2024-12-04
+[2025-07-04 15:48:02,456] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:02,457] INFO:   Shape after adding Date: (700, 83)
+[2025-07-04 15:48:02,457] INFO: Processing file: Aggies 12.18.24.xlsx
+[2025-07-04 15:48:02,457] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.18.24.xlsx
+[2025-07-04 15:48:02,784] INFO:   Initial shape: (701, 82)
+[2025-07-04 15:48:02,784] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:02,785] DEBUG: Extracted date '12/18/2024' from filename 'Aggies 12.18.24.xlsx'
+[2025-07-04 15:48:02,785] INFO:   Added Date column with datetime value: 2024-12-18
+[2025-07-04 15:48:02,785] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:02,785] INFO:   Shape after adding Date: (701, 83)
+[2025-07-04 15:48:02,786] INFO: Processing file: Aggies 12.20.24.xlsx
+[2025-07-04 15:48:02,786] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.20.24.xlsx
+[2025-07-04 15:48:03,072] INFO:   Initial shape: (666, 82)
+[2025-07-04 15:48:03,073] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:03,073] DEBUG: Extracted date '12/20/2024' from filename 'Aggies 12.20.24.xlsx'
+[2025-07-04 15:48:03,074] INFO:   Added Date column with datetime value: 2024-12-20
+[2025-07-04 15:48:03,074] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:03,074] INFO:   Shape after adding Date: (666, 83)
+[2025-07-04 15:48:03,074] INFO: Processing file: Aggies 12.29.23.xlsx
+[2025-07-04 15:48:03,075] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.29.23.xlsx
+[2025-07-04 15:48:03,490] INFO:   Initial shape: (918, 81)
+[2025-07-04 15:48:03,490] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)']
+[2025-07-04 15:48:03,490] DEBUG: Extracted date '12/29/2023' from filename 'Aggies 12.29.23.xlsx'
+[2025-07-04 15:48:03,491] INFO:   Added Date column with datetime value: 2023-12-29
+[2025-07-04 15:48:03,491] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:03,491] INFO:   Shape after adding Date: (918, 82)
+[2025-07-04 15:48:03,492] INFO: Combining new data...
+[2025-07-04 15:48:03,508] INFO: Combined new data shape: (9429, 83)
+[2025-07-04 15:48:03,509] INFO: Final combined shape before cleaning: (9429, 83)
+[2025-07-04 15:48:03,509] INFO: Starting data cleaning and validation...
+[2025-07-04 15:48:03,509] INFO: Initial combined DataFrame shape: (9429, 83)
+[2025-07-04 15:48:03,526] DEBUG: DataFrame info before cleaning:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 9429 entries, 0 to 9428
+Data columns (total 83 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           9429 non-null   datetime64[ns]
+ 1   Unnamed: 0                     0 non-null      float64       
+ 2   Unnamed: 1                     71 non-null     object        
+ 3   SECURITY                       9390 non-null   object        
+ 4   SECURITY TYPE                  9390 non-null   object        
+ 5   MODIFIED DURATION              9390 non-null   float64       
+ 6   QUANTITY                       9416 non-null   float64       
+ 7   PRICE                          9390 non-null   float64       
+ 8   BBG YIELD SPREAD               9390 non-null   float64       
+ 9   YIELD TO MAT                   9390 non-null   float64       
+ 10  CURRENT YIELD                  9390 non-null   float64       
+ 11  UNDERLYING SECURITY            9390 non-null   object        
+ 12  POSITION CR01                  9416 non-null   float64       
+ 13  VALUE PCT NAV                  9416 non-null   float64       
+ 14  POSITION PVBP                  9416 non-null   float64       
+ 15  ACCOUNT                        9390 non-null   object        
+ 16  PORTFOLIO                      9390 non-null   object        
+ 17  BBG 1D CHANGE                  9390 non-null   float64       
+ 18  MATURITY DATE                  9390 non-null   datetime64[ns]
+ 19  CHANGE                         9390 non-null   float64       
+ 20  CHANGE PCT                     9390 non-null   float64       
+ 21  CHANGE BPS NAV                 9416 non-null   float64       
+ 22  UNDERLYING CUSIP               9276 non-null   object        
+ 23  VALUE                          9416 non-null   float64       
+ 24  TRADE GROUP                    9252 non-null   object        
+ 25  STRATEGY                       9276 non-null   object        
+ 26  INDUSTRY                       7202 non-null   object        
+ 27  SECTOR                         9356 non-null   object        
+ 28  OWNER                          0 non-null      float64       
+ 29  DAY PROFIT                     9416 non-null   float64       
+ 30  AVERAGE PRICE                  9390 non-null   float64       
+ 31  CURRENCY                       9390 non-null   object        
+ 32  PROFIT                         9416 non-null   float64       
+ 33  REALIZED                       9416 non-null   float64       
+ 34  UNREALIZED                     9416 non-null   float64       
+ 35  TOTAL COST SETTLE CCY          9390 non-null   float64       
+ 36  TOTAL COST                     9416 non-null   float64       
+ 37  COST PCT NAV                   9390 non-null   float64       
+ 38  INTEREST                       9416 non-null   float64       
+ 39  REALIZED SETTLE CCY            9390 non-null   float64       
+ 40  PAID INTEREST LOCAL CCY        9390 non-null   float64       
+ 41  PAID INTEREST                  9390 non-null   float64       
+ 42  UNREALIZED SETTLE CCY          9390 non-null   float64       
+ 43  FX EXPOSURE LOCAL CCY          9390 non-null   float64       
+ 44  FX EXPOSURE DISPLAY CCY        9416 non-null   float64       
+ 45  FX EXPOSURE PCT NAV            9390 non-null   float64       
+ 46  COMPANY SYMBOL                 9386 non-null   object        
+ 47  CUSIP                          9276 non-null   object        
+ 48  ISIN                           9049 non-null   object        
+ 49  PREVIOUS PROFIT                9390 non-null   float64       
+ 50  PREVIOUS DAY PRICE             9390 non-null   float64       
+ 51  ACCRUED INTEREST               9416 non-null   float64       
+ 52  MATURITY BUCKET                9196 non-null   object        
+ 53  COUPON                         9390 non-null   float64       
+ 54  SECURITY PVBP                  9390 non-null   float64       
+ 55  SECURITY CR01                  9390 non-null   float64       
+ 56  ANNUALIZED INCOME              9416 non-null   float64       
+ 57  CREDIT RATING                  9260 non-null   object        
+ 58  SECURITY CLASSIFICATION        3896 non-null   object        
+ 59  UNDERLYING ISIN                9205 non-null   object        
+ 60  BENCHMARK MATURITY DATE        9390 non-null   datetime64[ns]
+ 61  PCT OF OUTSTANDING             9416 non-null   float64       
+ 62  FACE VALUE OUTSTANDING         9390 non-null   float64       
+ 63  BBG MTD YIELD CHANGE           9390 non-null   float64       
+ 64  CDS Adj Size (Calc)            9390 non-null   float64       
+ 65  Yield                          9390 non-null   float64       
+ 66  Yield CAD Fee Included         9358 non-null   float64       
+ 67  Fuding Status                  9390 non-null   object        
+ 68  TradeGroup Fixed               9387 non-null   object        
+ 69  Benchmark Yield                5361 non-null   float64       
+ 70  Benchmark Yield Including Fee  5363 non-null   float64       
+ 71  Sprd Calculated                5372 non-null   float64       
+ 72  Sprd Funding Adjusted          5372 non-null   float64       
+ 73  OAS (Bloomberg)                5382 non-null   float64       
+ 74  OAS Fund Adj(Bloomberg)        5382 non-null   float64       
+ 75  Yrs Calc                       9390 non-null   float64       
+ 76  Duration Calc                  9390 non-null   float64       
+ 77  OAD Calc                       9390 non-null   float64       
+ 78  Yrs Calc (Corps)               5163 non-null   float64       
+ 79  Yrs Calc (Corps + CDX)         5192 non-null   float64       
+ 80  Duration Calc (Corps)          5163 non-null   float64       
+ 81  Duration Calc (Corps + CDX)    5192 non-null   float64       
+ 82  Funding Cost                   7848 non-null   float64       
+dtypes: datetime64[ns](3), float64(59), object(21)
+memory usage: 6.0+ MB
+
+[2025-07-04 15:48:03,536] WARNING: Removed 39 rows with missing SECURITY
+[2025-07-04 15:48:03,537] ERROR: Portfolio processing pipeline failed: unhashable type: 'dict'
+[2025-07-04 15:48:03,537] ERROR: Portfolio processing pipeline failed.: unhashable type: 'dict'
+Traceback (most recent call last):
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio_excel_to_parquet.py", line 34, in <module>
+    final_df = process_portfolio_files(logger)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\portfolio_processor.py", line 450, in process_portfolio_files
+    cleaned_df = clean_and_validate_data(combined_df, config, logger)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\portfolio_processor.py", line 163, in clean_and_validate_data
+    existing_cols_to_drop = [col for col in columns_to_drop if col in df.columns]
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\portfolio_processor.py", line 163, in <listcomp>
+    existing_cols_to_drop = [col for col in columns_to_drop if col in df.columns]
+                                                               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\AppData\Local\pypoetry\Cache\virtualenvs\auto-ml-GtY3jPFV-py3.11\Lib\site-packages\pandas\core\indexes\base.py", line 5289, in __contains__
+    hash(key)
+TypeError: unhashable type: 'dict'
+[2025-07-04 15:48:50,674] INFO: Starting portfolio processing pipeline...
+[2025-07-04 15:48:50,674] INFO: Starting portfolio processing pipeline...
+[2025-07-04 15:48:50,683] DEBUG: Loaded portfolio processor configuration
+[2025-07-04 15:48:50,683] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-04 15:48:50,683] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-04 15:48:50,683] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-04 15:48:50,683] INFO: No existing processing state found. Starting fresh.
+[2025-07-04 15:48:50,683] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-04 15:48:50,687] DEBUG: Found new file to process: 'Aggies 01.02.25.xlsx'
+[2025-07-04 15:48:50,689] DEBUG: Found new file to process: 'Aggies 02.25.25.xlsx'
+[2025-07-04 15:48:50,689] DEBUG: Found new file to process: 'Aggies 05.09.25.xlsx'
+[2025-07-04 15:48:50,689] DEBUG: Found new file to process: 'Aggies 06.06.25.xlsx'
+[2025-07-04 15:48:50,689] DEBUG: Found new file to process: 'Aggies 06.10.25.xlsx'
+[2025-07-04 15:48:50,689] DEBUG: Found new file to process: 'Aggies 06.13.25.xlsx'
+[2025-07-04 15:48:50,689] DEBUG: Found new file to process: 'Aggies 06.19.25.xlsx'
+[2025-07-04 15:48:50,690] DEBUG: Found new file to process: 'Aggies 06.26.25.xlsx'
+[2025-07-04 15:48:50,690] DEBUG: Found new file to process: 'Aggies 06.30.25.xlsx'
+[2025-07-04 15:48:50,690] DEBUG: Found new file to process: 'Aggies 07.09.24.xlsx'
+[2025-07-04 15:48:50,690] DEBUG: Found new file to process: 'Aggies 12.04.24.xlsx'
+[2025-07-04 15:48:50,690] DEBUG: Found new file to process: 'Aggies 12.18.24.xlsx'
+[2025-07-04 15:48:50,690] DEBUG: Found new file to process: 'Aggies 12.20.24.xlsx'
+[2025-07-04 15:48:50,691] DEBUG: Found new file to process: 'Aggies 12.29.23.xlsx'
+[2025-07-04 15:48:50,691] INFO: Identified 14 files for processing
+[2025-07-04 15:48:50,692] INFO: Processing 14 files...
+[2025-07-04 15:48:50,692] INFO: Processing file: Aggies 01.02.25.xlsx
+[2025-07-04 15:48:50,692] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 01.02.25.xlsx
+[2025-07-04 15:48:51,309] INFO:   Initial shape: (655, 82)
+[2025-07-04 15:48:51,309] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:51,309] DEBUG: Extracted date '01/02/2025' from filename 'Aggies 01.02.25.xlsx'
+[2025-07-04 15:48:51,309] INFO:   Added Date column with datetime value: 2025-01-02
+[2025-07-04 15:48:51,309] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:51,309] INFO:   Shape after adding Date: (655, 83)
+[2025-07-04 15:48:51,309] INFO: Processing file: Aggies 02.25.25.xlsx
+[2025-07-04 15:48:51,309] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 02.25.25.xlsx
+[2025-07-04 15:48:51,591] INFO:   Initial shape: (612, 82)
+[2025-07-04 15:48:51,591] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:51,592] DEBUG: Extracted date '02/25/2025' from filename 'Aggies 02.25.25.xlsx'
+[2025-07-04 15:48:51,592] INFO:   Added Date column with datetime value: 2025-02-25
+[2025-07-04 15:48:51,593] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:51,593] INFO:   Shape after adding Date: (612, 83)
+[2025-07-04 15:48:51,593] INFO: Processing file: Aggies 05.09.25.xlsx
+[2025-07-04 15:48:51,593] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 05.09.25.xlsx
+[2025-07-04 15:48:51,912] INFO:   Initial shape: (664, 82)
+[2025-07-04 15:48:51,912] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:51,914] DEBUG: Extracted date '05/09/2025' from filename 'Aggies 05.09.25.xlsx'
+[2025-07-04 15:48:51,914] INFO:   Added Date column with datetime value: 2025-05-09
+[2025-07-04 15:48:51,914] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:51,914] INFO:   Shape after adding Date: (664, 83)
+[2025-07-04 15:48:51,914] INFO: Processing file: Aggies 06.06.25.xlsx
+[2025-07-04 15:48:51,914] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.06.25.xlsx
+[2025-07-04 15:48:52,197] INFO:   Initial shape: (645, 82)
+[2025-07-04 15:48:52,197] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:52,197] DEBUG: Extracted date '06/06/2025' from filename 'Aggies 06.06.25.xlsx'
+[2025-07-04 15:48:52,197] INFO:   Added Date column with datetime value: 2025-06-06
+[2025-07-04 15:48:52,197] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:52,197] INFO:   Shape after adding Date: (645, 83)
+[2025-07-04 15:48:52,197] INFO: Processing file: Aggies 06.10.25.xlsx
+[2025-07-04 15:48:52,197] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.10.25.xlsx
+[2025-07-04 15:48:52,525] INFO:   Initial shape: (643, 82)
+[2025-07-04 15:48:52,526] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:52,526] DEBUG: Extracted date '06/10/2025' from filename 'Aggies 06.10.25.xlsx'
+[2025-07-04 15:48:52,527] INFO:   Added Date column with datetime value: 2025-06-10
+[2025-07-04 15:48:52,527] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:52,527] INFO:   Shape after adding Date: (643, 83)
+[2025-07-04 15:48:52,527] INFO: Processing file: Aggies 06.13.25.xlsx
+[2025-07-04 15:48:52,527] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.13.25.xlsx
+[2025-07-04 15:48:52,814] INFO:   Initial shape: (646, 82)
+[2025-07-04 15:48:52,814] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:52,815] DEBUG: Extracted date '06/13/2025' from filename 'Aggies 06.13.25.xlsx'
+[2025-07-04 15:48:52,816] INFO:   Added Date column with datetime value: 2025-06-13
+[2025-07-04 15:48:52,816] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:52,816] INFO:   Shape after adding Date: (646, 83)
+[2025-07-04 15:48:52,816] INFO: Processing file: Aggies 06.19.25.xlsx
+[2025-07-04 15:48:52,816] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.19.25.xlsx
+[2025-07-04 15:48:53,140] INFO:   Initial shape: (657, 82)
+[2025-07-04 15:48:53,140] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:53,141] DEBUG: Extracted date '06/19/2025' from filename 'Aggies 06.19.25.xlsx'
+[2025-07-04 15:48:53,142] INFO:   Added Date column with datetime value: 2025-06-19
+[2025-07-04 15:48:53,142] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:53,143] INFO:   Shape after adding Date: (657, 83)
+[2025-07-04 15:48:53,143] INFO: Processing file: Aggies 06.26.25.xlsx
+[2025-07-04 15:48:53,143] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.26.25.xlsx
+[2025-07-04 15:48:53,468] INFO:   Initial shape: (667, 82)
+[2025-07-04 15:48:53,468] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:53,468] DEBUG: Extracted date '06/26/2025' from filename 'Aggies 06.26.25.xlsx'
+[2025-07-04 15:48:53,468] INFO:   Added Date column with datetime value: 2025-06-26
+[2025-07-04 15:48:53,468] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:53,468] INFO:   Shape after adding Date: (667, 83)
+[2025-07-04 15:48:53,468] INFO: Processing file: Aggies 06.30.25.xlsx
+[2025-07-04 15:48:53,468] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.30.25.xlsx
+[2025-07-04 15:48:53,762] INFO:   Initial shape: (657, 82)
+[2025-07-04 15:48:53,762] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:53,762] DEBUG: Extracted date '06/30/2025' from filename 'Aggies 06.30.25.xlsx'
+[2025-07-04 15:48:53,762] INFO:   Added Date column with datetime value: 2025-06-30
+[2025-07-04 15:48:53,762] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:53,762] INFO:   Shape after adding Date: (657, 83)
+[2025-07-04 15:48:53,762] INFO: Processing file: Aggies 07.09.24.xlsx
+[2025-07-04 15:48:53,762] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 07.09.24.xlsx
+[2025-07-04 15:48:54,047] INFO:   Initial shape: (598, 81)
+[2025-07-04 15:48:54,048] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)']
+[2025-07-04 15:48:54,048] DEBUG: Extracted date '07/09/2024' from filename 'Aggies 07.09.24.xlsx'
+[2025-07-04 15:48:54,049] INFO:   Added Date column with datetime value: 2024-07-09
+[2025-07-04 15:48:54,049] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:54,049] INFO:   Shape after adding Date: (598, 82)
+[2025-07-04 15:48:54,049] INFO: Processing file: Aggies 12.04.24.xlsx
+[2025-07-04 15:48:54,049] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.04.24.xlsx
+[2025-07-04 15:48:54,349] INFO:   Initial shape: (700, 82)
+[2025-07-04 15:48:54,349] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:54,349] DEBUG: Extracted date '12/04/2024' from filename 'Aggies 12.04.24.xlsx'
+[2025-07-04 15:48:54,350] INFO:   Added Date column with datetime value: 2024-12-04
+[2025-07-04 15:48:54,350] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:54,350] INFO:   Shape after adding Date: (700, 83)
+[2025-07-04 15:48:54,350] INFO: Processing file: Aggies 12.18.24.xlsx
+[2025-07-04 15:48:54,351] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.18.24.xlsx
+[2025-07-04 15:48:54,680] INFO:   Initial shape: (701, 82)
+[2025-07-04 15:48:54,681] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:54,681] DEBUG: Extracted date '12/18/2024' from filename 'Aggies 12.18.24.xlsx'
+[2025-07-04 15:48:54,682] INFO:   Added Date column with datetime value: 2024-12-18
+[2025-07-04 15:48:54,682] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:54,682] INFO:   Shape after adding Date: (701, 83)
+[2025-07-04 15:48:54,682] INFO: Processing file: Aggies 12.20.24.xlsx
+[2025-07-04 15:48:54,682] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.20.24.xlsx
+[2025-07-04 15:48:54,963] INFO:   Initial shape: (666, 82)
+[2025-07-04 15:48:54,963] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:48:54,964] DEBUG: Extracted date '12/20/2024' from filename 'Aggies 12.20.24.xlsx'
+[2025-07-04 15:48:54,964] INFO:   Added Date column with datetime value: 2024-12-20
+[2025-07-04 15:48:54,964] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:54,965] INFO:   Shape after adding Date: (666, 83)
+[2025-07-04 15:48:54,965] INFO: Processing file: Aggies 12.29.23.xlsx
+[2025-07-04 15:48:54,965] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.29.23.xlsx
+[2025-07-04 15:48:55,390] INFO:   Initial shape: (918, 81)
+[2025-07-04 15:48:55,390] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)']
+[2025-07-04 15:48:55,390] DEBUG: Extracted date '12/29/2023' from filename 'Aggies 12.29.23.xlsx'
+[2025-07-04 15:48:55,390] INFO:   Added Date column with datetime value: 2023-12-29
+[2025-07-04 15:48:55,390] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:48:55,390] INFO:   Shape after adding Date: (918, 82)
+[2025-07-04 15:48:55,393] INFO: Combining new data...
+[2025-07-04 15:48:55,416] INFO: Combined new data shape: (9429, 83)
+[2025-07-04 15:48:55,416] INFO: Final combined shape before cleaning: (9429, 83)
+[2025-07-04 15:48:55,416] INFO: Starting data cleaning and validation...
+[2025-07-04 15:48:55,416] INFO: Initial combined DataFrame shape: (9429, 83)
+[2025-07-04 15:48:55,436] DEBUG: DataFrame info before cleaning:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 9429 entries, 0 to 9428
+Data columns (total 83 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           9429 non-null   datetime64[ns]
+ 1   Unnamed: 0                     0 non-null      float64       
+ 2   Unnamed: 1                     71 non-null     object        
+ 3   SECURITY                       9390 non-null   object        
+ 4   SECURITY TYPE                  9390 non-null   object        
+ 5   MODIFIED DURATION              9390 non-null   float64       
+ 6   QUANTITY                       9416 non-null   float64       
+ 7   PRICE                          9390 non-null   float64       
+ 8   BBG YIELD SPREAD               9390 non-null   float64       
+ 9   YIELD TO MAT                   9390 non-null   float64       
+ 10  CURRENT YIELD                  9390 non-null   float64       
+ 11  UNDERLYING SECURITY            9390 non-null   object        
+ 12  POSITION CR01                  9416 non-null   float64       
+ 13  VALUE PCT NAV                  9416 non-null   float64       
+ 14  POSITION PVBP                  9416 non-null   float64       
+ 15  ACCOUNT                        9390 non-null   object        
+ 16  PORTFOLIO                      9390 non-null   object        
+ 17  BBG 1D CHANGE                  9390 non-null   float64       
+ 18  MATURITY DATE                  9390 non-null   datetime64[ns]
+ 19  CHANGE                         9390 non-null   float64       
+ 20  CHANGE PCT                     9390 non-null   float64       
+ 21  CHANGE BPS NAV                 9416 non-null   float64       
+ 22  UNDERLYING CUSIP               9276 non-null   object        
+ 23  VALUE                          9416 non-null   float64       
+ 24  TRADE GROUP                    9252 non-null   object        
+ 25  STRATEGY                       9276 non-null   object        
+ 26  INDUSTRY                       7202 non-null   object        
+ 27  SECTOR                         9356 non-null   object        
+ 28  OWNER                          0 non-null      float64       
+ 29  DAY PROFIT                     9416 non-null   float64       
+ 30  AVERAGE PRICE                  9390 non-null   float64       
+ 31  CURRENCY                       9390 non-null   object        
+ 32  PROFIT                         9416 non-null   float64       
+ 33  REALIZED                       9416 non-null   float64       
+ 34  UNREALIZED                     9416 non-null   float64       
+ 35  TOTAL COST SETTLE CCY          9390 non-null   float64       
+ 36  TOTAL COST                     9416 non-null   float64       
+ 37  COST PCT NAV                   9390 non-null   float64       
+ 38  INTEREST                       9416 non-null   float64       
+ 39  REALIZED SETTLE CCY            9390 non-null   float64       
+ 40  PAID INTEREST LOCAL CCY        9390 non-null   float64       
+ 41  PAID INTEREST                  9390 non-null   float64       
+ 42  UNREALIZED SETTLE CCY          9390 non-null   float64       
+ 43  FX EXPOSURE LOCAL CCY          9390 non-null   float64       
+ 44  FX EXPOSURE DISPLAY CCY        9416 non-null   float64       
+ 45  FX EXPOSURE PCT NAV            9390 non-null   float64       
+ 46  COMPANY SYMBOL                 9386 non-null   object        
+ 47  CUSIP                          9276 non-null   object        
+ 48  ISIN                           9049 non-null   object        
+ 49  PREVIOUS PROFIT                9390 non-null   float64       
+ 50  PREVIOUS DAY PRICE             9390 non-null   float64       
+ 51  ACCRUED INTEREST               9416 non-null   float64       
+ 52  MATURITY BUCKET                9196 non-null   object        
+ 53  COUPON                         9390 non-null   float64       
+ 54  SECURITY PVBP                  9390 non-null   float64       
+ 55  SECURITY CR01                  9390 non-null   float64       
+ 56  ANNUALIZED INCOME              9416 non-null   float64       
+ 57  CREDIT RATING                  9260 non-null   object        
+ 58  SECURITY CLASSIFICATION        3896 non-null   object        
+ 59  UNDERLYING ISIN                9205 non-null   object        
+ 60  BENCHMARK MATURITY DATE        9390 non-null   datetime64[ns]
+ 61  PCT OF OUTSTANDING             9416 non-null   float64       
+ 62  FACE VALUE OUTSTANDING         9390 non-null   float64       
+ 63  BBG MTD YIELD CHANGE           9390 non-null   float64       
+ 64  CDS Adj Size (Calc)            9390 non-null   float64       
+ 65  Yield                          9390 non-null   float64       
+ 66  Yield CAD Fee Included         9358 non-null   float64       
+ 67  Fuding Status                  9390 non-null   object        
+ 68  TradeGroup Fixed               9387 non-null   object        
+ 69  Benchmark Yield                5361 non-null   float64       
+ 70  Benchmark Yield Including Fee  5363 non-null   float64       
+ 71  Sprd Calculated                5372 non-null   float64       
+ 72  Sprd Funding Adjusted          5372 non-null   float64       
+ 73  OAS (Bloomberg)                5382 non-null   float64       
+ 74  OAS Fund Adj(Bloomberg)        5382 non-null   float64       
+ 75  Yrs Calc                       9390 non-null   float64       
+ 76  Duration Calc                  9390 non-null   float64       
+ 77  OAD Calc                       9390 non-null   float64       
+ 78  Yrs Calc (Corps)               5163 non-null   float64       
+ 79  Yrs Calc (Corps + CDX)         5192 non-null   float64       
+ 80  Duration Calc (Corps)          5163 non-null   float64       
+ 81  Duration Calc (Corps + CDX)    5192 non-null   float64       
+ 82  Funding Cost                   7848 non-null   float64       
+dtypes: datetime64[ns](3), float64(59), object(21)
+memory usage: 6.0+ MB
+
+[2025-07-04 15:48:55,446] WARNING: Removed 39 rows with missing SECURITY
+[2025-07-04 15:48:55,446] DEBUG: columns_to_drop type: <class 'list'>, value: ['BBG YIELD SPREAD', 'CURRENT YIELD', 'BBG 1D CHANGE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'ANNUALIZED INCOME', 'BBG MTD YIELD CHANGE', {'Unnamed': 0}, {'Unnamed': 1}]
+[2025-07-04 15:48:55,446] ERROR: Portfolio processing pipeline failed: unhashable type: 'dict'
+[2025-07-04 15:48:55,448] ERROR: Portfolio processing pipeline failed.: unhashable type: 'dict'
+Traceback (most recent call last):
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio_excel_to_parquet.py", line 34, in <module>
+    final_df = process_portfolio_files(logger)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\portfolio_processor.py", line 457, in process_portfolio_files
+    cleaned_df = clean_and_validate_data(combined_df, config, logger)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\portfolio_processor.py", line 170, in clean_and_validate_data
+    existing_cols_to_drop = [col for col in columns_to_drop if col in df.columns]
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\portfolio_processor.py", line 170, in <listcomp>
+    existing_cols_to_drop = [col for col in columns_to_drop if col in df.columns]
+                                                               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\AppData\Local\pypoetry\Cache\virtualenvs\auto-ml-GtY3jPFV-py3.11\Lib\site-packages\pandas\core\indexes\base.py", line 5289, in __contains__
+    hash(key)
+TypeError: unhashable type: 'dict'
+[2025-07-04 15:49:15,972] INFO: Starting portfolio processing pipeline...
+[2025-07-04 15:49:15,972] INFO: Starting portfolio processing pipeline...
+[2025-07-04 15:49:15,980] DEBUG: Loaded portfolio processor configuration
+[2025-07-04 15:49:15,981] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-04 15:49:15,981] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-04 15:49:15,981] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-04 15:49:15,981] INFO: No existing processing state found. Starting fresh.
+[2025-07-04 15:49:15,982] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-04 15:49:15,982] DEBUG: Found new file to process: 'Aggies 01.02.25.xlsx'
+[2025-07-04 15:49:15,982] DEBUG: Found new file to process: 'Aggies 02.25.25.xlsx'
+[2025-07-04 15:49:15,983] DEBUG: Found new file to process: 'Aggies 05.09.25.xlsx'
+[2025-07-04 15:49:15,983] DEBUG: Found new file to process: 'Aggies 06.06.25.xlsx'
+[2025-07-04 15:49:15,983] DEBUG: Found new file to process: 'Aggies 06.10.25.xlsx'
+[2025-07-04 15:49:15,983] DEBUG: Found new file to process: 'Aggies 06.13.25.xlsx'
+[2025-07-04 15:49:15,983] DEBUG: Found new file to process: 'Aggies 06.19.25.xlsx'
+[2025-07-04 15:49:15,983] DEBUG: Found new file to process: 'Aggies 06.26.25.xlsx'
+[2025-07-04 15:49:15,983] DEBUG: Found new file to process: 'Aggies 06.30.25.xlsx'
+[2025-07-04 15:49:15,984] DEBUG: Found new file to process: 'Aggies 07.09.24.xlsx'
+[2025-07-04 15:49:15,984] DEBUG: Found new file to process: 'Aggies 12.04.24.xlsx'
+[2025-07-04 15:49:15,984] DEBUG: Found new file to process: 'Aggies 12.18.24.xlsx'
+[2025-07-04 15:49:15,984] DEBUG: Found new file to process: 'Aggies 12.20.24.xlsx'
+[2025-07-04 15:49:15,984] DEBUG: Found new file to process: 'Aggies 12.29.23.xlsx'
+[2025-07-04 15:49:15,984] INFO: Identified 14 files for processing
+[2025-07-04 15:49:15,984] INFO: Processing 14 files...
+[2025-07-04 15:49:15,984] INFO: Processing file: Aggies 01.02.25.xlsx
+[2025-07-04 15:49:15,985] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 01.02.25.xlsx
+[2025-07-04 15:49:16,581] INFO:   Initial shape: (655, 82)
+[2025-07-04 15:49:16,581] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:16,581] DEBUG: Extracted date '01/02/2025' from filename 'Aggies 01.02.25.xlsx'
+[2025-07-04 15:49:16,581] INFO:   Added Date column with datetime value: 2025-01-02
+[2025-07-04 15:49:16,581] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:16,581] INFO:   Shape after adding Date: (655, 83)
+[2025-07-04 15:49:16,581] INFO: Processing file: Aggies 02.25.25.xlsx
+[2025-07-04 15:49:16,581] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 02.25.25.xlsx
+[2025-07-04 15:49:16,843] INFO:   Initial shape: (612, 82)
+[2025-07-04 15:49:16,843] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:16,843] DEBUG: Extracted date '02/25/2025' from filename 'Aggies 02.25.25.xlsx'
+[2025-07-04 15:49:16,847] INFO:   Added Date column with datetime value: 2025-02-25
+[2025-07-04 15:49:16,847] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:16,847] INFO:   Shape after adding Date: (612, 83)
+[2025-07-04 15:49:16,847] INFO: Processing file: Aggies 05.09.25.xlsx
+[2025-07-04 15:49:16,847] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 05.09.25.xlsx
+[2025-07-04 15:49:17,150] INFO:   Initial shape: (664, 82)
+[2025-07-04 15:49:17,150] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:17,151] DEBUG: Extracted date '05/09/2025' from filename 'Aggies 05.09.25.xlsx'
+[2025-07-04 15:49:17,151] INFO:   Added Date column with datetime value: 2025-05-09
+[2025-07-04 15:49:17,152] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:17,152] INFO:   Shape after adding Date: (664, 83)
+[2025-07-04 15:49:17,152] INFO: Processing file: Aggies 06.06.25.xlsx
+[2025-07-04 15:49:17,152] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.06.25.xlsx
+[2025-07-04 15:49:17,431] INFO:   Initial shape: (645, 82)
+[2025-07-04 15:49:17,431] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:17,431] DEBUG: Extracted date '06/06/2025' from filename 'Aggies 06.06.25.xlsx'
+[2025-07-04 15:49:17,442] INFO:   Added Date column with datetime value: 2025-06-06
+[2025-07-04 15:49:17,442] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:17,442] INFO:   Shape after adding Date: (645, 83)
+[2025-07-04 15:49:17,442] INFO: Processing file: Aggies 06.10.25.xlsx
+[2025-07-04 15:49:17,442] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.10.25.xlsx
+[2025-07-04 15:49:17,731] INFO:   Initial shape: (643, 82)
+[2025-07-04 15:49:17,731] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:17,737] DEBUG: Extracted date '06/10/2025' from filename 'Aggies 06.10.25.xlsx'
+[2025-07-04 15:49:17,737] INFO:   Added Date column with datetime value: 2025-06-10
+[2025-07-04 15:49:17,737] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:17,737] INFO:   Shape after adding Date: (643, 83)
+[2025-07-04 15:49:17,737] INFO: Processing file: Aggies 06.13.25.xlsx
+[2025-07-04 15:49:17,737] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.13.25.xlsx
+[2025-07-04 15:49:18,013] INFO:   Initial shape: (646, 82)
+[2025-07-04 15:49:18,013] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:18,014] DEBUG: Extracted date '06/13/2025' from filename 'Aggies 06.13.25.xlsx'
+[2025-07-04 15:49:18,015] INFO:   Added Date column with datetime value: 2025-06-13
+[2025-07-04 15:49:18,015] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:18,015] INFO:   Shape after adding Date: (646, 83)
+[2025-07-04 15:49:18,015] INFO: Processing file: Aggies 06.19.25.xlsx
+[2025-07-04 15:49:18,015] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.19.25.xlsx
+[2025-07-04 15:49:18,317] INFO:   Initial shape: (657, 82)
+[2025-07-04 15:49:18,318] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:18,318] DEBUG: Extracted date '06/19/2025' from filename 'Aggies 06.19.25.xlsx'
+[2025-07-04 15:49:18,318] INFO:   Added Date column with datetime value: 2025-06-19
+[2025-07-04 15:49:18,318] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:18,318] INFO:   Shape after adding Date: (657, 83)
+[2025-07-04 15:49:18,318] INFO: Processing file: Aggies 06.26.25.xlsx
+[2025-07-04 15:49:18,318] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.26.25.xlsx
+[2025-07-04 15:49:18,635] INFO:   Initial shape: (667, 82)
+[2025-07-04 15:49:18,635] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:18,635] DEBUG: Extracted date '06/26/2025' from filename 'Aggies 06.26.25.xlsx'
+[2025-07-04 15:49:18,635] INFO:   Added Date column with datetime value: 2025-06-26
+[2025-07-04 15:49:18,635] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:18,635] INFO:   Shape after adding Date: (667, 83)
+[2025-07-04 15:49:18,635] INFO: Processing file: Aggies 06.30.25.xlsx
+[2025-07-04 15:49:18,635] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.30.25.xlsx
+[2025-07-04 15:49:18,913] INFO:   Initial shape: (657, 82)
+[2025-07-04 15:49:18,913] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:18,913] DEBUG: Extracted date '06/30/2025' from filename 'Aggies 06.30.25.xlsx'
+[2025-07-04 15:49:18,913] INFO:   Added Date column with datetime value: 2025-06-30
+[2025-07-04 15:49:18,918] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:18,918] INFO:   Shape after adding Date: (657, 83)
+[2025-07-04 15:49:18,918] INFO: Processing file: Aggies 07.09.24.xlsx
+[2025-07-04 15:49:18,918] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 07.09.24.xlsx
+[2025-07-04 15:49:19,202] INFO:   Initial shape: (598, 81)
+[2025-07-04 15:49:19,202] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)']
+[2025-07-04 15:49:19,202] DEBUG: Extracted date '07/09/2024' from filename 'Aggies 07.09.24.xlsx'
+[2025-07-04 15:49:19,204] INFO:   Added Date column with datetime value: 2024-07-09
+[2025-07-04 15:49:19,204] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:19,204] INFO:   Shape after adding Date: (598, 82)
+[2025-07-04 15:49:19,204] INFO: Processing file: Aggies 12.04.24.xlsx
+[2025-07-04 15:49:19,204] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.04.24.xlsx
+[2025-07-04 15:49:19,498] INFO:   Initial shape: (700, 82)
+[2025-07-04 15:49:19,498] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:19,498] DEBUG: Extracted date '12/04/2024' from filename 'Aggies 12.04.24.xlsx'
+[2025-07-04 15:49:19,498] INFO:   Added Date column with datetime value: 2024-12-04
+[2025-07-04 15:49:19,508] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:19,508] INFO:   Shape after adding Date: (700, 83)
+[2025-07-04 15:49:19,508] INFO: Processing file: Aggies 12.18.24.xlsx
+[2025-07-04 15:49:19,508] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.18.24.xlsx
+[2025-07-04 15:49:19,823] INFO:   Initial shape: (701, 82)
+[2025-07-04 15:49:19,829] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:19,829] DEBUG: Extracted date '12/18/2024' from filename 'Aggies 12.18.24.xlsx'
+[2025-07-04 15:49:19,830] INFO:   Added Date column with datetime value: 2024-12-18
+[2025-07-04 15:49:19,830] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:19,830] INFO:   Shape after adding Date: (701, 83)
+[2025-07-04 15:49:19,831] INFO: Processing file: Aggies 12.20.24.xlsx
+[2025-07-04 15:49:19,831] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.20.24.xlsx
+[2025-07-04 15:49:20,115] INFO:   Initial shape: (666, 82)
+[2025-07-04 15:49:20,115] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-04 15:49:20,115] DEBUG: Extracted date '12/20/2024' from filename 'Aggies 12.20.24.xlsx'
+[2025-07-04 15:49:20,116] INFO:   Added Date column with datetime value: 2024-12-20
+[2025-07-04 15:49:20,116] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:20,116] INFO:   Shape after adding Date: (666, 83)
+[2025-07-04 15:49:20,116] INFO: Processing file: Aggies 12.29.23.xlsx
+[2025-07-04 15:49:20,117] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.29.23.xlsx
+[2025-07-04 15:49:20,535] INFO:   Initial shape: (918, 81)
+[2025-07-04 15:49:20,535] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)']
+[2025-07-04 15:49:20,536] DEBUG: Extracted date '12/29/2023' from filename 'Aggies 12.29.23.xlsx'
+[2025-07-04 15:49:20,536] INFO:   Added Date column with datetime value: 2023-12-29
+[2025-07-04 15:49:20,536] INFO:   Date column dtype: datetime64[ns]
+[2025-07-04 15:49:20,537] INFO:   Shape after adding Date: (918, 82)
+[2025-07-04 15:49:20,537] INFO: Combining new data...
+[2025-07-04 15:49:20,553] INFO: Combined new data shape: (9429, 83)
+[2025-07-04 15:49:20,553] INFO: Final combined shape before cleaning: (9429, 83)
+[2025-07-04 15:49:20,553] INFO: Starting data cleaning and validation...
+[2025-07-04 15:49:20,553] INFO: Initial combined DataFrame shape: (9429, 83)
+[2025-07-04 15:49:20,572] DEBUG: DataFrame info before cleaning:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 9429 entries, 0 to 9428
+Data columns (total 83 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           9429 non-null   datetime64[ns]
+ 1   Unnamed: 0                     0 non-null      float64       
+ 2   Unnamed: 1                     71 non-null     object        
+ 3   SECURITY                       9390 non-null   object        
+ 4   SECURITY TYPE                  9390 non-null   object        
+ 5   MODIFIED DURATION              9390 non-null   float64       
+ 6   QUANTITY                       9416 non-null   float64       
+ 7   PRICE                          9390 non-null   float64       
+ 8   BBG YIELD SPREAD               9390 non-null   float64       
+ 9   YIELD TO MAT                   9390 non-null   float64       
+ 10  CURRENT YIELD                  9390 non-null   float64       
+ 11  UNDERLYING SECURITY            9390 non-null   object        
+ 12  POSITION CR01                  9416 non-null   float64       
+ 13  VALUE PCT NAV                  9416 non-null   float64       
+ 14  POSITION PVBP                  9416 non-null   float64       
+ 15  ACCOUNT                        9390 non-null   object        
+ 16  PORTFOLIO                      9390 non-null   object        
+ 17  BBG 1D CHANGE                  9390 non-null   float64       
+ 18  MATURITY DATE                  9390 non-null   datetime64[ns]
+ 19  CHANGE                         9390 non-null   float64       
+ 20  CHANGE PCT                     9390 non-null   float64       
+ 21  CHANGE BPS NAV                 9416 non-null   float64       
+ 22  UNDERLYING CUSIP               9276 non-null   object        
+ 23  VALUE                          9416 non-null   float64       
+ 24  TRADE GROUP                    9252 non-null   object        
+ 25  STRATEGY                       9276 non-null   object        
+ 26  INDUSTRY                       7202 non-null   object        
+ 27  SECTOR                         9356 non-null   object        
+ 28  OWNER                          0 non-null      float64       
+ 29  DAY PROFIT                     9416 non-null   float64       
+ 30  AVERAGE PRICE                  9390 non-null   float64       
+ 31  CURRENCY                       9390 non-null   object        
+ 32  PROFIT                         9416 non-null   float64       
+ 33  REALIZED                       9416 non-null   float64       
+ 34  UNREALIZED                     9416 non-null   float64       
+ 35  TOTAL COST SETTLE CCY          9390 non-null   float64       
+ 36  TOTAL COST                     9416 non-null   float64       
+ 37  COST PCT NAV                   9390 non-null   float64       
+ 38  INTEREST                       9416 non-null   float64       
+ 39  REALIZED SETTLE CCY            9390 non-null   float64       
+ 40  PAID INTEREST LOCAL CCY        9390 non-null   float64       
+ 41  PAID INTEREST                  9390 non-null   float64       
+ 42  UNREALIZED SETTLE CCY          9390 non-null   float64       
+ 43  FX EXPOSURE LOCAL CCY          9390 non-null   float64       
+ 44  FX EXPOSURE DISPLAY CCY        9416 non-null   float64       
+ 45  FX EXPOSURE PCT NAV            9390 non-null   float64       
+ 46  COMPANY SYMBOL                 9386 non-null   object        
+ 47  CUSIP                          9276 non-null   object        
+ 48  ISIN                           9049 non-null   object        
+ 49  PREVIOUS PROFIT                9390 non-null   float64       
+ 50  PREVIOUS DAY PRICE             9390 non-null   float64       
+ 51  ACCRUED INTEREST               9416 non-null   float64       
+ 52  MATURITY BUCKET                9196 non-null   object        
+ 53  COUPON                         9390 non-null   float64       
+ 54  SECURITY PVBP                  9390 non-null   float64       
+ 55  SECURITY CR01                  9390 non-null   float64       
+ 56  ANNUALIZED INCOME              9416 non-null   float64       
+ 57  CREDIT RATING                  9260 non-null   object        
+ 58  SECURITY CLASSIFICATION        3896 non-null   object        
+ 59  UNDERLYING ISIN                9205 non-null   object        
+ 60  BENCHMARK MATURITY DATE        9390 non-null   datetime64[ns]
+ 61  PCT OF OUTSTANDING             9416 non-null   float64       
+ 62  FACE VALUE OUTSTANDING         9390 non-null   float64       
+ 63  BBG MTD YIELD CHANGE           9390 non-null   float64       
+ 64  CDS Adj Size (Calc)            9390 non-null   float64       
+ 65  Yield                          9390 non-null   float64       
+ 66  Yield CAD Fee Included         9358 non-null   float64       
+ 67  Fuding Status                  9390 non-null   object        
+ 68  TradeGroup Fixed               9387 non-null   object        
+ 69  Benchmark Yield                5361 non-null   float64       
+ 70  Benchmark Yield Including Fee  5363 non-null   float64       
+ 71  Sprd Calculated                5372 non-null   float64       
+ 72  Sprd Funding Adjusted          5372 non-null   float64       
+ 73  OAS (Bloomberg)                5382 non-null   float64       
+ 74  OAS Fund Adj(Bloomberg)        5382 non-null   float64       
+ 75  Yrs Calc                       9390 non-null   float64       
+ 76  Duration Calc                  9390 non-null   float64       
+ 77  OAD Calc                       9390 non-null   float64       
+ 78  Yrs Calc (Corps)               5163 non-null   float64       
+ 79  Yrs Calc (Corps + CDX)         5192 non-null   float64       
+ 80  Duration Calc (Corps)          5163 non-null   float64       
+ 81  Duration Calc (Corps + CDX)    5192 non-null   float64       
+ 82  Funding Cost                   7848 non-null   float64       
+dtypes: datetime64[ns](3), float64(59), object(21)
+memory usage: 6.0+ MB
+
+[2025-07-04 15:49:20,582] WARNING: Removed 39 rows with missing SECURITY
+[2025-07-04 15:49:20,583] DEBUG: columns_to_drop type: <class 'list'>, value: ['BBG YIELD SPREAD', 'CURRENT YIELD', 'BBG 1D CHANGE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'ANNUALIZED INCOME', 'BBG MTD YIELD CHANGE', 'Unnamed: 0', 'Unnamed: 1']
+[2025-07-04 15:49:20,583] INFO: Dropping 32 columns: ['BBG YIELD SPREAD', 'CURRENT YIELD', 'BBG 1D CHANGE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'ANNUALIZED INCOME', 'BBG MTD YIELD CHANGE', 'Unnamed: 0', 'Unnamed: 1']
+[2025-07-04 15:49:20,590] INFO: Applying CUSIP mappings...
+[2025-07-04 15:49:20,590] DEBUG: No CDX rows found
+[2025-07-04 15:49:20,591] INFO: Applied CASH_CAD mapping to 83 rows
+[2025-07-04 15:49:20,592] INFO: Applied CASH_USD mapping to 31 rows
+[2025-07-04 15:49:20,593] DEBUG: Converted CUSIP column to string type
+[2025-07-04 15:49:20,594] INFO: Date column validated. Type: datetime64[ns]
+[2025-07-04 15:49:20,594] INFO: Date coverage: 14 unique dates
+[2025-07-04 15:49:20,594] INFO: Date range: 2023-12-29 to 2025-06-30
+[2025-07-04 15:49:20,594] INFO: Records per date: min=595, max=915, avg=670.7
+[2025-07-04 15:49:20,599] DEBUG: Reordered columns with Date first
+[2025-07-04 15:49:20,600] INFO: Data cleaning complete:
+[2025-07-04 15:49:20,600] INFO:   Initial rows: 9429
+[2025-07-04 15:49:20,600] INFO:   Final rows: 9390
+[2025-07-04 15:49:20,600] INFO:   Rows removed: 39
+[2025-07-04 15:49:20,600] INFO:   Final columns: 51
+[2025-07-04 15:49:20,600] INFO: Running data validation and quality analysis...
+[2025-07-04 15:49:20,641] INFO: ✅ All data validation checks passed
+[2025-07-04 15:49:20,646] INFO: 
+=========================
+=== DATA QUALITY REPORT ===
+=========================
+
+--- Null Value Analysis (Top 5) ---
+  - SECURITY CLASSIFICATION: 5494.0 nulls (58.51%)
+  - Duration Calc (Corps): 4227.0 nulls (45.02%)
+  - Yrs Calc (Corps): 4227.0 nulls (45.02%)
+  - Duration Calc (Corps + CDX): 4198.0 nulls (44.71%)
+  - Yrs Calc (Corps + CDX): 4198.0 nulls (44.71%)
+
+--- Statistical Summary (Numeric Columns) ---
+                           count               mean                std              min             25%             50%                75%                max
+MODIFIED DURATION       9,390.00               2.57               2.39             0.00            0.80            2.17               3.87              20.32
+QUANTITY                9,390.00       1,155,928.73      14,501,497.01  -282,864,924.53   -3,250,000.00    1,275,000.00       4,975,000.00     198,682,669.00
+PRICE                   9,390.00              97.59              14.38            -2.39           98.20          100.00             101.65             112.51
+YIELD TO MAT            9,390.00               3.52               1.20             0.00            2.93            3.38               3.96              16.87
+POSITION CR01           9,390.00             429.57           4,491.13      -127,326.79            0.00           21.48             876.34          33,733.88
+VALUE PCT NAV           9,390.00               0.00               0.06            -1.12           -0.01            0.00               0.02               0.99
+POSITION PVBP           9,390.00              36.87           1,949.95       -22,495.84         -754.28           15.55             793.89          22,697.89
+VALUE                   9,390.00         935,149.05      12,961,223.15  -282,864,924.53   -3,284,886.76    1,347,207.57       4,982,185.48     108,160,498.36
+COUPON                  9,390.00               3.05               1.86             0.00            1.25            3.44               4.35               8.85
+SECURITY PVBP           9,390.00               2.56               2.35             0.00            0.79            2.19               3.98              18.64
+SECURITY CR01           9,390.00               1.36               2.23            -4.66            0.00            0.05               2.33              17.73
+PCT OF OUTSTANDING      9,390.00               0.01               0.02            -0.01           -0.00            0.00               0.01               0.30
+FACE VALUE OUTSTANDING  9,390.00  10,877,795,630.14  14,092,429,770.22             0.00  200,000,000.00  600,000,000.00  20,000,000,000.00  51,816,529,000.00
+
+--- Categorical Value Distribution (Sample) ---
+  - Column 'SECURITY':
+    'CAN 1 09/01/26': 396 (4.22%)
+    'CAN 3.25 09/01/28': 331 (3.53%)
+    'CAN 2.75 09/01/27': 328 (3.49%)
+  - Column 'SECURITY TYPE':
+    'Bond': 4187 (44.59%)
+    'GovtBond': 3994 (42.53%)
+    'FixedFloatingDebt': 785 (8.36%)
+  - Column 'UNDERLYING SECURITY':
+    'CAN 1 09/01/26': 802 (8.54%)
+    'CAN 3.25 09/01/28': 662 (7.05%)
+    'CAN 2.75 09/01/27': 630 (6.71%)
+[2025-07-04 15:49:20,659] INFO: 
+=========================
+=== FINAL DATA SNAPSHOT ===
+=========================
+Total Rows: 9390
+Total Columns: 51
+Memory Usage: 13.11 MB
+
+--- DataFrame Info ---
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 9390 entries, 0 to 9425
+Columns: 51 entries, Date to Funding Cost
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 3.7+ MB
+
+[2025-07-04 15:49:20,659] INFO: --- Processing Complete ---
+[2025-07-04 15:49:20,660] INFO: Final DataFrame Shape: (9390, 51)
+[2025-07-04 15:49:20,660] INFO: 
+=========================
+[2025-07-04 15:49:20,660] INFO: === DATE COVERAGE ANALYSIS ===
+[2025-07-04 15:49:20,660] INFO: =========================
+[2025-07-04 15:49:20,660] INFO: Total unique dates: 14
+[2025-07-04 15:49:20,661] INFO: Date column dtype: datetime64[ns]
+[2025-07-04 15:49:20,661] INFO: Date range: 2023-12-29 to 2025-06-30
+[2025-07-04 15:49:20,661] INFO: Time span: 549 days (1.5 years)
+[2025-07-04 15:49:20,668] INFO: 
+Year distribution:
+[2025-07-04 15:49:20,668] INFO:   - 2023: 915 records
+[2025-07-04 15:49:20,669] INFO:   - 2024: 2653 records
+[2025-07-04 15:49:20,669] INFO:   - 2025: 5822 records
+[2025-07-04 15:49:20,672] INFO: 
+Business day analysis:
+[2025-07-04 15:49:20,672] INFO:   - Business days: 9390 (100.0%)
+[2025-07-04 15:49:20,672] INFO:   - Weekend days: 0 (0.0%)
+[2025-07-04 15:49:20,672] INFO: 
+Sample dates:
+[2025-07-04 15:49:20,674] INFO:   - 2023-12-29 (Fri): 915 records
+[2025-07-04 15:49:20,674] INFO:   - 2024-07-09 (Tue): 595 records
+[2025-07-04 15:49:20,674] INFO:   - 2024-12-04 (Wed): 697 records
+[2025-07-04 15:49:20,675] INFO:   - 2024-12-18 (Wed): 698 records
+[2025-07-04 15:49:20,675] INFO:   - 2024-12-20 (Fri): 663 records
+[2025-07-04 15:49:20,675] INFO:   ... (4 more dates) ...
+[2025-07-04 15:49:20,676] INFO:   - 2025-06-10 (Tue): 640 records
+[2025-07-04 15:49:20,676] INFO:   - 2025-06-13 (Fri): 643 records
+[2025-07-04 15:49:20,676] INFO:   - 2025-06-19 (Thu): 654 records
+[2025-07-04 15:49:20,677] INFO:   - 2025-06-26 (Thu): 664 records
+[2025-07-04 15:49:20,677] INFO:   - 2025-06-30 (Mon): 654 records
+[2025-07-04 15:49:20,677] INFO: 
+=== END DATE ANALYSIS ===
+
+[2025-07-04 15:49:20,691] INFO: DataFrame info before saving to Parquet:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 9390 entries, 0 to 9425
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           9390 non-null   datetime64[ns]
+ 1   SECURITY                       9390 non-null   object        
+ 2   SECURITY TYPE                  9390 non-null   object        
+ 3   MODIFIED DURATION              9390 non-null   float64       
+ 4   QUANTITY                       9390 non-null   float64       
+ 5   PRICE                          9390 non-null   float64       
+ 6   YIELD TO MAT                   9390 non-null   float64       
+ 7   UNDERLYING SECURITY            9390 non-null   object        
+ 8   POSITION CR01                  9390 non-null   float64       
+ 9   VALUE PCT NAV                  9390 non-null   float64       
+ 10  POSITION PVBP                  9390 non-null   float64       
+ 11  ACCOUNT                        9390 non-null   object        
+ 12  PORTFOLIO                      9390 non-null   object        
+ 13  MATURITY DATE                  9390 non-null   datetime64[ns]
+ 14  UNDERLYING CUSIP               9276 non-null   object        
+ 15  VALUE                          9390 non-null   float64       
+ 16  TRADE GROUP                    9252 non-null   object        
+ 17  STRATEGY                       9276 non-null   object        
+ 18  CURRENCY                       9390 non-null   object        
+ 19  COMPANY SYMBOL                 9386 non-null   object        
+ 20  CUSIP                          9390 non-null   object        
+ 21  ISIN                           9049 non-null   object        
+ 22  MATURITY BUCKET                9196 non-null   object        
+ 23  COUPON                         9390 non-null   float64       
+ 24  SECURITY PVBP                  9390 non-null   float64       
+ 25  SECURITY CR01                  9390 non-null   float64       
+ 26  CREDIT RATING                  9260 non-null   object        
+ 27  SECURITY CLASSIFICATION        3896 non-null   object        
+ 28  UNDERLYING ISIN                9205 non-null   object        
+ 29  BENCHMARK MATURITY DATE        9390 non-null   datetime64[ns]
+ 30  PCT OF OUTSTANDING             9390 non-null   float64       
+ 31  FACE VALUE OUTSTANDING         9390 non-null   float64       
+ 32  CDS Adj Size (Calc)            9390 non-null   float64       
+ 33  Yield                          9390 non-null   float64       
+ 34  Yield CAD Fee Included         9358 non-null   float64       
+ 35  Fuding Status                  9390 non-null   object        
+ 36  TradeGroup Fixed               9387 non-null   object        
+ 37  Benchmark Yield                5361 non-null   float64       
+ 38  Benchmark Yield Including Fee  5363 non-null   float64       
+ 39  Sprd Calculated                5372 non-null   float64       
+ 40  Sprd Funding Adjusted          5372 non-null   float64       
+ 41  OAS (Bloomberg)                5382 non-null   float64       
+ 42  OAS Fund Adj(Bloomberg)        5382 non-null   float64       
+ 43  Yrs Calc                       9390 non-null   float64       
+ 44  Duration Calc                  9390 non-null   float64       
+ 45  OAD Calc                       9390 non-null   float64       
+ 46  Yrs Calc (Corps)               5163 non-null   float64       
+ 47  Yrs Calc (Corps + CDX)         5192 non-null   float64       
+ 48  Duration Calc (Corps)          5163 non-null   float64       
+ 49  Duration Calc (Corps + CDX)    5192 non-null   float64       
+ 50  Funding Cost                   7848 non-null   float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 3.7+ MB
+
+[2025-07-04 15:49:20,756] INFO: Successfully saved 9390 rows to 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet'
+[2025-07-04 15:49:20,756] INFO: Updated processing state with 14 files
+[2025-07-04 15:49:20,756] INFO: Portfolio processing pipeline completed successfully
+[2025-07-04 15:49:20,765] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-04 15:49:20,768] ERROR: Portfolio processing pipeline failed.: Cannot save file into a non-existent directory: 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data'
+Traceback (most recent call last):
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio_excel_to_parquet.py", line 40, in <module>
+    final_df.to_csv(csv_path, index=False)
+  File "C:\Users\Eddy\AppData\Local\pypoetry\Cache\virtualenvs\auto-ml-GtY3jPFV-py3.11\Lib\site-packages\pandas\util\_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\AppData\Local\pypoetry\Cache\virtualenvs\auto-ml-GtY3jPFV-py3.11\Lib\site-packages\pandas\core\generic.py", line 3720, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\AppData\Local\pypoetry\Cache\virtualenvs\auto-ml-GtY3jPFV-py3.11\Lib\site-packages\pandas\util\_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\AppData\Local\pypoetry\Cache\virtualenvs\auto-ml-GtY3jPFV-py3.11\Lib\site-packages\pandas\io\formats\format.py", line 1189, in to_csv
+    csv_formatter.save()
+  File "C:\Users\Eddy\AppData\Local\pypoetry\Cache\virtualenvs\auto-ml-GtY3jPFV-py3.11\Lib\site-packages\pandas\io\formats\csvs.py", line 241, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "C:\Users\Eddy\AppData\Local\pypoetry\Cache\virtualenvs\auto-ml-GtY3jPFV-py3.11\Lib\site-packages\pandas\io\common.py", line 734, in get_handle
+    check_parent_directory(str(handle))
+  File "C:\Users\Eddy\AppData\Local\pypoetry\Cache\virtualenvs\auto-ml-GtY3jPFV-py3.11\Lib\site-packages\pandas\io\common.py", line 597, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data'

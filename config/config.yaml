@@ -139,8 +139,8 @@ portfolio_processor:
     - ACCRUED INTEREST
     - ANNUALIZED INCOME
     - BBG MTD YIELD CHANGE
-    - Unnamed: 0
-    - Unnamed: 1
+    - "Unnamed: 0"
+    - "Unnamed: 1"
   
   cusip_mappings:
     CDX:
