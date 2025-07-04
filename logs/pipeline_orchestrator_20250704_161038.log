@@ -1,0 +1,18 @@
+[2025-07-04 16:10:38,194] INFO: 🎯 MASTER PIPELINE ORCHESTRATOR STARTING
+[2025-07-04 16:10:38,194] INFO: ============================================================
+[2025-07-04 16:10:38,194] INFO: Timestamp: 2025-07-04T16:10:38.194821
+[2025-07-04 16:10:38,194] INFO: Arguments: {'full': True, 'universe': False, 'portfolio': False, 'historical_gspread': False, 'gspread_analytics': False, 'runs': False, 'dry_run': True, 'validate_only': False, 'resume_from': None, 'force': False, 'parallel': False, 'config': 'config/config.yaml', 'log_level': 'INFO', 'log_file': None, 'monitor': False, 'report': False, 'notify': None}
+[2025-07-04 16:10:38,197] INFO: ============================================================
+[2025-07-04 16:10:38,207] INFO: 📋 Creating pipeline execution plan...
+[2025-07-04 16:10:38,207] INFO: 📊 Execution plan created:
+[2025-07-04 16:10:38,207] INFO:   Stages: 6
+[2025-07-04 16:10:38,207] INFO:   Parallel groups: 2
+[2025-07-04 16:10:38,207] INFO:   Estimated duration: 0:07:00
+[2025-07-04 16:10:38,207] INFO: 🗺️ PIPELINE EXECUTION PLAN
+[2025-07-04 16:10:38,208] INFO: ==================================================
+[2025-07-04 16:10:38,208] INFO: Step 1: universe, runs-excel, historical-gspread, portfolio (parallel, ~5m)
+[2025-07-04 16:10:38,208] INFO: Step 2: gspread-analytics, runs-monitor (parallel, ~2m)
+[2025-07-04 16:10:38,208] INFO: ==================================================
+[2025-07-04 16:10:38,208] INFO: Total estimated time: 0:07:00
+[2025-07-04 16:10:38,208] INFO: Total stages: 6
+[2025-07-04 16:10:38,208] INFO: 🏁 Pipeline orchestrator shutdown complete

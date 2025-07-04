@@ -85,7 +85,7 @@ class GSpreadProcessor:
             return df_clean
             
         except Exception as e:
-            self.logger.error(f"G Spread processing failed: {str(e)}", exc_info=True)
+            self.logger.error(f"G Spread processing failed: {str(e)}")
             if self.error_config.get('fail_on_validation_errors', True):
                 raise
             return None
@@ -102,8 +102,16 @@ class GSpreadProcessor:
             return None
         
         try:
-            df = pd.read_csv(self.input_file, encoding='utf-8')
-            self.logger.info(f"Raw data loaded: {df.shape}")
+            try:
+                df = pd.read_csv(self.input_file, encoding='utf-8')
+                self.logger.info(f"Raw data loaded: {df.shape} (utf-8)")
+            except UnicodeDecodeError:
+                try:
+                    df = pd.read_csv(self.input_file, encoding='utf-8-sig')
+                    self.logger.info(f"Raw data loaded: {df.shape} (utf-8-sig)")
+                except UnicodeDecodeError:
+                    df = pd.read_csv(self.input_file, encoding='latin1')
+                    self.logger.warning(f"Raw data loaded: {df.shape} (latin1 fallback)")
             
             # Convert DATE column to datetime immediately after loading
             date_col = self.column_config.get('date_column', 'DATE')
@@ -218,7 +226,7 @@ class GSpreadProcessor:
                         original_count = (universe_df['Security'] == security).sum()
                         self.logger.info(f"  Deduplicated '{security}': kept 1 record")
                 
-                self.logger.info(f"✅ Universe data successfully filtered to most recent date with {len(universe_df)} unique securities")
+                self.logger.info(f"[OK] Universe data successfully filtered to most recent date with {len(universe_df)} unique securities")
                 
             else:
                 # Check for duplicates in non-time-series data
@@ -249,7 +257,7 @@ class GSpreadProcessor:
             return universe_df
             
         except Exception as e:
-            self.logger.error(f"Failed to load universe reference: {str(e)}", exc_info=True)
+            self.logger.error(f"Failed to load universe reference: {str(e)}")
             if self.error_config.get('fail_on_missing_universe', True):
                 raise
             return None
@@ -307,7 +315,9 @@ class GSpreadProcessor:
                     rename_map[bond] = best_match
                     available_securities.remove(best_match)
                     mapping_report.append((bond, best_match, best_score, 'fuzzy'))
-                    msg = f"MAPPED: {bond} -> {best_match} (Similarity: {best_score:.1f}%)"
+                    bond_ascii = self.replace_unicode_fractions(bond)
+                    best_match_ascii = self.replace_unicode_fractions(best_match) if best_match else best_match
+                    msg = f"MAPPED: {bond_ascii} -> {best_match_ascii} (Similarity: {best_score:.1f}%)"
                     self.logger.info(msg)
                     if self.logging_config.get('log_console_and_file', True):
                         print(msg)
@@ -750,7 +760,7 @@ class GSpreadProcessor:
                 self.logger.info(f"Overwrote main Parquet file with long format: {main_parquet_path}")
                 self.logger.info(f"Main Parquet file size (long): {parquet_size:.1f} MB")
         except Exception as e:
-            self.logger.error(f"Failed to save outputs: {str(e)}", exc_info=True)
+            self.logger.error(f"Failed to save outputs: {str(e)}")
             raise
     
     def filter_by_date_range(self, df: pd.DataFrame, start_date: str, end_date: str) -> pd.DataFrame:
@@ -887,6 +897,21 @@ class GSpreadProcessor:
         self.logger.info(f"Added {9} date features for analytics")
         return df_enhanced
 
+    def replace_unicode_fractions(self, text):
+        if not isinstance(text, str):
+            return text
+        return (
+            text.replace('⅛', '1/8')
+                .replace('⅜', '3/8')
+                .replace('⅝', '5/8')
+                .replace('⅞', '7/8')
+                .replace('⅓', '1/3')
+                .replace('⅔', '2/3')
+                .replace('¼', '1/4')
+                .replace('¾', '3/4')
+                .replace('½', '1/2')
+        )
+
 
 def process_g_spread_files(logger=None) -> Optional[pd.DataFrame]:
     """
@@ -901,8 +926,12 @@ def process_g_spread_files(logger=None) -> Optional[pd.DataFrame]:
     try:
         # Load configuration directly from YAML
         config_path = Path(__file__).parent.parent.parent / 'config' / 'config.yaml'
-        with open(config_path, 'r') as f:
-            config_dict = yaml.safe_load(f)
+        try:
+            with open(config_path, 'r', encoding='utf-8-sig') as f:
+                config_dict = yaml.safe_load(f)
+        except UnicodeDecodeError:
+            with open(config_path, 'r', encoding='latin1') as f:
+                config_dict = yaml.safe_load(f)
         
         # Create logger if not provided
         if logger is None:
@@ -921,7 +950,7 @@ def process_g_spread_files(logger=None) -> Optional[pd.DataFrame]:
         
     except Exception as e:
         if logger:
-            logger.error(f"G spread processing failed: {str(e)}", exc_info=True)
+            logger.error(f"G spread processing failed: {str(e)}")
         else:
             print(f"G spread processing failed: {str(e)}")
         raise 

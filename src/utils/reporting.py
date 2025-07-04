@@ -69,7 +69,7 @@ class DataReporter:
         report = [DataReporter.format_header("Validation Errors")]
         
         if not validation_errors:
-            report.append("✅ All data validation checks passed.")
+            report.append("[OK] All data validation checks passed.")
             return "\n".join(report)
 
         if 'non_numeric_rows' in validation_errors and validation_errors['non_numeric_rows']:

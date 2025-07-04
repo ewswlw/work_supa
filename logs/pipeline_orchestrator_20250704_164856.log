@@ -1,0 +1,30 @@
+[2025-07-04 16:48:56,463] INFO: [INFO] MASTER PIPELINE ORCHESTRATOR STARTING
+[2025-07-04 16:48:56,463] INFO: ============================================================
+[2025-07-04 16:48:56,464] INFO: Timestamp: 2025-07-04T16:48:56.463971
+[2025-07-04 16:48:56,464] INFO: Arguments: {'full': False, 'universe': False, 'portfolio': False, 'historical_gspread': False, 'gspread_analytics': False, 'runs': False, 'dry_run': False, 'validate_only': False, 'resume_from': None, 'force': False, 'parallel': False, 'config': 'config/config.yaml', 'log_level': 'INFO', 'log_file': None, 'monitor': False, 'report': False, 'notify': None, 'menu': False}
+[2025-07-04 16:48:56,464] INFO: ============================================================
+[2025-07-04 16:48:56,473] INFO: [PLAN] Creating pipeline execution plan...
+[2025-07-04 16:48:56,476] INFO: [PLAN] Execution plan created:
+[2025-07-04 16:48:56,476] INFO:   Stages: 6
+[2025-07-04 16:48:56,476] INFO:   Parallel groups: 2
+[2025-07-04 16:48:56,477] INFO:   Estimated duration: 0:07:00
+[2025-07-04 16:48:56,477] INFO: [START] Starting pipeline execution...
+[2025-07-04 16:48:56,477] INFO: [STEP] Executing step 1/2: ['universe', 'runs-excel', 'historical-gspread', 'portfolio']
+[2025-07-04 16:48:56,477] INFO: [RUN] Executing universe...
+[2025-07-04 16:49:00,473] INFO: [OK] universe completed in 0:00:03.994886
+[2025-07-04 16:49:00,473] INFO:    Records processed: 59,622
+[2025-07-04 16:49:00,474] INFO:    Output files: 1
+[2025-07-04 16:49:00,474] INFO: [RUN] Executing runs-excel...
+[2025-07-04 16:49:02,756] ERROR: [FAIL] runs-excel failed after 0:00:02.281679
+[2025-07-04 16:49:02,757] ERROR: [FAIL] Stage runs-excel failed, stopping execution
+[2025-07-04 16:49:02,757] INFO: [STEP] Executing step 2/2: ['runs-monitor', 'gspread-analytics']
+[2025-07-04 16:49:02,757] INFO: [RUN] Executing runs-monitor...
+[2025-07-04 16:49:05,074] INFO: [OK] runs-monitor completed in 0:00:02.317560
+[2025-07-04 16:49:05,074] INFO:    Records processed: 0
+[2025-07-04 16:49:05,075] INFO:    Output files: 1
+[2025-07-04 16:49:05,075] INFO: [RUN] Executing gspread-analytics...
+[2025-07-04 16:49:18,122] INFO: [OK] gspread-analytics completed in 0:00:13.045211
+[2025-07-04 16:49:18,123] INFO:    Records processed: 0
+[2025-07-04 16:49:18,123] INFO:    Output files: 0
+[2025-07-04 16:49:18,123] INFO: [COMPLETE] PIPELINE ORCHESTRATION COMPLETE
+[2025-07-04 16:49:18,123] INFO: [DONE] Pipeline orchestrator shutdown complete

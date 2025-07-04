@@ -492,7 +492,7 @@ class SupabaseProcessor(BaseProcessor):
             
             # Check if constraint already exists
             if self._check_primary_key_exists():
-                self.logger.info("✅ PRIMARY KEY constraint already exists")
+                self.logger.info("[OK] PRIMARY KEY constraint already exists")
                 return True
             
             self.logger.info("🔧 PRIMARY KEY constraint missing, creating it...")
@@ -566,7 +566,7 @@ class SupabaseProcessor(BaseProcessor):
                 )
                 if response.status_code == 200:
                     success = True
-                    self.logger.info("✅ PRIMARY KEY constraint created via PostgREST")
+                    self.logger.info("[OK] PRIMARY KEY constraint created via PostgREST")
             except Exception as method1_error:
                 self.logger.debug(f"Method 1 failed: {method1_error}")
             
@@ -575,7 +575,7 @@ class SupabaseProcessor(BaseProcessor):
                 try:
                     response = self.client.rpc('execute_ddl', {'ddl_statement': constraint_sql}).execute()
                     success = True
-                    self.logger.info("✅ PRIMARY KEY constraint created via RPC")
+                    self.logger.info("[OK] PRIMARY KEY constraint created via RPC")
                 except Exception as method2_error:
                     self.logger.debug(f"Method 2 failed: {method2_error}")
             

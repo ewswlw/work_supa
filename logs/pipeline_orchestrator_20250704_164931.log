@@ -1,0 +1,30 @@
+[2025-07-04 16:49:31,638] INFO: [INFO] MASTER PIPELINE ORCHESTRATOR STARTING
+[2025-07-04 16:49:31,638] INFO: ============================================================
+[2025-07-04 16:49:31,639] INFO: Timestamp: 2025-07-04T16:49:31.639600
+[2025-07-04 16:49:31,639] INFO: Arguments: {'full': False, 'universe': False, 'portfolio': False, 'historical_gspread': False, 'gspread_analytics': False, 'runs': False, 'dry_run': False, 'validate_only': False, 'resume_from': None, 'force': False, 'parallel': False, 'config': 'config/config.yaml', 'log_level': 'INFO', 'log_file': None, 'monitor': False, 'report': False, 'notify': None, 'menu': False}
+[2025-07-04 16:49:31,639] INFO: ============================================================
+[2025-07-04 16:49:31,644] INFO: [PLAN] Creating pipeline execution plan...
+[2025-07-04 16:49:31,644] INFO: [PLAN] Execution plan created:
+[2025-07-04 16:49:31,644] INFO:   Stages: 6
+[2025-07-04 16:49:31,644] INFO:   Parallel groups: 2
+[2025-07-04 16:49:31,644] INFO:   Estimated duration: 0:07:00
+[2025-07-04 16:49:31,644] INFO: [START] Starting pipeline execution...
+[2025-07-04 16:49:31,644] INFO: [STEP] Executing step 1/2: ['portfolio', 'runs-excel', 'historical-gspread', 'universe']
+[2025-07-04 16:49:31,644] INFO: [RUN] Executing portfolio...
+[2025-07-04 16:49:35,057] INFO: [OK] portfolio completed in 0:00:03.412640
+[2025-07-04 16:49:35,057] INFO:    Records processed: 34,592
+[2025-07-04 16:49:35,058] INFO:    Output files: 1
+[2025-07-04 16:49:35,058] INFO: [RUN] Executing runs-excel...
+[2025-07-04 16:49:37,492] ERROR: [FAIL] runs-excel failed after 0:00:02.434162
+[2025-07-04 16:49:37,493] ERROR: [FAIL] Stage runs-excel failed, stopping execution
+[2025-07-04 16:49:37,493] INFO: [STEP] Executing step 2/2: ['gspread-analytics', 'runs-monitor']
+[2025-07-04 16:49:37,493] INFO: [RUN] Executing gspread-analytics...
+[2025-07-04 16:49:50,774] INFO: [OK] gspread-analytics completed in 0:00:13.278998
+[2025-07-04 16:49:50,775] INFO:    Records processed: 0
+[2025-07-04 16:49:50,775] INFO:    Output files: 0
+[2025-07-04 16:49:50,775] INFO: [RUN] Executing runs-monitor...
+[2025-07-04 16:49:53,070] INFO: [OK] runs-monitor completed in 0:00:02.293761
+[2025-07-04 16:49:53,070] INFO:    Records processed: 0
+[2025-07-04 16:49:53,070] INFO:    Output files: 1
+[2025-07-04 16:49:53,070] INFO: [COMPLETE] PIPELINE ORCHESTRATION COMPLETE
+[2025-07-04 16:49:53,070] INFO: [DONE] Pipeline orchestrator shutdown complete

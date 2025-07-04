@@ -204,7 +204,7 @@ def process_universe_files(logger: Logger):
         error_report = DataReporter.generate_validation_error_report(validator.errors)
         logger.warning(error_report)
     else:
-        logger.info("✅ All data validation checks passed.")
+        logger.info("[OK] All data validation checks passed.")
 
     # Log the detailed data quality report
     quality_report = DataReporter.generate_data_quality_report(validator.results)

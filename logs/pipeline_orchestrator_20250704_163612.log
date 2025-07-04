@@ -1,0 +1,45 @@
+[2025-07-04 16:36:12,174] INFO: [INFO] MASTER PIPELINE ORCHESTRATOR STARTING
+[2025-07-04 16:36:12,175] INFO: ============================================================
+[2025-07-04 16:36:12,175] INFO: Timestamp: 2025-07-04T16:36:12.175764
+[2025-07-04 16:36:12,175] INFO: Arguments: {'full': False, 'universe': False, 'portfolio': False, 'historical_gspread': False, 'gspread_analytics': False, 'runs': False, 'dry_run': False, 'validate_only': False, 'resume_from': None, 'force': False, 'parallel': False, 'config': 'config/config.yaml', 'log_level': 'INFO', 'log_file': None, 'monitor': False, 'report': False, 'notify': None, 'menu': False}
+[2025-07-04 16:36:12,175] INFO: ============================================================
+[2025-07-04 16:36:12,183] INFO: [PLAN] Creating pipeline execution plan...
+[2025-07-04 16:36:12,196] INFO: [PLAN] Execution plan created:
+[2025-07-04 16:36:12,196] INFO:   Stages: 6
+[2025-07-04 16:36:12,196] INFO:   Parallel groups: 2
+[2025-07-04 16:36:12,196] INFO:   Estimated duration: 0:07:00
+[2025-07-04 16:36:12,196] INFO: [START] Starting pipeline execution...
+[2025-07-04 16:36:12,196] INFO: [STEP] Executing step 1/2: ['runs-excel', 'universe', 'historical-gspread', 'portfolio']
+[2025-07-04 16:36:12,196] INFO: [RUN] Executing runs-excel...
+[2025-07-04 16:36:14,614] ERROR: [FAIL] runs-excel failed after 0:00:02.416641
+[2025-07-04 16:36:14,614] ERROR: [FAIL] Stage runs-excel failed, stopping execution
+[2025-07-04 16:36:14,614] INFO: [STEP] Executing step 2/2: ['runs-monitor', 'gspread-analytics']
+[2025-07-04 16:36:14,614] INFO: [RUN] Executing runs-monitor...
+[2025-07-04 16:36:16,898] ERROR: [FAIL] runs-monitor failed after 0:00:02.283788
+[2025-07-04 16:36:16,898] ERROR:    Error: Traceback (most recent call last):
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\run_monitor.py", line 436, in main
+    monitor = RunMonitor()
+              ^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\run_monitor.py", line 47, in __init__
+    print(f"\U0001f4c1 Source File: {self.source_file}")
+  File "C:\Users\Eddy\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c1' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\run_monitor.py", line 457, in <module>
+    results = main() 
+              ^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\run_monitor.py", line 453, in main
+    print(f"\u274c FATAL ERROR: {e}")
+  File "C:\Users\Eddy\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 0: character maps to <undefined>
+
+[2025-07-04 16:36:16,899] ERROR: [FAIL] Stage runs-monitor failed, stopping execution
+[2025-07-04 16:36:16,899] INFO: 🎉 PIPELINE ORCHESTRATION COMPLETE
+[2025-07-04 16:36:16,899] INFO: 🏁 Pipeline orchestrator shutdown complete

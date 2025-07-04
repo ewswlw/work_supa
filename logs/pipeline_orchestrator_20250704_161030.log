@@ -1,0 +1,7 @@
+[2025-07-04 16:10:30,405] INFO: 🎯 MASTER PIPELINE ORCHESTRATOR STARTING
+[2025-07-04 16:10:30,405] INFO: ============================================================
+[2025-07-04 16:10:30,405] INFO: Timestamp: 2025-07-04T16:10:30.405514
+[2025-07-04 16:10:30,405] INFO: Arguments: {'full': False, 'universe': False, 'portfolio': False, 'historical_gspread': False, 'gspread_analytics': False, 'runs': False, 'dry_run': False, 'validate_only': True, 'resume_from': None, 'force': False, 'parallel': False, 'config': 'config/config.yaml', 'log_level': 'INFO', 'log_file': None, 'monitor': False, 'report': False, 'notify': None}
+[2025-07-04 16:10:30,414] INFO: ============================================================
+[2025-07-04 16:10:30,416] INFO: ✅ Configuration validation complete
+[2025-07-04 16:10:30,416] INFO: 🏁 Pipeline orchestrator shutdown complete

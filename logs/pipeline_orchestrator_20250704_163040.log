@@ -1,0 +1,106 @@
+[2025-07-04 16:30:40,593] INFO: 🎯 MASTER PIPELINE ORCHESTRATOR STARTING
+[2025-07-04 16:30:40,593] INFO: ============================================================
+[2025-07-04 16:30:40,593] INFO: Timestamp: 2025-07-04T16:30:40.593899
+[2025-07-04 16:30:40,594] INFO: Arguments: {'full': False, 'universe': False, 'portfolio': False, 'historical_gspread': False, 'gspread_analytics': False, 'runs': False, 'dry_run': False, 'validate_only': False, 'resume_from': None, 'force': False, 'parallel': False, 'config': 'config/config.yaml', 'log_level': 'INFO', 'log_file': None, 'monitor': False, 'report': False, 'notify': None, 'menu': False}
+[2025-07-04 16:30:40,594] INFO: ============================================================
+[2025-07-04 16:30:40,605] INFO: [PLAN] Creating pipeline execution plan...
+[2025-07-04 16:30:40,605] INFO: [PLAN] Execution plan created:
+[2025-07-04 16:30:40,606] INFO:   Stages: 6
+[2025-07-04 16:30:40,606] INFO:   Parallel groups: 2
+[2025-07-04 16:30:40,606] INFO:   Estimated duration: 0:07:00
+[2025-07-04 16:30:40,606] INFO: [START] Starting pipeline execution...
+[2025-07-04 16:30:40,606] INFO: [STEP] Executing step 1/2: ['historical-gspread', 'runs-excel', 'universe', 'portfolio']
+[2025-07-04 16:30:40,607] INFO: [RUN] Executing historical-gspread...
+[2025-07-04 16:30:44,195] ERROR: [FAIL] historical-gspread failed after 0:00:03.588374
+[2025-07-04 16:30:44,196] ERROR:    Error: --- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\Eddy\AppData\Local\Programs\Python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\Eddy\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 32: character maps to <undefined>
+Call stack:
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\historical g spread\g_sprd_historical_parquet.py", line 167, in <module>
+    final_df = process_g_spread_files(logger)
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 917, in process_g_spread_files
+    result_df = processor.process_g_spread_files()
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 52, in process_g_spread_files
+    universe_df = self._load_universe_reference()
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 221, in _load_universe_reference
+    self.logger.info(f"\u2705 Universe data successfully filtered to most recent date with {len(universe_df)} unique securities")
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\utils\logging.py", line 44, in info
+    self.logger.info(msg)
+Message: '\u2705 Universe data successfully filtered to most recent date with 2212 unique securities'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Users\Eddy\AppData\Local\Programs\Python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Users\Eddy\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u215d' in position 48: character maps to <undefined>
+Call stack:
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\historical g spread\g_sprd_historical_parquet.py", line 167, in <module>
+    final_df = process_g_spread_files(logger)
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 917, in process_g_spread_files
+    result_df = processor.process_g_spread_files()
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 57, in process_g_spread_files
+    df_mapped = self._perform_fuzzy_mapping(df, universe_df)
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 311, in _perform_fuzzy_mapping
+    self.logger.info(msg)
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\utils\logging.py", line 44, in info
+    self.logger.info(msg)
+Message: 'MAPPED: ACACN 4 \u215d 08/15/29 -> ACACN 4 5/8 08/15/29 (Similarity: 89.5%)'
+Arguments: ()
+Traceback (most recent call last):
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 57, in process_g_spread_files
+    df_mapped = self._perform_fuzzy_mapping(df, universe_df)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 313, in _perform_fuzzy_mapping
+    print(msg)
+  File "C:\Users\Eddy\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u215d' in position 16: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 917, in process_g_spread_files
+    result_df = processor.process_g_spread_files()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 88, in process_g_spread_files
+    self.logger.error(f"G Spread processing failed: {str(e)}", exc_info=True)
+TypeError: LogManager.error() got an unexpected keyword argument 'exc_info'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\historical g spread\g_sprd_historical_parquet.py", line 167, in <module>
+    final_df = process_g_spread_files(logger)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\pipeline\g_spread_processor.py", line 924, in process_g_spread_files
+    logger.error(f"G spread processing failed: {str(e)}", exc_info=True)
+TypeError: LogManager.error() got an unexpected keyword argument 'exc_info'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\historical g spread\g_sprd_historical_parquet.py", line 205, in <module>
+    logger.error("Enhanced G spread processing pipeline failed.", exc_info=True)
+TypeError: LogManager.error() got an unexpected keyword argument 'exc_info'
+
+[2025-07-04 16:30:44,199] ERROR: [FAIL] Stage historical-gspread failed, stopping execution
+[2025-07-04 16:30:44,199] INFO: [STEP] Executing step 2/2: ['gspread-analytics', 'runs-monitor']
+[2025-07-04 16:30:44,199] INFO: [RUN] Executing gspread-analytics...
+[2025-07-04 16:30:48,369] ERROR: Stage gspread-analytics failed: 'utf-8' codec can't decode byte 0x95 in position 186: invalid start byte: 'utf-8' codec can't decode byte 0x95 in position 186: invalid start byte
+Traceback (most recent call last):
+  File "c:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\src\orchestrator\pipeline_manager.py", line 311, in _execute_stage
+    records_processed = self._extract_record_count(stdout.decode('utf-8'), stage)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x95 in position 186: invalid start byte
+[2025-07-04 16:30:48,370] ERROR: [FAIL] Stage gspread-analytics failed, stopping execution
+[2025-07-04 16:30:48,370] INFO: 🎉 PIPELINE ORCHESTRATION COMPLETE
+[2025-07-04 16:30:48,371] INFO: 🏁 Pipeline orchestrator shutdown complete
