@@ -381,3 +381,191 @@ This project is proprietary software for trading operations. All rights reserved
 **Status**: Production Ready ✅
 
 > **Note**: This pipeline processes financial data and maintains strict data integrity and audit requirements. All modifications should be thoroughly tested before production deployment. 
+
+# Bond Z-Spread Analysis - Excel-like Interface
+
+A comprehensive React-based web application that provides an Excel-like interface for analyzing bond Z-spread data. This application offers advanced filtering, sorting, formatting, and editing capabilities designed for financial professionals working with bond trading data.
+
+## 🚀 Features
+
+### Core Excel-like Functionality
+- **Advanced Table Interface**: Mimics Excel's look and feel with bordered cells, header styling, and row highlighting
+- **Multi-column Sorting**: Click headers to sort by any column (ascending/descending)
+- **Real-time Filtering**: Individual column filters with various operators (contains, equals, greater than, less than)
+- **Global Search**: Search across all data with highlighted results
+- **Cell Selection**: Click to select individual cells, visual selection feedback
+- **Inline Editing**: Double-click any cell to edit values directly
+- **Column Management**: Show/hide columns with visual toggle controls
+
+### Advanced Features
+- **Smart Number Formatting**: Automatic formatting for spreads, scores, bids, and offers
+- **Color Coding**: Positive numbers in green, negative in red
+- **Pagination**: Configurable page sizes (25, 50, 100, 500 rows)
+- **Data Export**: Export filtered/sorted data to CSV format
+- **Responsive Design**: Works on desktop and tablet devices
+- **Performance Optimized**: Handles large datasets (13,500+ rows) efficiently
+
+### Data Analysis Capabilities
+- **Bond Pair Analysis**: Compare Security_1 vs Security_2 spreads
+- **Z-Score Analysis**: Statistical spread analysis with percentile rankings
+- **Trading Data**: Real-time bid/offer spreads, dealer information, and size data
+- **Historical Comparison**: Multiple time period analysis with runs data
+
+## 📊 Data Structure
+
+The application works with bond Z-spread data containing 59 columns including:
+
+- **Securities**: Security_1, Security_2, Ticker_1, Ticker_2
+- **Spread Analysis**: Last_Spread, Z_Score, Max, Min, Percentile
+- **Bond Characteristics**: Rating_1, Rating_2, Currency_1, Currency_2, Custom_Sector_1, Custom_Sector_2
+- **Trading Data**: Best Bid/Offer, Dealer information, Size data
+- **Historical Data**: Multiple time period runs for comparison
+
+## 🛠️ Technology Stack
+
+- **Frontend**: React 18 with TypeScript
+- **Styling**: Tailwind CSS with custom Excel-like styling
+- **Icons**: Lucide React for modern iconography
+- **Data Processing**: Pandas (Python) for parquet to JSON conversion
+- **Build Tools**: Create React App with TypeScript template
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- Python 3.8+ with pandas and pyarrow
+- Bond data in parquet format
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd bond-excel-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Convert bond data to JSON** (if you have parquet data)
+   ```bash
+   python3 -c "
+   import pandas as pd
+   df = pd.read_parquet('path/to/bond_data.parquet')
+   df.to_json('public/bond_data.json', orient='records', indent=2)
+   "
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:3000`
+
+## 💡 Usage Guide
+
+### Basic Operations
+
+1. **Sorting**: Click any column header to sort data
+2. **Filtering**: Type in the filter boxes below column headers
+3. **Searching**: Use the global search box in the toolbar
+4. **Editing**: Double-click any cell to edit its value
+5. **Selection**: Click cells to select them (visual feedback provided)
+
+### Advanced Operations
+
+1. **Column Management**: Use the column visibility toggles to show/hide columns
+2. **Export Data**: Click "Export CSV" to download filtered data
+3. **Pagination**: Use the bottom controls to navigate large datasets
+4. **Page Size**: Change how many rows to display per page
+
+### Filtering Options
+
+- **Text Columns**: Use "contains" filtering for partial matches
+- **Number Columns**: Use comparison operators (>, <, =)
+- **Multiple Filters**: Apply filters to multiple columns simultaneously
+- **Clear Filters**: Delete filter text to remove column filters
+
+## 🎨 Customization
+
+### Styling
+The application uses custom CSS classes for Excel-like styling:
+- `.excel-table`: Main table styling
+- `.excel-header`: Column header styling
+- `.excel-cell`: Individual cell styling
+- `.excel-row`: Row styling with alternating colors
+
+### Color Coding
+- **Positive Numbers**: Green text (#008000)
+- **Negative Numbers**: Red text (#cc0000)
+- **Selected Cells**: Blue background (#0066cc)
+- **Header Sorting**: Blue indicators for sort direction
+
+## 📈 Performance
+
+- **Optimized Rendering**: Uses React optimization techniques for large datasets
+- **Pagination**: Reduces DOM load by showing only visible rows
+- **Memoization**: Expensive calculations are memoized for performance
+- **Virtual Scrolling**: Handles thousands of rows efficiently
+
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env` file for custom configuration:
+```env
+REACT_APP_DEFAULT_PAGE_SIZE=50
+REACT_APP_MAX_PAGE_SIZE=1000
+REACT_APP_ENABLE_EDITING=true
+```
+
+### Data Source
+Update `src/App.tsx` to change the data source:
+```typescript
+const response = await fetch('/your-data-endpoint.json');
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/new-feature`
+3. Commit changes: `git commit -am 'Add new feature'`
+4. Push to branch: `git push origin feature/new-feature`
+5. Submit a pull request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🐛 Known Issues
+
+- Large datasets (>10k rows) may experience slower filtering performance
+- Mobile support is limited due to table width requirements
+- Some advanced Excel features (formulas, charts) are not yet implemented
+
+## 🔮 Future Enhancements
+
+- [ ] Formula support for calculated columns
+- [ ] Chart integration for data visualization
+- [ ] Advanced filter operators (between, in list)
+- [ ] Multi-column sorting
+- [ ] Data validation rules
+- [ ] Import from Excel/CSV files
+- [ ] Real-time data updates
+- [ ] User preferences saving
+- [ ] Print formatting options
+- [ ] Advanced conditional formatting
+
+## 📞 Support
+
+For questions or support, please:
+1. Check the [documentation](docs/)
+2. Search existing [issues](issues/)
+3. Create a new issue with detailed information
+
+---
+
+Built with ❤️ for bond trading professionals who need Excel-like functionality in a modern web interface. 
