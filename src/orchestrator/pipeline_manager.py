@@ -7,6 +7,7 @@ error recovery, and monitoring capabilities.
 
 import asyncio
 import subprocess
+import os
 from typing import Dict, List, Optional, Any, NamedTuple
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -15,7 +16,11 @@ from enum import Enum
 import yaml
 import sys
 
-from ..utils.logging import LogManager
+from ..utils.logging import SecureLogManager, LogManager
+from ..utils.security import (
+    PathSanitizer, SecurityError, ValidationError, 
+    secure_error_handler, AuditLogger, InputValidator
+)
 
 
 class PipelineStage(Enum):
@@ -109,6 +114,20 @@ class PipelineManager:
         self.config = config
         self.logger = logger
         self.results: Dict[PipelineStage, PipelineResult] = {}
+        
+        # Initialize security components
+        self.path_sanitizer = PathSanitizer()
+        self.audit_logger = AuditLogger("logs/pipeline_audit.log")
+        
+        # Use secure logging if available
+        if isinstance(logger, SecureLogManager):
+            self.secure_logger = logger
+        else:
+            # Wrap existing logger with security features
+            self.secure_logger = SecureLogManager(
+                log_file=getattr(logger, 'log_file', 'logs/pipeline_secure.log'),
+                log_level=getattr(logger, 'log_level', 'INFO')
+            )
         
     def create_execution_plan(self, args) -> ExecutionPlan:
         """Create optimized execution plan based on arguments."""
@@ -277,9 +296,10 @@ class PipelineManager:
             total_files=sum(len(r.output_files) for r in self.results.values())
         )
     
+    @secure_error_handler
     async def _execute_stage(self, stage: PipelineStage) -> PipelineResult:
-        """Execute a single pipeline stage."""
-        self.logger.info(f"[RUN] Executing {stage.value}...")
+        """Execute a single pipeline stage with security validation."""
+        self.secure_logger.info(f"[RUN] Executing {stage.value}...")
         start_time = datetime.now()
         
         try:
@@ -288,48 +308,71 @@ class PipelineManager:
             if not script_path:
                 raise ValueError(f"No script mapping found for stage: {stage}")
             
-            if not Path(script_path).exists():
-                raise FileNotFoundError(f"Script not found: {script_path}")
+            # SECURITY: Sanitize and validate script path
+            try:
+                sanitized_script_path = self.path_sanitizer.sanitize_script_path(script_path)
+                self.secure_logger.debug(f"[SECURITY] Script path validated: {sanitized_script_path}")
+            except SecurityError as e:
+                self.secure_logger.security_event(f"Script path validation failed: {e.message}", 
+                                                 {"stage": stage.value, "script_path": script_path},
+                                                 "CRITICAL")
+                raise
             
-            # Execute the pipeline script using poetry
-            cmd = ["poetry", "run", "python", script_path]
-            self.logger.debug(f"[CMD] Executing command: {' '.join(cmd)}")
+            # Log the execution attempt to audit trail
+            self.audit_logger.log_financial_operation(
+                operation=f"PIPELINE_STAGE_EXECUTION",
+                user_id="system",
+                data={"stage": stage.value, "script_path": sanitized_script_path},
+                result="STARTED"
+            )
             
-            # Run the subprocess
+            # Execute the pipeline script using poetry with validated path
+            cmd = ["poetry", "run", "python", sanitized_script_path]
+            
+            # SECURITY: Validate command components
+            for cmd_part in cmd:
+                if not InputValidator.validate_string_length(cmd_part, 1, 500, "command_part"):
+                    raise SecurityError(f"Invalid command component: {cmd_part}")
+            
+            self.secure_logger.debug(f"[CMD] Executing validated command: {' '.join(cmd)}")
+            
+            # Run the subprocess with security constraints
             process = await asyncio.create_subprocess_exec(
                 *cmd,
                 stdout=asyncio.subprocess.PIPE,
                 stderr=asyncio.subprocess.PIPE,
-                cwd=Path.cwd()
+                cwd=Path.cwd(),
+                # Security: Limit environment variables
+                env={
+                    "PATH": os.environ.get("PATH", ""),
+                    "HOME": os.environ.get("HOME", ""),
+                    "USER": os.environ.get("USER", ""),
+                    "PYTHONPATH": os.environ.get("PYTHONPATH", ""),
+                }
             )
             
             stdout, stderr = await process.communicate()
             
             duration = datetime.now() - start_time
             
-            # Parse output to extract metrics
+            # Parse output to extract metrics (with error handling)
             try:
-                stdout_text = stdout.decode('utf-8')
-            except UnicodeDecodeError:
-                try:
-                    stdout_text = stdout.decode('utf-8-sig')
-                except UnicodeDecodeError:
-                    stdout_text = stdout.decode('latin1')
+                stdout_text = self._safely_decode_output(stdout)
+                stderr_text = self._safely_decode_output(stderr) if stderr else None
+            except Exception as e:
+                self.secure_logger.error(f"Failed to decode process output: {e}")
+                stdout_text = ""
+                stderr_text = str(e)
             
             records_processed = self._extract_record_count(stdout_text, stage)
             output_files = self._extract_output_files(stdout_text, stage)
             
             success = process.returncode == 0
-            if stderr and not success:
-                try:
-                    error_message = stderr.decode('utf-8')
-                except UnicodeDecodeError:
-                    try:
-                        error_message = stderr.decode('utf-8-sig')
-                    except UnicodeDecodeError:
-                        error_message = stderr.decode('latin1')
-            else:
-                error_message = None
+            
+            # SECURITY: Sanitize error messages before logging
+            error_message = None
+            if stderr_text and not success:
+                error_message = InputValidator.sanitize_log_message(stderr_text)
             
             result = PipelineResult(
                 stage=stage,
@@ -340,21 +383,55 @@ class PipelineManager:
                 error_message=error_message
             )
             
+            # Log execution result to audit trail
+            self.audit_logger.log_financial_operation(
+                operation=f"PIPELINE_STAGE_EXECUTION",
+                user_id="system", 
+                data={
+                    "stage": stage.value,
+                    "duration_seconds": duration.total_seconds(),
+                    "records_processed": records_processed,
+                    "success": success
+                },
+                result="COMPLETED" if success else "FAILED"
+            )
+            
             if success:
-                self.logger.info(f"[OK] {stage.value} completed in {duration}")
-                self.logger.info(f"   Records processed: {records_processed:,}")
-                self.logger.info(f"   Output files: {len(output_files)}")
+                self.secure_logger.info(f"[OK] {stage.value} completed in {duration}")
+                self.secure_logger.info(f"   Records processed: {records_processed:,}")
+                self.secure_logger.info(f"   Output files: {len(output_files)}")
+                
+                # Log performance metrics
+                self.secure_logger.performance_metric(
+                    f"stage_{stage.value}_duration", 
+                    duration.total_seconds(), 
+                    "seconds"
+                )
             else:
-                self.logger.error(f"[FAIL] {stage.value} failed after {duration}")
+                self.secure_logger.error(f"[FAIL] {stage.value} failed after {duration}")
                 if error_message:
-                    self.logger.error(f"   Error: {error_message}")
+                    self.secure_logger.error(f"   Error: {error_message}")
+                
+                # Log security event for failed executions
+                self.secure_logger.security_event(
+                    f"Pipeline stage execution failed: {stage.value}",
+                    {"duration": str(duration), "return_code": process.returncode},
+                    "WARNING"
+                )
             
             return result
             
         except Exception as e:
             duration = datetime.now() - start_time
             error_msg = f"Stage {stage.value} failed: {str(e)}"
-            self.logger.error(error_msg, exc=e)
+            self.secure_logger.error(error_msg, exc=e)
+            
+            # Log security event for exceptions
+            self.secure_logger.security_event(
+                f"Pipeline stage exception: {stage.value}",
+                {"error_type": type(e).__name__, "duration": str(duration)},
+                "ERROR"
+            )
             
             return PipelineResult(
                 stage=stage,
@@ -362,8 +439,36 @@ class PipelineManager:
                 duration=duration,
                 records_processed=0,
                 output_files=[],
-                error_message=error_msg
+                error_message=InputValidator.sanitize_log_message(error_msg)
             )
+    
+    def _safely_decode_output(self, output: bytes) -> str:
+        """
+        Safely decode subprocess output with multiple encoding attempts.
+        
+        Args:
+            output: Raw bytes output from subprocess
+            
+        Returns:
+            Decoded string
+            
+        Raises:
+            UnicodeDecodeError: If all decoding attempts fail
+        """
+        if not output:
+            return ""
+        
+        # Try different encodings in order of preference
+        encodings = ['utf-8', 'utf-8-sig', 'latin1', 'cp1252']
+        
+        for encoding in encodings:
+            try:
+                return output.decode(encoding)
+            except UnicodeDecodeError:
+                continue
+        
+        # If all attempts fail, use error handling
+        return output.decode('utf-8', errors='replace')
     
     def _extract_record_count(self, output: str, stage: PipelineStage) -> int:
         """Extract record count from pipeline output."""
