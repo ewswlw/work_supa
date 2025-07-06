@@ -1,1 +1,4 @@
 historical g spread/processed data/bond_g_sprd_long.csv
+
+# Cursor MCP configuration with secrets
+.cursor/mcp.json
