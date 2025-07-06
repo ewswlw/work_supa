@@ -1,5 +1,12 @@
 {
   "mcpServers": {
+    "github": {
+      "command": "C:\\Users\\{USERNAME}\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\{VENV_NAME}\\Scripts\\github-mcp-server.exe",
+      "args": ["stdio", "--toolsets=all"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "your_github_token_here"
+      }
+    },
     "supabase": {
       "command": "cmd",
       "args": [
@@ -8,7 +15,7 @@
         "-y",
         "@supabase/mcp-server-supabase@latest",
         "--access-token",
-        "sbp_6d456f452bafa45beaa15089b1782bd738ebe37e"
+        "your_supabase_token_here"
       ]
     },
     "context7": {

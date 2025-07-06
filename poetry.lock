@@ -1861,6 +1861,22 @@ test-full = ["adlfs", "aiohttp (!=4.0.0a0,!=4.0.0a1)", "cloudpickle", "dask", "d
 tqdm = ["tqdm"]
 
 [[package]]
+name = "github-mcp-server-unofficial"
+version = "0.2.1"
+description = "GitHub's official MCP Server packaged unofficially for Python"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "github_mcp_server_unofficial-0.2.1-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:af74697d021f25e78db80ae4c5ca027892f42cfd53ccb847c35b9c17decd41a3"},
+    {file = "github_mcp_server_unofficial-0.2.1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:e5e9b9d70c488a341ca9a34aff5eb9a8263d2727636165d7e308ecc82ef6fc07"},
+    {file = "github_mcp_server_unofficial-0.2.1-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:730d8e23b7c45fa1bcb59f6e6ced7b0845e834fdf18656cef8c3d9c0afa00770"},
+    {file = "github_mcp_server_unofficial-0.2.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a99af25b0b121d03971fd146250a355bd77c479b7084da03c45a6f31e0e89882"},
+    {file = "github_mcp_server_unofficial-0.2.1-py3-none-win_amd64.whl", hash = "sha256:abb25403c7de6495b1fef17fe4dd4fae9d2a05510d6ed48c2b45277585dcf1db"},
+    {file = "github_mcp_server_unofficial-0.2.1-py3-none-win_arm64.whl", hash = "sha256:7dfa7890f02894d7a01ba2516e10495cd3e7e555366ad4c31a744656dabe4727"},
+]
+
+[[package]]
 name = "gotrue"
 version = "2.12.0"
 description = "Python Client Library for Supabase Auth"
@@ -7287,4 +7303,4 @@ test = ["pytest"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.13"
-content-hash = "2ff3935680bd879115084152731cbb81e49ce948f982e4ae6e184f64a107a513"
+content-hash = "e480099dea14d022d8274d82e47d25af26be9ce90932377c3b8ea0e0b895d596"

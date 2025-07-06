@@ -61,6 +61,7 @@ matplotlib = "^3.10.1"
 supabase = "^2.15.0"
 python-dotenv = "^1.1.0"
 rapidfuzz = "^3.13.0"
+github-mcp-server-unofficial = "^0.2.1"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.5"
