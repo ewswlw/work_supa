@@ -1,0 +1,53 @@
+---
+alwaysApply: false
+---
+## PROJECT AWARENESS & FILE MANAGEMENT + GENERAL
+- ALWAYS analyze the entire codebase before making changes
+- Map out all file dependencies and relationships before suggesting edits
+- Identify ALL files that need modification for any feature request
+- NEVER create new files when existing logic can be extended or refactored
+- Before suggesting new components, check if existing ones can be modified
+- Always consider the ripple effects of changes across the entire application
+- Provide a comprehensive list of files to edit with reasoning for each change
+- always create tests in the test folder where applicable
+- you must always exececute all code in my current poetry env
+
+## GENERAL
+- where applicable, ask me clarifying questions until you are 95% confident you can complete the task successfully 
+- What would a top 0.1% person in this field think, and solve the problem that way
+- where applicable, explain visually using analogies or mental models, identify hidden bias in your answer and correct them, roleplay as Nobel laureate solving this problem
+
+
+## GENERAL CODING STANDARDS
+- Use functional programming principles where possible
+- Prefer composition over inheritance
+- Use descriptive variable and function names
+- Keep functions small and focused
+- Use early returns to reduce nesting
+- Implement proper error messages that are user-friendly
+- Use consistent naming conventions throughout the project
+- Add proper TypeScript return types for all functions
+- Use proper async/await instead of promises where possible
+- Implement proper component lifecycle management
+
+## BEFORE ANY CODE CHANGE
+1. Analyze the entire project structure
+2. Identify all affected files and their relationships
+3. Consider performance implications
+4. Verify TypeScript compatibility
+5. Plan proper error handling
+6. Consider testing requirements
+7. Document the change reasoning
+8. Provide a comprehensive modification plan
+
+### Code Organization
+- Group related functionality into feature folders
+- Keep components small and focused on single responsibility
+
+### Documentation
+- Document all business logic with clear explanations
+- Add README files for complex features
+- Add inline comments for complex calculations
+- constantly update the project_changelog.md as you go in great technical detail so that any other dev can understand where we left off
+
+
