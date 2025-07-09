@@ -62,6 +62,8 @@ supabase = "^2.15.0"
 python-dotenv = "^1.1.0"
 rapidfuzz = "^3.13.0"
 github-mcp-server-unofficial = "^0.2.1"
+pyarrow = "^20.0.0"
+dash-ag-grid = "^31.3.1"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.5"
