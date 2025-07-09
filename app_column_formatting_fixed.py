@@ -210,27 +210,6 @@ app.index_string = '''
             .ag-header-cell-text {
                 overflow: visible !important;
             }
-            .ag-header-cell {
-                cursor: pointer !important;
-                position: relative;
-            }
-            .ag-header-cell:hover {
-                background-color: #495057 !important;
-            }
-            .ag-header-cell:hover::after {
-                content: "⚙️ Click to format";
-                position: absolute;
-                bottom: -20px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: #007bff;
-                color: white;
-                padding: 2px 6px;
-                border-radius: 3px;
-                font-size: 10px;
-                white-space: nowrap;
-                z-index: 1000;
-            }
         </style>
     </head>
     <body>
@@ -244,7 +223,7 @@ app.index_string = '''
 </html>
 '''
 
-# Define the layout
+# Define the layout with ALL components present from start
 app.layout = dbc.Container([
     html.H1("Z Analytics Dashboard - Column Formatting", className="text-center mb-4"),
     
@@ -314,8 +293,19 @@ app.layout = dbc.Container([
                     dbc.Button("Export to Excel", id="export-btn", color="primary", className="me-2"),
                     dbc.Button("Export to CSV", id="export-csv-btn", color="secondary", className="me-2"),
                     dbc.Button("Reset Grid", id="reset-btn", color="warning", className="me-2"),
-                    dbc.Button("Clear All Formatting", id="clear-all-btn", color="danger"),
-                ], width=12)
+                    dbc.Button("Clear All Formatting", id="clear-all-btn", color="danger", className="me-2"),
+                    dbc.Button("Format Column", id="format-column-btn", color="info"),
+                ], width=8),
+                dbc.Col([
+                    dbc.Label("Format Column:"),
+                    dcc.Dropdown(
+                        id='format-column-selector',
+                        options=[{'label': col, 'value': col} for col in df.columns],
+                        value=None,
+                        placeholder="Select column to format...",
+                        style={'color': 'black'}
+                    )
+                ], width=4)
             ])
         ])
     ], className="mb-4"),
@@ -326,7 +316,7 @@ app.layout = dbc.Container([
             html.Div([
                 html.H5("Data Grid", className="mb-0"),
                 dbc.Badge(f"{len(df):,} rows × {len(df.columns)} columns", color="info"),
-                html.Small(" • Click on any column header to format", className="text-muted ms-2")
+                html.Small(" • Use 'Format Column' dropdown above to customize columns", className="text-muted ms-2")
             ], style={"display": "flex", "align-items": "center", "gap": "10px"})
         ]),
         dbc.CardBody([
@@ -392,7 +382,7 @@ app.layout = dbc.Container([
         ], style={"padding": "0"})
     ]),
     
-    # Formatting Modal
+    # Formatting Modal - ALL COMPONENTS EXIST FROM START
     dbc.Modal([
         dbc.ModalHeader(dbc.ModalTitle(id="format-modal-title")),
         dbc.ModalBody([
@@ -417,7 +407,34 @@ app.layout = dbc.Container([
                             )
                         ], width=6),
                         dbc.Col([
-                            html.Div(id='modal-number-format-options')
+                            # Number format options - ALL EXIST FROM START
+                            html.Div([
+                                # Decimal places slider (always present)
+                                html.Div([
+                                    dbc.Label("Decimal Places:"),
+                                    dcc.Slider(
+                                        id='modal-decimal-places-slider',
+                                        min=0, max=8, step=1, value=2,
+                                        marks={0: '0', 2: '2', 4: '4', 8: '8'}
+                                    )
+                                ], id='decimal-places-container', style={'display': 'none'}),
+                                
+                                # Currency symbol dropdown (always present)
+                                html.Div([
+                                    dbc.Label("Currency Symbol:"),
+                                    dcc.Dropdown(
+                                        id='modal-currency-symbol-dropdown',
+                                        options=[
+                                            {'label': '$ (Dollar)', 'value': '$'},
+                                            {'label': '€ (Euro)', 'value': '€'},
+                                            {'label': '£ (Pound)', 'value': '£'},
+                                            {'label': '¥ (Yen)', 'value': '¥'}
+                                        ],
+                                        value='$',
+                                        style={'color': 'black'}
+                                    )
+                                ], id='currency-symbol-container', style={'display': 'none'}, className="mt-2")
+                            ], id='modal-number-format-options')
                         ], width=6)
                     ])
                 ])
@@ -442,7 +459,44 @@ app.layout = dbc.Container([
                             )
                         ], width=12)
                     ]),
-                    html.Div(id='modal-conditional-format-options', className="mt-2")
+                    # Conditional format options - ALL EXIST FROM START
+                    html.Div([
+                        # Color scale options (always present)
+                        html.Div([
+                            dbc.Row([
+                                dbc.Col([
+                                    dbc.Label("Min Value:"),
+                                    dbc.Input(id='modal-color-scale-min', type='number', value=0)
+                                ], width=3),
+                                dbc.Col([
+                                    dbc.Label("Max Value:"),
+                                    dbc.Input(id='modal-color-scale-max', type='number', value=100)
+                                ], width=3),
+                                dbc.Col([
+                                    dbc.Label("Start Color:"),
+                                    dbc.Input(id='modal-color-scale-start', type='text', value='#ff0000')
+                                ], width=3),
+                                dbc.Col([
+                                    dbc.Label("End Color:"),
+                                    dbc.Input(id='modal-color-scale-end', type='text', value='#00ff00')
+                                ], width=3)
+                            ])
+                        ], id='color-scale-options', style={'display': 'none'}),
+                        
+                        # Data bars options (always present)
+                        html.Div([
+                            dbc.Row([
+                                dbc.Col([
+                                    dbc.Label("Max Value:"),
+                                    dbc.Input(id='modal-data-bars-max', type='number', value=100)
+                                ], width=6),
+                                dbc.Col([
+                                    dbc.Label("Bar Color:"),
+                                    dbc.Input(id='modal-data-bars-color', type='text', value='#4CAF50')
+                                ], width=6)
+                            ])
+                        ], id='data-bars-options', style={'display': 'none'})
+                    ], id='modal-conditional-format-options', className="mt-2")
                 ])
             ], className="mb-3"),
             
@@ -490,7 +544,7 @@ app.layout = dbc.Container([
                             dbc.Label("Text Color:"),
                             dbc.Input(
                                 id='modal-text-color-input',
-                                type='color',
+                                type='text',
                                 value='#ffffff',
                                 style={'width': '100%', 'height': '38px'}
                             )
@@ -501,7 +555,7 @@ app.layout = dbc.Container([
                             dbc.Label("Background Color:"),
                             dbc.Input(
                                 id='modal-background-color-input',
-                                type='color',
+                                type='text',
                                 value='#000000',
                                 style={'width': '100%', 'height': '38px'}
                             )
@@ -542,109 +596,47 @@ app.layout = dbc.Container([
     dcc.Download(id="download-csv"),
 ], fluid=True)
 
-# Callback to detect column header clicks and open modal
+# Callback to open formatting modal via button and dropdown
 @callback(
     [Output("format-modal", "is_open"),
      Output("format-modal-title", "children"),
      Output("selected-column-store", "data")],
-    Input("z-analytics-grid", "cellClicked"),
+    [Input("format-column-btn", "n_clicks"),
+     Input("format-column-selector", "value")],
     prevent_initial_call=True
 )
-def open_format_modal_on_header_click(cell_clicked):
-    if cell_clicked and cell_clicked.get('rowIndex') is None:  # Header click
-        column_id = cell_clicked.get('colId')
-        if column_id:
-            return True, f"Format Column: {column_id}", column_id
+def open_format_modal_on_button_click(btn_clicks, selected_column):
+    triggered_id = ctx.triggered[0]['prop_id'].split('.')[0]
+    
+    if triggered_id == "format-column-btn" and selected_column:
+        return True, f"Format Column: {selected_column}", selected_column
+    elif triggered_id == "format-column-selector" and selected_column:
+        return True, f"Format Column: {selected_column}", selected_column
+    
     return False, "", None
 
-# Dynamic formatting options for modal
+# Visibility control callbacks - CONTROL WHAT'S SHOWN, DON'T CREATE/DESTROY
 @callback(
-    Output('modal-number-format-options', 'children'),
+    [Output('decimal-places-container', 'style'),
+     Output('currency-symbol-container', 'style')],
     Input('modal-number-format-type', 'value')
 )
-def update_modal_number_format_options(format_type):
-    if not format_type or format_type == 'none':
-        return []
+def update_number_format_visibility(format_type):
+    decimal_style = {'display': 'block'} if format_type in ['decimal', 'currency', 'percentage'] else {'display': 'none'}
+    currency_style = {'display': 'block'} if format_type == 'currency' else {'display': 'none'}
     
-    options = []
-    
-    if format_type in ['decimal', 'currency', 'percentage']:
-        options.append(
-            html.Div([
-                dbc.Label("Decimal Places:"),
-                dcc.Slider(
-                    id='modal-decimal-places-slider',
-                    min=0, max=8, step=1, value=2,
-                    marks={0: '0', 2: '2', 4: '4', 8: '8'}
-                )
-            ])
-        )
-    
-    if format_type == 'currency':
-        options.append(
-            html.Div([
-                dbc.Label("Currency Symbol:"),
-                dcc.Dropdown(
-                    id='modal-currency-symbol-dropdown',
-                    options=[
-                        {'label': '$ (Dollar)', 'value': '$'},
-                        {'label': '€ (Euro)', 'value': '€'},
-                        {'label': '£ (Pound)', 'value': '£'},
-                        {'label': '¥ (Yen)', 'value': '¥'}
-                    ],
-                    value='$',
-                    style={'color': 'black'}
-                )
-            ], className="mt-2")
-        )
-    
-    return options
+    return decimal_style, currency_style
 
 @callback(
-    Output('modal-conditional-format-options', 'children'),
+    [Output('color-scale-options', 'style'),
+     Output('data-bars-options', 'style')],
     Input('modal-conditional-format-type', 'value')
 )
-def update_modal_conditional_format_options(format_type):
-    if not format_type or format_type == 'none':
-        return []
+def update_conditional_format_visibility(format_type):
+    color_scale_style = {'display': 'block'} if format_type == 'color_scale' else {'display': 'none'}
+    data_bars_style = {'display': 'block'} if format_type == 'data_bars' else {'display': 'none'}
     
-    if format_type == 'color_scale':
-        return [
-            dbc.Row([
-                dbc.Col([
-                    dbc.Label("Min Value:"),
-                    dbc.Input(id='modal-color-scale-min', type='number', value=0)
-                ], width=3),
-                dbc.Col([
-                    dbc.Label("Max Value:"),
-                    dbc.Input(id='modal-color-scale-max', type='number', value=100)
-                ], width=3),
-                dbc.Col([
-                    dbc.Label("Start Color:"),
-                    dbc.Input(id='modal-color-scale-start', type='color', value='#ff0000')
-                ], width=3),
-                dbc.Col([
-                    dbc.Label("End Color:"),
-                    dbc.Input(id='modal-color-scale-end', type='color', value='#00ff00')
-                ], width=3)
-            ])
-        ]
-    
-    elif format_type == 'data_bars':
-        return [
-            dbc.Row([
-                dbc.Col([
-                    dbc.Label("Max Value:"),
-                    dbc.Input(id='modal-data-bars-max', type='number', value=100)
-                ], width=6),
-                dbc.Col([
-                    dbc.Label("Bar Color:"),
-                    dbc.Input(id='modal-data-bars-color', type='color', value='#4CAF50')
-                ], width=6)
-            ])
-        ]
-    
-    return []
+    return color_scale_style, data_bars_style
 
 # Preview update callback
 @callback(
@@ -677,6 +669,14 @@ def update_format_preview(font_size, font_weight, text_align, text_color, bg_col
     [State("selected-column-store", "data"),
      State("modal-number-format-type", "value"),
      State("modal-conditional-format-type", "value"),
+     State("modal-decimal-places-slider", "value"),
+     State("modal-currency-symbol-dropdown", "value"),
+     State("modal-color-scale-min", "value"),
+     State("modal-color-scale-max", "value"),
+     State("modal-color-scale-start", "value"),
+     State("modal-color-scale-end", "value"),
+     State("modal-data-bars-max", "value"),
+     State("modal-data-bars-color", "value"),
      State("modal-font-size-slider", "value"),
      State("modal-font-weight-dropdown", "value"),
      State("modal-text-alignment-dropdown", "value"),
@@ -686,8 +686,9 @@ def update_format_preview(font_size, font_weight, text_align, text_color, bg_col
     prevent_initial_call=True
 )
 def handle_modal_actions(apply_clicks, cancel_clicks, clear_clicks, selected_column,
-                        number_format, conditional_format, font_size, font_weight,
-                        text_align, text_color, bg_color, current_rules):
+                        number_format, conditional_format, decimal_places, currency_symbol,
+                        color_min, color_max, color_start, color_end, bars_max, bars_color,
+                        font_size, font_weight, text_align, text_color, bg_color, current_rules):
     
     triggered_id = ctx.triggered[0]['prop_id'].split('.')[0]
     
@@ -710,19 +711,28 @@ def handle_modal_actions(apply_clicks, cancel_clicks, clear_clicks, selected_col
         if number_format and number_format != 'none':
             new_rules[selected_column]['number_format'] = {
                 'type': number_format,
-                'decimals': 2
+                'decimals': decimal_places or 2,
+                'symbol': currency_symbol or '$'
             }
         
         # Apply conditional formatting
         if conditional_format and conditional_format != 'none':
-            new_rules[selected_column]['conditional_format'] = {
-                'type': conditional_format,
-                'min_value': 0,
-                'max_value': 100,
-                'start_color': '#ff0000',
-                'end_color': '#00ff00',
-                'bar_color': '#4CAF50'
-            }
+            cf_config = {'type': conditional_format}
+            
+            if conditional_format == 'color_scale':
+                cf_config.update({
+                    'min_value': color_min or 0,
+                    'max_value': color_max or 100,
+                    'start_color': color_start or '#ff0000',
+                    'end_color': color_end or '#00ff00'
+                })
+            elif conditional_format == 'data_bars':
+                cf_config.update({
+                    'max_value': bars_max or 100,
+                    'bar_color': bars_color or '#4CAF50'
+                })
+            
+            new_rules[selected_column]['conditional_format'] = cf_config
         
         # Apply text formatting
         new_rules[selected_column]['text_format'] = {
