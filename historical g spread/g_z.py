@@ -137,8 +137,8 @@ def get_data_file_path(relative_path: str) -> str:
 if __name__ != "__main__":
     # Only auto-setup if we're being imported (interactive mode)
     try:
-        setup_result = setup_interactive_environment()
-        if setup_result:
+        setup_interactive_environment()
+        if setup_interactive_environment():
             check_required_files()
     except Exception as e:
         print("[WARN] Auto-setup failed: {e}")
@@ -802,44 +802,40 @@ def save_results(results_df: pd.DataFrame, cusip_mapping: dict = None):
                 'Size @ Best Bid', 'Size @ Best Offer', 
                 'G Spread', 'Keyword'
             ]
-            
-            # Verify all target columns exist in runs monitor
-            available_columns = [col for col in target_columns if col in runs_monitor.columns]
-            missing_cols = [col for col in target_columns if col not in runs_monitor.columns]
-            
-            if missing_cols:
-                print("[WARN] Missing runs monitor columns: {missing_cols}")
-            
-            if available_columns:
-                # Prepare runs monitor data for merging
-                runs_data = runs_monitor[['Security'] + available_columns].copy()
-                
-                # Merge for Security_1
-                print("[INFO] Merging runs monitor data for Security_1...")
-                initial_count = len(results_df)
-                results_df = results_df.merge(
-                    runs_data.rename(columns={col: f"{col}_1" for col in available_columns}),
-                    left_on='Security_1',
-                    right_on='Security',
-                    how='left',
-                    suffixes=('', '_runs1')
-                )
-                # Drop the extra Security column from the merge
-                if 'Security' in results_df.columns:
-                    results_df = results_df.drop('Security', axis=1)
-                
-                # Merge for Security_2
-                print("[INFO] Merging runs monitor data for Security_2...")
-                results_df = results_df.merge(
-                    runs_data.rename(columns={col: f"{col}_2" for col in available_columns}),
-                    left_on='Security_2',
-                    right_on='Security',
-                    how='left',
-                    suffixes=('', '_runs2')
-                )
-                # Drop the extra Security column from the merge
-                if 'Security' in results_df.columns:
-                    results_df = results_df.drop('Security', axis=1)
+            # Ensure all target columns exist in runs monitor, add missing as NaN
+            for col in target_columns:
+                if col not in runs_monitor.columns:
+                    runs_monitor[col] = np.nan
+            # Prepare runs monitor data for merging
+            runs_data = runs_monitor[['Security'] + target_columns].copy()
+            # Merge for Security_1 with _runs1 suffix
+            results_df = results_df.merge(
+                runs_data.rename(columns={col: f"{col}_runs1" for col in target_columns}),
+                left_on='Security_1',
+                right_on='Security',
+                how='left',
+                suffixes=('', '_runs1')
+            )
+            if 'Security' in results_df.columns:
+                results_df = results_df.drop('Security', axis=1)
+            # Merge for Security_2 with _runs2 suffix
+            results_df = results_df.merge(
+                runs_data.rename(columns={col: f"{col}_runs2" for col in target_columns}),
+                left_on='Security_2',
+                right_on='Security',
+                how='left',
+                suffixes=('', '_runs2')
+            )
+            if 'Security' in results_df.columns:
+                results_df = results_df.drop('Security', axis=1)
+            # Ensure all 18 enhanced columns are present
+            for col in target_columns:
+                col1 = f"{col}_runs1"
+                col2 = f"{col}_runs2"
+                if col1 not in results_df.columns:
+                    results_df[col1] = np.nan
+                if col2 not in results_df.columns:
+                    results_df[col2] = np.nan
                 
                 # Log merge statistics
                 if 'Best Bid_1' in results_df.columns:
@@ -849,7 +845,7 @@ def save_results(results_df: pd.DataFrame, cusip_mapping: dict = None):
                     print("[INFO] Security_1 match rate: {match_1:}/{total:}({match_1/total*100:.1f}%)")
                     print("[INFO] Security_2 match rate: {match_2:}/{total:}({match_2/total*100:.1f}%)")
                 
-                print("[OK] Added {len(available_columns)*2:,} runs monitor columns")
+                print("[OK] Added {len(target_columns)*2:,} runs monitor columns")
             else:
                 print("[WARN] No valid runs monitor columns found for enrichment")
     
