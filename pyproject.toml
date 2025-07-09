@@ -64,6 +64,9 @@ rapidfuzz = "^3.13.0"
 github-mcp-server-unofficial = "^0.2.1"
 pyarrow = "^20.0.0"
 dash-ag-grid = "^31.3.1"
+mcp = "^1.10.1"
+httpx = "^0.28.1"
+websockets = "^15.0.1"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.5"
