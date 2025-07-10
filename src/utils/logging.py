@@ -30,7 +30,7 @@ class LogManager:
             level=self.log_level,
             format=self.log_format,
             handlers=[
-                logging.FileHandler(self.log_file, encoding='utf-8'),
+                logging.FileHandler(self.log_file, mode='a', encoding='utf-8'),  # Append mode
                 logging.StreamHandler(sys.stdout)
             ]
         )

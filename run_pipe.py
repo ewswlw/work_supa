@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-🎯 MASTER PIPELINE ORCHESTRATOR & SIMPLIFIED CLI
-================================================
+MASTER PIPELINE ORCHESTRATOR & SIMPLIFIED CLI
+==============================================
 Unified entry point for all data processing pipelines.
 Provides both advanced CLI and interactive menu.
 Follows .cursorrules standards for error handling, logging, and dependency management.
@@ -23,11 +23,24 @@ from src.orchestrator.pipeline_manager import PipelineManager
 from src.orchestrator.pipeline_config import PipelineConfig
 from src.utils.logging import LogManager
 
+def get_consolidated_log_path() -> str:
+    """Get path for consolidated pipeline log file."""
+    return "logs/pipeline_orchestrator.log"
+
+def log_execution_separator(logger: LogManager):
+    """Log a separator for each execution run."""
+    separator = "=" * 80
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    logger.info("")
+    logger.info(separator)
+    logger.info(f"NEW PIPELINE EXECUTION STARTED - {timestamp}")
+    logger.info(separator)
+
 
 def create_argument_parser() -> argparse.ArgumentParser:
     """Create comprehensive CLI argument parser."""
     parser = argparse.ArgumentParser(
-        description="🎯 Master Pipeline Orchestrator - Trading Analytics System",
+        description="Master Pipeline Orchestrator - Trading Analytics System",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -94,7 +107,7 @@ Examples:
 
 def interactive_menu():
     """Interactive CLI for pipeline execution."""
-    print("🎯 Trading Analytics Pipeline")
+    print("Trading Analytics Pipeline")
     print("=" * 40)
     print()
     print("Available options:")
@@ -166,20 +179,18 @@ async def main():
         return 0
     
     # Initialize logging
-    log_file = args.log_file or f"logs/pipeline_orchestrator_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+    log_file = args.log_file or get_consolidated_log_path()
     logger = LogManager(log_file=log_file, log_level=args.log_level)
     
     try:
-        logger.info("[INFO] MASTER PIPELINE ORCHESTRATOR STARTING")
-        logger.info("=" * 60)
+        log_execution_separator(logger)
         logger.info(f"Timestamp: {datetime.now().isoformat()}")
         logger.info(f"Arguments: {vars(args)}")
-        logger.info("=" * 60)
         
         # Load and validate configuration
         config = PipelineConfig.load_from_file(args.config)
         if args.validate_only:
-            logger.info("✅ Configuration validation complete")
+            logger.info("Configuration validation complete")
             return 0
         
         # Initialize pipeline manager
@@ -207,10 +218,10 @@ async def main():
         return 0 if results.success else 1
         
     except KeyboardInterrupt:
-        logger.warning("⚠️ Pipeline execution interrupted by user")
+        logger.warning("Pipeline execution interrupted by user")
         return 130
     except Exception as e:
-        logger.error(f"❌ Pipeline orchestration failed: {str(e)}")
+        logger.error(f"Pipeline orchestration failed: {str(e)}")
         logger.error(f"Stack trace:\n{traceback.format_exc()}")
         return 1
     finally:
