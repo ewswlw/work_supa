@@ -1,6 +1,6 @@
 """
-🎯 PIPELINE MANAGER
-==================
+PIPELINE MANAGER
+================
 Comprehensive pipeline orchestration with dependency management,
 error recovery, and monitoring capabilities.
 """

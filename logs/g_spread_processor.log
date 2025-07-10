@@ -7858,3 +7858,35 @@ memory usage: 104.3+ MB
 2   ATH 4 1/8 01/12/28  CNQCN 2.05 07/15/25  -112.084377         NaN           NaN         NaN           NaN
 3    BNCN 3.9 01/25/28  CNQCN 2.05 07/15/25  -122.563956         NaN           NaN         NaN           NaN
 4  BNCN 2.724 04/15/31  CNQCN 2.05 07/15/25  -116.505958         NaN           NaN         NaN           NaN
+[2025-07-10 10:23:32,285] INFO: === STARTING G-SPREAD Z-SCORE ANALYSIS ===
+[2025-07-10 10:23:32,285] INFO: Configuration: MAX_BONDS=50, LOOKBACK_DAYS=252
+[2025-07-10 10:23:32,831] INFO: Loaded G-spread data: 1,952,487 records with 1,868 bonds
+[2025-07-10 10:23:32,863] INFO: Loaded universe data: 2,247 securities
+[2025-07-10 10:23:33,040] INFO: Created CUSIP mapping: 1,868 mappings
+[2025-07-10 10:23:33,165] INFO: Selected top liquid bonds: 50 bonds
+[2025-07-10 10:23:33,167] INFO: Applied universe filtering: 8 bonds passed criteria
+[2025-07-10 10:23:33,195] INFO: Created spread matrix: 1,462 dates × 8 bonds
+[2025-07-10 10:23:33,195] INFO: Starting pairwise analysis: 28 potential pairs
+[2025-07-10 10:23:33,210] INFO: Pairwise analysis complete: 28 valid pairs
+[2025-07-10 10:23:33,215] INFO: Universe enrichment complete: 28 enriched pairs
+[2025-07-10 10:23:33,295] INFO: Results saved: 28 final pairs
+[2025-07-10 10:23:33,295] INFO: === G-SPREAD Z-SCORE ANALYSIS COMPLETE ===
+[2025-07-10 10:23:33,296] INFO: Duration: 1.0 seconds
+[2025-07-10 10:23:33,296] INFO: Final results: 28 pairs from 28 potential
+[2025-07-10 10:23:33,296] INFO: Processing rate: 28 pairs/second
+[2025-07-10 10:24:10,753] INFO: === STARTING G-SPREAD Z-SCORE ANALYSIS ===
+[2025-07-10 10:24:10,753] INFO: Configuration: MAX_BONDS=50, LOOKBACK_DAYS=252
+[2025-07-10 10:24:11,212] INFO: Loaded G-spread data: 1,952,487 records with 1,868 bonds
+[2025-07-10 10:24:11,242] INFO: Loaded universe data: 2,247 securities
+[2025-07-10 10:24:11,401] INFO: Created CUSIP mapping: 1,868 mappings
+[2025-07-10 10:24:11,513] INFO: Selected top liquid bonds: 50 bonds
+[2025-07-10 10:24:11,515] INFO: Applied universe filtering: 8 bonds passed criteria
+[2025-07-10 10:24:11,539] INFO: Created spread matrix: 1,462 dates × 8 bonds
+[2025-07-10 10:24:11,540] INFO: Starting pairwise analysis: 28 potential pairs
+[2025-07-10 10:24:11,550] INFO: Pairwise analysis complete: 28 valid pairs
+[2025-07-10 10:24:11,559] INFO: Universe enrichment complete: 28 enriched pairs
+[2025-07-10 10:24:11,638] INFO: Results saved: 28 final pairs
+[2025-07-10 10:24:11,639] INFO: === G-SPREAD Z-SCORE ANALYSIS COMPLETE ===
+[2025-07-10 10:24:11,640] INFO: Duration: 0.9 seconds
+[2025-07-10 10:24:11,640] INFO: Final results: 28 pairs from 28 potential
+[2025-07-10 10:24:11,640] INFO: Processing rate: 32 pairs/second
