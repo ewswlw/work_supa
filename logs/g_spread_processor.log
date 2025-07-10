@@ -7931,3 +7931,99 @@ memory usage: 104.3+ MB
 [2025-07-10 13:31:30,175] INFO: Duration: 176.4 seconds
 [2025-07-10 13:31:30,175] INFO: Final results: 432,915 pairs from 453,628 potential
 [2025-07-10 13:31:30,175] INFO: Processing rate: 2571 pairs/second
+[2025-07-10 16:52:14,598] INFO: === STARTING G-SPREAD Z-SCORE ANALYSIS ===
+[2025-07-10 16:52:14,598] INFO: Configuration: MAX_BONDS=2000, LOOKBACK_DAYS=252
+[2025-07-10 16:52:15,064] INFO: Loaded G-spread data: 1,952,487 records with 1,868 bonds
+[2025-07-10 16:52:15,090] INFO: Loaded universe data: 2,247 securities
+[2025-07-10 16:52:15,249] INFO: Created CUSIP mapping: 1,868 mappings
+[2025-07-10 16:52:15,352] INFO: Selected top liquid bonds: 1,839 bonds
+[2025-07-10 16:52:15,368] INFO: Applied universe filtering: 953 bonds passed criteria
+[2025-07-10 16:52:15,615] INFO: Created spread matrix: 655 dates × 953 bonds
+[2025-07-10 16:52:15,615] INFO: Starting pairwise analysis: 453,628 potential pairs
+[2025-07-10 16:54:51,749] INFO: Pairwise analysis complete: 453,628 valid pairs
+[2025-07-10 16:54:52,043] INFO: Universe enrichment complete: 453,628 enriched pairs
+[2025-07-10 16:55:00,479] INFO: Results saved: 432,915 final pairs
+[2025-07-10 16:55:00,479] INFO: === G-SPREAD Z-SCORE ANALYSIS COMPLETE ===
+[2025-07-10 16:55:00,479] INFO: Duration: 165.9 seconds
+[2025-07-10 16:55:00,480] INFO: Final results: 432,915 pairs from 453,628 potential
+[2025-07-10 16:55:00,480] INFO: Processing rate: 2735 pairs/second
+[2025-07-10 17:01:30,132] INFO: === STARTING G-SPREAD Z-SCORE ANALYSIS ===
+[2025-07-10 17:01:30,132] INFO: Configuration: MAX_BONDS=200, LOOKBACK_DAYS=252
+[2025-07-10 17:01:30,624] INFO: Loaded G-spread data: 1,952,487 records with 1,868 bonds
+[2025-07-10 17:01:30,652] INFO: Loaded universe data: 2,247 securities
+[2025-07-10 17:01:30,816] INFO: Created CUSIP mapping: 1,868 mappings
+[2025-07-10 17:01:30,943] INFO: Selected top liquid bonds: 200 bonds
+[2025-07-10 17:01:30,943] INFO: Applied universe filtering: 49 bonds passed criteria
+[2025-07-10 17:01:31,010] INFO: Created spread matrix: 1,462 dates × 49 bonds
+[2025-07-10 17:01:31,010] INFO: Starting pairwise analysis: 1,176 potential pairs
+[2025-07-10 17:01:31,458] INFO: Pairwise analysis complete: 1,176 valid pairs
+[2025-07-10 17:01:31,458] INFO: Universe enrichment complete: 1,176 enriched pairs
+[2025-07-10 17:01:31,577] INFO: Results saved: 1,035 final pairs
+[2025-07-10 17:01:31,577] INFO: === G-SPREAD Z-SCORE ANALYSIS COMPLETE ===
+[2025-07-10 17:01:31,577] INFO: Duration: 1.4 seconds
+[2025-07-10 17:01:31,577] INFO: Final results: 1,035 pairs from 1,176 potential
+[2025-07-10 17:01:31,577] INFO: Processing rate: 814 pairs/second
+[2025-07-10 17:03:01,580] INFO: === STARTING G-SPREAD Z-SCORE ANALYSIS ===
+[2025-07-10 17:03:01,580] INFO: Configuration: MAX_BONDS=200, LOOKBACK_DAYS=252
+[2025-07-10 17:03:02,086] INFO: Loaded G-spread data: 1,952,487 records with 1,868 bonds
+[2025-07-10 17:03:02,115] INFO: Loaded universe data: 2,247 securities
+[2025-07-10 17:03:02,289] INFO: Created CUSIP mapping: 1,868 mappings
+[2025-07-10 17:03:02,406] INFO: Selected top liquid bonds: 200 bonds
+[2025-07-10 17:03:02,408] INFO: Applied universe filtering: 49 bonds passed criteria
+[2025-07-10 17:03:02,464] INFO: Created spread matrix: 1,462 dates × 49 bonds
+[2025-07-10 17:03:02,464] INFO: Starting pairwise analysis: 1,176 potential pairs
+[2025-07-10 17:03:02,920] INFO: Pairwise analysis complete: 1,176 valid pairs
+[2025-07-10 17:03:02,926] INFO: Universe enrichment complete: 1,176 enriched pairs
+[2025-07-10 17:03:03,021] INFO: Results saved: 1,035 final pairs
+[2025-07-10 17:03:03,021] INFO: === G-SPREAD Z-SCORE ANALYSIS COMPLETE ===
+[2025-07-10 17:03:03,021] INFO: Duration: 1.4 seconds
+[2025-07-10 17:03:03,021] INFO: Final results: 1,035 pairs from 1,176 potential
+[2025-07-10 17:03:03,021] INFO: Processing rate: 817 pairs/second
+[2025-07-10 17:03:30,801] INFO: === STARTING G-SPREAD Z-SCORE ANALYSIS ===
+[2025-07-10 17:03:30,801] INFO: Configuration: MAX_BONDS=200, LOOKBACK_DAYS=252
+[2025-07-10 17:03:31,278] INFO: Loaded G-spread data: 1,952,487 records with 1,868 bonds
+[2025-07-10 17:03:31,307] INFO: Loaded universe data: 2,247 securities
+[2025-07-10 17:03:31,469] INFO: Created CUSIP mapping: 1,868 mappings
+[2025-07-10 17:03:31,582] INFO: Selected top liquid bonds: 200 bonds
+[2025-07-10 17:03:31,584] INFO: Applied universe filtering: 49 bonds passed criteria
+[2025-07-10 17:03:31,644] INFO: Created spread matrix: 1,462 dates × 49 bonds
+[2025-07-10 17:03:31,644] INFO: Starting pairwise analysis: 1,176 potential pairs
+[2025-07-10 17:03:32,099] INFO: Pairwise analysis complete: 1,176 valid pairs
+[2025-07-10 17:03:32,104] INFO: Universe enrichment complete: 1,176 enriched pairs
+[2025-07-10 17:03:32,200] INFO: Results saved: 1,035 final pairs
+[2025-07-10 17:03:32,200] INFO: === G-SPREAD Z-SCORE ANALYSIS COMPLETE ===
+[2025-07-10 17:03:32,200] INFO: Duration: 1.4 seconds
+[2025-07-10 17:03:32,200] INFO: Final results: 1,035 pairs from 1,176 potential
+[2025-07-10 17:03:32,200] INFO: Processing rate: 845 pairs/second
+[2025-07-10 17:04:12,244] INFO: === STARTING G-SPREAD Z-SCORE ANALYSIS ===
+[2025-07-10 17:04:12,244] INFO: Configuration: MAX_BONDS=200, LOOKBACK_DAYS=252
+[2025-07-10 17:04:12,741] INFO: Loaded G-spread data: 1,952,487 records with 1,868 bonds
+[2025-07-10 17:04:12,771] INFO: Loaded universe data: 2,247 securities
+[2025-07-10 17:04:12,945] INFO: Created CUSIP mapping: 1,868 mappings
+[2025-07-10 17:04:13,062] INFO: Selected top liquid bonds: 200 bonds
+[2025-07-10 17:04:13,062] INFO: Applied universe filtering: 49 bonds passed criteria
+[2025-07-10 17:04:13,129] INFO: Created spread matrix: 1,462 dates × 49 bonds
+[2025-07-10 17:04:13,130] INFO: Starting pairwise analysis: 1,176 potential pairs
+[2025-07-10 17:04:13,580] INFO: Pairwise analysis complete: 1,176 valid pairs
+[2025-07-10 17:04:13,580] INFO: Universe enrichment complete: 1,176 enriched pairs
+[2025-07-10 17:04:13,679] INFO: Results saved: 1,035 final pairs
+[2025-07-10 17:04:13,679] INFO: === G-SPREAD Z-SCORE ANALYSIS COMPLETE ===
+[2025-07-10 17:04:13,679] INFO: Duration: 1.4 seconds
+[2025-07-10 17:04:13,679] INFO: Final results: 1,035 pairs from 1,176 potential
+[2025-07-10 17:04:13,679] INFO: Processing rate: 819 pairs/second
+[2025-07-10 17:04:45,739] INFO: === STARTING G-SPREAD Z-SCORE ANALYSIS ===
+[2025-07-10 17:04:45,739] INFO: Configuration: MAX_BONDS=200, LOOKBACK_DAYS=252
+[2025-07-10 17:04:46,206] INFO: Loaded G-spread data: 1,952,487 records with 1,868 bonds
+[2025-07-10 17:04:46,247] INFO: Loaded universe data: 2,247 securities
+[2025-07-10 17:04:46,406] INFO: Created CUSIP mapping: 1,868 mappings
+[2025-07-10 17:04:46,523] INFO: Selected top liquid bonds: 200 bonds
+[2025-07-10 17:04:46,526] INFO: Applied universe filtering: 49 bonds passed criteria
+[2025-07-10 17:04:46,573] INFO: Created spread matrix: 1,462 dates × 49 bonds
+[2025-07-10 17:04:46,573] INFO: Starting pairwise analysis: 1,176 potential pairs
+[2025-07-10 17:04:47,024] INFO: Pairwise analysis complete: 1,176 valid pairs
+[2025-07-10 17:04:47,040] INFO: Universe enrichment complete: 1,176 enriched pairs
+[2025-07-10 17:04:47,134] INFO: Results saved: 1,035 final pairs
+[2025-07-10 17:04:47,135] INFO: === G-SPREAD Z-SCORE ANALYSIS COMPLETE ===
+[2025-07-10 17:04:47,135] INFO: Duration: 1.4 seconds
+[2025-07-10 17:04:47,135] INFO: Final results: 1,035 pairs from 1,176 potential
+[2025-07-10 17:04:47,135] INFO: Processing rate: 842 pairs/second
