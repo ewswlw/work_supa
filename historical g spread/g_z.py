@@ -283,7 +283,7 @@ FILTER_OPERATORS = {
 CONFIG = {
     # Core parameters
     'LOOKBACK_DAYS': 252,  
-    'MAX_BONDS': 50,         # Limit to most liquid bonds for speed (small sample for testing)
+    'MAX_BONDS': 2000,         # Limit to most liquid bonds for speed (small sample for testing)
     'MIN_OBSERVATIONS': 200,  # Minimum data points
     
     # Speed optimizations
@@ -783,8 +783,22 @@ def save_results(results_df: pd.DataFrame, cusip_mapping: dict = None):
     try:
         portfolio = safe_read_parquet('portfolio/portfolio.parquet')
         portfolio_cusips = set(portfolio['CUSIP'])
-        results_df['Own?'] = results_df['Security_2'].map(lambda sec: 1 if sec in portfolio_cusips else 0)
-        print("[OK] Added 'Own?' column")
+        
+        # CORRECTED LOGIC: Map Security_2 to CUSIP first, then check portfolio
+        if cusip_mapping is not None:
+            # Map Security_2 to CUSIPs
+            security2_cusips = results_df['Security_2'].map(cusip_mapping)
+            # Check if mapped CUSIPs are in portfolio
+            results_df['Own?'] = security2_cusips.map(lambda cusip: 1 if cusip in portfolio_cusips else 0)
+            
+            # Report statistics
+            mapped_count = security2_cusips.notna().sum()
+            owned_count = (results_df['Own?'] == 1).sum()
+            print(f"[OK] Added 'Own?' column - {mapped_count:,} Security_2 mapped to CUSIPs, {owned_count:,} owned bonds found")
+        else:
+            print("[WARN] No CUSIP mapping provided, using fallback logic")
+            results_df['Own?'] = results_df['Security_2'].map(lambda sec: 1 if sec in portfolio_cusips else 0)
+            print("[OK] Added 'Own?' column (FALLBACK)")
     except Exception as e:
         print(f"[WARN] Could not add 'Own?': {e}")
     
