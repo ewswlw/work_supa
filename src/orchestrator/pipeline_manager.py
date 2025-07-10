@@ -98,8 +98,8 @@ class PipelineManager:
     # Pipeline script mappings
     SCRIPT_MAPPINGS = {
         PipelineStage.UNIVERSE: "universe/universe_raw_to_parquet.py",
-        PipelineStage.PORTFOLIO: "portfolio/portfolio_excel_to_parquet.py",
-        PipelineStage.HISTORICAL_GSPREAD: "historical g spread/g_sprd_historical_parquet.py",
+        PipelineStage.PORTFOLIO: "portfolio/portfolio_excel_to_parquet.py",  # Fixed: file is in portfolio directory
+        PipelineStage.HISTORICAL_GSPREAD: "historical g spread/g_z.py",  # Fixed: use existing g_z.py script
         PipelineStage.GSPREAD_ANALYTICS: "historical g spread/g_z.py",
         PipelineStage.RUNS_EXCEL: "runs/excel_to_df_debug.py",
         PipelineStage.RUNS_MONITOR: "runs/run_monitor.py"
