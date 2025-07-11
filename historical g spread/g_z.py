@@ -779,28 +779,43 @@ def save_results(results_df: pd.DataFrame, cusip_mapping: dict = None):
         print("[FAIL] No results to save")
         return
     
-    # --- ENRICHMENT: Add Own? column ---
+    # --- ENRICHMENT: Add Own_1 and Own_2 columns ---
     try:
         portfolio = safe_read_parquet('portfolio/portfolio.parquet')
         portfolio_cusips = set(portfolio['CUSIP'])
         
-        # CORRECTED LOGIC: Map Security_2 to CUSIP first, then check portfolio
+        # Check ownership for both Security_1 and Security_2
         if cusip_mapping is not None:
-            # Map Security_2 to CUSIPs
+            # Map both securities to CUSIPs
+            security1_cusips = results_df['Security_1'].map(cusip_mapping)
             security2_cusips = results_df['Security_2'].map(cusip_mapping)
-            # Check if mapped CUSIPs are in portfolio
-            results_df['Own?'] = security2_cusips.map(lambda cusip: 1 if cusip in portfolio_cusips else 0)
             
-            # Report statistics
-            mapped_count = security2_cusips.notna().sum()
-            owned_count = (results_df['Own?'] == 1).sum()
-            print(f"[OK] Added 'Own?' column - {mapped_count:,} Security_2 mapped to CUSIPs, {owned_count:,} owned bonds found")
+            # Check ownership for both securities
+            results_df['Own_1'] = security1_cusips.map(lambda cusip: 1 if cusip in portfolio_cusips else 0)
+            results_df['Own_2'] = security2_cusips.map(lambda cusip: 1 if cusip in portfolio_cusips else 0)
+            
+            # Report comprehensive statistics
+            mapped_1_count = security1_cusips.notna().sum()
+            mapped_2_count = security2_cusips.notna().sum()
+            owned_1_count = (results_df['Own_1'] == 1).sum()
+            owned_2_count = (results_df['Own_2'] == 1).sum()
+            either_owned = ((results_df['Own_1'] == 1) | (results_df['Own_2'] == 1)).sum()
+            both_owned = ((results_df['Own_1'] == 1) & (results_df['Own_2'] == 1)).sum()
+            neither_owned = ((results_df['Own_1'] == 0) & (results_df['Own_2'] == 0)).sum()
+            
+            print(f"[OK] Added 'Own_1' and 'Own_2' columns:")
+            print(f"      • Security_1: {owned_1_count:,}/{mapped_1_count:,} owned ({owned_1_count/mapped_1_count*100:.1f}%)")
+            print(f"      • Security_2: {owned_2_count:,}/{mapped_2_count:,} owned ({owned_2_count/mapped_2_count*100:.1f}%)")
+            print(f"      • Either owned: {either_owned:,}/{len(results_df):,} pairs ({either_owned/len(results_df)*100:.1f}%)")
+            print(f"      • Both owned: {both_owned:,}/{len(results_df):,} pairs ({both_owned/len(results_df)*100:.1f}%)")
+            print(f"      • Neither owned: {neither_owned:,}/{len(results_df):,} pairs ({neither_owned/len(results_df)*100:.1f}%)")
         else:
             print("[WARN] No CUSIP mapping provided, using fallback logic")
-            results_df['Own?'] = results_df['Security_2'].map(lambda sec: 1 if sec in portfolio_cusips else 0)
-            print("[OK] Added 'Own?' column (FALLBACK)")
+            results_df['Own_1'] = results_df['Security_1'].map(lambda sec: 1 if sec in portfolio_cusips else 0)
+            results_df['Own_2'] = results_df['Security_2'].map(lambda sec: 1 if sec in portfolio_cusips else 0)
+            print("[OK] Added 'Own_1' and 'Own_2' columns (FALLBACK)")
     except Exception as e:
-        print(f"[WARN] Could not add 'Own?': {e}")
+        print(f"[WARN] Could not add 'Own_1' and 'Own_2': {e}")
     
     # --- ENRICHMENT: Add XCCY column ---
     try:
