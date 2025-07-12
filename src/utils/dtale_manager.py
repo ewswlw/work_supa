@@ -164,7 +164,7 @@ class DataOptimizer:
         for col in df_opt.columns:
             if df_opt[col].dtype == 'object':
                 nunique = df_opt[col].nunique()
-                if nunique < len(df_opt) * 0.5:  # Less than 50% unique values
+                if (nunique < len(df_opt) * 0.5 or nunique <= 50) and nunique < len(df_opt):  # Not all unique
                     try:
                         df_opt[col] = df_opt[col].astype('category')
                     except Exception:

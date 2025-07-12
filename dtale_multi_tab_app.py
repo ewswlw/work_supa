@@ -430,8 +430,8 @@ class MultiTabDtaleApp:
             loadViews();
             loadStats();
             
-            // Refresh views every 30 seconds
-            setInterval(loadViews, 30000);
+            // Manual refresh only - no automatic reloading
+            // setInterval(loadViews, 30000); // Removed automatic refresh
         });
     </script>
 </body>

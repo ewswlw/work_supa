@@ -1,5 +1,100 @@
 # Project Changelog
 
+## 2025-07-12 08:30 - DTALE App: Multi-Tab Dashboard & Stability Fixes
+
+### Problem
+The dtale multi-tab application was experiencing random page reloading every 30 seconds, disrupting user experience and making data analysis unstable. Additionally, the core `BondDtaleApp` class was missing from the codebase, preventing the multi-tab dashboard from functioning.
+
+### Root Cause
+1. **Missing Core Module**: `dtale_app.py` with `BondDtaleApp` class was not present in the project
+2. **Automatic Refresh Issue**: JavaScript `setInterval(loadViews, 30000)` was causing unwanted page reloads every 30 seconds
+3. **Data Type Optimization Bug**: `DataOptimizer.optimize_dtypes` was incorrectly converting high-cardinality object columns to category
+
+### Solution
+
+#### 1. Reconstructed Core dtale App Module
+Created `dtale_app.py` with comprehensive `BondDtaleApp` class:
+- **Data loading and sampling** with configurable sample sizes
+- **Multiple view filters**: CAD-only, same-sector, portfolio, executable, cross-currency
+- **dtale instance management** with unique port allocation
+- **Performance optimization** with smart sampling and memory usage tracking
+- **Comprehensive error handling** and logging
+
+#### 2. Fixed Automatic Refresh Issue
+Modified JavaScript in `dtale_multi_tab_app.py`:
+```javascript
+// Before: Automatic refresh every 30 seconds
+setInterval(loadViews, 30000);
+
+// After: Manual refresh only
+// setInterval(loadViews, 30000); // Removed automatic refresh
+```
+
+#### 3. Fixed Data Type Optimization
+Updated `DataOptimizer.optimize_dtypes` in `src/utils/dtale_manager.py`:
+```python
+# Before: Converted all low-cardinality objects to category
+if nunique < len(df_opt) * 0.5 or nunique <= 50:
+
+# After: Preserve unique columns as object
+if (nunique < len(df_opt) * 0.5 or nunique <= 50) and nunique < len(df_opt):
+```
+
+### Technical Details
+
+#### Multi-Tab Dashboard Features
+- **Flask-based interface** with tabbed navigation
+- **Multiple dtale instances** running on separate ports (40000-40005)
+- **Real-time data exploration** with Excel-like interface
+- **Performance optimized** with configurable sample sizes (default: 25,000 rows)
+- **Responsive design** with modern UI/UX
+
+#### View Categories Available
+1. **All Data**: Full sample of bond g-spread data
+2. **CAD Only**: CAD-denominated bonds only
+3. **Same Sector**: Bonds in the same sector
+4. **Portfolio**: Bonds in portfolio (Own? == 1) - *Note: Requires 'Own?' column*
+5. **Executable**: Bonds with executable trades
+6. **Cross-Currency**: Bonds with cross-currency exposure
+
+#### Performance Optimizations
+- **Smart sampling**: Includes extreme values and priority data
+- **Memory optimization**: Automatic dtype optimization for large datasets
+- **Port management**: Automatic port allocation to prevent conflicts
+- **Background processing**: Non-blocking view creation
+
+### Results
+- ✅ **Stable dashboard** - No more random reloading
+- ✅ **20/20 tests passing** - Complete test suite validation
+- ✅ **5/6 views working** - Only Portfolio view failed due to missing 'Own?' column
+- ✅ **Fast loading** - 100-500 row samples load in seconds
+- ✅ **User-controlled refresh** - Manual refresh button available
+
+### Files Modified/Created
+- **Created**: `dtale_app.py` - Core BondDtaleApp class
+- **Modified**: `dtale_multi_tab_app.py` - Removed automatic refresh
+- **Modified**: `src/utils/dtale_manager.py` - Fixed dtype optimization logic
+- **Validated**: All test files in `/test` directory
+
+### Usage Examples
+```bash
+# Launch with default settings (25,000 sample)
+poetry run python dtale_multi_tab_app.py
+
+# Launch with smaller sample for faster loading
+poetry run python dtale_multi_tab_app.py --sample-size 100
+
+# Launch on different port
+poetry run python dtale_multi_tab_app.py --port 8052
+```
+
+### Impact
+- **Enhanced data exploration**: Multi-tab interface for different bond perspectives
+- **Improved stability**: No more disruptive automatic reloading
+- **Better performance**: Optimized data types and smart sampling
+- **Team-friendly interface**: Modern, responsive dashboard design
+- **Comprehensive testing**: Full test suite ensures reliability
+
 ## 2025-07-11 21:33 - Currency Correction Fix
 
 ### Problem

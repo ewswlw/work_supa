@@ -17,6 +17,7 @@ alwaysApply: false
 - What would a top 0.1% person in this field think, and solve the problem that way
 - where applicable, explain visually using analogies or mental models, identify hidden bias in your answer and correct them, roleplay as Nobel laureate solving this problem
 - terminal commands should take <1m to run, if more escape out of it and tell me why it took longer
+ - Must always do unit tests for any new complex features inside /tests
 
 
 ## GENERAL CODING STANDARDS
