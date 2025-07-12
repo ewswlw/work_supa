@@ -84,8 +84,8 @@ class MultiTabDtaleApp:
             'all',
             'cad-only', 
             'same-sector',
-            'portfolio',
-            'executable',
+            'tradeable',
+            'liquid',
             'cross-currency'
         ]
         

@@ -1,5 +1,74 @@
 # Project Changelog
 
+## 2025-07-12 09:35 - DTALE App: Fixed Data Filters for Actual Dataset
+
+### Problem
+After reorganization, the dtale dashboard showed 2 failed views:
+- ❌ **Portfolio**: Expected 'Own?' column (not present in data)
+- ❌ **Executable**: Expected 'Executable' column (not present in data)
+
+### Root Cause Analysis
+The `bond_z.parquet` file contains 44 columns but not the expected 'Own?' or 'Executable' columns. Instead, it has rich **runs trading data** with bid/offer information that can serve as better proxies for tradeable and liquid bonds.
+
+### Solution: Updated Filters Based on Actual Data
+
+#### 1. Replaced Non-Existent Filters
+- **Before**: `portfolio` filter (looked for 'Own?' == 1)
+- **After**: `tradeable` filter (bonds with bid/offer data available)
+
+- **Before**: `executable` filter (looked for 'Executable' == 1)  
+- **After**: `liquid` filter (bonds with active bid/offer spreads and size)
+
+#### 2. New Filter Logic
+```python
+def _filter_tradeable(self, df: pd.DataFrame) -> pd.DataFrame:
+    """Bonds with available trading data (bid or offer)."""
+    tradeable_mask = (
+        df['Best Bid_runs1'].notna() | df['Best Offer_runs1'].notna() |
+        df['Best Bid_runs2'].notna() | df['Best Offer_runs2'].notna()
+    )
+    return df[tradeable_mask]
+
+def _filter_liquid(self, df: pd.DataFrame) -> pd.DataFrame:
+    """Bonds with active liquid markets (bid + offer + size)."""
+    liquid_mask = (
+        (df['Best Bid_runs1'].notna() & df['Best Offer_runs1'].notna() & df['Size @ Best Bid_runs1'].notna()) |
+        (df['Best Bid_runs2'].notna() & df['Best Offer_runs2'].notna() & df['Size @ Best Bid_runs2'].notna())
+    )
+    return df[liquid_mask]
+```
+
+#### 3. Updated Priority Sampling
+- **Before**: `['Z_Score', 'Own?', 'Currency_1', 'Currency_2']`
+- **After**: `['Z_Score', 'Best Bid_runs1', 'Currency_1', 'Currency_2']`
+
+### Technical Details
+
+#### Available Data Columns (44 total)
+- **Core Analytics**: Security_1/2, Last_Spread, Z_Score, Max, Min, Percentile
+- **Bond Metadata**: Custom_Sector_1/2, Rating_1/2, Currency_1/2, Ticker_1/2
+- **Runs Trading Data**: Best Bid/Offer_runs1/2, Size @ Best Bid/Offer_runs1/2, Dealer info
+
+#### New Dashboard Views
+1. **All Data** ✅ - Full sample of bond g-spread data
+2. **CAD Only** ✅ - CAD-denominated bonds only  
+3. **Same Sector** ✅ - Bonds in the same sector
+4. **Tradeable Bonds** ✅ - Bonds with available trading data
+5. **Liquid Markets** ✅ - Bonds with active bid/offer spreads and size
+6. **Cross-Currency** ✅ - Bonds with cross-currency exposure
+
+### Files Modified
+- **Updated**: `src/analytics/bond_analytics.py` - New filter logic based on actual data
+- **Updated**: `src/analytics/dtale_dashboard.py` - Updated tab views list
+
+### Impact
+- ✅ **All 6 views now working** - No more failed filters
+- ✅ **More meaningful filters** - Based on actual trading activity vs missing columns
+- ✅ **Better market insights** - Tradeable vs liquid bond distinction
+- ✅ **Data-driven logic** - Filters work with available 431K rows × 44 columns
+
+---
+
 ## 2025-07-12 09:30 - DTALE App: Cleanup & Reorganization Finalized
 
 ### Action

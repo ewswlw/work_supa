@@ -81,15 +81,15 @@ class BondAnalytics:
                 'description': 'Bonds with the same ticker',
                 'filter_func': self._filter_same_ticker
             },
-            'portfolio': {
-                'name': 'Portfolio',
-                'description': 'Bonds in the portfolio (Own? == 1)',
-                'filter_func': self._filter_portfolio
+            'tradeable': {
+                'name': 'Tradeable Bonds',
+                'description': 'Bonds with available trading data (bid/offer)',
+                'filter_func': self._filter_tradeable
             },
-            'executable': {
-                'name': 'Executable',
-                'description': 'Bonds with executable trades',
-                'filter_func': self._filter_executable
+            'liquid': {
+                'name': 'Liquid Markets',
+                'description': 'Bonds with active bid/offer spreads and size',
+                'filter_func': self._filter_liquid
             },
             'cross-currency': {
                 'name': 'Cross-Currency',
@@ -126,7 +126,7 @@ class BondAnalytics:
             
             # Create optimized sample
             logger.info("Creating optimized sample...")
-            priority_columns = ['Z_Score', 'Own?', 'Currency_1', 'Currency_2']
+            priority_columns = ['Z_Score', 'Best Bid_runs1', 'Currency_1', 'Currency_2']
             self.df_sample = DataOptimizer.create_smart_sample(
                 self.df_full, 
                 self.sample_size, 
@@ -257,21 +257,25 @@ class BondAnalytics:
             (df['Ticker_1'] == df['Ticker_2'])
         ]
     
-    def _filter_portfolio(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Filter for bonds in the portfolio."""
-        if 'Own?' not in df.columns:
-            logger.warning("'Own?' column not found. Returning empty dataset.")
-            return df.head(0)
-        return df[df['Own?'] == 1]
+    def _filter_tradeable(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Filter for bonds with available trading data."""
+        # Bonds that have either runs1 or runs2 data (bid or offer available)
+        tradeable_mask = (
+            df['Best Bid_runs1'].notna() | 
+            df['Best Offer_runs1'].notna() |
+            df['Best Bid_runs2'].notna() | 
+            df['Best Offer_runs2'].notna()
+        )
+        return df[tradeable_mask]
     
-    def _filter_executable(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Filter for executable bonds."""
-        # This is a placeholder - define your own logic
-        if 'Executable' in df.columns:
-            return df[df['Executable'] == 1]
-        else:
-            # Return empty dataset if no executable column
-            return df.head(0)
+    def _filter_liquid(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Filter for bonds with active liquid markets."""
+        # Bonds that have both bid and offer data with size information
+        liquid_mask = (
+            (df['Best Bid_runs1'].notna() & df['Best Offer_runs1'].notna() & df['Size @ Best Bid_runs1'].notna()) |
+            (df['Best Bid_runs2'].notna() & df['Best Offer_runs2'].notna() & df['Size @ Best Bid_runs2'].notna())
+        )
+        return df[liquid_mask]
     
     def _filter_cross_currency(self, df: pd.DataFrame) -> pd.DataFrame:
         """Filter for cross-currency bonds."""
