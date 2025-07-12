@@ -131,7 +131,7 @@ class MultiTabDtaleApp:
             return jsonify(self.bond_app.stats)
     
     def get_dashboard_template(self):
-        """Get the HTML template for the dashboard."""
+        """Get the HTML template for the enhanced dashboard."""
         return """
 <!DOCTYPE html>
 <html lang="en">
@@ -186,6 +186,63 @@ class MultiTabDtaleApp:
             font-weight: 600;
             color: #2d3748;
         }
+
+        /* Row Control Styling */
+        .row-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .row-dropdown, .row-input {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            background: white;
+            color: #2d3748;
+        }
+
+        .row-dropdown:focus, .row-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+
+        .row-input {
+            width: 70px;
+            text-align: center;
+        }
+
+        /* Enhanced Buttons */
+        .btn {
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a67d8;
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
         
         .tabs-container {
             background: rgba(255, 255, 255, 0.95);
@@ -232,23 +289,141 @@ class MultiTabDtaleApp:
         .content {
             height: calc(100vh - 140px);
             position: relative;
+            padding: 1rem;
         }
         
         .tab-content {
             display: none;
             width: 100%;
             height: 100%;
+            position: relative;
         }
         
         .tab-content.active {
             display: block;
         }
-        
-        .tab-content iframe {
+
+        /* Resizable Container Styling */
+        .resizable-container {
+            width: 1200px;
+            height: 600px;
+            position: relative;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 0 auto;
+            min-width: 400px;
+            min-height: 300px;
+            max-width: 95vw;
+            max-height: 85vh;
+        }
+
+        .resizable-container iframe {
             width: 100%;
-            height: 100%;
+            height: calc(100% - 30px);
             border: none;
             background: white;
+        }
+
+        .resize-info {
+            height: 30px;
+            background: #f7fafc;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+            font-size: 0.8rem;
+            color: #4a5568;
+        }
+
+        /* Resize Handles */
+        .resize-handle {
+            position: absolute;
+            background: transparent;
+            z-index: 10;
+        }
+
+        .resize-handle:hover {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .resize-n {
+            top: -3px;
+            left: 10px;
+            right: 10px;
+            height: 6px;
+            cursor: n-resize;
+        }
+
+        .resize-s {
+            bottom: -3px;
+            left: 10px;
+            right: 10px;
+            height: 6px;
+            cursor: s-resize;
+        }
+
+        .resize-e {
+            top: 10px;
+            bottom: 10px;
+            right: -3px;
+            width: 6px;
+            cursor: e-resize;
+        }
+
+        .resize-w {
+            top: 10px;
+            bottom: 10px;
+            left: -3px;
+            width: 6px;
+            cursor: w-resize;
+        }
+
+        .resize-ne {
+            top: -3px;
+            right: -3px;
+            width: 12px;
+            height: 12px;
+            cursor: ne-resize;
+        }
+
+        .resize-nw {
+            top: -3px;
+            left: -3px;
+            width: 12px;
+            height: 12px;
+            cursor: nw-resize;
+        }
+
+        .resize-se {
+            bottom: -3px;
+            right: -3px;
+            width: 12px;
+            height: 12px;
+            cursor: se-resize;
+        }
+
+        .resize-sw {
+            bottom: -3px;
+            left: -3px;
+            width: 12px;
+            height: 12px;
+            cursor: sw-resize;
+        }
+
+        /* Dimension Tooltip */
+        .dimension-tooltip {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
         }
         
         .loading-message {
@@ -259,6 +434,7 @@ class MultiTabDtaleApp:
             background: white;
             color: #4a5568;
             font-size: 1.1rem;
+            border-radius: 8px;
         }
         
         .error-message {
@@ -269,21 +445,7 @@ class MultiTabDtaleApp:
             background: #fed7d7;
             color: #c53030;
             font-size: 1.1rem;
-        }
-        
-        .refresh-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: background 0.3s ease;
-        }
-        
-        .refresh-btn:hover {
-            background: #5a67d8;
+            border-radius: 8px;
         }
         
         @media (max-width: 768px) {
@@ -304,6 +466,15 @@ class MultiTabDtaleApp:
                 padding: 0.75rem 1rem;
                 font-size: 0.9rem;
             }
+
+            .resizable-container {
+                width: 95vw;
+                height: 70vh;
+            }
+
+            .content {
+                padding: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -323,7 +494,20 @@ class MultiTabDtaleApp:
             <div class="stat-item">
                 🎯 <span class="stat-value" id="sample-size">-</span> Sample Size
             </div>
-            <button class="refresh-btn" onclick="refreshStats()">🔄 Refresh</button>
+            <div class="stat-item row-control">
+                📄 Show:
+                <select id="row-dropdown" class="row-dropdown" onchange="handleRowCountChange()">
+                    <option value="50">50</option>
+                    <option value="100" selected>100</option>
+                    <option value="200">200</option>
+                    <option value="all">All</option>
+                    <option value="custom">Custom...</option>
+                </select>
+                <input type="number" id="row-input" class="row-input" min="1" max="50000" style="display: none;" onchange="handleCustomRowCount()" placeholder="1000">
+                rows
+            </div>
+            <button class="btn btn-secondary" onclick="resetSize()">🔧 Reset Size</button>
+            <button class="btn btn-primary" onclick="refreshStats()">🔄 Refresh</button>
         </div>
     </div>
     
@@ -337,10 +521,252 @@ class MultiTabDtaleApp:
         <!-- Tab content will be populated by JavaScript -->
     </div>
 
+    <div class="dimension-tooltip" id="dimension-tooltip"></div>
+
     <script>
         let views = [];
         let activeTab = 'all';
+        let tabSettings = {}; // Stores per-tab settings
+        let isResizing = false;
+        let resizeStartPos = null;
+        let resizeStartSize = null;
         
+        // Initialize tab settings with defaults
+        function initTabSettings(tabName) {
+            if (!tabSettings[tabName]) {
+                tabSettings[tabName] = {
+                    rowCount: getStoredRowCount(tabName) || 100,
+                    width: getStoredSize(tabName)?.width || 1200,
+                    height: getStoredSize(tabName)?.height || 600
+                };
+            }
+        }
+
+        // Local storage helpers
+        function getStoredRowCount(tabName) {
+            try {
+                return localStorage.getItem(`dtale_rows_${tabName}`);
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function setStoredRowCount(tabName, count) {
+            try {
+                localStorage.setItem(`dtale_rows_${tabName}`, count);
+            } catch (e) {
+                console.warn('Could not save row count to localStorage');
+            }
+        }
+
+        function getStoredSize(tabName) {
+            try {
+                const stored = localStorage.getItem(`dtale_size_${tabName}`);
+                return stored ? JSON.parse(stored) : null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function setStoredSize(tabName, width, height) {
+            try {
+                localStorage.setItem(`dtale_size_${tabName}`, JSON.stringify({width, height}));
+            } catch (e) {
+                console.warn('Could not save size to localStorage');
+            }
+        }
+
+        // Row count control handlers
+        function handleRowCountChange() {
+            const dropdown = document.getElementById('row-dropdown');
+            const input = document.getElementById('row-input');
+            
+            if (dropdown.value === 'custom') {
+                input.style.display = 'inline-block';
+                input.focus();
+                input.value = tabSettings[activeTab]?.rowCount || 100;
+            } else {
+                input.style.display = 'none';
+                const newCount = dropdown.value;
+                updateRowCount(newCount);
+            }
+        }
+
+        function handleCustomRowCount() {
+            const input = document.getElementById('row-input');
+            const value = parseInt(input.value);
+            
+            if (value >= 1 && value <= 50000) {
+                updateRowCount(value);
+            } else {
+                alert('Please enter a value between 1 and 50,000');
+                input.value = tabSettings[activeTab]?.rowCount || 100;
+            }
+        }
+
+        function updateRowCount(count) {
+            if (!activeTab) return;
+            
+            initTabSettings(activeTab);
+            tabSettings[activeTab].rowCount = count;
+            setStoredRowCount(activeTab, count);
+            
+            // Show warning for large counts
+            if (count === 'all' || (typeof count === 'number' && count > 5000)) {
+                if (!confirm(`Loading ${count === 'all' ? 'all' : count + ''} rows may take some time and use significant memory. Continue?`)) {
+                    // Reset to previous value
+                    const dropdown = document.getElementById('row-dropdown');
+                    dropdown.value = tabSettings[activeTab].rowCount < 50 ? '50' : 
+                                   tabSettings[activeTab].rowCount < 200 ? '100' : '200';
+                    return;
+                }
+            }
+            
+            refreshActiveTab();
+        }
+
+        function refreshActiveTab() {
+            if (!activeTab) return;
+            
+            const contentElement = document.getElementById(`content-${activeTab}`);
+            const container = contentElement.querySelector('.resizable-container');
+            
+            if (container) {
+                const iframe = container.querySelector('iframe');
+                const view = views.find(v => v.name === activeTab);
+                
+                if (view && view.url) {
+                    const rowCount = tabSettings[activeTab]?.rowCount || 100;
+                    const newUrl = `${view.url}${view.url.includes('?') ? '&' : '?'}rows=${rowCount}`;
+                    iframe.src = newUrl;
+                    
+                    // Update info bar
+                    updateResizeInfo(container);
+                }
+            }
+        }
+
+        function resetSize() {
+            if (!activeTab) return;
+            
+            initTabSettings(activeTab);
+            tabSettings[activeTab].width = 1200;
+            tabSettings[activeTab].height = 600;
+            setStoredSize(activeTab, 1200, 600);
+            
+            const contentElement = document.getElementById(`content-${activeTab}`);
+            const container = contentElement.querySelector('.resizable-container');
+            
+            if (container) {
+                container.style.width = '1200px';
+                container.style.height = '600px';
+                updateResizeInfo(container);
+            }
+        }
+
+        // Resize functionality
+        function makeResizable(container, tabName) {
+            // Add resize handles
+            const handles = ['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw'];
+            handles.forEach(handle => {
+                const handleElement = document.createElement('div');
+                handleElement.className = `resize-handle resize-${handle}`;
+                handleElement.addEventListener('mousedown', (e) => startResize(e, handle, container, tabName));
+                container.appendChild(handleElement);
+            });
+        }
+
+        function startResize(e, direction, container, tabName) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            isResizing = true;
+            resizeStartPos = { x: e.clientX, y: e.clientY };
+            resizeStartSize = {
+                width: parseInt(getComputedStyle(container).width),
+                height: parseInt(getComputedStyle(container).height)
+            };
+            
+            const tooltip = document.getElementById('dimension-tooltip');
+            tooltip.style.display = 'block';
+            
+            const onMouseMove = (e) => handleResize(e, direction, container, tabName, tooltip);
+            const onMouseUp = () => stopResize(tooltip, onMouseMove);
+            
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+            
+            document.body.style.cursor = getComputedStyle(e.target).cursor;
+            document.body.style.userSelect = 'none';
+        }
+
+        function handleResize(e, direction, container, tabName, tooltip) {
+            if (!isResizing) return;
+            
+            const deltaX = e.clientX - resizeStartPos.x;
+            const deltaY = e.clientY - resizeStartPos.y;
+            
+            let newWidth = resizeStartSize.width;
+            let newHeight = resizeStartSize.height;
+            
+            // Calculate new dimensions based on direction
+            if (direction.includes('e')) newWidth += deltaX;
+            if (direction.includes('w')) newWidth -= deltaX;
+            if (direction.includes('s')) newHeight += deltaY;
+            if (direction.includes('n')) newHeight -= deltaY;
+            
+            // Apply constraints
+            newWidth = Math.max(400, Math.min(newWidth, window.innerWidth * 0.95));
+            newHeight = Math.max(300, Math.min(newHeight, window.innerHeight * 0.85));
+            
+            // Apply new size
+            container.style.width = newWidth + 'px';
+            container.style.height = newHeight + 'px';
+            
+            // Update tooltip
+            tooltip.textContent = `${newWidth} × ${newHeight}`;
+            tooltip.style.left = (e.clientX + 10) + 'px';
+            tooltip.style.top = (e.clientY - 30) + 'px';
+            
+            // Update info bar
+            updateResizeInfo(container);
+        }
+
+        function stopResize(tooltip, onMouseMove) {
+            if (!isResizing) return;
+            
+            isResizing = false;
+            tooltip.style.display = 'none';
+            
+            document.removeEventListener('mousemove', onMouseMove);
+            document.body.style.cursor = '';
+            document.body.style.userSelect = '';
+            
+            // Save new size
+            if (activeTab) {
+                const container = document.getElementById(`content-${activeTab}`).querySelector('.resizable-container');
+                if (container) {
+                    const width = parseInt(container.style.width);
+                    const height = parseInt(container.style.height);
+                    
+                    initTabSettings(activeTab);
+                    tabSettings[activeTab].width = width;
+                    tabSettings[activeTab].height = height;
+                    setStoredSize(activeTab, width, height);
+                }
+            }
+        }
+
+        function updateResizeInfo(container) {
+            const infoElement = container.querySelector('.resize-info-text');
+            if (infoElement) {
+                const width = parseInt(container.style.width);
+                const height = parseInt(container.style.height);
+                const rowCount = tabSettings[activeTab]?.rowCount || 100;
+                infoElement.textContent = `${width} × ${height} • Showing ${rowCount === 'all' ? 'all' : rowCount} rows`;
+            }
+        }
+
         async function loadViews() {
             try {
                 const response = await fetch('/api/views');
@@ -367,7 +793,7 @@ class MultiTabDtaleApp:
                 document.getElementById('total-columns').textContent = stats.total_columns || '-';
                 document.getElementById('memory-usage').textContent = stats.memory_usage_mb ? 
                     `${stats.memory_usage_mb.toFixed(1)} MB` : '-';
-                                 document.getElementById('sample-size').textContent = '25,000';
+                document.getElementById('sample-size').textContent = '25,000';
             } catch (error) {
                 console.error('Error loading stats:', error);
             }
@@ -397,10 +823,35 @@ class MultiTabDtaleApp:
                 tabContent.id = `content-${view.name}`;
                 
                 if (view.active && view.url) {
+                    // Initialize tab settings
+                    initTabSettings(view.name);
+                    
+                    // Create resizable container
+                    const container = document.createElement('div');
+                    container.className = 'resizable-container';
+                    container.style.width = tabSettings[view.name].width + 'px';
+                    container.style.height = tabSettings[view.name].height + 'px';
+                    
+                    // Add info bar
+                    const infoBar = document.createElement('div');
+                    infoBar.className = 'resize-info';
+                    infoBar.innerHTML = `
+                        <span class="resize-info-text">${tabSettings[view.name].width} × ${tabSettings[view.name].height} • Showing ${tabSettings[view.name].rowCount === 'all' ? 'all' : tabSettings[view.name].rowCount} rows</span>
+                        <span style="font-size: 0.75rem; color: #718096;">Drag edges to resize</span>
+                    `;
+                    container.appendChild(infoBar);
+                    
+                    // Add iframe
                     const iframe = document.createElement('iframe');
-                    iframe.src = view.url;
+                    const rowCount = tabSettings[view.name].rowCount;
+                    iframe.src = `${view.url}${view.url.includes('?') ? '&' : '?'}rows=${rowCount}`;
                     iframe.title = view.display_name;
-                    tabContent.appendChild(iframe);
+                    container.appendChild(iframe);
+                    
+                    // Make container resizable
+                    makeResizable(container, view.name);
+                    
+                    tabContent.appendChild(container);
                 } else if (view.active) {
                     tabContent.innerHTML = '<div class="loading-message">⏳ Loading view...</div>';
                 } else {
@@ -425,6 +876,21 @@ class MultiTabDtaleApp:
             document.getElementById(`content-${viewName}`).classList.add('active');
             
             activeTab = viewName;
+            
+            // Update row count dropdown to reflect current tab settings
+            initTabSettings(viewName);
+            const currentRowCount = tabSettings[viewName].rowCount;
+            const dropdown = document.getElementById('row-dropdown');
+            const input = document.getElementById('row-input');
+            
+            if (['50', '100', '200', 'all'].includes(currentRowCount.toString())) {
+                dropdown.value = currentRowCount.toString();
+                input.style.display = 'none';
+            } else {
+                dropdown.value = 'custom';
+                input.style.display = 'inline-block';
+                input.value = currentRowCount;
+            }
         }
         
         function refreshStats() {
@@ -436,9 +902,6 @@ class MultiTabDtaleApp:
         document.addEventListener('DOMContentLoaded', function() {
             loadViews();
             loadStats();
-            
-            // Manual refresh only - no automatic reloading
-            // setInterval(loadViews, 30000); // Removed automatic refresh
         });
     </script>
 </body>
