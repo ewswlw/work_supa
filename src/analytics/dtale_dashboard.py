@@ -43,7 +43,14 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Import our existing dtale app
-from dtale_app import BondDtaleApp
+try:
+    from .bond_analytics import BondAnalytics
+except ImportError:
+    # For direct execution, add parent directory to path
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).parent.parent))
+    from analytics.bond_analytics import BondAnalytics
 
 class MultiTabDtaleApp:
     """
@@ -70,7 +77,7 @@ class MultiTabDtaleApp:
         self.app_port = app_port
         self.dtale_instances = {}
         self.flask_app = Flask(__name__)
-        self.bond_app = BondDtaleApp(data_path, sample_size, base_port)
+        self.bond_app = BondAnalytics(data_path, sample_size, base_port)
         
         # Define which views to create tabs for
         self.tab_views = [
@@ -99,7 +106,7 @@ class MultiTabDtaleApp:
             for view_name in self.tab_views:
                 if view_name in self.dtale_instances:
                     instance = self.dtale_instances[view_name]
-                    view_config = self.bond_app.views[view_name]
+                    view_config = self.bond_app.view_definitions[view_name]
                     views_info.append({
                         'name': view_name,
                         'display_name': view_config['name'],
@@ -108,7 +115,7 @@ class MultiTabDtaleApp:
                         'active': True
                     })
                 else:
-                    view_config = self.bond_app.views[view_name]
+                    view_config = self.bond_app.view_definitions[view_name]
                     views_info.append({
                         'name': view_name,
                         'display_name': view_config['name'],
@@ -457,7 +464,7 @@ class MultiTabDtaleApp:
                 logger.info(f"Creating view: {view_name}")
                 
                 # Set unique port for each view
-                self.bond_app.port = self.base_port + port_offset
+                self.bond_app.dtale_manager.port_counter = port_offset
                 
                 # Create the view
                 instance = self.bond_app.create_view(view_name)
@@ -546,7 +553,7 @@ class MultiTabDtaleApp:
         
         print("\n📋 AVAILABLE TABS:")
         for view_name in self.tab_views:
-            view_config = self.bond_app.views[view_name]
+            view_config = self.bond_app.view_definitions[view_name]
             if results.get(view_name, False):
                 instance = self.dtale_instances[view_name]
                 status = f"🟢 ACTIVE - {instance._url}"

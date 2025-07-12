@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 # Import the modules to test
 try:
-    from dtale_app import BondDtaleApp
+    from src.analytics.bond_analytics import BondAnalytics as BondDtaleApp
     from src.utils.dtale_manager import (
         DtaleInstanceManager, 
         DataOptimizer, 

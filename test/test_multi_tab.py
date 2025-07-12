@@ -6,19 +6,22 @@ Simple test script for the multi-tab dtale application
 import sys
 from pathlib import Path
 
+# Add the project root to the path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 def test_imports():
     """Test if all imports work correctly."""
     print("🧪 Testing imports...")
     
     try:
-        from dtale_app import BondDtaleApp
+        from src.analytics.bond_analytics import BondAnalytics as BondDtaleApp
         print("✅ BondDtaleApp import successful")
     except Exception as e:
         print(f"❌ BondDtaleApp import failed: {e}")
         return False
     
     try:
-        from dtale_multi_tab_app import MultiTabDtaleApp
+        from src.analytics.dtale_dashboard import MultiTabDtaleApp
         print("✅ MultiTabDtaleApp import successful")
     except Exception as e:
         print(f"❌ MultiTabDtaleApp import failed: {e}")
@@ -31,7 +34,7 @@ def test_data_loading():
     print("\n🧪 Testing data loading...")
     
     try:
-        from dtale_app import BondDtaleApp
+        from src.analytics.bond_analytics import BondAnalytics as BondDtaleApp
         
         # Check if data file exists
         data_path = Path('historical g spread/bond_z.parquet')
@@ -63,7 +66,7 @@ def test_view_creation():
     print("\n🧪 Testing view creation...")
     
     try:
-        from dtale_app import BondDtaleApp
+        from src.analytics.bond_analytics import BondAnalytics as BondDtaleApp
         
         app = BondDtaleApp(data_path='historical g spread/bond_z.parquet', sample_size=500)
         
