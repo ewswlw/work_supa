@@ -283,7 +283,7 @@ FILTER_OPERATORS = {
 CONFIG = {
     # Core parameters
     'LOOKBACK_DAYS': 252,  
-    'MAX_BONDS': 200,         # Limit to most liquid bonds for speed (small sample for testing)
+    'MAX_BONDS': 2000,         # Limit to most liquid bonds for speed (small sample for testing)
     'MIN_OBSERVATIONS': 200,  # Minimum data points
     
     # Speed optimizations
@@ -782,7 +782,14 @@ def save_results(results_df: pd.DataFrame, cusip_mapping: dict = None):
     # --- ENRICHMENT: Add Own_1 and Own_2 columns ---
     try:
         portfolio = safe_read_parquet('portfolio/portfolio.parquet')
-        portfolio_cusips = set(portfolio['CUSIP'])
+        
+        # Get only the latest date portfolio holdings
+        latest_date = portfolio['Date'].max()
+        latest_portfolio = portfolio[portfolio['Date'] == latest_date]
+        portfolio_cusips = set(latest_portfolio['CUSIP'])
+        
+        print(f"[INFO] Using portfolio holdings from latest date: {latest_date.strftime('%Y-%m-%d')}")
+        print(f"[INFO] Total CUSIPs in latest portfolio: {len(portfolio_cusips)}")
         
         # Check ownership for both Security_1 and Security_2
         if cusip_mapping is not None:

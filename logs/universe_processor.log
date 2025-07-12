@@ -2238,3 +2238,1343 @@ memory usage: 11.9+ MB
 No new or modified files to process. The Parquet file is up-to-date.
 [2025-07-10 17:13:17,908] INFO: Universe processing pipeline finished successfully.
 [2025-07-10 17:13:18,450] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-07-11 20:46:10,457] INFO: Starting universe processing pipeline...
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 06.26.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 06.30.25.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Found new file to process: 'API 07.11.25.xlsx'
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-07-11 20:46:10,476] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-11 20:46:10,624] INFO: Loaded existing data: 34378 rows, 47 columns
+[2025-07-11 20:46:10,664] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 34378 entries, 0 to 34377
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    34378 non-null  datetime64[ns]
+ 1   CUSIP                   34378 non-null  object        
+ 2   Benchmark Cusip         34378 non-null  object        
+ 3   Custom_Sector           34378 non-null  object        
+ 4   Marketing Sector        34378 non-null  object        
+ 5   Notes                   34378 non-null  object        
+ 6   Bloomberg Cusip         34378 non-null  object        
+ 7   Security                34378 non-null  object        
+ 8   Benchmark               34378 non-null  object        
+ 9   Make_Whole              22180 non-null  float64       
+ 10  Back End                5808 non-null   float64       
+ 11  Floating Index          34378 non-null  object        
+ 12  Stochastic Duration     5036 non-null   float64       
+ 13  Stochastic Convexity    5036 non-null   float64       
+ 14  Pricing Date            31775 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    20670 non-null  datetime64[ns]
+ 16  MTD Return              28456 non-null  float64       
+ 17  QTD Return              28094 non-null  float64       
+ 18  YTD Return              26803 non-null  float64       
+ 19  MTD Bench Return        19001 non-null  float64       
+ 20  QTD Bench Return        19069 non-null  float64       
+ 21  YTD Bench Return        19663 non-null  float64       
+ 22  Worst Date              31554 non-null  datetime64[ns]
+ 23  Yrs (Worst)             28676 non-null  float64       
+ 24  YTC                     28587 non-null  float64       
+ 25  Excess MTD              26218 non-null  float64       
+ 26  Excess YTD              23414 non-null  float64       
+ 27  CPN TYPE                34378 non-null  object        
+ 28  Ticker                  34378 non-null  object        
+ 29  G Sprd                  27442 non-null  float64       
+ 30  Yrs (Cvn)               29652 non-null  float64       
+ 31  OAS (Mid)               32840 non-null  float64       
+ 32  Currency                34378 non-null  object        
+ 33  CAD Equiv Swap          28172 non-null  float64       
+ 34  G (RBC Crv)             28134 non-null  float64       
+ 35  vs BI                   21776 non-null  float64       
+ 36  vs BCE                  28134 non-null  float64       
+ 37  Equity Ticker           34378 non-null  object        
+ 38  YTD Equity              24875 non-null  float64       
+ 39  MTD Equity              24884 non-null  float64       
+ 40  Yrs Since Issue         25981 non-null  float64       
+ 41  Risk                    34378 non-null  object        
+ 42  Rating                  34378 non-null  object        
+ 43  Yrs (Mat)               24202 non-null  float64       
+ 44  Z Spread                23230 non-null  float64       
+ 45  Yrs Since Issue Bucket  25893 non-null  category      
+ 46  Yrs (Mat) Bucket        24202 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 11.9+ MB
+
+[2025-07-11 20:46:10,665] INFO: 
+=========================
+[2025-07-11 20:46:10,665] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-11 20:46:10,665] INFO: =========================
+[2025-07-11 20:46:10,665] INFO: Total unique dates in existing data: 14
+[2025-07-11 20:46:10,665] INFO: Existing date range: 2023-08-04T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-11 20:46:10,665] INFO: Existing dates in Parquet:
+[2025-07-11 20:46:10,666] INFO:   - 2023-08-04: 1897 records
+[2025-07-11 20:46:10,666] INFO:   - 2023-10-31: 1987 records
+[2025-07-11 20:46:10,667] INFO:   - 2023-12-29: 2061 records
+[2025-07-11 20:46:10,667] INFO:   - 2024-12-20: 2353 records
+[2025-07-11 20:46:10,667] INFO:   - 2025-05-23: 2664 records
+[2025-07-11 20:46:10,667] INFO:   - 2025-05-26: 2665 records
+[2025-07-11 20:46:10,668] INFO:   - 2025-05-28: 2672 records
+[2025-07-11 20:46:10,668] INFO:   - 2025-06-03: 2704 records
+[2025-07-11 20:46:10,668] INFO:   - 2025-06-06: 2710 records
+[2025-07-11 20:46:10,669] INFO:   - 2025-06-10: 2714 records
+[2025-07-11 20:46:10,669] INFO:   - 2025-06-11: 2715 records
+[2025-07-11 20:46:10,669] INFO:   - 2025-06-20: 2742 records
+[2025-07-11 20:46:10,669] INFO:   - 2025-06-26: 2247 records
+[2025-07-11 20:46:10,670] INFO:   - 2025-06-30: 2247 records
+[2025-07-11 20:46:10,670] INFO: 
+Found 1 files to process...
+[2025-07-11 20:46:10,670] INFO: Processing 'API 07.11.25.xlsx'...
+[2025-07-11 20:46:10,670] INFO:   Extracted date: 2025-07-11 (datetime type)
+[2025-07-11 20:46:12,140] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 20:46:12,140] INFO:   Processed shape: (2299, 76)
+[2025-07-11 20:46:12,265] INFO: 
+--- Starting Data Processing Pipeline ---
+[2025-07-11 20:46:12,332] INFO: Dropped -34378 rows with null CUSIPs.
+[2025-07-11 20:46:12,399] INFO: Dropped 48 duplicate (Date, CUSIP) rows.
+[2025-07-11 20:46:12,400] INFO: --- Running Data Validation and Quality Analysis ---
+[2025-07-11 20:46:13,263] WARNING: 
+=========================
+=== VALIDATION ERRORS ===
+=========================
+
+--- Non-Numeric Data in Numeric Columns ---
+  - Column 'Stochastic Duration': Found 1796 non-numeric entries.
+  - Column 'Stochastic Convexity': Found 1796 non-numeric entries.
+  - Column 'MTD Return': Found 63 non-numeric entries.
+  - Column 'QTD Return': Found 63 non-numeric entries.
+  - Column 'YTD Return': Found 48 non-numeric entries.
+  - Column 'MTD Bench Return': Found 67 non-numeric entries.
+  - Column 'QTD Bench Return': Found 67 non-numeric entries.
+  - Column 'YTD Bench Return': Found 31 non-numeric entries.
+  - Column 'Yrs (Worst)': Found 141 non-numeric entries.
+  - Column 'YTC': Found 6 non-numeric entries.
+  - Column 'G Sprd': Found 26 non-numeric entries.
+  - Column 'Yrs (Cvn)': Found 13 non-numeric entries.
+  - Column 'OAS (Mid)': Found 50 non-numeric entries.
+  - Column 'CAD Equiv Swap': Found 6 non-numeric entries.
+  - Column 'Yrs Since Issue': Found 7 non-numeric entries.
+  - Column 'Risk': Found 11045 non-numeric entries.
+  - Column 'Yrs (Mat)': Found 24 non-numeric entries.
+  - Column 'Z Spread': Found 107 non-numeric entries.
+[2025-07-11 20:46:13,268] INFO: 
+=========================
+=== DATA QUALITY REPORT ===
+=========================
+
+--- Null Value Analysis (Top 5) ---
+  - B/E Bench Sprd: 36629.0 nulls (100.00%)
+  - Forward Sprd: 36629.0 nulls (100.00%)
+  - Retracement24: 36003.0 nulls (98.29%)
+  - Wides 2021: 35988.0 nulls (98.25%)
+  - Tights 2021: 35988.0 nulls (98.25%)
+
+--- Statistical Summary (Numeric Columns) ---
+                          count          mean             std        min     25%     50%     75%                max
+Stochastic Duration    5,434.00          3.84            2.99       0.00    1.76    3.18    4.98              15.83
+Stochastic Convexity   5,434.00         -1.54            5.58     -92.61   -0.07    0.04    0.15               6.95
+MTD Return            30,633.00          0.06           10.31     -22.95   -0.36    0.03    0.33           1,784.13
+QTD Return            30,271.00          0.46           15.27     -26.98   -0.36    0.39    0.76           1,784.13
+YTD Return            28,732.00          2.53           20.90     -50.93    1.28    2.07    2.89           2,170.15
+MTD Bench Return      20,369.00         -0.63            1.83      -5.99   -0.97   -0.24    0.04               8.08
+QTD Bench Return      20,437.00         -1.11            3.96      -9.64   -1.87   -0.29    0.28              19.62
+YTD Bench Return      21,067.00          0.23            3.14      -8.81   -0.73    1.42    1.71              11.66
+Yrs (Worst)           30,786.00        103.21          238.08  -3,354.73   33.76   77.85  122.73           8,115.43
+YTC                   30,731.00          4.74            2.34     -27.45    3.80    4.68    5.27              77.92
+Excess MTD            28,255.00          0.37            0.66     -17.66    0.03    0.18    0.55              17.46
+Excess YTD            25,186.00          0.65            1.87     -27.16    0.01    0.36    1.07              41.60
+G Sprd                29,543.00  7,269,151.53  395,035,750.94  -7,195.32   74.17  114.07  160.31  21,474,836,480.00
+Yrs (Cvn)             31,890.00          7.61            8.91       0.00    1.86    4.02    8.44              57.71
+OAS (Mid)             35,041.00        159.72          165.42    -455.83  118.73  156.10  158.53           5,188.05
+CAD Equiv Swap        30,282.00        123.52          228.24  -2,972.81   60.00  100.17  136.22           6,315.79
+YTD Equity            26,611.00          6.92           14.58     -87.32   -1.23    5.25   13.70             181.24
+MTD Equity            26,620.00          1.19            5.43     -37.86   -1.93    0.37    3.84              46.33
+Yrs Since Issue       28,225.00          3.86            3.45      -0.05    1.27    3.16    5.21              30.88
+Risk                  25,478.00        498.12          424.67       0.27  178.88  366.93  698.17           2,064.86
+Yrs (Mat)             26,429.00          9.85           12.52       0.00    2.20    4.67   10.25              60.29
+Z Spread              25,370.00        148.75          258.42  -3,153.15   78.86  121.76  163.42           8,160.01
+
+--- Categorical Value Distribution (Sample) ---
+  - Column 'CUSIP':
+    ' 06418GAD9': 15 (0.04%)
+    '548243AC8': 15 (0.04%)
+    '559222AW4': 15 (0.04%)
+  - Column 'Benchmark Cusip':
+    'nan': 13708 (37.42%)
+    '135087M68': 4293 (11.72%)
+    '135087F82': 1182 (3.23%)
+  - Column 'Custom_Sector':
+    'Auto': 3384 (9.24%)
+    'Utility': 3053 (8.33%)
+    'Financial Maples': 3035 (8.29%)
+[2025-07-11 20:46:13,269] DEBUG: Creating bucket for 'Yrs Since Issue'...
+[2025-07-11 20:46:13,272] DEBUG: Creating bucket for 'Yrs (Mat)'...
+[2025-07-11 20:46:13,381] INFO: 
+=========================
+=== FINAL DATA SNAPSHOT ===
+=========================
+Total Rows: 36629
+Total Columns: 47
+Memory Usage: 75.82 MB
+
+--- DataFrame Info ---
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 36629 entries, 6 to 34498
+Columns: 47 entries, Date to Yrs (Mat) Bucket
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 12.9+ MB
+
+[2025-07-11 20:46:14,375] INFO: --- Processing Complete ---
+[2025-07-11 20:46:14,375] INFO: Final DataFrame Shape: (36629, 47)
+[2025-07-11 20:46:14,375] INFO: 
+=========================
+[2025-07-11 20:46:14,375] INFO: === DATE COVERAGE ANALYSIS ===
+[2025-07-11 20:46:14,375] INFO: =========================
+[2025-07-11 20:46:14,375] INFO: Total unique dates: 15
+[2025-07-11 20:46:14,375] INFO: Date column dtype: datetime64[ns]
+[2025-07-11 20:46:14,375] INFO: Date range: 2023-08-04 to 2025-07-11
+[2025-07-11 20:46:14,375] INFO: Time span: 707 days (1.9 years)
+[2025-07-11 20:46:14,409] INFO: 
+Year distribution:
+[2025-07-11 20:46:14,409] INFO:   - 2023: 5945 records
+[2025-07-11 20:46:14,409] INFO:   - 2024: 2353 records
+[2025-07-11 20:46:14,409] INFO:   - 2025: 28331 records
+[2025-07-11 20:46:14,417] INFO: 
+Business day analysis:
+[2025-07-11 20:46:14,417] INFO:   - Business days: 36629 (100.0%)
+[2025-07-11 20:46:14,417] INFO:   - Weekend days: 0 (0.0%)
+[2025-07-11 20:46:14,417] INFO: 
+Sample dates:
+[2025-07-11 20:46:14,417] INFO:   - 2023-08-04 (Fri): 1897 records
+[2025-07-11 20:46:14,417] INFO:   - 2023-10-31 (Tue): 1987 records
+[2025-07-11 20:46:14,417] INFO:   - 2023-12-29 (Fri): 2061 records
+[2025-07-11 20:46:14,417] INFO:   - 2024-12-20 (Fri): 2353 records
+[2025-07-11 20:46:14,417] INFO:   - 2025-05-23 (Fri): 2664 records
+[2025-07-11 20:46:14,417] INFO:   ... (5 more dates) ...
+[2025-07-11 20:46:14,417] INFO:   - 2025-06-11 (Wed): 2715 records
+[2025-07-11 20:46:14,417] INFO:   - 2025-06-20 (Fri): 2742 records
+[2025-07-11 20:46:14,417] INFO:   - 2025-06-26 (Thu): 2247 records
+[2025-07-11 20:46:14,417] INFO:   - 2025-06-30 (Mon): 2247 records
+[2025-07-11 20:46:14,427] INFO:   - 2025-07-11 (Fri): 2251 records
+[2025-07-11 20:46:14,427] INFO: 
+=== END DATE ANALYSIS ===
+
+[2025-07-11 20:46:14,459] INFO: DataFrame info before saving to Parquet:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 36629 entries, 6 to 34498
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    36629 non-null  datetime64[ns]
+ 1   CUSIP                   36629 non-null  object        
+ 2   Benchmark Cusip         36629 non-null  object        
+ 3   Custom_Sector           36629 non-null  object        
+ 4   Marketing Sector        36629 non-null  object        
+ 5   Notes                   36629 non-null  object        
+ 6   Bloomberg Cusip         36629 non-null  object        
+ 7   Security                36629 non-null  object        
+ 8   Benchmark               36629 non-null  object        
+ 9   Make_Whole              23780 non-null  float64       
+ 10  Back End                6262 non-null   float64       
+ 11  Floating Index          36629 non-null  object        
+ 12  Stochastic Duration     5434 non-null   float64       
+ 13  Stochastic Convexity    5434 non-null   float64       
+ 14  Pricing Date            34019 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    22105 non-null  datetime64[ns]
+ 16  MTD Return              30633 non-null  float64       
+ 17  QTD Return              30271 non-null  float64       
+ 18  YTD Return              28732 non-null  float64       
+ 19  MTD Bench Return        20369 non-null  float64       
+ 20  QTD Bench Return        20437 non-null  float64       
+ 21  YTD Bench Return        21067 non-null  float64       
+ 22  Worst Date              33794 non-null  datetime64[ns]
+ 23  Yrs (Worst)             30786 non-null  float64       
+ 24  YTC                     30731 non-null  float64       
+ 25  Excess MTD              28255 non-null  float64       
+ 26  Excess YTD              25186 non-null  float64       
+ 27  CPN TYPE                36629 non-null  object        
+ 28  Ticker                  36629 non-null  object        
+ 29  G Sprd                  29543 non-null  float64       
+ 30  Yrs (Cvn)               31890 non-null  float64       
+ 31  OAS (Mid)               35041 non-null  float64       
+ 32  Currency                36629 non-null  object        
+ 33  CAD Equiv Swap          30282 non-null  float64       
+ 34  G (RBC Crv)             30244 non-null  float64       
+ 35  vs BI                   23449 non-null  float64       
+ 36  vs BCE                  30244 non-null  float64       
+ 37  Equity Ticker           36629 non-null  object        
+ 38  YTD Equity              26611 non-null  float64       
+ 39  MTD Equity              26620 non-null  float64       
+ 40  Yrs Since Issue         28225 non-null  float64       
+ 41  Risk                    36629 non-null  object        
+ 42  Rating                  36629 non-null  object        
+ 43  Yrs (Mat)               26429 non-null  float64       
+ 44  Z Spread                25370 non-null  float64       
+ 45  Yrs Since Issue Bucket  28134 non-null  category      
+ 46  Yrs (Mat) Bucket        26429 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 12.9+ MB
+
+[2025-07-11 20:46:14,575] INFO: Successfully saved updated DataFrame to 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\universe.parquet'.
+[2025-07-11 20:46:14,576] INFO: Updated processing state file.
+[2025-07-11 20:46:14,609] INFO: Universe processing pipeline finished successfully.
+[2025-07-11 20:46:15,362] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-07-11 21:26:27,853] INFO: Starting universe processing pipeline...
+[2025-07-11 21:26:27,872] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,872] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,872] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,872] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 06.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 06.30.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 07.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,873] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,874] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-07-11 21:26:27,874] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-11 21:26:27,970] INFO: Loaded existing data: 36629 rows, 47 columns
+[2025-07-11 21:26:28,018] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 36629 entries, 0 to 36628
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    36629 non-null  datetime64[ns]
+ 1   CUSIP                   36629 non-null  object        
+ 2   Benchmark Cusip         36629 non-null  object        
+ 3   Custom_Sector           36629 non-null  object        
+ 4   Marketing Sector        36629 non-null  object        
+ 5   Notes                   36629 non-null  object        
+ 6   Bloomberg Cusip         36629 non-null  object        
+ 7   Security                36629 non-null  object        
+ 8   Benchmark               36629 non-null  object        
+ 9   Make_Whole              23780 non-null  float64       
+ 10  Back End                6262 non-null   float64       
+ 11  Floating Index          36629 non-null  object        
+ 12  Stochastic Duration     5434 non-null   float64       
+ 13  Stochastic Convexity    5434 non-null   float64       
+ 14  Pricing Date            34019 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    22105 non-null  datetime64[ns]
+ 16  MTD Return              30633 non-null  float64       
+ 17  QTD Return              30271 non-null  float64       
+ 18  YTD Return              28732 non-null  float64       
+ 19  MTD Bench Return        20369 non-null  float64       
+ 20  QTD Bench Return        20437 non-null  float64       
+ 21  YTD Bench Return        21067 non-null  float64       
+ 22  Worst Date              33794 non-null  datetime64[ns]
+ 23  Yrs (Worst)             30786 non-null  float64       
+ 24  YTC                     30731 non-null  float64       
+ 25  Excess MTD              28255 non-null  float64       
+ 26  Excess YTD              25186 non-null  float64       
+ 27  CPN TYPE                36629 non-null  object        
+ 28  Ticker                  36629 non-null  object        
+ 29  G Sprd                  29543 non-null  float64       
+ 30  Yrs (Cvn)               31890 non-null  float64       
+ 31  OAS (Mid)               35041 non-null  float64       
+ 32  Currency                36629 non-null  object        
+ 33  CAD Equiv Swap          30282 non-null  float64       
+ 34  G (RBC Crv)             30244 non-null  float64       
+ 35  vs BI                   23449 non-null  float64       
+ 36  vs BCE                  30244 non-null  float64       
+ 37  Equity Ticker           36629 non-null  object        
+ 38  YTD Equity              26611 non-null  float64       
+ 39  MTD Equity              26620 non-null  float64       
+ 40  Yrs Since Issue         28225 non-null  float64       
+ 41  Risk                    36629 non-null  object        
+ 42  Rating                  36629 non-null  object        
+ 43  Yrs (Mat)               26429 non-null  float64       
+ 44  Z Spread                25370 non-null  float64       
+ 45  Yrs Since Issue Bucket  28134 non-null  category      
+ 46  Yrs (Mat) Bucket        26429 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 12.6+ MB
+
+[2025-07-11 21:26:28,019] INFO: 
+=========================
+[2025-07-11 21:26:28,019] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-11 21:26:28,019] INFO: =========================
+[2025-07-11 21:26:28,019] INFO: Total unique dates in existing data: 15
+[2025-07-11 21:26:28,019] INFO: Existing date range: 2023-08-04T00:00:00.000000000 to 2025-07-11T00:00:00.000000000
+[2025-07-11 21:26:28,019] INFO: Existing dates in Parquet:
+[2025-07-11 21:26:28,020] INFO:   - 2023-08-04: 1897 records
+[2025-07-11 21:26:28,020] INFO:   - 2023-10-31: 1987 records
+[2025-07-11 21:26:28,020] INFO:   - 2023-12-29: 2061 records
+[2025-07-11 21:26:28,020] INFO:   - 2024-12-20: 2353 records
+[2025-07-11 21:26:28,021] INFO:   - 2025-05-23: 2664 records
+[2025-07-11 21:26:28,021] INFO:   - 2025-05-26: 2665 records
+[2025-07-11 21:26:28,021] INFO:   - 2025-05-28: 2672 records
+[2025-07-11 21:26:28,022] INFO:   - 2025-06-03: 2704 records
+[2025-07-11 21:26:28,022] INFO:   - 2025-06-06: 2710 records
+[2025-07-11 21:26:28,022] INFO:   - 2025-06-10: 2714 records
+[2025-07-11 21:26:28,022] INFO:   - 2025-06-11: 2715 records
+[2025-07-11 21:26:28,022] INFO:   - 2025-06-20: 2742 records
+[2025-07-11 21:26:28,023] INFO:   - 2025-06-26: 2247 records
+[2025-07-11 21:26:28,023] INFO:   - 2025-06-30: 2247 records
+[2025-07-11 21:26:28,024] INFO:   - 2025-07-11: 2251 records
+[2025-07-11 21:26:28,024] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-11 21:26:28,025] INFO: Universe processing pipeline finished successfully.
+[2025-07-11 21:26:28,720] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-07-11 21:27:30,871] INFO: Starting universe processing pipeline...
+[2025-07-11 21:27:30,880] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,880] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,880] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,880] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,880] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,880] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,880] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,881] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,881] DEBUG: Skipping 'API 06.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,881] DEBUG: Skipping 'API 06.30.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,881] DEBUG: Skipping 'API 07.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,881] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,881] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,881] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,881] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-07-11 21:27:30,881] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-11 21:27:30,997] INFO: Loaded existing data: 36629 rows, 47 columns
+[2025-07-11 21:27:31,038] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 36629 entries, 0 to 36628
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    36629 non-null  datetime64[ns]
+ 1   CUSIP                   36629 non-null  object        
+ 2   Benchmark Cusip         36629 non-null  object        
+ 3   Custom_Sector           36629 non-null  object        
+ 4   Marketing Sector        36629 non-null  object        
+ 5   Notes                   36629 non-null  object        
+ 6   Bloomberg Cusip         36629 non-null  object        
+ 7   Security                36629 non-null  object        
+ 8   Benchmark               36629 non-null  object        
+ 9   Make_Whole              23780 non-null  float64       
+ 10  Back End                6262 non-null   float64       
+ 11  Floating Index          36629 non-null  object        
+ 12  Stochastic Duration     5434 non-null   float64       
+ 13  Stochastic Convexity    5434 non-null   float64       
+ 14  Pricing Date            34019 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    22105 non-null  datetime64[ns]
+ 16  MTD Return              30633 non-null  float64       
+ 17  QTD Return              30271 non-null  float64       
+ 18  YTD Return              28732 non-null  float64       
+ 19  MTD Bench Return        20369 non-null  float64       
+ 20  QTD Bench Return        20437 non-null  float64       
+ 21  YTD Bench Return        21067 non-null  float64       
+ 22  Worst Date              33794 non-null  datetime64[ns]
+ 23  Yrs (Worst)             30786 non-null  float64       
+ 24  YTC                     30731 non-null  float64       
+ 25  Excess MTD              28255 non-null  float64       
+ 26  Excess YTD              25186 non-null  float64       
+ 27  CPN TYPE                36629 non-null  object        
+ 28  Ticker                  36629 non-null  object        
+ 29  G Sprd                  29543 non-null  float64       
+ 30  Yrs (Cvn)               31890 non-null  float64       
+ 31  OAS (Mid)               35041 non-null  float64       
+ 32  Currency                36629 non-null  object        
+ 33  CAD Equiv Swap          30282 non-null  float64       
+ 34  G (RBC Crv)             30244 non-null  float64       
+ 35  vs BI                   23449 non-null  float64       
+ 36  vs BCE                  30244 non-null  float64       
+ 37  Equity Ticker           36629 non-null  object        
+ 38  YTD Equity              26611 non-null  float64       
+ 39  MTD Equity              26620 non-null  float64       
+ 40  Yrs Since Issue         28225 non-null  float64       
+ 41  Risk                    36629 non-null  object        
+ 42  Rating                  36629 non-null  object        
+ 43  Yrs (Mat)               26429 non-null  float64       
+ 44  Z Spread                25370 non-null  float64       
+ 45  Yrs Since Issue Bucket  28134 non-null  category      
+ 46  Yrs (Mat) Bucket        26429 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 12.6+ MB
+
+[2025-07-11 21:27:31,039] INFO: 
+=========================
+[2025-07-11 21:27:31,039] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-11 21:27:31,040] INFO: =========================
+[2025-07-11 21:27:31,040] INFO: Total unique dates in existing data: 15
+[2025-07-11 21:27:31,040] INFO: Existing date range: 2023-08-04T00:00:00.000000000 to 2025-07-11T00:00:00.000000000
+[2025-07-11 21:27:31,040] INFO: Existing dates in Parquet:
+[2025-07-11 21:27:31,040] INFO:   - 2023-08-04: 1897 records
+[2025-07-11 21:27:31,041] INFO:   - 2023-10-31: 1987 records
+[2025-07-11 21:27:31,041] INFO:   - 2023-12-29: 2061 records
+[2025-07-11 21:27:31,041] INFO:   - 2024-12-20: 2353 records
+[2025-07-11 21:27:31,042] INFO:   - 2025-05-23: 2664 records
+[2025-07-11 21:27:31,042] INFO:   - 2025-05-26: 2665 records
+[2025-07-11 21:27:31,042] INFO:   - 2025-05-28: 2672 records
+[2025-07-11 21:27:31,042] INFO:   - 2025-06-03: 2704 records
+[2025-07-11 21:27:31,043] INFO:   - 2025-06-06: 2710 records
+[2025-07-11 21:27:31,043] INFO:   - 2025-06-10: 2714 records
+[2025-07-11 21:27:31,043] INFO:   - 2025-06-11: 2715 records
+[2025-07-11 21:27:31,043] INFO:   - 2025-06-20: 2742 records
+[2025-07-11 21:27:31,043] INFO:   - 2025-06-26: 2247 records
+[2025-07-11 21:27:31,043] INFO:   - 2025-06-30: 2247 records
+[2025-07-11 21:27:31,044] INFO:   - 2025-07-11: 2251 records
+[2025-07-11 21:27:31,044] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-11 21:27:31,045] INFO: Universe processing pipeline finished successfully.
+[2025-07-11 21:27:31,857] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-07-11 21:31:23,222] INFO: Starting universe processing pipeline...
+[2025-07-11 21:31:23,231] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,231] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,232] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,232] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,232] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,232] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,232] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,232] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,232] DEBUG: Skipping 'API 06.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,233] DEBUG: Skipping 'API 06.30.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,233] DEBUG: Skipping 'API 07.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,233] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,233] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,233] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,235] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-07-11 21:31:23,235] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-11 21:31:23,368] INFO: Loaded existing data: 36629 rows, 47 columns
+[2025-07-11 21:31:23,404] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 36629 entries, 0 to 36628
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    36629 non-null  datetime64[ns]
+ 1   CUSIP                   36629 non-null  object        
+ 2   Benchmark Cusip         36629 non-null  object        
+ 3   Custom_Sector           36629 non-null  object        
+ 4   Marketing Sector        36629 non-null  object        
+ 5   Notes                   36629 non-null  object        
+ 6   Bloomberg Cusip         36629 non-null  object        
+ 7   Security                36629 non-null  object        
+ 8   Benchmark               36629 non-null  object        
+ 9   Make_Whole              23780 non-null  float64       
+ 10  Back End                6262 non-null   float64       
+ 11  Floating Index          36629 non-null  object        
+ 12  Stochastic Duration     5434 non-null   float64       
+ 13  Stochastic Convexity    5434 non-null   float64       
+ 14  Pricing Date            34019 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    22105 non-null  datetime64[ns]
+ 16  MTD Return              30633 non-null  float64       
+ 17  QTD Return              30271 non-null  float64       
+ 18  YTD Return              28732 non-null  float64       
+ 19  MTD Bench Return        20369 non-null  float64       
+ 20  QTD Bench Return        20437 non-null  float64       
+ 21  YTD Bench Return        21067 non-null  float64       
+ 22  Worst Date              33794 non-null  datetime64[ns]
+ 23  Yrs (Worst)             30786 non-null  float64       
+ 24  YTC                     30731 non-null  float64       
+ 25  Excess MTD              28255 non-null  float64       
+ 26  Excess YTD              25186 non-null  float64       
+ 27  CPN TYPE                36629 non-null  object        
+ 28  Ticker                  36629 non-null  object        
+ 29  G Sprd                  29543 non-null  float64       
+ 30  Yrs (Cvn)               31890 non-null  float64       
+ 31  OAS (Mid)               35041 non-null  float64       
+ 32  Currency                36629 non-null  object        
+ 33  CAD Equiv Swap          30282 non-null  float64       
+ 34  G (RBC Crv)             30244 non-null  float64       
+ 35  vs BI                   23449 non-null  float64       
+ 36  vs BCE                  30244 non-null  float64       
+ 37  Equity Ticker           36629 non-null  object        
+ 38  YTD Equity              26611 non-null  float64       
+ 39  MTD Equity              26620 non-null  float64       
+ 40  Yrs Since Issue         28225 non-null  float64       
+ 41  Risk                    36629 non-null  object        
+ 42  Rating                  36629 non-null  object        
+ 43  Yrs (Mat)               26429 non-null  float64       
+ 44  Z Spread                25370 non-null  float64       
+ 45  Yrs Since Issue Bucket  28134 non-null  category      
+ 46  Yrs (Mat) Bucket        26429 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 12.6+ MB
+
+[2025-07-11 21:31:23,409] INFO: 
+=========================
+[2025-07-11 21:31:23,409] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-11 21:31:23,409] INFO: =========================
+[2025-07-11 21:31:23,409] INFO: Total unique dates in existing data: 15
+[2025-07-11 21:31:23,409] INFO: Existing date range: 2023-08-04T00:00:00.000000000 to 2025-07-11T00:00:00.000000000
+[2025-07-11 21:31:23,409] INFO: Existing dates in Parquet:
+[2025-07-11 21:31:23,409] INFO:   - 2023-08-04: 1897 records
+[2025-07-11 21:31:23,409] INFO:   - 2023-10-31: 1987 records
+[2025-07-11 21:31:23,409] INFO:   - 2023-12-29: 2061 records
+[2025-07-11 21:31:23,409] INFO:   - 2024-12-20: 2353 records
+[2025-07-11 21:31:23,409] INFO:   - 2025-05-23: 2664 records
+[2025-07-11 21:31:23,409] INFO:   - 2025-05-26: 2665 records
+[2025-07-11 21:31:23,409] INFO:   - 2025-05-28: 2672 records
+[2025-07-11 21:31:23,409] INFO:   - 2025-06-03: 2704 records
+[2025-07-11 21:31:23,409] INFO:   - 2025-06-06: 2710 records
+[2025-07-11 21:31:23,409] INFO:   - 2025-06-10: 2714 records
+[2025-07-11 21:31:23,415] INFO:   - 2025-06-11: 2715 records
+[2025-07-11 21:31:23,415] INFO:   - 2025-06-20: 2742 records
+[2025-07-11 21:31:23,415] INFO:   - 2025-06-26: 2247 records
+[2025-07-11 21:31:23,415] INFO:   - 2025-06-30: 2247 records
+[2025-07-11 21:31:23,415] INFO:   - 2025-07-11: 2251 records
+[2025-07-11 21:31:23,415] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-11 21:31:23,415] INFO: Universe processing pipeline finished successfully.
+[2025-07-11 21:31:24,119] INFO: Exported processed data to CSV at 'c:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-07-11 21:34:16,285] INFO: Starting universe processing pipeline...
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 06.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 06.30.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,302] DEBUG: Skipping 'API 07.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,303] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,303] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,303] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,303] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-07-11 21:34:16,303] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-11 21:34:16,419] INFO: Loaded existing data: 36629 rows, 47 columns
+[2025-07-11 21:34:16,459] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 36629 entries, 0 to 36628
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    36629 non-null  datetime64[ns]
+ 1   CUSIP                   36629 non-null  object        
+ 2   Benchmark Cusip         36629 non-null  object        
+ 3   Custom_Sector           36629 non-null  object        
+ 4   Marketing Sector        36629 non-null  object        
+ 5   Notes                   36629 non-null  object        
+ 6   Bloomberg Cusip         36629 non-null  object        
+ 7   Security                36629 non-null  object        
+ 8   Benchmark               36629 non-null  object        
+ 9   Make_Whole              23780 non-null  float64       
+ 10  Back End                6262 non-null   float64       
+ 11  Floating Index          36629 non-null  object        
+ 12  Stochastic Duration     5434 non-null   float64       
+ 13  Stochastic Convexity    5434 non-null   float64       
+ 14  Pricing Date            34019 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    22105 non-null  datetime64[ns]
+ 16  MTD Return              30633 non-null  float64       
+ 17  QTD Return              30271 non-null  float64       
+ 18  YTD Return              28732 non-null  float64       
+ 19  MTD Bench Return        20369 non-null  float64       
+ 20  QTD Bench Return        20437 non-null  float64       
+ 21  YTD Bench Return        21067 non-null  float64       
+ 22  Worst Date              33794 non-null  datetime64[ns]
+ 23  Yrs (Worst)             30786 non-null  float64       
+ 24  YTC                     30731 non-null  float64       
+ 25  Excess MTD              28255 non-null  float64       
+ 26  Excess YTD              25186 non-null  float64       
+ 27  CPN TYPE                36629 non-null  object        
+ 28  Ticker                  36629 non-null  object        
+ 29  G Sprd                  29543 non-null  float64       
+ 30  Yrs (Cvn)               31890 non-null  float64       
+ 31  OAS (Mid)               35041 non-null  float64       
+ 32  Currency                36629 non-null  object        
+ 33  CAD Equiv Swap          30282 non-null  float64       
+ 34  G (RBC Crv)             30244 non-null  float64       
+ 35  vs BI                   23449 non-null  float64       
+ 36  vs BCE                  30244 non-null  float64       
+ 37  Equity Ticker           36629 non-null  object        
+ 38  YTD Equity              26611 non-null  float64       
+ 39  MTD Equity              26620 non-null  float64       
+ 40  Yrs Since Issue         28225 non-null  float64       
+ 41  Risk                    36629 non-null  object        
+ 42  Rating                  36629 non-null  object        
+ 43  Yrs (Mat)               26429 non-null  float64       
+ 44  Z Spread                25370 non-null  float64       
+ 45  Yrs Since Issue Bucket  28134 non-null  category      
+ 46  Yrs (Mat) Bucket        26429 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 12.6+ MB
+
+[2025-07-11 21:34:16,460] INFO: 
+=========================
+[2025-07-11 21:34:16,460] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-11 21:34:16,460] INFO: =========================
+[2025-07-11 21:34:16,460] INFO: Total unique dates in existing data: 15
+[2025-07-11 21:34:16,460] INFO: Existing date range: 2023-08-04T00:00:00.000000000 to 2025-07-11T00:00:00.000000000
+[2025-07-11 21:34:16,460] INFO: Existing dates in Parquet:
+[2025-07-11 21:34:16,461] INFO:   - 2023-08-04: 1897 records
+[2025-07-11 21:34:16,461] INFO:   - 2023-10-31: 1987 records
+[2025-07-11 21:34:16,462] INFO:   - 2023-12-29: 2061 records
+[2025-07-11 21:34:16,462] INFO:   - 2024-12-20: 2353 records
+[2025-07-11 21:34:16,463] INFO:   - 2025-05-23: 2664 records
+[2025-07-11 21:34:16,463] INFO:   - 2025-05-26: 2665 records
+[2025-07-11 21:34:16,463] INFO:   - 2025-05-28: 2672 records
+[2025-07-11 21:34:16,463] INFO:   - 2025-06-03: 2704 records
+[2025-07-11 21:34:16,464] INFO:   - 2025-06-06: 2710 records
+[2025-07-11 21:34:16,464] INFO:   - 2025-06-10: 2714 records
+[2025-07-11 21:34:16,464] INFO:   - 2025-06-11: 2715 records
+[2025-07-11 21:34:16,464] INFO:   - 2025-06-20: 2742 records
+[2025-07-11 21:34:16,465] INFO:   - 2025-06-26: 2247 records
+[2025-07-11 21:34:16,465] INFO:   - 2025-06-30: 2247 records
+[2025-07-11 21:34:16,465] INFO:   - 2025-07-11: 2251 records
+[2025-07-11 21:34:16,465] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-11 21:34:16,467] INFO: Universe processing pipeline finished successfully.
+[2025-07-11 21:34:17,179] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-07-11 21:49:57,802] INFO: Starting universe processing pipeline...
+[2025-07-11 21:49:57,810] DEBUG: Skipping 'API 05.23.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,810] DEBUG: Skipping 'API 05.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,810] DEBUG: Skipping 'API 05.28.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,810] DEBUG: Skipping 'API 06.03.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,812] DEBUG: Skipping 'API 06.06.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,812] DEBUG: Skipping 'API 06.10.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,812] DEBUG: Skipping 'API 06.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,813] DEBUG: Skipping 'API 06.20.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,813] DEBUG: Skipping 'API 06.26.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,813] DEBUG: Skipping 'API 06.30.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,814] DEBUG: Skipping 'API 07.11.25.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,815] DEBUG: Skipping 'API 08.04.23.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,815] DEBUG: Skipping 'API 10.31.23.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,815] DEBUG: Skipping 'API 12.20.24.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,816] DEBUG: Skipping 'API 12.29.23.xlsx' - already processed and unchanged
+[2025-07-11 21:49:57,816] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-11 21:49:57,932] INFO: Loaded existing data: 36629 rows, 47 columns
+[2025-07-11 21:49:57,969] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 36629 entries, 0 to 36628
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    36629 non-null  datetime64[ns]
+ 1   CUSIP                   36629 non-null  object        
+ 2   Benchmark Cusip         36629 non-null  object        
+ 3   Custom_Sector           36629 non-null  object        
+ 4   Marketing Sector        36629 non-null  object        
+ 5   Notes                   36629 non-null  object        
+ 6   Bloomberg Cusip         36629 non-null  object        
+ 7   Security                36629 non-null  object        
+ 8   Benchmark               36629 non-null  object        
+ 9   Make_Whole              23780 non-null  float64       
+ 10  Back End                6262 non-null   float64       
+ 11  Floating Index          36629 non-null  object        
+ 12  Stochastic Duration     5434 non-null   float64       
+ 13  Stochastic Convexity    5434 non-null   float64       
+ 14  Pricing Date            34019 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    22105 non-null  datetime64[ns]
+ 16  MTD Return              30633 non-null  float64       
+ 17  QTD Return              30271 non-null  float64       
+ 18  YTD Return              28732 non-null  float64       
+ 19  MTD Bench Return        20369 non-null  float64       
+ 20  QTD Bench Return        20437 non-null  float64       
+ 21  YTD Bench Return        21067 non-null  float64       
+ 22  Worst Date              33794 non-null  datetime64[ns]
+ 23  Yrs (Worst)             30786 non-null  float64       
+ 24  YTC                     30731 non-null  float64       
+ 25  Excess MTD              28255 non-null  float64       
+ 26  Excess YTD              25186 non-null  float64       
+ 27  CPN TYPE                36629 non-null  object        
+ 28  Ticker                  36629 non-null  object        
+ 29  G Sprd                  29543 non-null  float64       
+ 30  Yrs (Cvn)               31890 non-null  float64       
+ 31  OAS (Mid)               35041 non-null  float64       
+ 32  Currency                36629 non-null  object        
+ 33  CAD Equiv Swap          30282 non-null  float64       
+ 34  G (RBC Crv)             30244 non-null  float64       
+ 35  vs BI                   23449 non-null  float64       
+ 36  vs BCE                  30244 non-null  float64       
+ 37  Equity Ticker           36629 non-null  object        
+ 38  YTD Equity              26611 non-null  float64       
+ 39  MTD Equity              26620 non-null  float64       
+ 40  Yrs Since Issue         28225 non-null  float64       
+ 41  Risk                    36629 non-null  object        
+ 42  Rating                  36629 non-null  object        
+ 43  Yrs (Mat)               26429 non-null  float64       
+ 44  Z Spread                25370 non-null  float64       
+ 45  Yrs Since Issue Bucket  28134 non-null  category      
+ 46  Yrs (Mat) Bucket        26429 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 12.6+ MB
+
+[2025-07-11 21:49:57,971] INFO: 
+=========================
+[2025-07-11 21:49:57,971] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-11 21:49:57,971] INFO: =========================
+[2025-07-11 21:49:57,971] INFO: Total unique dates in existing data: 15
+[2025-07-11 21:49:57,972] INFO: Existing date range: 2023-08-04T00:00:00.000000000 to 2025-07-11T00:00:00.000000000
+[2025-07-11 21:49:57,972] INFO: Existing dates in Parquet:
+[2025-07-11 21:49:57,972] INFO:   - 2023-08-04: 1897 records
+[2025-07-11 21:49:57,973] INFO:   - 2023-10-31: 1987 records
+[2025-07-11 21:49:57,973] INFO:   - 2023-12-29: 2061 records
+[2025-07-11 21:49:57,973] INFO:   - 2024-12-20: 2353 records
+[2025-07-11 21:49:57,974] INFO:   - 2025-05-23: 2664 records
+[2025-07-11 21:49:57,974] INFO:   - 2025-05-26: 2665 records
+[2025-07-11 21:49:57,974] INFO:   - 2025-05-28: 2672 records
+[2025-07-11 21:49:57,975] INFO:   - 2025-06-03: 2704 records
+[2025-07-11 21:49:57,976] INFO:   - 2025-06-06: 2710 records
+[2025-07-11 21:49:57,976] INFO:   - 2025-06-10: 2714 records
+[2025-07-11 21:49:57,976] INFO:   - 2025-06-11: 2715 records
+[2025-07-11 21:49:57,977] INFO:   - 2025-06-20: 2742 records
+[2025-07-11 21:49:57,977] INFO:   - 2025-06-26: 2247 records
+[2025-07-11 21:49:57,977] INFO:   - 2025-06-30: 2247 records
+[2025-07-11 21:49:57,978] INFO:   - 2025-07-11: 2251 records
+[2025-07-11 21:49:57,978] INFO: 
+No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-11 21:49:57,979] INFO: Universe processing pipeline finished successfully.
+[2025-07-11 21:49:58,663] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-07-11 21:50:18,824] INFO: Starting universe processing pipeline...
+[2025-07-11 21:50:18,832] DEBUG: Found new file to process: 'API 05.23.25.xlsx'
+[2025-07-11 21:50:18,833] DEBUG: Found new file to process: 'API 05.26.25.xlsx'
+[2025-07-11 21:50:18,833] DEBUG: Found new file to process: 'API 05.28.25.xlsx'
+[2025-07-11 21:50:18,834] DEBUG: Found new file to process: 'API 06.03.25.xlsx'
+[2025-07-11 21:50:18,834] DEBUG: Found new file to process: 'API 06.06.25.xlsx'
+[2025-07-11 21:50:18,834] DEBUG: Found new file to process: 'API 06.10.25.xlsx'
+[2025-07-11 21:50:18,835] DEBUG: Found new file to process: 'API 06.11.25.xlsx'
+[2025-07-11 21:50:18,835] DEBUG: Found new file to process: 'API 06.20.25.xlsx'
+[2025-07-11 21:50:18,835] DEBUG: Found new file to process: 'API 06.26.25.xlsx'
+[2025-07-11 21:50:18,835] DEBUG: Found new file to process: 'API 06.30.25.xlsx'
+[2025-07-11 21:50:18,835] DEBUG: Found new file to process: 'API 07.11.25.xlsx'
+[2025-07-11 21:50:18,836] DEBUG: Found new file to process: 'API 08.04.23.xlsx'
+[2025-07-11 21:50:18,836] DEBUG: Found new file to process: 'API 10.31.23.xlsx'
+[2025-07-11 21:50:18,836] DEBUG: Found new file to process: 'API 12.20.24.xlsx'
+[2025-07-11 21:50:18,836] DEBUG: Found new file to process: 'API 12.29.23.xlsx'
+[2025-07-11 21:50:18,836] INFO: 
+Found 15 files to process...
+[2025-07-11 21:50:18,837] INFO: Processing 'API 05.23.25.xlsx'...
+[2025-07-11 21:50:18,837] INFO:   Extracted date: 2025-05-23 (datetime type)
+[2025-07-11 21:50:20,272] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:20,272] INFO:   Processed shape: (2714, 76)
+[2025-07-11 21:50:20,272] INFO: Processing 'API 05.26.25.xlsx'...
+[2025-07-11 21:50:20,273] INFO:   Extracted date: 2025-05-26 (datetime type)
+[2025-07-11 21:50:21,439] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:21,439] INFO:   Processed shape: (2715, 76)
+[2025-07-11 21:50:21,439] INFO: Processing 'API 05.28.25.xlsx'...
+[2025-07-11 21:50:21,439] INFO:   Extracted date: 2025-05-28 (datetime type)
+[2025-07-11 21:50:22,610] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:22,610] INFO:   Processed shape: (2722, 76)
+[2025-07-11 21:50:22,610] INFO: Processing 'API 06.03.25.xlsx'...
+[2025-07-11 21:50:22,610] INFO:   Extracted date: 2025-06-03 (datetime type)
+[2025-07-11 21:50:23,826] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:23,826] INFO:   Processed shape: (2754, 76)
+[2025-07-11 21:50:23,827] INFO: Processing 'API 06.06.25.xlsx'...
+[2025-07-11 21:50:23,827] INFO:   Extracted date: 2025-06-06 (datetime type)
+[2025-07-11 21:50:25,062] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:25,063] INFO:   Processed shape: (2760, 76)
+[2025-07-11 21:50:25,063] INFO: Processing 'API 06.10.25.xlsx'...
+[2025-07-11 21:50:25,063] INFO:   Extracted date: 2025-06-10 (datetime type)
+[2025-07-11 21:50:26,275] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:26,275] INFO:   Processed shape: (2764, 76)
+[2025-07-11 21:50:26,280] INFO: Processing 'API 06.11.25.xlsx'...
+[2025-07-11 21:50:26,280] INFO:   Extracted date: 2025-06-11 (datetime type)
+[2025-07-11 21:50:27,492] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:27,492] INFO:   Processed shape: (2765, 76)
+[2025-07-11 21:50:27,492] INFO: Processing 'API 06.20.25.xlsx'...
+[2025-07-11 21:50:27,493] INFO:   Extracted date: 2025-06-20 (datetime type)
+[2025-07-11 21:50:28,670] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:28,670] INFO:   Processed shape: (2794, 76)
+[2025-07-11 21:50:28,670] INFO: Processing 'API 06.26.25.xlsx'...
+[2025-07-11 21:50:28,670] INFO:   Extracted date: 2025-06-26 (datetime type)
+[2025-07-11 21:50:29,681] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:29,682] INFO:   Processed shape: (2294, 76)
+[2025-07-11 21:50:29,682] INFO: Processing 'API 06.30.25.xlsx'...
+[2025-07-11 21:50:29,683] INFO:   Extracted date: 2025-06-30 (datetime type)
+[2025-07-11 21:50:30,694] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:30,704] INFO:   Processed shape: (2294, 76)
+[2025-07-11 21:50:30,704] INFO: Processing 'API 07.11.25.xlsx'...
+[2025-07-11 21:50:30,704] INFO:   Extracted date: 2025-07-11 (datetime type)
+[2025-07-11 21:50:31,691] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:31,691] INFO:   Processed shape: (2299, 76)
+[2025-07-11 21:50:31,691] INFO: Processing 'API 08.04.23.xlsx'...
+[2025-07-11 21:50:31,692] INFO:   Extracted date: 2023-08-04 (datetime type)
+[2025-07-11 21:50:32,413] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:32,414] INFO:   Processed shape: (1929, 60)
+[2025-07-11 21:50:32,414] INFO: Processing 'API 10.31.23.xlsx'...
+[2025-07-11 21:50:32,414] INFO:   Extracted date: 2023-10-31 (datetime type)
+[2025-07-11 21:50:33,148] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:33,148] INFO:   Processed shape: (2020, 60)
+[2025-07-11 21:50:33,148] INFO: Processing 'API 12.20.24.xlsx'...
+[2025-07-11 21:50:33,148] INFO:   Extracted date: 2024-12-20 (datetime type)
+[2025-07-11 21:50:34,198] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:34,198] INFO:   Processed shape: (2400, 76)
+[2025-07-11 21:50:34,198] INFO: Processing 'API 12.29.23.xlsx'...
+[2025-07-11 21:50:34,198] INFO:   Extracted date: 2023-12-29 (datetime type)
+[2025-07-11 21:50:34,978] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:50:34,979] INFO:   Processed shape: (2097, 61)
+[2025-07-11 21:50:35,000] INFO: 
+--- Starting Data Processing Pipeline ---
+[2025-07-11 21:50:35,084] INFO: Dropped 0 rows with null CUSIPs.
+[2025-07-11 21:50:35,167] INFO: Dropped 692 duplicate (Date, CUSIP) rows.
+[2025-07-11 21:50:35,168] INFO: --- Detecting and correcting currency mismatches ---
+[2025-07-11 21:50:35,218] INFO: Currency correction: T 4.85 05/25/47 -> CAD -> USD
+[2025-07-11 21:50:35,219] INFO: Currency correction: T 5.1 11/25/48 -> CAD -> USD
+[2025-07-11 21:50:35,219] INFO: Currency correction: ARXCN 3.465 03/10/31 -> CAD -> USD
+[2025-07-11 21:50:35,220] INFO: Currency correction: AERQUE 2.936 05/31/31 -> CAD -> USD
+[2025-07-11 21:50:35,220] INFO: Currency correction: AERMON 5.472 04/16/40 -> CAD -> USD
+[2025-07-11 21:50:35,221] INFO: Currency correction: AERMON 3.919 09/26/42 -> CAD -> USD
+[2025-07-11 21:50:35,221] INFO: Currency correction: AERMON 3.918 06/12/45 -> CAD -> USD
+[2025-07-11 21:50:35,222] INFO: Currency correction: AERMON 3.36 04/24/47 -> CAD -> USD
+[2025-07-11 21:50:35,222] INFO: Currency correction: AERMON 3.03 04/21/50 -> CAD -> USD
+[2025-07-11 21:50:35,223] INFO: Currency correction: AERMON 3.441 04/26/51 -> CAD -> USD
+[2025-07-11 21:50:37,190] INFO: Total currency corrections: 15284
+[2025-07-11 21:50:37,190] INFO: --- Running Data Validation and Quality Analysis ---
+[2025-07-11 21:50:38,544] WARNING: 
+=========================
+=== VALIDATION ERRORS ===
+=========================
+
+--- Non-Numeric Data in Numeric Columns ---
+  - Column 'Stochastic Duration': Found 30345 non-numeric entries.
+  - Column 'Stochastic Convexity': Found 30345 non-numeric entries.
+  - Column 'MTD Return': Found 2661 non-numeric entries.
+  - Column 'QTD Return': Found 2346 non-numeric entries.
+  - Column 'YTD Return': Found 1522 non-numeric entries.
+  - Column 'MTD Bench Return': Found 1711 non-numeric entries.
+  - Column 'QTD Bench Return': Found 1643 non-numeric entries.
+  - Column 'YTD Bench Return': Found 1013 non-numeric entries.
+  - Column 'Yrs (Worst)': Found 5656 non-numeric entries.
+  - Column 'YTC': Found 2598 non-numeric entries.
+  - Column 'G Sprd': Found 3186 non-numeric entries.
+  - Column 'Yrs (Cvn)': Found 4739 non-numeric entries.
+  - Column 'OAS (Mid)': Found 1571 non-numeric entries.
+  - Column 'CAD Equiv Swap': Found 2586 non-numeric entries.
+  - Column 'Yrs Since Issue': Found 2459 non-numeric entries.
+  - Column 'Yrs (Mat)': Found 4255 non-numeric entries.
+  - Column 'Z Spread': Found 5258 non-numeric entries.
+[2025-07-11 21:50:38,544] INFO: 
+=========================
+=== DATA QUALITY REPORT ===
+=========================
+
+--- Null Value Analysis (Top 5) ---
+  - BI Interp: 36629.0 nulls (100.00%)
+  - B/E Bench Sprd: 36629.0 nulls (100.00%)
+  - Forward Sprd: 36629.0 nulls (100.00%)
+  - Yrs Since Isssue: 34568.0 nulls (94.37%)
+  - Retracement24: 29057.0 nulls (79.33%)
+
+--- Statistical Summary (Numeric Columns) ---
+                          count          mean             std        min     25%     50%     75%                max
+Stochastic Duration    5,434.00          3.84            2.99       0.00    1.76    3.18    4.98              15.83
+Stochastic Convexity   5,434.00         -1.54            5.58     -92.61   -0.07    0.04    0.15               6.95
+MTD Return            30,633.00          0.06           10.31     -22.95   -0.36    0.03    0.33           1,784.13
+QTD Return            30,271.00          0.46           15.27     -26.98   -0.36    0.39    0.76           1,784.13
+YTD Return            28,732.00          2.53           20.90     -50.93    1.28    2.07    2.89           2,170.15
+MTD Bench Return      20,369.00         -0.63            1.83      -5.99   -0.97   -0.24    0.04               8.08
+QTD Bench Return      20,437.00         -1.11            3.96      -9.64   -1.87   -0.29    0.28              19.62
+YTD Bench Return      21,067.00          0.23            3.14      -8.81   -0.73    1.42    1.71              11.66
+Yrs (Worst)           30,786.00        103.21          238.08  -3,354.73   33.76   77.85  122.73           8,115.43
+YTC                   30,731.00          4.74            2.34     -27.45    3.80    4.68    5.27              77.92
+Excess MTD            28,255.00          0.37            0.66     -17.66    0.03    0.18    0.55              17.46
+Excess YTD            25,186.00          0.65            1.87     -27.16    0.01    0.36    1.07              41.60
+G Sprd                29,543.00  7,269,151.53  395,035,750.94  -7,195.32   74.17  114.07  160.31  21,474,836,480.00
+Yrs (Cvn)             31,890.00          7.61            8.91       0.00    1.86    4.02    8.44              57.71
+OAS (Mid)             35,041.00        159.72          165.42    -455.83  118.73  156.10  158.53           5,188.05
+CAD Equiv Swap        30,282.00        123.52          228.24  -2,972.81   60.00  100.17  136.22           6,315.79
+YTD Equity            26,611.00          6.92           14.58     -87.32   -1.23    5.25   13.70             181.24
+MTD Equity            26,620.00          1.19            5.43     -37.86   -1.93    0.37    3.84              46.33
+Yrs Since Issue       28,225.00          3.86            3.45      -0.05    1.27    3.16    5.21              30.88
+Risk                  25,478.00        498.12          424.67       0.27  178.88  366.93  698.17           2,064.86
+Yrs (Mat)             26,429.00          9.85           12.52       0.00    2.20    4.67   10.25              60.29
+Z Spread              25,370.00        148.75          258.42  -3,153.15   78.86  121.76  163.42           8,160.01
+
+--- Categorical Value Distribution (Sample) ---
+  - Column 'CUSIP':
+    '786688AC5': 15 (0.04%)
+    '548243AB0': 15 (0.04%)
+    '55342VAB8': 15 (0.04%)
+  - Column 'Benchmark Cusip':
+    '135087M68': 4293 (11.72%)
+    '135087F82': 1182 (3.23%)
+    '135087H23': 1005 (2.74%)
+  - Column 'Custom_Sector':
+    'Auto': 3384 (9.24%)
+    'Utility': 3053 (8.33%)
+    'Financial Maples': 3035 (8.29%)
+[2025-07-11 21:50:38,554] DEBUG: Creating bucket for 'Yrs Since Issue'...
+[2025-07-11 21:50:38,559] DEBUG: Creating bucket for 'Yrs (Mat)'...
+[2025-07-11 21:50:38,715] INFO: 
+=========================
+=== FINAL DATA SNAPSHOT ===
+=========================
+Total Rows: 36629
+Total Columns: 47
+Memory Usage: 75.67 MB
+
+--- DataFrame Info ---
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 36629 entries, 29188 to 26696
+Columns: 47 entries, Date to Yrs (Mat) Bucket
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 13.9+ MB
+
+[2025-07-11 21:50:39,798] INFO: --- Processing Complete ---
+[2025-07-11 21:50:39,798] INFO: Final DataFrame Shape: (36629, 47)
+[2025-07-11 21:50:39,798] INFO: 
+=========================
+[2025-07-11 21:50:39,798] INFO: === DATE COVERAGE ANALYSIS ===
+[2025-07-11 21:50:39,798] INFO: =========================
+[2025-07-11 21:50:39,798] INFO: Total unique dates: 15
+[2025-07-11 21:50:39,798] INFO: Date column dtype: datetime64[ns]
+[2025-07-11 21:50:39,798] INFO: Date range: 2023-08-04 to 2025-07-11
+[2025-07-11 21:50:39,798] INFO: Time span: 707 days (1.9 years)
+[2025-07-11 21:50:39,840] INFO: 
+Year distribution:
+[2025-07-11 21:50:39,840] INFO:   - 2023: 5945 records
+[2025-07-11 21:50:39,841] INFO:   - 2024: 2353 records
+[2025-07-11 21:50:39,841] INFO:   - 2025: 28331 records
+[2025-07-11 21:50:39,859] INFO: 
+Business day analysis:
+[2025-07-11 21:50:39,859] INFO:   - Business days: 36629 (100.0%)
+[2025-07-11 21:50:39,859] INFO:   - Weekend days: 0 (0.0%)
+[2025-07-11 21:50:39,859] INFO: 
+Sample dates:
+[2025-07-11 21:50:39,860] INFO:   - 2023-08-04 (Fri): 1897 records
+[2025-07-11 21:50:39,860] INFO:   - 2023-10-31 (Tue): 1987 records
+[2025-07-11 21:50:39,861] INFO:   - 2023-12-29 (Fri): 2061 records
+[2025-07-11 21:50:39,861] INFO:   - 2024-12-20 (Fri): 2353 records
+[2025-07-11 21:50:39,861] INFO:   - 2025-05-23 (Fri): 2664 records
+[2025-07-11 21:50:39,861] INFO:   ... (5 more dates) ...
+[2025-07-11 21:50:39,862] INFO:   - 2025-06-11 (Wed): 2715 records
+[2025-07-11 21:50:39,862] INFO:   - 2025-06-20 (Fri): 2742 records
+[2025-07-11 21:50:39,862] INFO:   - 2025-06-26 (Thu): 2247 records
+[2025-07-11 21:50:39,863] INFO:   - 2025-06-30 (Mon): 2247 records
+[2025-07-11 21:50:39,863] INFO:   - 2025-07-11 (Fri): 2251 records
+[2025-07-11 21:50:39,863] INFO: 
+=== END DATE ANALYSIS ===
+
+[2025-07-11 21:50:39,905] INFO: DataFrame info before saving to Parquet:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 36629 entries, 29188 to 26696
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    36629 non-null  datetime64[ns]
+ 1   CUSIP                   36629 non-null  object        
+ 2   Benchmark Cusip         36629 non-null  object        
+ 3   Custom_Sector           36629 non-null  object        
+ 4   Marketing Sector        36629 non-null  object        
+ 5   Notes                   36629 non-null  object        
+ 6   Bloomberg Cusip         36629 non-null  object        
+ 7   Security                36629 non-null  object        
+ 8   Benchmark               36629 non-null  object        
+ 9   Make_Whole              23780 non-null  float64       
+ 10  Back End                6262 non-null   float64       
+ 11  Floating Index          36629 non-null  object        
+ 12  Stochastic Duration     5434 non-null   float64       
+ 13  Stochastic Convexity    5434 non-null   float64       
+ 14  Pricing Date            34019 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    22105 non-null  datetime64[ns]
+ 16  MTD Return              30633 non-null  float64       
+ 17  QTD Return              30271 non-null  float64       
+ 18  YTD Return              28732 non-null  float64       
+ 19  MTD Bench Return        20369 non-null  float64       
+ 20  QTD Bench Return        20437 non-null  float64       
+ 21  YTD Bench Return        21067 non-null  float64       
+ 22  Worst Date              33794 non-null  datetime64[ns]
+ 23  Yrs (Worst)             30786 non-null  float64       
+ 24  YTC                     30731 non-null  float64       
+ 25  Excess MTD              28255 non-null  float64       
+ 26  Excess YTD              25186 non-null  float64       
+ 27  CPN TYPE                36629 non-null  object        
+ 28  Ticker                  36629 non-null  object        
+ 29  G Sprd                  29543 non-null  float64       
+ 30  Yrs (Cvn)               31890 non-null  float64       
+ 31  OAS (Mid)               35041 non-null  float64       
+ 32  Currency                36629 non-null  object        
+ 33  CAD Equiv Swap          30282 non-null  float64       
+ 34  G (RBC Crv)             30244 non-null  float64       
+ 35  vs BI                   23449 non-null  float64       
+ 36  vs BCE                  30244 non-null  float64       
+ 37  Equity Ticker           36629 non-null  object        
+ 38  YTD Equity              26611 non-null  float64       
+ 39  MTD Equity              26620 non-null  float64       
+ 40  Yrs Since Issue         28225 non-null  float64       
+ 41  Risk                    36629 non-null  object        
+ 42  Rating                  36629 non-null  object        
+ 43  Yrs (Mat)               26429 non-null  float64       
+ 44  Z Spread                25370 non-null  float64       
+ 45  Yrs Since Issue Bucket  28134 non-null  category      
+ 46  Yrs (Mat) Bucket        26429 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 13.9+ MB
+
+[2025-07-11 21:50:40,043] INFO: Successfully saved updated DataFrame to 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\universe.parquet'.
+[2025-07-11 21:50:40,043] INFO: Updated processing state file.
+[2025-07-11 21:50:40,117] INFO: Universe processing pipeline finished successfully.
+[2025-07-11 21:50:40,857] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
+[2025-07-11 21:55:18,291] INFO: Starting universe processing pipeline...
+[2025-07-11 21:55:18,299] DEBUG: Found new file to process: 'API 05.23.25.xlsx'
+[2025-07-11 21:55:18,300] DEBUG: Found new file to process: 'API 05.26.25.xlsx'
+[2025-07-11 21:55:18,300] DEBUG: Found new file to process: 'API 05.28.25.xlsx'
+[2025-07-11 21:55:18,300] DEBUG: Found new file to process: 'API 06.03.25.xlsx'
+[2025-07-11 21:55:18,302] DEBUG: Found new file to process: 'API 06.06.25.xlsx'
+[2025-07-11 21:55:18,302] DEBUG: Found new file to process: 'API 06.10.25.xlsx'
+[2025-07-11 21:55:18,302] DEBUG: Found new file to process: 'API 06.11.25.xlsx'
+[2025-07-11 21:55:18,302] DEBUG: Found new file to process: 'API 06.20.25.xlsx'
+[2025-07-11 21:55:18,302] DEBUG: Found new file to process: 'API 06.26.25.xlsx'
+[2025-07-11 21:55:18,303] DEBUG: Found new file to process: 'API 06.30.25.xlsx'
+[2025-07-11 21:55:18,303] DEBUG: Found new file to process: 'API 07.11.25.xlsx'
+[2025-07-11 21:55:18,303] DEBUG: Found new file to process: 'API 08.04.23.xlsx'
+[2025-07-11 21:55:18,303] DEBUG: Found new file to process: 'API 10.31.23.xlsx'
+[2025-07-11 21:55:18,303] DEBUG: Found new file to process: 'API 12.20.24.xlsx'
+[2025-07-11 21:55:18,303] DEBUG: Found new file to process: 'API 12.29.23.xlsx'
+[2025-07-11 21:55:18,303] INFO: 
+Found 15 files to process...
+[2025-07-11 21:55:18,304] INFO: Processing 'API 05.23.25.xlsx'...
+[2025-07-11 21:55:18,305] INFO:   Extracted date: 2025-05-23 (datetime type)
+[2025-07-11 21:55:19,755] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:19,755] INFO:   Processed shape: (2714, 76)
+[2025-07-11 21:55:19,755] INFO: Processing 'API 05.26.25.xlsx'...
+[2025-07-11 21:55:19,755] INFO:   Extracted date: 2025-05-26 (datetime type)
+[2025-07-11 21:55:20,926] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:20,926] INFO:   Processed shape: (2715, 76)
+[2025-07-11 21:55:20,926] INFO: Processing 'API 05.28.25.xlsx'...
+[2025-07-11 21:55:20,927] INFO:   Extracted date: 2025-05-28 (datetime type)
+[2025-07-11 21:55:22,080] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:22,081] INFO:   Processed shape: (2722, 76)
+[2025-07-11 21:55:22,082] INFO: Processing 'API 06.03.25.xlsx'...
+[2025-07-11 21:55:22,082] INFO:   Extracted date: 2025-06-03 (datetime type)
+[2025-07-11 21:55:23,259] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:23,259] INFO:   Processed shape: (2754, 76)
+[2025-07-11 21:55:23,259] INFO: Processing 'API 06.06.25.xlsx'...
+[2025-07-11 21:55:23,259] INFO:   Extracted date: 2025-06-06 (datetime type)
+[2025-07-11 21:55:24,420] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:24,420] INFO:   Processed shape: (2760, 76)
+[2025-07-11 21:55:24,425] INFO: Processing 'API 06.10.25.xlsx'...
+[2025-07-11 21:55:24,425] INFO:   Extracted date: 2025-06-10 (datetime type)
+[2025-07-11 21:55:25,616] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:25,616] INFO:   Processed shape: (2764, 76)
+[2025-07-11 21:55:25,616] INFO: Processing 'API 06.11.25.xlsx'...
+[2025-07-11 21:55:25,616] INFO:   Extracted date: 2025-06-11 (datetime type)
+[2025-07-11 21:55:26,801] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:26,801] INFO:   Processed shape: (2765, 76)
+[2025-07-11 21:55:26,801] INFO: Processing 'API 06.20.25.xlsx'...
+[2025-07-11 21:55:26,801] INFO:   Extracted date: 2025-06-20 (datetime type)
+[2025-07-11 21:55:28,035] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:28,036] INFO:   Processed shape: (2794, 76)
+[2025-07-11 21:55:28,036] INFO: Processing 'API 06.26.25.xlsx'...
+[2025-07-11 21:55:28,036] INFO:   Extracted date: 2025-06-26 (datetime type)
+[2025-07-11 21:55:29,041] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:29,041] INFO:   Processed shape: (2294, 76)
+[2025-07-11 21:55:29,041] INFO: Processing 'API 06.30.25.xlsx'...
+[2025-07-11 21:55:29,042] INFO:   Extracted date: 2025-06-30 (datetime type)
+[2025-07-11 21:55:30,038] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:30,038] INFO:   Processed shape: (2294, 76)
+[2025-07-11 21:55:30,039] INFO: Processing 'API 07.11.25.xlsx'...
+[2025-07-11 21:55:30,039] INFO:   Extracted date: 2025-07-11 (datetime type)
+[2025-07-11 21:55:31,040] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:31,041] INFO:   Processed shape: (2299, 76)
+[2025-07-11 21:55:31,041] INFO: Processing 'API 08.04.23.xlsx'...
+[2025-07-11 21:55:31,042] INFO:   Extracted date: 2023-08-04 (datetime type)
+[2025-07-11 21:55:31,753] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:31,753] INFO:   Processed shape: (1929, 60)
+[2025-07-11 21:55:31,753] INFO: Processing 'API 10.31.23.xlsx'...
+[2025-07-11 21:55:31,754] INFO:   Extracted date: 2023-10-31 (datetime type)
+[2025-07-11 21:55:32,456] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:32,456] INFO:   Processed shape: (2020, 60)
+[2025-07-11 21:55:32,456] INFO: Processing 'API 12.20.24.xlsx'...
+[2025-07-11 21:55:32,456] INFO:   Extracted date: 2024-12-20 (datetime type)
+[2025-07-11 21:55:33,502] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:33,502] INFO:   Processed shape: (2400, 76)
+[2025-07-11 21:55:33,502] INFO: Processing 'API 12.29.23.xlsx'...
+[2025-07-11 21:55:33,502] INFO:   Extracted date: 2023-12-29 (datetime type)
+[2025-07-11 21:55:34,255] INFO:   Added Date column with dtype: datetime64[ns]
+[2025-07-11 21:55:34,255] INFO:   Processed shape: (2097, 61)
+[2025-07-11 21:55:34,275] INFO: 
+--- Starting Data Processing Pipeline ---
+[2025-07-11 21:55:34,367] INFO: Dropped 0 rows with null CUSIPs.
+[2025-07-11 21:55:34,444] INFO: Dropped 692 duplicate (Date, CUSIP) rows.
+[2025-07-11 21:55:34,444] INFO: --- Running Data Validation and Quality Analysis ---
+[2025-07-11 21:55:35,797] WARNING: 
+=========================
+=== VALIDATION ERRORS ===
+=========================
+
+--- Non-Numeric Data in Numeric Columns ---
+  - Column 'Stochastic Duration': Found 30345 non-numeric entries.
+  - Column 'Stochastic Convexity': Found 30345 non-numeric entries.
+  - Column 'MTD Return': Found 2661 non-numeric entries.
+  - Column 'QTD Return': Found 2346 non-numeric entries.
+  - Column 'YTD Return': Found 1522 non-numeric entries.
+  - Column 'MTD Bench Return': Found 1711 non-numeric entries.
+  - Column 'QTD Bench Return': Found 1643 non-numeric entries.
+  - Column 'YTD Bench Return': Found 1013 non-numeric entries.
+  - Column 'Yrs (Worst)': Found 5656 non-numeric entries.
+  - Column 'YTC': Found 2598 non-numeric entries.
+  - Column 'G Sprd': Found 3186 non-numeric entries.
+  - Column 'Yrs (Cvn)': Found 4739 non-numeric entries.
+  - Column 'OAS (Mid)': Found 1571 non-numeric entries.
+  - Column 'CAD Equiv Swap': Found 2586 non-numeric entries.
+  - Column 'Yrs Since Issue': Found 2459 non-numeric entries.
+  - Column 'Yrs (Mat)': Found 4255 non-numeric entries.
+  - Column 'Z Spread': Found 5258 non-numeric entries.
+[2025-07-11 21:55:35,808] INFO: 
+=========================
+=== DATA QUALITY REPORT ===
+=========================
+
+--- Null Value Analysis (Top 5) ---
+  - BI Interp: 36629.0 nulls (100.00%)
+  - B/E Bench Sprd: 36629.0 nulls (100.00%)
+  - Forward Sprd: 36629.0 nulls (100.00%)
+  - Yrs Since Isssue: 34568.0 nulls (94.37%)
+  - Retracement24: 29057.0 nulls (79.33%)
+
+--- Statistical Summary (Numeric Columns) ---
+                          count          mean             std        min     25%     50%     75%                max
+Stochastic Duration    5,434.00          3.84            2.99       0.00    1.76    3.18    4.98              15.83
+Stochastic Convexity   5,434.00         -1.54            5.58     -92.61   -0.07    0.04    0.15               6.95
+MTD Return            30,633.00          0.06           10.31     -22.95   -0.36    0.03    0.33           1,784.13
+QTD Return            30,271.00          0.46           15.27     -26.98   -0.36    0.39    0.76           1,784.13
+YTD Return            28,732.00          2.53           20.90     -50.93    1.28    2.07    2.89           2,170.15
+MTD Bench Return      20,369.00         -0.63            1.83      -5.99   -0.97   -0.24    0.04               8.08
+QTD Bench Return      20,437.00         -1.11            3.96      -9.64   -1.87   -0.29    0.28              19.62
+YTD Bench Return      21,067.00          0.23            3.14      -8.81   -0.73    1.42    1.71              11.66
+Yrs (Worst)           30,786.00        103.21          238.08  -3,354.73   33.76   77.85  122.73           8,115.43
+YTC                   30,731.00          4.74            2.34     -27.45    3.80    4.68    5.27              77.92
+Excess MTD            28,255.00          0.37            0.66     -17.66    0.03    0.18    0.55              17.46
+Excess YTD            25,186.00          0.65            1.87     -27.16    0.01    0.36    1.07              41.60
+G Sprd                29,543.00  7,269,151.53  395,035,750.94  -7,195.32   74.17  114.07  160.31  21,474,836,480.00
+Yrs (Cvn)             31,890.00          7.61            8.91       0.00    1.86    4.02    8.44              57.71
+OAS (Mid)             35,041.00        159.72          165.42    -455.83  118.73  156.10  158.53           5,188.05
+CAD Equiv Swap        30,282.00        123.52          228.24  -2,972.81   60.00  100.17  136.22           6,315.79
+YTD Equity            26,611.00          6.92           14.58     -87.32   -1.23    5.25   13.70             181.24
+MTD Equity            26,620.00          1.19            5.43     -37.86   -1.93    0.37    3.84              46.33
+Yrs Since Issue       28,225.00          3.86            3.45      -0.05    1.27    3.16    5.21              30.88
+Risk                  25,478.00        498.12          424.67       0.27  178.88  366.93  698.17           2,064.86
+Yrs (Mat)             26,429.00          9.85           12.52       0.00    2.20    4.67   10.25              60.29
+Z Spread              25,370.00        148.75          258.42  -3,153.15   78.86  121.76  163.42           8,160.01
+
+--- Categorical Value Distribution (Sample) ---
+  - Column 'CUSIP':
+    '786688AC5': 15 (0.04%)
+    '548243AB0': 15 (0.04%)
+    '55342VAB8': 15 (0.04%)
+  - Column 'Benchmark Cusip':
+    '135087M68': 4293 (11.72%)
+    '135087F82': 1182 (3.23%)
+    '135087H23': 1005 (2.74%)
+  - Column 'Custom_Sector':
+    'Auto': 3384 (9.24%)
+    'Utility': 3053 (8.33%)
+    'Financial Maples': 3035 (8.29%)
+[2025-07-11 21:55:35,808] DEBUG: Creating bucket for 'Yrs Since Issue'...
+[2025-07-11 21:55:35,816] DEBUG: Creating bucket for 'Yrs (Mat)'...
+[2025-07-11 21:55:35,974] INFO: 
+=========================
+=== FINAL DATA SNAPSHOT ===
+=========================
+Total Rows: 36629
+Total Columns: 47
+Memory Usage: 74.69 MB
+
+--- DataFrame Info ---
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 36629 entries, 29188 to 26696
+Columns: 47 entries, Date to Yrs (Mat) Bucket
+dtypes: category(2), datetime64[ns](1), object(44)
+memory usage: 12.9+ MB
+
+[2025-07-11 21:55:37,028] INFO: --- Processing Complete ---
+[2025-07-11 21:55:37,028] INFO: Final DataFrame Shape: (36629, 47)
+[2025-07-11 21:55:37,028] INFO: 
+=========================
+[2025-07-11 21:55:37,028] INFO: === DATE COVERAGE ANALYSIS ===
+[2025-07-11 21:55:37,028] INFO: =========================
+[2025-07-11 21:55:37,028] INFO: Total unique dates: 15
+[2025-07-11 21:55:37,028] INFO: Date column dtype: datetime64[ns]
+[2025-07-11 21:55:37,028] INFO: Date range: 2023-08-04 to 2025-07-11
+[2025-07-11 21:55:37,028] INFO: Time span: 707 days (1.9 years)
+[2025-07-11 21:55:37,060] INFO: 
+Year distribution:
+[2025-07-11 21:55:37,060] INFO:   - 2023: 5945 records
+[2025-07-11 21:55:37,060] INFO:   - 2024: 2353 records
+[2025-07-11 21:55:37,060] INFO:   - 2025: 28331 records
+[2025-07-11 21:55:37,080] INFO: 
+Business day analysis:
+[2025-07-11 21:55:37,080] INFO:   - Business days: 36629 (100.0%)
+[2025-07-11 21:55:37,080] INFO:   - Weekend days: 0 (0.0%)
+[2025-07-11 21:55:37,080] INFO: 
+Sample dates:
+[2025-07-11 21:55:37,086] INFO:   - 2023-08-04 (Fri): 1897 records
+[2025-07-11 21:55:37,086] INFO:   - 2023-10-31 (Tue): 1987 records
+[2025-07-11 21:55:37,087] INFO:   - 2023-12-29 (Fri): 2061 records
+[2025-07-11 21:55:37,087] INFO:   - 2024-12-20 (Fri): 2353 records
+[2025-07-11 21:55:37,088] INFO:   - 2025-05-23 (Fri): 2664 records
+[2025-07-11 21:55:37,088] INFO:   ... (5 more dates) ...
+[2025-07-11 21:55:37,088] INFO:   - 2025-06-11 (Wed): 2715 records
+[2025-07-11 21:55:37,088] INFO:   - 2025-06-20 (Fri): 2742 records
+[2025-07-11 21:55:37,089] INFO:   - 2025-06-26 (Thu): 2247 records
+[2025-07-11 21:55:37,089] INFO:   - 2025-06-30 (Mon): 2247 records
+[2025-07-11 21:55:37,090] INFO:   - 2025-07-11 (Fri): 2251 records
+[2025-07-11 21:55:37,090] INFO: 
+=== END DATE ANALYSIS ===
+
+[2025-07-11 21:55:37,132] INFO: DataFrame info before saving to Parquet:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 36629 entries, 29188 to 26696
+Data columns (total 47 columns):
+ #   Column                  Non-Null Count  Dtype         
+---  ------                  --------------  -----         
+ 0   Date                    36629 non-null  datetime64[ns]
+ 1   CUSIP                   36629 non-null  object        
+ 2   Benchmark Cusip         36629 non-null  object        
+ 3   Custom_Sector           36629 non-null  object        
+ 4   Marketing Sector        36629 non-null  object        
+ 5   Notes                   36629 non-null  object        
+ 6   Bloomberg Cusip         36629 non-null  object        
+ 7   Security                36629 non-null  object        
+ 8   Benchmark               36629 non-null  object        
+ 9   Make_Whole              23780 non-null  float64       
+ 10  Back End                6262 non-null   float64       
+ 11  Floating Index          36629 non-null  object        
+ 12  Stochastic Duration     5434 non-null   float64       
+ 13  Stochastic Convexity    5434 non-null   float64       
+ 14  Pricing Date            34019 non-null  datetime64[ns]
+ 15  Pricing Date (Bench)    22105 non-null  datetime64[ns]
+ 16  MTD Return              30633 non-null  float64       
+ 17  QTD Return              30271 non-null  float64       
+ 18  YTD Return              28732 non-null  float64       
+ 19  MTD Bench Return        20369 non-null  float64       
+ 20  QTD Bench Return        20437 non-null  float64       
+ 21  YTD Bench Return        21067 non-null  float64       
+ 22  Worst Date              33794 non-null  datetime64[ns]
+ 23  Yrs (Worst)             30786 non-null  float64       
+ 24  YTC                     30731 non-null  float64       
+ 25  Excess MTD              28255 non-null  float64       
+ 26  Excess YTD              25186 non-null  float64       
+ 27  CPN TYPE                36629 non-null  object        
+ 28  Ticker                  36629 non-null  object        
+ 29  G Sprd                  29543 non-null  float64       
+ 30  Yrs (Cvn)               31890 non-null  float64       
+ 31  OAS (Mid)               35041 non-null  float64       
+ 32  Currency                36629 non-null  object        
+ 33  CAD Equiv Swap          30282 non-null  float64       
+ 34  G (RBC Crv)             30244 non-null  float64       
+ 35  vs BI                   23449 non-null  float64       
+ 36  vs BCE                  30244 non-null  float64       
+ 37  Equity Ticker           36629 non-null  object        
+ 38  YTD Equity              26611 non-null  float64       
+ 39  MTD Equity              26620 non-null  float64       
+ 40  Yrs Since Issue         28225 non-null  float64       
+ 41  Risk                    36629 non-null  object        
+ 42  Rating                  36629 non-null  object        
+ 43  Yrs (Mat)               26429 non-null  float64       
+ 44  Z Spread                25370 non-null  float64       
+ 45  Yrs Since Issue Bucket  28134 non-null  category      
+ 46  Yrs (Mat) Bucket        26429 non-null  category      
+dtypes: category(2), datetime64[ns](4), float64(26), object(15)
+memory usage: 12.9+ MB
+
+[2025-07-11 21:55:37,265] INFO: Successfully saved updated DataFrame to 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\universe.parquet'.
+[2025-07-11 21:55:37,268] INFO: Updated processing state file.
+[2025-07-11 21:55:37,348] INFO: Universe processing pipeline finished successfully.
+[2025-07-11 21:55:38,089] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\universe\processed data\universe_processed.csv'.
