@@ -30,6 +30,7 @@ alwaysApply: false
 - Add proper TypeScript return types for all functions
 - Use proper async/await instead of promises where possible
 - Implement proper component lifecycle management
+- Must always do unit tests for any new complex features inside /tests
 
 ## BEFORE ANY CODE CHANGE
 1. Analyze the entire project structure
