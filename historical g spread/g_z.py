@@ -274,7 +274,11 @@ FILTER_OPERATORS = {
 CONFIG = {
     # Core parameters
     'LOOKBACK_DAYS': 252,  
+<<<<<<< HEAD
     'MAX_BONDS': 200,       # Limit to most liquid bonds for speed
+=======
+    'MAX_BONDS': 2000,         # Limit to most liquid bonds for speed (small sample for testing)
+>>>>>>> 639b7d6 (OPTIMIZATION: Implement comprehensive performance enhancements in DatabasePipeline)
     'MIN_OBSERVATIONS': 200,  # Minimum data points
     
     # Speed optimizations
