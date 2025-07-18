@@ -1,1 +1,266 @@
+# ============================================================================
+# DATA FILES & DIRECTORIES - Exclude all large data files for fast git ops
+# ============================================================================
+
+# Large data file extensions (>1MB typically)
+*.csv
+*.xlsx
+*.xls
+*.xlsm
+*.parquet
+*.pickle
+*.pkl
+*.h5
+*.hdf5
+*.feather
+*.arrow
+
+# Database files (SQLite, etc.)
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# But allow small test/sample files (prefix with test_ or sample_)
+!test_*.csv
+!sample_*.csv
+!test_*.xlsx
+!sample_*.xlsx
+!test_*.parquet
+!sample_*.parquet
+!**/test_*.csv
+!**/sample_*.csv
+!**/test_*.xlsx
+!**/sample_*.xlsx
+!**/test_*.parquet
+!**/sample_*.parquet
+
+# But allow test database files (small ones for testing)
+!test_*.db
+!test_*.sqlite
+!test_*.sqlite3
+!**/test_*.db
+!**/test_*.sqlite
+!**/test_*.sqlite3
+
+# Data directories - exclude by name pattern
+raw/
+raw data/
+raw_data/
+processed/
+processed data/
+processed_data/
+processed*/
+parquet/
+data/
+cache/
+temp_data/
+output/
+results/
+
+# Data directories anywhere in repo
+**/raw/
+**/raw data/
+**/raw_data/
+**/processed/
+**/processed data/
+**/processed_data/
+**/processed*/
+**/parquet/
+**/data/
+**/cache/
+**/temp_data/
+**/output/
+**/results/
+
+# But allow small test data directories
+!test_data/
+!sample_data/
+!**/test_data/
+!**/sample_data/
+
+# Specific large files currently in repo (will be removed)
+portfolio/processed data/
+portfolio/portfolio.csv
+runs/combined_runs.parquet
+runs/raw/
+universe/universe.parquet
+universe/raw data/
+historical g spread/processed data/
+historical g spread/raw data/
 historical g spread/processed data/bond_g_sprd_long.csv
+historical g spread/processed data/bond_z.csv
+historical g spread/raw data/g_ts.parquet
+universe/raw data/API*.xlsx
+
+# Processing state files (can be regenerated)
+processing_state.json
+last_processed.json
+state.json
+*.state
+
+# JSON files that are typically large (but allow config)
+# (Large JSON data files, but preserve small config files)
+!config*.json
+!settings*.json
+!**/config*.json
+!**/settings*.json
+
+# ============================================================================
+# PYTHON & DEVELOPMENT
+# ============================================================================
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Testing & Coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+.pytest_cache
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.envrc
+
+# ============================================================================
+# TOOLS & IDEs
+# ============================================================================
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.spyderproject
+.spyproject
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# ============================================================================
+# SYSTEM & OS
+# ============================================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ============================================================================
+# LOGGING & TEMPORARY FILES
+# ============================================================================
+
+# Logs
+*.log
+*.log.*
+logs/
+**/logs/
+
+# But preserve important logs for debugging (small ones)
+!debug.log
+!error.log
+!**/debug.log
+!**/error.log
+
+# Temporary files
+*.tmp
+*.temp
+*conflicted*
+*.bak
+*.backup
+*.swp
+*.swo
+
+# ============================================================================
+# SECURITY & SECRETS
+# ============================================================================
+
+# Cursor MCP configuration with secrets
+.cursor/mcp.json
+
+# API keys and secrets
+.env.local
+.env.production
+secrets.yaml
+secrets.json
+**/secrets.*
+api_keys.*
+
+# ============================================================================
+# PROJECT SPECIFIC
+# ============================================================================
+
+# Model outputs and large analysis results
+models/
+trained_models/
+model_outputs/
+**/models/
+
+# Trading analytics database (production data)
+trading_analytics.db
+trading_analytics.db-shm
+trading_analytics.db-wal
+
+# Generated database folders
+db/
+
+# Project changelog (if it's large and auto-generated)
+project_changelog.md
