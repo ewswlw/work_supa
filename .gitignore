@@ -95,6 +95,20 @@ historical g spread/processed data/bond_z.csv
 historical g spread/raw data/g_ts.parquet
 universe/raw data/API*.xlsx
 
+# CRITICAL: Exclude all current large data files
+historical g spread/g_ts.parquet
+historical g spread/bond_z.parquet
+portfolio/portfolio.parquet
+runs/combined_runs.parquet
+runs/run_monitor.parquet
+universe/universe.parquet
+db/trading_analytics_backup_*.db
+historical g spread/processed data/bond_g_sprd_wide.csv
+historical g spread/processed data/bond_z_enhanced.csv
+historical g spread/processed data/bond_z.csv
+historical g spread/raw data/bond_g_sprd_time_series.csv
+portfolio/processed data/portfolio.csv
+
 # Processing state files (can be regenerated)
 processing_state.json
 last_processed.json
