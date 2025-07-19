@@ -4287,3 +4287,29 @@ memory usage: 7.3+ MB
 [2025-07-19 11:16:48,993] INFO: Portfolio processing pipeline finished successfully.
 [2025-07-19 11:16:49,369] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
 [2025-07-19 11:16:49,369] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 12:11:02,070] INFO: Starting portfolio processing pipeline...
+[2025-07-19 12:11:02,070] INFO: Starting portfolio processing pipeline...
+[2025-07-19 12:11:02,080] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 12:11:02,080] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 12:11:02,080] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 12:11:02,080] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 12:11:02,080] DEBUG: Loaded processing state with 14 files
+[2025-07-19 12:11:02,080] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 12:11:02,080] INFO: Identified 0 files for processing
+[2025-07-19 12:11:02,080] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 12:11:02,080] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 12:11:02,080] WARNING: No data was processed.
