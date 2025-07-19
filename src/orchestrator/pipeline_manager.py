@@ -14,8 +14,10 @@ from dataclasses import dataclass
 from enum import Enum
 import yaml
 import sys
+import pandas as pd
 
 from ..utils.logging import LogManager
+from ..utils.data_analyzer import analyze_pipeline_data
 
 
 class PipelineStage(Enum):
@@ -76,11 +78,6 @@ class PipelineManager:
         PipelineStage.UNIVERSE: [],
         PipelineStage.PORTFOLIO: [],
         PipelineStage.HISTORICAL_GSPREAD: [],
-        PipelineStage.GSPREAD_ANALYTICS: [
-            PipelineStage.UNIVERSE,
-            PipelineStage.PORTFOLIO,
-            PipelineStage.HISTORICAL_GSPREAD
-        ],
         PipelineStage.RUNS_EXCEL: [],
         PipelineStage.RUNS_MONITOR: [PipelineStage.RUNS_EXCEL]
     }
@@ -90,7 +87,6 @@ class PipelineManager:
         PipelineStage.UNIVERSE: 2,
         PipelineStage.PORTFOLIO: 3,
         PipelineStage.HISTORICAL_GSPREAD: 5,
-        PipelineStage.GSPREAD_ANALYTICS: 1,
         PipelineStage.RUNS_EXCEL: 4,
         PipelineStage.RUNS_MONITOR: 2
     }
@@ -99,8 +95,7 @@ class PipelineManager:
     SCRIPT_MAPPINGS = {
         PipelineStage.UNIVERSE: "universe/universe_raw_to_parquet.py",
         PipelineStage.PORTFOLIO: "portfolio/portfolio_excel_to_parquet.py",
-        PipelineStage.HISTORICAL_GSPREAD: "historical g spread/g_sprd_historical_parquet.py",
-        PipelineStage.GSPREAD_ANALYTICS: "historical g spread/g_z.py",
+        PipelineStage.HISTORICAL_GSPREAD: "historical g spread/g_z.py",
         PipelineStage.RUNS_EXCEL: "runs/excel_to_df_debug.py",
         PipelineStage.RUNS_MONITOR: "runs/run_monitor.py"
     }
@@ -138,6 +133,9 @@ class PipelineManager:
         self.logger.info(f"  Parallel groups: {len(parallel_groups)}")
         self.logger.info(f"  Estimated duration: {estimated_duration}")
         
+        # Display detailed execution plan
+        self.display_execution_plan(plan)
+        
         return plan
     
     def _determine_stages(self, args) -> List[PipelineStage]:
@@ -152,8 +150,6 @@ class PipelineManager:
             stages.append(PipelineStage.PORTFOLIO)
         if getattr(args, 'historical_gspread', False):
             stages.append(PipelineStage.HISTORICAL_GSPREAD)
-        if getattr(args, 'gspread_analytics', False):
-            stages.append(PipelineStage.GSPREAD_ANALYTICS)
         if args.runs:
             stages.extend([PipelineStage.RUNS_EXCEL, PipelineStage.RUNS_MONITOR])
         
@@ -169,7 +165,8 @@ class PipelineManager:
         
         # If no specific stages selected, default to full pipeline
         if not stages:
-            stages = list(PipelineStage)
+            # Filter out removed stages (GSPREAD_ANALYTICS was removed)
+            stages = [stage for stage in PipelineStage if stage != PipelineStage.GSPREAD_ANALYTICS]
         
         return stages
     
@@ -402,8 +399,7 @@ class PipelineManager:
         stage_patterns = {
             PipelineStage.UNIVERSE: ["universe.parquet", "universe_processed.csv"],
             PipelineStage.PORTFOLIO: ["portfolio.parquet"],
-            PipelineStage.HISTORICAL_GSPREAD: ["bond_g_sprd_time_series.parquet"],
-            PipelineStage.GSPREAD_ANALYTICS: ["bond_z.parquet"],
+            PipelineStage.HISTORICAL_GSPREAD: ["bond_z.parquet"],
             PipelineStage.RUNS_EXCEL: ["combined_runs.parquet"],
             PipelineStage.RUNS_MONITOR: ["run_monitor.parquet", "run_monitor.csv"]
         }
@@ -453,6 +449,71 @@ class PipelineManager:
             self.logger.info("")
         
         self.logger.info("=" * 60)
+    
+    def load_processed_data(self) -> Dict[str, pd.DataFrame]:
+        """
+        Load all processed data files for analysis.
+        
+        Returns:
+            Dictionary of {table_name: dataframe}
+        """
+        self.logger.info("[ANALYSIS] Loading processed data for analysis...")
+        
+        table_data = {}
+        
+        # Define expected data files and their table names
+        data_files = {
+            'universe': 'universe/universe.parquet',
+            'portfolio': 'portfolio/portfolio.parquet',
+            'runs': 'runs/combined_runs.parquet',
+            'run_monitor': 'runs/run_monitor.parquet',
+            'g_spread': 'historical g spread/bond_z.parquet'  # Single g-spread analysis output
+        }
+        
+        for table_name, file_path in data_files.items():
+            try:
+                if Path(file_path).exists():
+                    df = pd.read_parquet(file_path)
+                    table_data[table_name] = df
+                    self.logger.info(f"  ✅ Loaded {table_name}: {df.shape[0]:,} rows × {df.shape[1]} columns")
+                else:
+                    self.logger.info(f"  ⚠️  File not found: {file_path}")
+            except Exception as e:
+                self.logger.warning(f"  ❌ Failed to load {table_name}: {str(e)}")
+        
+        self.logger.info(f"[ANALYSIS] Loaded {len(table_data)} tables for analysis")
+        return table_data
+    
+    def analyze_processed_data(self, table_data: Dict[str, pd.DataFrame]) -> str:
+        """
+        Analyze processed data and return formatted output.
+        
+        Args:
+            table_data: Dictionary of {table_name: dataframe}
+            
+        Returns:
+            Formatted analysis output
+        """
+        if not table_data:
+            return "📊 No data available for analysis"
+        
+        self.logger.info("[ANALYSIS] Starting comprehensive data analysis...")
+        
+        try:
+            # Run complete analysis
+            analysis_output = analyze_pipeline_data(
+                table_data=table_data,
+                logger=self.logger,
+                show_details=True
+            )
+            
+            self.logger.info("[ANALYSIS] Data analysis completed successfully")
+            return analysis_output
+            
+        except Exception as e:
+            error_msg = f"Data analysis failed: {str(e)}"
+            self.logger.error(f"[ANALYSIS] {error_msg}")
+            return f"❌ {error_msg}"
     
     async def send_notifications(self, endpoint: str, results: ExecutionResults):
         """Send notifications about pipeline execution."""

@@ -22,6 +22,7 @@ sys.path.append(str(Path(__file__).parent / "src"))
 from src.orchestrator.pipeline_manager import PipelineManager
 from src.orchestrator.pipeline_config import PipelineConfig
 from src.utils.logging import LogManager
+from src.utils.log_cleanup import LogCleanupManager
 
 
 def create_argument_parser() -> argparse.ArgumentParser:
@@ -37,6 +38,10 @@ Examples:
   python run_pipe.py --dry-run               # Show execution plan without running
   python run_pipe.py --resume-from=g-spread  # Resume from specific stage
   python run_pipe.py --menu                  # Launch interactive menu
+  python run_pipe.py --cleanup-logs          # Clean logs before running pipeline
+  python run_pipe.py --log-cleanup-only      # Only clean logs without running pipeline
+  python run_pipe.py --analyze-data          # Analyze data after pipeline completion
+  python run_pipe.py --data-analysis-only    # Only analyze data without running pipeline
         """
     )
     
@@ -77,6 +82,15 @@ Examples:
     config_group.add_argument('--log-file', type=str,
                              help='Override default log file path')
     
+    # Log Management
+    log_group = parser.add_argument_group('Log Management')
+    log_group.add_argument('--cleanup-logs', action='store_true',
+                          help='Clean up old log files before running pipeline')
+    log_group.add_argument('--retention-days', type=int, default=5,
+                          help='Number of days to keep log files (default: 5)')
+    log_group.add_argument('--log-cleanup-only', action='store_true',
+                          help='Only clean up logs without running pipeline')
+    
     # Monitoring & Reporting
     monitor_group = parser.add_argument_group('Monitoring & Reporting')
     monitor_group.add_argument('--monitor', action='store_true',
@@ -85,6 +99,10 @@ Examples:
                               help='Generate comprehensive execution report')
     monitor_group.add_argument('--notify', type=str,
                               help='Send notifications to specified endpoint')
+    monitor_group.add_argument('--analyze-data', action='store_true',
+                              help='Analyze processed data after pipeline completion')
+    monitor_group.add_argument('--data-analysis-only', action='store_true',
+                              help='Only analyze data without running pipeline')
     
     # Interactive menu
     parser.add_argument('--menu', action='store_true', help='Launch interactive menu')
@@ -182,6 +200,45 @@ async def main():
             logger.info("✅ Configuration validation complete")
             return 0
         
+        # Handle log cleanup
+        if args.log_cleanup_only:
+            logger.info("🧹 Running log cleanup only...")
+            cleanup_manager = LogCleanupManager(logs_dir="logs", retention_days=args.retention_days)
+            stats = cleanup_manager.cleanup_logs(dry_run=False)
+            
+            logger.info("📊 Log cleanup completed:")
+            logger.info(f"   Total files: {stats['total_files']}")
+            logger.info(f"   Files kept: {stats['files_to_keep']}")
+            logger.info(f"   Files deleted: {stats['deleted_files']}")
+            logger.info(f"   Space freed: {stats['total_size_mb']:.2f} MB")
+            return 0
+        
+        # Handle data analysis only
+        if args.data_analysis_only:
+            logger.info("📊 Running data analysis only...")
+            manager = PipelineManager(config, logger)
+            
+            # Load and analyze data
+            table_data = manager.load_processed_data()
+            analysis_output = manager.analyze_processed_data(table_data)
+            
+            # Print analysis to console
+            print("\n" + "="*80)
+            print("📊 COMPREHENSIVE DATA ANALYSIS RESULTS")
+            print("="*80)
+            print(analysis_output)
+            print("="*80)
+            
+            return 0
+        
+        # Clean up logs before running pipeline if requested
+        if args.cleanup_logs:
+            logger.info("🧹 Cleaning up old log files before pipeline execution...")
+            cleanup_manager = LogCleanupManager(logs_dir="logs", retention_days=args.retention_days)
+            stats = cleanup_manager.cleanup_logs(dry_run=False)
+            
+            logger.info(f"📊 Log cleanup completed: {stats['deleted_files']} files deleted, {stats['total_size_mb']:.2f} MB freed")
+        
         # Initialize pipeline manager
         manager = PipelineManager(config, logger)
         
@@ -189,7 +246,6 @@ async def main():
         execution_plan = manager.create_execution_plan(args)
         
         if args.dry_run:
-            manager.display_execution_plan(execution_plan)
             return 0
         
         # Execute pipeline
@@ -198,6 +254,24 @@ async def main():
         # Generate reports if requested
         if args.report:
             manager.generate_execution_report(results)
+        
+        # Analyze data if requested
+        if args.analyze_data:
+            logger.info("📊 Analyzing processed data after pipeline completion...")
+            
+            # Load and analyze data
+            table_data = manager.load_processed_data()
+            analysis_output = manager.analyze_processed_data(table_data)
+            
+            # Print analysis to console
+            print("\n" + "="*80)
+            print("📊 COMPREHENSIVE DATA ANALYSIS RESULTS")
+            print("="*80)
+            print(analysis_output)
+            print("="*80)
+            
+            # Also log the analysis
+            logger.info("📊 Data analysis completed and displayed to console")
         
         # Send notifications if configured
         if args.notify:

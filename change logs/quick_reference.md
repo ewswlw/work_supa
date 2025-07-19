@@ -221,7 +221,7 @@ poetry run python run_pipe.py --help   # Show all options
 # Individual Processors
 poetry run python universe/universe_raw_to_parquet.py
 poetry run python portfolio/portfolio_excel_to_parquet.py
-poetry run python "historical g spread/g_sprd_historical_parquet.py"
+poetry run python "historical g spread/g_z.py"
 poetry run python "historical g spread/g_z.py"
 poetry run python runs/excel_to_df_debug.py
 poetry run python runs/run_monitor.py

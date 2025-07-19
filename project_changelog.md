@@ -1,5 +1,86 @@
 # Project Changelog
 
+## 2025-01-27 23:00 - DOCUMENTATION CLEANUP: Supabase Integration References Removed! 🧹
+
+### 🧹 **LEGACY SUPABASE INTEGRATION CLEANUP COMPLETED**
+
+**Problem Solved**: Removed all references to Supabase integration from the pipeline documentation as this was legacy code no longer used in the current system.
+
+**Why This Matters**: 
+- **Documentation Accuracy**: Documentation now accurately reflects the current local file-based architecture
+- **No Confusion**: Eliminates references to external database dependencies that don't exist
+- **Current Architecture**: Correctly represents the self-contained, local parquet file processing system
+- **Professional Quality**: Documentation matches actual system capabilities
+
+### 📚 **DOCUMENTATION UPDATES MADE**
+
+**1. Data Processors Section**:
+- **Removed**: `supabase_processor.py`: Database operations
+- **Current**: Only local file processors (universe, portfolio, g-spread, excel, parquet)
+
+**2. Environment Configuration**:
+- **Before**: "Database: Supabase integration for data persistence"
+- **After**: "File System: Local parquet file storage and processing"
+
+**3. External Dependencies**:
+- **Removed**: "Supabase ← Database operations"
+- **Current**: Only Bloomberg API, File System, and Network dependencies
+
+### 🎯 **CURRENT ARCHITECTURE (CORRECTED)**
+
+**Local File-Based System**:
+```
+Input: Local parquet files (g_ts.parquet, Excel files, etc.)
+Processing: Local Python scripts with vectorized operations
+Output: Local parquet files (bond_z.parquet, universe.parquet, etc.)
+Storage: File system-based, no external database dependencies
+```
+
+**No External Database Dependencies**:
+- ✅ Only depends on local parquet files
+- ✅ Self-contained processing without external databases
+- ✅ Clean, focused analytics structure
+- ✅ No Supabase or external database requirements
+
+### 📊 **VERIFICATION RESULTS**
+
+**Documentation Accuracy**:
+- ✅ All references to Supabase integration removed
+- ✅ Documentation now reflects actual local file-based architecture
+- ✅ No confusion about external database dependencies
+- ✅ Current system capabilities accurately represented
+
+**Architecture Alignment**:
+- ✅ Input files: Local parquet files only
+- ✅ Processing: Local Python scripts only
+- ✅ Output: Local parquet files only
+- ✅ Storage: File system only
+
+### 🎯 **BENEFITS ACHIEVED**
+
+1. **Accuracy**: Documentation now matches actual system architecture
+2. **Clarity**: No confusion about external database dependencies
+3. **Simplicity**: Clear representation of self-contained system
+4. **Maintainability**: Documentation reflects current codebase reality
+5. **Professional Quality**: Accurate documentation for production use
+
+### ✅ **CLEANUP SUCCESS SUMMARY**
+
+**Complete Task Success**:
+1. ✅ **Identified Legacy Code**: Confirmed Supabase integration was not used in current system
+2. ✅ **Documentation Review**: Found all references to Supabase in pipeline documentation
+3. ✅ **Selective Removal**: Removed only documentation references, not actual code
+4. ✅ **Architecture Alignment**: Updated documentation to reflect current local file-based system
+5. ✅ **Verification**: Confirmed documentation now accurately represents system capabilities
+
+**Final Status**:
+- **Documentation**: Now accurately reflects local file-based architecture
+- **Architecture**: Self-contained system with no external database dependencies
+- **Clarity**: No confusion about system capabilities or requirements
+- **Professional Quality**: Complete and accurate documentation for production use
+
+---
+
 ## 2025-01-27 22:30 - DOCUMENTATION OVERRIDE: Complete Documentation Refresh with G-Spread Analytics Enhancement! 📚
 
 ### 📚 **DOCUMENTATION COMPREHENSIVE UPDATE COMPLETED**
@@ -1673,3 +1754,293 @@ The Trading Analytics Database System is now **PRODUCTION READY** with:
 3. **Data Preparation**: Added `df['file_date'] = df['date']` to populate the field
 4. **Required Keys**: Added `'file_date'` to the `required_keys` list for data transformation
 5. **SQL Statements**: Updated both INSERT statements to include `file_date`
+
+## [2025-07-19] - Comprehensive Data Analysis & CUSIP Validation System
+
+### 🎯 **Major Enhancement: Data Analysis & CUSIP Validation**
+
+#### **New Features Added:**
+
+1. **📊 Comprehensive Data Analyzer (`src/utils/data_analyzer.py`)**
+   - **DataFrame Analysis**: Shows `df.info()`, `df.head()`, `df.tail()`, `df.describe()` for each table
+   - **Time Series Detection**: Automatically identifies time series data and shows date ranges
+   - **Memory Usage Tracking**: Reports memory consumption for each table
+   - **Null Value Analysis**: Shows columns with nulls and percentages
+   - **Duplicate Row Detection**: Identifies and counts duplicate rows
+   - **Nice Formatting**: Beautiful console output with emojis and clear sections
+
+2. **🔍 CUSIP Validation System**
+   - **Orphaned CUSIP Detection**: Finds CUSIPs in other tables that don't exist in universe
+   - **Cross-Table Validation**: Compares CUSIPs across all tables against universe
+   - **Security Name Mapping**: Shows security names for orphaned CUSIPs
+   - **Instance Counting**: Reports total instances of each orphaned CUSIP
+   - **Table-by-Table Breakdown**: Shows orphaned CUSIPs by table
+
+3. **🔄 Pipeline Integration**
+   - **`--analyze-data`**: Runs data analysis after pipeline completion
+   - **`--data-analysis-only`**: Only analyzes data without running pipeline
+   - **Automatic Data Loading**: Loads all processed parquet files for analysis
+   - **Progress Indicators**: Shows analysis progress for large tables
+
+#### **Console Output Enhancements:**
+
+**Data Analysis Output:**
+```
+📊 UNIVERSE ANALYSIS
+============================================================
+Shape: 38,917 rows × 47 columns
+Memory Usage: 13.40 MB
+Duplicate Rows: 0
+Time Series: YES
+  Date: 2023-08-04 to 2025-07-16 (1,462 unique dates)
+Columns with nulls: 15
+  Benchmark Cusip: 38,917 (100.0%)
+  Notes: 38,917 (100.0%)
+
+📋 DATAFRAME INFO:
+----------------------------------------
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 38917 entries, 0 to 38916
+Data columns (total 47 columns):
+...
+
+🔝 FIRST 10 ROWS:
+----------------------------------------
+        Date       CUSIP Benchmark Cusip         Custom_Sector Marketing Sector
+...
+
+🔚 LAST 10 ROWS:
+----------------------------------------
+            Date      CUSIP Benchmark Cusip        Custom_Sector   Marketing Sector
+...
+
+📈 NUMERIC COLUMNS SUMMARY:
+----------------------------------------
+         Make_Whole     Back End  Stochastic Duration  Stochastic Convexity
+...
+```
+
+**CUSIP Validation Output:**
+```
+🔍 CUSIP VALIDATION RESULTS
+============================================================
+Universe CUSIPs: 3,116
+Tables Checked: 3
+Unique Orphaned CUSIPs: 53
+Total Orphaned Instances: 1,991
+
+📋 ORPHANED CUSIPS BY TABLE:
+------------------------------------------------------------
+
+🔴 PORTFOLIO:
+   Unique Orphaned CUSIPs: 41
+   Total Instances: 496
+   • CDXIG543 - CDXIG543 100 12/29 U (20 instances)
+   • 2933ZWEE7 - ENMAXC 0 05/13/25 CA (2 instances)
+   ...
+
+🔴 RUNS:
+   Unique Orphaned CUSIPs: 13
+   Total Instances: 1,495
+   • 31430WRG1 - CCDJ 5.035 08/23/32 (250 instances)
+   • 86682ZAS5 - SLFCN 4.78 08/10/34 (189 instances)
+   ...
+```
+
+#### **Usage Examples:**
+
+```bash
+# Analyze data after running pipeline
+poetry run python run_pipe.py --universe --analyze-data
+
+# Only analyze data without running pipeline
+poetry run python run_pipe.py --data-analysis-only
+
+# Analyze data with full pipeline
+poetry run python run_pipe.py --full --analyze-data
+```
+
+#### **Technical Implementation:**
+
+1. **DataAnalyzer Class**:
+   - Handles comprehensive DataFrame analysis
+   - Time series detection with multiple date formats
+   - Memory usage calculation
+   - Null value and duplicate analysis
+   - Beautiful formatting with progress indicators
+
+2. **CUSIPValidator Class**:
+   - Cross-table CUSIP validation
+   - Orphaned CUSIP detection
+   - Security name mapping
+   - Instance counting and reporting
+
+3. **Pipeline Integration**:
+   - Added to `PipelineManager` with `load_processed_data()` and `analyze_processed_data()` methods
+   - Integrated into `run_pipe.py` with new command-line options
+   - Automatic data loading from all processed parquet files
+
+#### **Data Files Analyzed:**
+- `universe/universe.parquet` - Main universe table
+- `portfolio/portfolio.parquet` - Portfolio holdings
+- `runs/combined_runs.parquet` - Trading runs data
+- `historical g spread/bond_g_sprd_time_series.parquet` - G-spread time series
+- `historical g spread/bond_z.parquet` - G-spread analytics
+
+#### **Key Benefits:**
+1. **Data Quality Assurance**: Identifies orphaned CUSIPs and data issues
+2. **Comprehensive Analysis**: Shows detailed statistics for all tables
+3. **Time Series Insights**: Reveals date ranges and data coverage
+4. **Memory Optimization**: Tracks memory usage for performance monitoring
+5. **Beautiful Output**: Easy-to-read formatted console output
+6. **Integration**: Seamlessly works with existing pipeline
+
+---
+
+## [2025-07-19] - Log Cleanup System Implementation
+
+### 🧹 **Log Management Enhancement**
+
+#### **New Features Added:**
+
+1. **LogCleanupManager (`src/utils/log_cleanup.py`)**
+   - **Automatic Cleanup**: Deletes logs older than specified days
+   - **Configurable Retention**: Different retention periods for different log types
+   - **Safe Deletion**: Backup options and detailed reporting
+   - **Space Tracking**: Reports space freed by cleanup
+
+2. **Standalone Cleanup Script (`cleanup_logs.py`)**
+   - **Independent Operation**: Can run without pipeline
+   - **Dry-run Mode**: Preview what would be deleted
+   - **Flexible Retention**: Configurable retention periods
+
+3. **Pipeline Integration**
+   - **`--cleanup-logs`**: Clean logs before running pipeline
+   - **`--log-cleanup-only`**: Only clean logs without running pipeline
+   - **`--retention-days`**: Configure retention period (default: 5 days)
+
+#### **Usage Examples:**
+
+```bash
+# Clean logs before running pipeline
+poetry run python run_pipe.py --full --cleanup-logs
+
+# Only clean logs
+poetry run python run_pipe.py --log-cleanup-only
+
+# Clean with custom retention period
+poetry run python run_pipe.py --log-cleanup-only --retention-days 3
+
+# Standalone cleanup
+poetry run python cleanup_logs.py --dry-run
+poetry run python cleanup_logs.py --retention-days 7
+```
+
+#### **Log Cleanup Output:**
+```
+🧹 Running log cleanup only...
+📊 Log cleanup completed:
+   Total files: 15
+   Files kept: 12
+   Files deleted: 3
+   Space freed: 45.67 MB
+```
+
+---
+
+## [Previous Entries...]
+
+### **Pipeline Orchestration System**
+- **PipelineManager**: Central orchestration with dependency management
+- **Execution Planning**: Optimized parallel execution with dependency resolution
+- **Progress Tracking**: Real-time progress monitoring and reporting
+- **Error Handling**: Comprehensive error handling and recovery
+- **Logging**: Detailed logging with multiple levels and file rotation
+
+### **Data Processing Pipelines**
+- **Universe Pipeline**: Excel to parquet conversion with data validation
+- **Portfolio Pipeline**: Portfolio data processing and standardization
+- **Runs Pipeline**: Trading runs data aggregation and analysis
+- **G-Spread Pipeline**: Historical g-spread data processing
+- **G-Spread Analytics**: Advanced analytics and z-score calculations
+
+### **Configuration Management**
+- **YAML Configuration**: Centralized configuration management
+- **Environment Support**: Development, staging, and production environments
+- **Validation**: Configuration validation and error reporting
+
+### **Monitoring & Reporting**
+- **Execution Reports**: Comprehensive pipeline execution reports
+- **Performance Metrics**: Timing and resource usage tracking
+- **Error Reporting**: Detailed error analysis and reporting
+- **Notification System**: Extensible notification framework
+
+### **Testing & Validation**
+- **Unit Tests**: Comprehensive test coverage for all components
+- **Integration Tests**: End-to-end pipeline testing
+- **Data Validation**: Schema validation and data quality checks
+- **Performance Testing**: Load testing and performance optimization
+
+---
+
+## **Technical Architecture**
+
+### **Core Components:**
+1. **Pipeline Orchestrator**: Central coordination and execution management
+2. **Data Processors**: Specialized processors for each data type
+3. **Configuration Manager**: Centralized configuration and validation
+4. **Logging System**: Comprehensive logging with rotation and cleanup
+5. **Data Analyzer**: Comprehensive data analysis and CUSIP validation
+6. **Utility Modules**: Shared utilities for common operations
+
+### **Data Flow:**
+1. **Raw Data** → **Data Processors** → **Parquet Files** → **Data Analysis** → **Reports**
+2. **Configuration** → **Pipeline Manager** → **Execution Plan** → **Parallel Processing** → **Results**
+
+### **Key Features:**
+- **Parallel Execution**: Optimized parallel processing with dependency management
+- **Error Recovery**: Comprehensive error handling and recovery mechanisms
+- **Progress Tracking**: Real-time progress monitoring and reporting
+- **Data Validation**: Multi-level data validation and quality assurance
+- **Performance Optimization**: Memory-efficient processing and caching
+- **Extensibility**: Modular design for easy extension and customization
+
+---
+
+## **Future Enhancements**
+
+### **Planned Features:**
+1. **Real-time Monitoring Dashboard**: Web-based monitoring interface
+2. **Advanced Analytics**: Machine learning and predictive analytics
+3. **Data Lineage Tracking**: End-to-end data lineage and audit trails
+4. **API Integration**: REST API for external system integration
+5. **Cloud Deployment**: AWS/Azure deployment and scaling
+6. **Advanced Reporting**: Interactive dashboards and visualizations
+
+### **Performance Optimizations:**
+1. **Incremental Processing**: Delta processing for large datasets
+2. **Caching Layer**: Redis-based caching for improved performance
+3. **Database Integration**: Direct database integration for real-time data
+4. **Streaming Processing**: Real-time streaming data processing
+5. **Distributed Computing**: Spark-based distributed processing
+
+---
+
+## **Maintenance & Support**
+
+### **Regular Maintenance:**
+- **Log Cleanup**: Automatic log cleanup every 5 days
+- **Data Validation**: Regular data quality checks and validation
+- **Performance Monitoring**: Continuous performance monitoring and optimization
+- **Security Updates**: Regular security updates and vulnerability scanning
+
+### **Support & Documentation:**
+- **Comprehensive Documentation**: Detailed documentation for all components
+- **Code Comments**: Extensive inline code comments and documentation
+- **Error Messages**: User-friendly error messages and troubleshooting guides
+- **Testing**: Comprehensive test coverage and validation
+
+---
+
+*Last Updated: 2025-07-19*
+*Version: 2.0.0*

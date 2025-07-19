@@ -2034,3 +2034,2256 @@ memory usage: 3.7+ MB
 [2025-07-04 16:54:16,693] INFO: Portfolio processing pipeline finished successfully.
 [2025-07-04 16:54:16,898] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
 [2025-07-04 16:54:16,900] INFO: Analysis: Found 0 rows with blank CUSIP out of 9390 total rows
+[2025-07-19 09:26:03,426] INFO: Starting portfolio processing pipeline...
+[2025-07-19 09:26:03,426] INFO: Starting portfolio processing pipeline...
+[2025-07-19 09:26:03,433] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 09:26:03,433] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 09:26:03,433] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 09:26:03,433] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 09:26:03,438] DEBUG: Loaded processing state with 14 files
+[2025-07-19 09:26:03,438] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 09:26:03,438] DEBUG: Found modified file to process: 'Aggies 01.02.25.xlsx'
+[2025-07-19 09:26:03,438] DEBUG: Found modified file to process: 'Aggies 02.25.25.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 05.09.25.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 06.06.25.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 06.10.25.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 06.13.25.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 06.19.25.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 06.26.25.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 06.30.25.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 07.09.24.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 12.04.24.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 12.18.24.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 12.20.24.xlsx'
+[2025-07-19 09:26:03,439] DEBUG: Found modified file to process: 'Aggies 12.29.23.xlsx'
+[2025-07-19 09:26:03,440] INFO: Identified 14 files for processing
+[2025-07-19 09:26:03,440] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 09:26:03,520] INFO: Loaded existing data: 9390 rows, 51 columns
+[2025-07-19 09:26:03,535] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 9390 entries, 0 to 9389
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           9390 non-null   datetime64[ns]
+ 1   SECURITY                       9390 non-null   object        
+ 2   SECURITY TYPE                  9390 non-null   object        
+ 3   MODIFIED DURATION              9390 non-null   float64       
+ 4   QUANTITY                       9390 non-null   float64       
+ 5   PRICE                          9390 non-null   float64       
+ 6   YIELD TO MAT                   9390 non-null   float64       
+ 7   UNDERLYING SECURITY            9390 non-null   object        
+ 8   POSITION CR01                  9390 non-null   float64       
+ 9   VALUE PCT NAV                  9390 non-null   float64       
+ 10  POSITION PVBP                  9390 non-null   float64       
+ 11  ACCOUNT                        9390 non-null   object        
+ 12  PORTFOLIO                      9390 non-null   object        
+ 13  MATURITY DATE                  9390 non-null   datetime64[ns]
+ 14  UNDERLYING CUSIP               9276 non-null   object        
+ 15  VALUE                          9390 non-null   float64       
+ 16  TRADE GROUP                    9252 non-null   object        
+ 17  STRATEGY                       9276 non-null   object        
+ 18  CURRENCY                       9390 non-null   object        
+ 19  COMPANY SYMBOL                 9386 non-null   object        
+ 20  CUSIP                          9390 non-null   object        
+ 21  ISIN                           9049 non-null   object        
+ 22  MATURITY BUCKET                9196 non-null   object        
+ 23  COUPON                         9390 non-null   float64       
+ 24  SECURITY PVBP                  9390 non-null   float64       
+ 25  SECURITY CR01                  9390 non-null   float64       
+ 26  CREDIT RATING                  9260 non-null   object        
+ 27  SECURITY CLASSIFICATION        3896 non-null   object        
+ 28  UNDERLYING ISIN                9205 non-null   object        
+ 29  BENCHMARK MATURITY DATE        9390 non-null   datetime64[ns]
+ 30  PCT OF OUTSTANDING             9390 non-null   float64       
+ 31  FACE VALUE OUTSTANDING         9390 non-null   float64       
+ 32  CDS Adj Size (Calc)            9390 non-null   float64       
+ 33  Yield                          9390 non-null   float64       
+ 34  Yield CAD Fee Included         9358 non-null   float64       
+ 35  Fuding Status                  9390 non-null   object        
+ 36  TradeGroup Fixed               9387 non-null   object        
+ 37  Benchmark Yield                5361 non-null   float64       
+ 38  Benchmark Yield Including Fee  5363 non-null   float64       
+ 39  Sprd Calculated                5372 non-null   float64       
+ 40  Sprd Funding Adjusted          5372 non-null   float64       
+ 41  OAS (Bloomberg)                5382 non-null   float64       
+ 42  OAS Fund Adj(Bloomberg)        5382 non-null   float64       
+ 43  Yrs Calc                       9390 non-null   float64       
+ 44  Duration Calc                  9390 non-null   float64       
+ 45  OAD Calc                       9390 non-null   float64       
+ 46  Yrs Calc (Corps)               5163 non-null   float64       
+ 47  Yrs Calc (Corps + CDX)         5192 non-null   float64       
+ 48  Duration Calc (Corps)          5163 non-null   float64       
+ 49  Duration Calc (Corps + CDX)    5192 non-null   float64       
+ 50  Funding Cost                   7848 non-null   float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 3.7+ MB
+
+[2025-07-19 09:26:03,536] INFO: 
+=========================
+[2025-07-19 09:26:03,536] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 09:26:03,536] INFO: =========================
+[2025-07-19 09:26:03,536] INFO: Total unique dates in existing data: 14
+[2025-07-19 09:26:03,536] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 09:26:03,536] INFO: Existing dates in Parquet:
+[2025-07-19 09:26:03,536] INFO:   - 2023-12-29: 915 records
+[2025-07-19 09:26:03,536] INFO:   - 2024-07-09: 595 records
+[2025-07-19 09:26:03,537] INFO:   - 2024-12-04: 697 records
+[2025-07-19 09:26:03,537] INFO:   - 2024-12-18: 698 records
+[2025-07-19 09:26:03,537] INFO:   - 2024-12-20: 663 records
+[2025-07-19 09:26:03,537] INFO:   - 2025-01-02: 652 records
+[2025-07-19 09:26:03,538] INFO:   - 2025-02-25: 612 records
+[2025-07-19 09:26:03,538] INFO:   - 2025-05-09: 661 records
+[2025-07-19 09:26:03,538] INFO:   - 2025-06-06: 642 records
+[2025-07-19 09:26:03,538] INFO:   - 2025-06-10: 640 records
+[2025-07-19 09:26:03,539] INFO:   - 2025-06-13: 643 records
+[2025-07-19 09:26:03,539] INFO:   - 2025-06-19: 654 records
+[2025-07-19 09:26:03,539] INFO:   - 2025-06-26: 664 records
+[2025-07-19 09:26:03,539] INFO:   - 2025-06-30: 654 records
+[2025-07-19 09:26:03,539] INFO: Processing 14 files...
+[2025-07-19 09:26:03,539] INFO: Processing file: Aggies 01.02.25.xlsx
+[2025-07-19 09:26:03,539] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 01.02.25.xlsx
+[2025-07-19 09:26:04,096] INFO:   Initial shape: (655, 82)
+[2025-07-19 09:26:04,096] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:04,096] DEBUG: Extracted date '01/02/2025' from filename 'Aggies 01.02.25.xlsx'
+[2025-07-19 09:26:04,097] INFO:   Added Date column with datetime value: 2025-01-02
+[2025-07-19 09:26:04,097] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:04,097] INFO:   Shape after adding Date: (655, 83)
+[2025-07-19 09:26:04,097] INFO: Processing file: Aggies 02.25.25.xlsx
+[2025-07-19 09:26:04,097] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 02.25.25.xlsx
+[2025-07-19 09:26:04,348] INFO:   Initial shape: (612, 82)
+[2025-07-19 09:26:04,348] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:04,348] DEBUG: Extracted date '02/25/2025' from filename 'Aggies 02.25.25.xlsx'
+[2025-07-19 09:26:04,348] INFO:   Added Date column with datetime value: 2025-02-25
+[2025-07-19 09:26:04,354] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:04,354] INFO:   Shape after adding Date: (612, 83)
+[2025-07-19 09:26:04,354] INFO: Processing file: Aggies 05.09.25.xlsx
+[2025-07-19 09:26:04,354] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 05.09.25.xlsx
+[2025-07-19 09:26:04,637] INFO:   Initial shape: (664, 82)
+[2025-07-19 09:26:04,637] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:04,637] DEBUG: Extracted date '05/09/2025' from filename 'Aggies 05.09.25.xlsx'
+[2025-07-19 09:26:04,637] INFO:   Added Date column with datetime value: 2025-05-09
+[2025-07-19 09:26:04,637] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:04,637] INFO:   Shape after adding Date: (664, 83)
+[2025-07-19 09:26:04,637] INFO: Processing file: Aggies 06.06.25.xlsx
+[2025-07-19 09:26:04,637] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.06.25.xlsx
+[2025-07-19 09:26:04,909] INFO:   Initial shape: (645, 82)
+[2025-07-19 09:26:04,909] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:04,909] DEBUG: Extracted date '06/06/2025' from filename 'Aggies 06.06.25.xlsx'
+[2025-07-19 09:26:04,910] INFO:   Added Date column with datetime value: 2025-06-06
+[2025-07-19 09:26:04,910] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:04,910] INFO:   Shape after adding Date: (645, 83)
+[2025-07-19 09:26:04,911] INFO: Processing file: Aggies 06.10.25.xlsx
+[2025-07-19 09:26:04,911] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.10.25.xlsx
+[2025-07-19 09:26:05,186] INFO:   Initial shape: (643, 82)
+[2025-07-19 09:26:05,186] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:05,186] DEBUG: Extracted date '06/10/2025' from filename 'Aggies 06.10.25.xlsx'
+[2025-07-19 09:26:05,186] INFO:   Added Date column with datetime value: 2025-06-10
+[2025-07-19 09:26:05,186] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:05,186] INFO:   Shape after adding Date: (643, 83)
+[2025-07-19 09:26:05,186] INFO: Processing file: Aggies 06.13.25.xlsx
+[2025-07-19 09:26:05,186] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.13.25.xlsx
+[2025-07-19 09:26:05,446] INFO:   Initial shape: (646, 82)
+[2025-07-19 09:26:05,446] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:05,446] DEBUG: Extracted date '06/13/2025' from filename 'Aggies 06.13.25.xlsx'
+[2025-07-19 09:26:05,446] INFO:   Added Date column with datetime value: 2025-06-13
+[2025-07-19 09:26:05,446] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:05,446] INFO:   Shape after adding Date: (646, 83)
+[2025-07-19 09:26:05,446] INFO: Processing file: Aggies 06.19.25.xlsx
+[2025-07-19 09:26:05,446] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.19.25.xlsx
+[2025-07-19 09:26:05,738] INFO:   Initial shape: (657, 82)
+[2025-07-19 09:26:05,738] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:05,738] DEBUG: Extracted date '06/19/2025' from filename 'Aggies 06.19.25.xlsx'
+[2025-07-19 09:26:05,738] INFO:   Added Date column with datetime value: 2025-06-19
+[2025-07-19 09:26:05,738] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:05,738] INFO:   Shape after adding Date: (657, 83)
+[2025-07-19 09:26:05,738] INFO: Processing file: Aggies 06.26.25.xlsx
+[2025-07-19 09:26:05,738] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.26.25.xlsx
+[2025-07-19 09:26:06,010] INFO:   Initial shape: (667, 82)
+[2025-07-19 09:26:06,010] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:06,010] DEBUG: Extracted date '06/26/2025' from filename 'Aggies 06.26.25.xlsx'
+[2025-07-19 09:26:06,010] INFO:   Added Date column with datetime value: 2025-06-26
+[2025-07-19 09:26:06,010] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:06,010] INFO:   Shape after adding Date: (667, 83)
+[2025-07-19 09:26:06,010] INFO: Processing file: Aggies 06.30.25.xlsx
+[2025-07-19 09:26:06,010] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 06.30.25.xlsx
+[2025-07-19 09:26:06,312] INFO:   Initial shape: (657, 82)
+[2025-07-19 09:26:06,312] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:06,312] DEBUG: Extracted date '06/30/2025' from filename 'Aggies 06.30.25.xlsx'
+[2025-07-19 09:26:06,312] INFO:   Added Date column with datetime value: 2025-06-30
+[2025-07-19 09:26:06,312] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:06,313] INFO:   Shape after adding Date: (657, 83)
+[2025-07-19 09:26:06,313] INFO: Processing file: Aggies 07.09.24.xlsx
+[2025-07-19 09:26:06,313] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 07.09.24.xlsx
+[2025-07-19 09:26:06,557] INFO:   Initial shape: (598, 81)
+[2025-07-19 09:26:06,557] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)']
+[2025-07-19 09:26:06,557] DEBUG: Extracted date '07/09/2024' from filename 'Aggies 07.09.24.xlsx'
+[2025-07-19 09:26:06,557] INFO:   Added Date column with datetime value: 2024-07-09
+[2025-07-19 09:26:06,557] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:06,557] INFO:   Shape after adding Date: (598, 82)
+[2025-07-19 09:26:06,557] INFO: Processing file: Aggies 12.04.24.xlsx
+[2025-07-19 09:26:06,557] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.04.24.xlsx
+[2025-07-19 09:26:06,862] INFO:   Initial shape: (700, 82)
+[2025-07-19 09:26:06,862] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:06,862] DEBUG: Extracted date '12/04/2024' from filename 'Aggies 12.04.24.xlsx'
+[2025-07-19 09:26:06,862] INFO:   Added Date column with datetime value: 2024-12-04
+[2025-07-19 09:26:06,862] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:06,862] INFO:   Shape after adding Date: (700, 83)
+[2025-07-19 09:26:06,862] INFO: Processing file: Aggies 12.18.24.xlsx
+[2025-07-19 09:26:06,862] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.18.24.xlsx
+[2025-07-19 09:26:07,167] INFO:   Initial shape: (701, 82)
+[2025-07-19 09:26:07,167] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:07,167] DEBUG: Extracted date '12/18/2024' from filename 'Aggies 12.18.24.xlsx'
+[2025-07-19 09:26:07,167] INFO:   Added Date column with datetime value: 2024-12-18
+[2025-07-19 09:26:07,167] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:07,167] INFO:   Shape after adding Date: (701, 83)
+[2025-07-19 09:26:07,167] INFO: Processing file: Aggies 12.20.24.xlsx
+[2025-07-19 09:26:07,167] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.20.24.xlsx
+[2025-07-19 09:26:07,439] INFO:   Initial shape: (666, 82)
+[2025-07-19 09:26:07,439] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)', 'Funding Cost']
+[2025-07-19 09:26:07,439] DEBUG: Extracted date '12/20/2024' from filename 'Aggies 12.20.24.xlsx'
+[2025-07-19 09:26:07,439] INFO:   Added Date column with datetime value: 2024-12-20
+[2025-07-19 09:26:07,439] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:07,439] INFO:   Shape after adding Date: (666, 83)
+[2025-07-19 09:26:07,439] INFO: Processing file: Aggies 12.29.23.xlsx
+[2025-07-19 09:26:07,439] DEBUG: Reading Excel file: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data\Aggies 12.29.23.xlsx
+[2025-07-19 09:26:07,821] INFO:   Initial shape: (918, 81)
+[2025-07-19 09:26:07,822] DEBUG:   Columns: ['Unnamed: 0', 'Unnamed: 1', 'SECURITY', 'SECURITY TYPE', 'MODIFIED DURATION', 'QUANTITY', 'PRICE', 'BBG YIELD SPREAD', 'YIELD TO MAT', 'CURRENT YIELD', 'UNDERLYING SECURITY', 'POSITION CR01', 'VALUE PCT NAV', 'POSITION PVBP', 'ACCOUNT', 'PORTFOLIO', 'BBG 1D CHANGE', 'MATURITY DATE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'UNDERLYING CUSIP', 'VALUE', 'TRADE GROUP', 'STRATEGY', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'CURRENCY', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'COMPANY SYMBOL', 'CUSIP', 'ISIN', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'MATURITY BUCKET', 'COUPON', 'SECURITY PVBP', 'SECURITY CR01', 'ANNUALIZED INCOME', 'CREDIT RATING', 'SECURITY CLASSIFICATION', 'UNDERLYING ISIN', 'BENCHMARK MATURITY DATE', 'PCT OF OUTSTANDING', 'FACE VALUE OUTSTANDING', 'BBG MTD YIELD CHANGE', 'CDS Adj Size (Calc)', 'Yield', 'Yield CAD Fee Included', 'Fuding Status', 'TradeGroup Fixed', 'Benchmark Yield', 'Benchmark Yield Including Fee', 'Sprd Calculated', 'Sprd Funding Adjusted', 'OAS (Bloomberg)', 'OAS Fund Adj(Bloomberg)', 'Yrs Calc', 'Duration Calc', 'OAD Calc', 'Yrs Calc (Corps)', 'Yrs Calc (Corps + CDX)', 'Duration Calc (Corps)', 'Duration Calc (Corps + CDX)']
+[2025-07-19 09:26:07,822] DEBUG: Extracted date '12/29/2023' from filename 'Aggies 12.29.23.xlsx'
+[2025-07-19 09:26:07,822] INFO:   Added Date column with datetime value: 2023-12-29
+[2025-07-19 09:26:07,823] INFO:   Date column dtype: datetime64[ns]
+[2025-07-19 09:26:07,823] INFO:   Shape after adding Date: (918, 82)
+[2025-07-19 09:26:07,823] INFO: Combining new data...
+[2025-07-19 09:26:07,832] INFO: Combined new data shape: (9429, 83)
+[2025-07-19 09:26:07,832] INFO: Combining with existing data...
+[2025-07-19 09:26:07,842] INFO: Final combined shape before cleaning: (18819, 83)
+[2025-07-19 09:26:07,842] INFO: Starting data cleaning and validation...
+[2025-07-19 09:26:07,842] INFO: Initial combined DataFrame shape: (18819, 83)
+[2025-07-19 09:26:07,874] DEBUG: DataFrame info before cleaning:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18819 entries, 0 to 18818
+Data columns (total 83 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18819 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18806 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18806 non-null  float64       
+ 9   VALUE PCT NAV                  18806 non-null  float64       
+ 10  POSITION PVBP                  18806 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18806 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18666 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18806 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+ 51  Unnamed: 0                     0 non-null      float64       
+ 52  Unnamed: 1                     71 non-null     object        
+ 53  BBG YIELD SPREAD               9390 non-null   float64       
+ 54  CURRENT YIELD                  9390 non-null   float64       
+ 55  BBG 1D CHANGE                  9390 non-null   float64       
+ 56  CHANGE                         9390 non-null   float64       
+ 57  CHANGE PCT                     9390 non-null   float64       
+ 58  CHANGE BPS NAV                 9416 non-null   float64       
+ 59  INDUSTRY                       7202 non-null   object        
+ 60  SECTOR                         9356 non-null   object        
+ 61  OWNER                          0 non-null      float64       
+ 62  DAY PROFIT                     9416 non-null   float64       
+ 63  AVERAGE PRICE                  9390 non-null   float64       
+ 64  PROFIT                         9416 non-null   float64       
+ 65  REALIZED                       9416 non-null   float64       
+ 66  UNREALIZED                     9416 non-null   float64       
+ 67  TOTAL COST SETTLE CCY          9390 non-null   float64       
+ 68  TOTAL COST                     9416 non-null   float64       
+ 69  COST PCT NAV                   9390 non-null   float64       
+ 70  INTEREST                       9416 non-null   float64       
+ 71  REALIZED SETTLE CCY            9390 non-null   float64       
+ 72  PAID INTEREST LOCAL CCY        9390 non-null   float64       
+ 73  PAID INTEREST                  9390 non-null   float64       
+ 74  UNREALIZED SETTLE CCY          9390 non-null   float64       
+ 75  FX EXPOSURE LOCAL CCY          9390 non-null   float64       
+ 76  FX EXPOSURE DISPLAY CCY        9416 non-null   float64       
+ 77  FX EXPOSURE PCT NAV            9390 non-null   float64       
+ 78  PREVIOUS PROFIT                9390 non-null   float64       
+ 79  PREVIOUS DAY PRICE             9390 non-null   float64       
+ 80  ACCRUED INTEREST               9416 non-null   float64       
+ 81  ANNUALIZED INCOME              9416 non-null   float64       
+ 82  BBG MTD YIELD CHANGE           9390 non-null   float64       
+dtypes: datetime64[ns](3), float64(59), object(21)
+memory usage: 11.9+ MB
+
+[2025-07-19 09:26:07,895] WARNING: Removed 39 rows with missing SECURITY
+[2025-07-19 09:26:07,895] INFO: Dropping 32 columns: ['BBG YIELD SPREAD', 'CURRENT YIELD', 'BBG 1D CHANGE', 'CHANGE', 'CHANGE PCT', 'CHANGE BPS NAV', 'INDUSTRY', 'SECTOR', 'OWNER', 'DAY PROFIT', 'AVERAGE PRICE', 'PROFIT', 'REALIZED', 'UNREALIZED', 'TOTAL COST SETTLE CCY', 'TOTAL COST', 'COST PCT NAV', 'INTEREST', 'REALIZED SETTLE CCY', 'PAID INTEREST LOCAL CCY', 'PAID INTEREST', 'UNREALIZED SETTLE CCY', 'FX EXPOSURE LOCAL CCY', 'FX EXPOSURE DISPLAY CCY', 'FX EXPOSURE PCT NAV', 'PREVIOUS PROFIT', 'PREVIOUS DAY PRICE', 'ACCRUED INTEREST', 'ANNUALIZED INCOME', 'BBG MTD YIELD CHANGE', 'Unnamed: 0', 'Unnamed: 1']
+[2025-07-19 09:26:07,895] INFO: Applying CUSIP mappings...
+[2025-07-19 09:26:07,895] DEBUG: No CDX rows found
+[2025-07-19 09:26:07,895] INFO: Applied CASH_CAD mapping to 166 rows
+[2025-07-19 09:26:07,895] INFO: Applied CASH_USD mapping to 62 rows
+[2025-07-19 09:26:07,907] DEBUG: Converted CUSIP column to string type
+[2025-07-19 09:26:07,907] INFO: Date column validated. Type: datetime64[ns]
+[2025-07-19 09:26:07,908] INFO: Date coverage: 14 unique dates
+[2025-07-19 09:26:07,908] INFO: Date range: 2023-12-29 to 2025-06-30
+[2025-07-19 09:26:07,909] INFO: Records per date: min=1190, max=1830, avg=1341.4
+[2025-07-19 09:26:07,915] DEBUG: Reordered columns with Date first
+[2025-07-19 09:26:07,915] INFO: Data cleaning complete:
+[2025-07-19 09:26:07,915] INFO:   Initial rows: 18819
+[2025-07-19 09:26:07,915] INFO:   Final rows: 18780
+[2025-07-19 09:26:07,915] INFO:   Rows removed: 39
+[2025-07-19 09:26:07,915] INFO:   Final columns: 51
+[2025-07-19 09:26:07,915] INFO: Running data validation and quality analysis...
+[2025-07-19 09:26:07,971] INFO: [OK] All data validation checks passed
+[2025-07-19 09:26:07,973] INFO: 
+=========================
+=== DATA QUALITY REPORT ===
+=========================
+
+--- Null Value Analysis (Top 5) ---
+  - SECURITY CLASSIFICATION: 10988.0 nulls (58.51%)
+  - Duration Calc (Corps): 8454.0 nulls (45.02%)
+  - Yrs Calc (Corps): 8454.0 nulls (45.02%)
+  - Duration Calc (Corps + CDX): 8396.0 nulls (44.71%)
+  - Yrs Calc (Corps + CDX): 8396.0 nulls (44.71%)
+
+--- Statistical Summary (Numeric Columns) ---
+                            count               mean                std              min             25%             50%                75%                max
+MODIFIED DURATION       18,780.00               2.57               2.39             0.00            0.80            2.17               3.87              20.32
+QUANTITY                18,780.00       1,155,928.73      14,501,110.89  -282,864,924.53   -3,250,000.00    1,275,000.00       4,975,000.00     198,682,669.00
+PRICE                   18,780.00              97.59              14.38            -2.39           98.20          100.00             101.65             112.51
+YIELD TO MAT            18,780.00               3.52               1.20             0.00            2.93            3.38               3.96              16.87
+POSITION CR01           18,780.00             429.57           4,491.01      -127,326.79            0.00           21.48             876.36          33,733.88
+VALUE PCT NAV           18,780.00               0.00               0.06            -1.12           -0.01            0.00               0.02               0.99
+POSITION PVBP           18,780.00              36.87           1,949.90       -22,495.84         -754.47           15.55             794.10          22,697.89
+VALUE                   18,780.00         935,149.05      12,960,878.05  -282,864,924.53   -3,285,869.70    1,347,207.57       4,982,491.73     108,160,498.36
+COUPON                  18,780.00               3.05               1.86             0.00            1.25            3.44               4.35               8.85
+SECURITY PVBP           18,780.00               2.56               2.35             0.00            0.78            2.19               3.98              18.64
+SECURITY CR01           18,780.00               1.36               2.23            -4.66            0.00            0.05               2.33              17.73
+PCT OF OUTSTANDING      18,780.00               0.01               0.02            -0.01           -0.00            0.00               0.01               0.30
+FACE VALUE OUTSTANDING  18,780.00  10,877,795,630.14  14,092,054,547.44             0.00  200,000,000.00  600,000,000.00  20,000,000,000.00  51,816,529,000.00
+
+--- Categorical Value Distribution (Sample) ---
+  - Column 'SECURITY':
+    'CAN 1 09/01/26': 792 (4.22%)
+    'CAN 3.25 09/01/28': 662 (3.53%)
+    'CAN 2.75 09/01/27': 656 (3.49%)
+  - Column 'SECURITY TYPE':
+    'Bond': 8374 (44.59%)
+    'GovtBond': 7988 (42.53%)
+    'FixedFloatingDebt': 1570 (8.36%)
+  - Column 'UNDERLYING SECURITY':
+    'CAN 1 09/01/26': 1604 (8.54%)
+    'CAN 3.25 09/01/28': 1324 (7.05%)
+    'CAN 2.75 09/01/27': 1260 (6.71%)
+[2025-07-19 09:26:07,990] INFO: 
+=========================
+=== FINAL DATA SNAPSHOT ===
+=========================
+Total Rows: 18780
+Total Columns: 51
+Memory Usage: 26.17 MB
+
+--- DataFrame Info ---
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 18780 entries, 0 to 18815
+Columns: 51 entries, Date to Funding Cost
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.5+ MB
+
+[2025-07-19 09:26:07,990] INFO: --- Processing Complete ---
+[2025-07-19 09:26:07,990] INFO: Final DataFrame Shape: (18780, 51)
+[2025-07-19 09:26:07,990] INFO: 
+=========================
+[2025-07-19 09:26:07,990] INFO: === DATE COVERAGE ANALYSIS ===
+[2025-07-19 09:26:07,990] INFO: =========================
+[2025-07-19 09:26:07,990] INFO: Total unique dates: 14
+[2025-07-19 09:26:07,990] INFO: Date column dtype: datetime64[ns]
+[2025-07-19 09:26:07,990] INFO: Date range: 2023-12-29 to 2025-06-30
+[2025-07-19 09:26:07,990] INFO: Time span: 549 days (1.5 years)
+[2025-07-19 09:26:08,000] INFO: 
+Year distribution:
+[2025-07-19 09:26:08,000] INFO:   - 2023: 1830 records
+[2025-07-19 09:26:08,000] INFO:   - 2024: 5306 records
+[2025-07-19 09:26:08,000] INFO:   - 2025: 11644 records
+[2025-07-19 09:26:08,011] INFO: 
+Business day analysis:
+[2025-07-19 09:26:08,011] INFO:   - Business days: 18780 (100.0%)
+[2025-07-19 09:26:08,011] INFO:   - Weekend days: 0 (0.0%)
+[2025-07-19 09:26:08,011] INFO: 
+Sample dates:
+[2025-07-19 09:26:08,011] INFO:   - 2023-12-29 (Fri): 1830 records
+[2025-07-19 09:26:08,011] INFO:   - 2024-07-09 (Tue): 1190 records
+[2025-07-19 09:26:08,011] INFO:   - 2024-12-04 (Wed): 1394 records
+[2025-07-19 09:26:08,011] INFO:   - 2024-12-18 (Wed): 1396 records
+[2025-07-19 09:26:08,011] INFO:   - 2024-12-20 (Fri): 1326 records
+[2025-07-19 09:26:08,011] INFO:   ... (4 more dates) ...
+[2025-07-19 09:26:08,011] INFO:   - 2025-06-10 (Tue): 1280 records
+[2025-07-19 09:26:08,011] INFO:   - 2025-06-13 (Fri): 1286 records
+[2025-07-19 09:26:08,011] INFO:   - 2025-06-19 (Thu): 1308 records
+[2025-07-19 09:26:08,011] INFO:   - 2025-06-26 (Thu): 1328 records
+[2025-07-19 09:26:08,011] INFO:   - 2025-06-30 (Mon): 1308 records
+[2025-07-19 09:26:08,011] INFO: 
+=== END DATE ANALYSIS ===
+
+[2025-07-19 09:26:08,032] INFO: DataFrame info before saving to Parquet:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 18780 entries, 0 to 18815
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.5+ MB
+
+[2025-07-19 09:26:08,094] INFO: Successfully saved 18780 rows to 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet'
+[2025-07-19 09:26:08,094] INFO: Updated processing state with 14 files
+[2025-07-19 09:26:08,094] INFO: Portfolio processing pipeline completed successfully
+[2025-07-19 09:26:08,105] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 09:26:08,482] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 09:26:08,482] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 09:37:11,239] INFO: Starting portfolio processing pipeline...
+[2025-07-19 09:37:11,239] INFO: Starting portfolio processing pipeline...
+[2025-07-19 09:37:11,250] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 09:37:11,250] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 09:37:11,250] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 09:37:11,250] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 09:37:11,251] DEBUG: Loaded processing state with 14 files
+[2025-07-19 09:37:11,252] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 09:37:11,252] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,252] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,252] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,252] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,252] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,252] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,252] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,252] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,253] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,253] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,253] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,253] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,253] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,253] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 09:37:11,253] INFO: Identified 0 files for processing
+[2025-07-19 09:37:11,253] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 09:37:11,350] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 09:37:11,373] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 09:37:11,375] INFO: 
+=========================
+[2025-07-19 09:37:11,375] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 09:37:11,375] INFO: =========================
+[2025-07-19 09:37:11,375] INFO: Total unique dates in existing data: 14
+[2025-07-19 09:37:11,375] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 09:37:11,375] INFO: Existing dates in Parquet:
+[2025-07-19 09:37:11,375] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 09:37:11,375] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 09:37:11,375] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 09:37:11,376] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 09:37:11,376] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 09:37:11,376] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 09:37:11,376] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 09:37:11,377] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 09:37:11,378] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 09:37:11,378] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 09:37:11,378] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 09:37:11,378] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 09:37:11,379] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 09:37:11,379] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 09:37:11,379] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 09:37:11,379] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 09:37:11,787] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 09:37:11,791] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:12:23,634] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:12:23,634] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:12:23,644] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:12:23,644] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:12:23,644] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:12:23,644] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:12:23,644] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:12:23,644] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:12:23,644] INFO: Identified 0 files for processing
+[2025-07-19 10:12:23,644] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:12:23,727] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:12:23,759] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:12:23,759] INFO: 
+=========================
+[2025-07-19 10:12:23,759] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:12:23,759] INFO: =========================
+[2025-07-19 10:12:23,759] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:12:23,759] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:12:23,759] INFO: Existing dates in Parquet:
+[2025-07-19 10:12:23,759] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:12:23,759] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:12:23,759] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:12:23,769] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:12:23,769] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:12:23,769] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:12:23,769] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:12:23,769] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:12:23,769] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:12:23,769] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:12:23,769] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:12:23,769] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:12:23,769] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:12:23,769] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:12:23,769] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:12:23,769] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:12:24,150] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:12:24,150] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:23:17,043] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:23:17,043] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:23:17,050] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:23:17,050] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:23:17,050] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:23:17,050] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:23:17,051] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:23:17,051] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:23:17,051] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,052] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,053] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,053] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,053] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:23:17,053] INFO: Identified 0 files for processing
+[2025-07-19 10:23:17,053] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:23:17,149] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:23:17,172] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:23:17,174] INFO: 
+=========================
+[2025-07-19 10:23:17,174] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:23:17,174] INFO: =========================
+[2025-07-19 10:23:17,174] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:23:17,174] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:23:17,174] INFO: Existing dates in Parquet:
+[2025-07-19 10:23:17,174] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:23:17,174] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:23:17,175] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:23:17,175] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:23:17,175] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:23:17,175] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:23:17,176] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:23:17,176] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:23:17,176] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:23:17,176] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:23:17,177] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:23:17,177] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:23:17,177] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:23:17,177] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:23:17,177] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:23:17,177] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:23:17,569] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:23:17,573] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:24:33,277] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:24:33,277] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:24:33,286] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:24:33,286] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:24:33,286] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:24:33,286] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:24:33,288] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:24:33,289] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:24:33,289] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,289] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,290] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,290] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,290] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,290] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,291] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,291] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,292] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,292] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,292] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,292] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,292] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,292] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:24:33,292] INFO: Identified 0 files for processing
+[2025-07-19 10:24:33,292] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:24:33,378] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:24:33,401] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:24:33,402] INFO: 
+=========================
+[2025-07-19 10:24:33,402] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:24:33,402] INFO: =========================
+[2025-07-19 10:24:33,402] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:24:33,402] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:24:33,402] INFO: Existing dates in Parquet:
+[2025-07-19 10:24:33,403] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:24:33,403] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:24:33,403] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:24:33,404] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:24:33,404] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:24:33,404] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:24:33,404] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:24:33,405] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:24:33,405] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:24:33,405] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:24:33,405] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:24:33,405] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:24:33,406] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:24:33,406] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:24:33,406] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:24:33,406] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:24:33,781] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:24:33,784] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:25:38,111] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:25:38,111] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:25:38,119] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:25:38,119] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:25:38,119] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:25:38,119] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:25:38,119] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:25:38,119] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:25:38,119] INFO: Identified 0 files for processing
+[2025-07-19 10:25:38,119] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:25:38,203] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:25:38,228] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:25:38,228] INFO: 
+=========================
+[2025-07-19 10:25:38,228] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:25:38,228] INFO: =========================
+[2025-07-19 10:25:38,228] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:25:38,228] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:25:38,228] INFO: Existing dates in Parquet:
+[2025-07-19 10:25:38,228] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:25:38,228] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:25:38,234] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:25:38,234] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:25:38,234] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:25:38,234] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:25:38,234] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:25:38,234] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:25:38,234] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:25:38,234] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:25:38,234] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:25:38,234] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:25:38,234] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:25:38,234] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:25:38,234] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:25:38,234] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:25:38,617] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:25:38,617] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:26:12,899] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:26:12,899] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:26:12,910] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:26:12,910] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:26:12,910] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:26:12,910] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:26:12,910] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:26:12,910] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:26:12,910] INFO: Identified 0 files for processing
+[2025-07-19 10:26:12,910] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:26:12,993] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:26:13,023] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:26:13,023] INFO: 
+=========================
+[2025-07-19 10:26:13,023] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:26:13,023] INFO: =========================
+[2025-07-19 10:26:13,023] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:26:13,023] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:26:13,023] INFO: Existing dates in Parquet:
+[2025-07-19 10:26:13,023] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:26:13,023] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:26:13,023] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:26:13,023] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:26:13,023] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:26:13,023] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:26:13,023] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:26:13,023] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:26:13,023] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:26:13,023] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:26:13,023] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:26:13,023] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:26:13,023] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:26:13,023] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:26:13,023] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:26:13,023] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:26:13,413] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:26:13,420] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:30:23,554] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:30:23,554] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:30:23,565] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:30:23,565] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:30:23,565] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:30:23,565] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:30:23,566] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:30:23,566] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:30:23,566] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,566] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,567] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,567] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,567] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,567] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,567] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,567] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,567] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,567] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,567] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,568] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,568] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,568] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:30:23,568] INFO: Identified 0 files for processing
+[2025-07-19 10:30:23,568] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:30:23,651] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:30:23,683] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:30:23,683] INFO: 
+=========================
+[2025-07-19 10:30:23,683] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:30:23,683] INFO: =========================
+[2025-07-19 10:30:23,683] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:30:23,683] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:30:23,683] INFO: Existing dates in Parquet:
+[2025-07-19 10:30:23,683] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:30:23,683] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:30:23,683] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:30:23,683] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:30:23,683] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:30:23,683] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:30:23,683] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:30:23,683] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:30:23,683] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:30:23,689] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:30:23,689] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:30:23,689] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:30:23,689] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:30:23,689] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:30:23,689] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:30:23,689] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:30:24,088] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:30:24,095] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:31:05,319] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:31:05,319] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:31:05,327] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:31:05,327] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:31:05,327] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:31:05,327] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:31:05,328] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:31:05,329] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:31:05,329] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,329] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,329] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,329] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,329] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,329] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,329] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,329] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,329] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,330] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,330] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,330] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,330] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,330] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:31:05,330] INFO: Identified 0 files for processing
+[2025-07-19 10:31:05,330] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:31:05,426] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:31:05,449] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:31:05,449] INFO: 
+=========================
+[2025-07-19 10:31:05,450] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:31:05,450] INFO: =========================
+[2025-07-19 10:31:05,450] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:31:05,450] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:31:05,450] INFO: Existing dates in Parquet:
+[2025-07-19 10:31:05,450] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:31:05,450] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:31:05,451] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:31:05,451] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:31:05,451] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:31:05,451] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:31:05,451] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:31:05,452] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:31:05,452] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:31:05,452] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:31:05,452] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:31:05,453] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:31:05,453] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:31:05,453] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:31:05,453] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:31:05,453] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:31:05,842] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:31:05,846] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:34:15,702] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:34:15,702] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:34:15,703] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:34:15,703] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:34:15,703] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:34:15,703] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:34:15,711] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:34:15,711] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:34:15,711] INFO: Identified 0 files for processing
+[2025-07-19 10:34:15,711] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:34:15,809] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:34:15,832] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:34:15,833] INFO: 
+=========================
+[2025-07-19 10:34:15,833] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:34:15,833] INFO: =========================
+[2025-07-19 10:34:15,833] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:34:15,833] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:34:15,833] INFO: Existing dates in Parquet:
+[2025-07-19 10:34:15,834] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:34:15,835] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:34:15,835] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:34:15,835] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:34:15,836] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:34:15,836] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:34:15,836] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:34:15,836] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:34:15,837] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:34:15,837] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:34:15,837] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:34:15,837] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:34:15,837] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:34:15,838] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:34:15,838] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:34:15,838] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:34:16,231] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:34:16,236] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:36:39,887] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:36:39,888] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:36:39,892] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:36:39,896] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:36:39,896] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:36:39,896] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:36:39,897] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:36:39,898] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:36:39,898] INFO: Identified 0 files for processing
+[2025-07-19 10:36:39,898] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:36:39,991] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:36:40,016] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:36:40,016] INFO: 
+=========================
+[2025-07-19 10:36:40,017] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:36:40,017] INFO: =========================
+[2025-07-19 10:36:40,017] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:36:40,017] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:36:40,017] INFO: Existing dates in Parquet:
+[2025-07-19 10:36:40,017] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:36:40,017] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:36:40,018] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:36:40,018] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:36:40,018] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:36:40,018] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:36:40,019] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:36:40,019] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:36:40,019] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:36:40,019] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:36:40,019] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:36:40,020] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:36:40,020] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:36:40,020] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:36:40,020] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:36:40,020] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:36:40,412] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:36:40,416] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:37:18,400] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:37:18,400] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:37:18,411] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:37:18,411] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:37:18,411] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:37:18,411] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:37:18,411] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:37:18,411] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:37:18,411] INFO: Identified 0 files for processing
+[2025-07-19 10:37:18,411] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:37:18,496] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:37:18,524] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:37:18,525] INFO: 
+=========================
+[2025-07-19 10:37:18,525] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:37:18,525] INFO: =========================
+[2025-07-19 10:37:18,525] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:37:18,525] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:37:18,525] INFO: Existing dates in Parquet:
+[2025-07-19 10:37:18,526] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:37:18,526] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:37:18,526] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:37:18,527] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:37:18,527] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:37:18,527] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:37:18,527] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:37:18,528] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:37:18,528] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:37:18,528] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:37:18,528] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:37:18,528] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:37:18,529] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:37:18,529] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:37:18,529] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:37:18,529] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:37:18,903] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:37:18,903] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:47:29,819] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:47:29,819] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:47:29,829] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:47:29,829] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:47:29,829] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:47:29,829] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:47:29,829] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:47:29,829] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:47:29,829] INFO: Identified 0 files for processing
+[2025-07-19 10:47:29,829] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:47:29,912] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:47:29,933] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:47:29,933] INFO: 
+=========================
+[2025-07-19 10:47:29,933] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:47:29,933] INFO: =========================
+[2025-07-19 10:47:29,933] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:47:29,933] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:47:29,933] INFO: Existing dates in Parquet:
+[2025-07-19 10:47:29,933] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:47:29,933] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:47:29,933] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:47:29,933] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:47:29,933] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:47:29,933] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:47:29,933] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:47:29,933] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:47:29,933] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:47:29,933] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:47:29,933] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:47:29,933] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:47:29,933] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:47:29,933] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:47:29,933] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:47:29,933] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:47:30,337] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:47:30,337] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:47:37,412] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:47:37,412] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:47:37,421] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:47:37,421] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:47:37,421] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:47:37,421] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:47:37,421] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:47:37,421] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:47:37,421] INFO: Identified 0 files for processing
+[2025-07-19 10:47:37,421] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:47:37,519] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:47:37,540] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:47:37,540] INFO: 
+=========================
+[2025-07-19 10:47:37,540] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:47:37,540] INFO: =========================
+[2025-07-19 10:47:37,540] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:47:37,540] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:47:37,540] INFO: Existing dates in Parquet:
+[2025-07-19 10:47:37,540] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:47:37,540] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:47:37,540] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:47:37,540] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:47:37,540] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:47:37,540] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:47:37,540] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:47:37,540] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:47:37,540] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:47:37,540] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:47:37,540] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:47:37,540] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:47:37,540] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:47:37,540] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:47:37,540] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:47:37,550] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:47:37,938] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:47:37,938] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:52:38,428] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:52:38,428] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:52:38,430] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:52:38,430] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:52:38,430] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:52:38,430] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:52:38,430] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:52:38,430] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:52:38,430] INFO: Identified 0 files for processing
+[2025-07-19 10:52:38,430] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:52:38,524] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:52:38,545] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:52:38,545] INFO: 
+=========================
+[2025-07-19 10:52:38,545] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:52:38,545] INFO: =========================
+[2025-07-19 10:52:38,545] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:52:38,545] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:52:38,545] INFO: Existing dates in Parquet:
+[2025-07-19 10:52:38,545] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:52:38,545] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:52:38,545] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:52:38,545] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:52:38,545] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:52:38,545] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:52:38,545] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:52:38,545] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:52:38,545] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:52:38,545] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:52:38,545] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:52:38,545] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:52:38,545] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:52:38,545] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:52:38,545] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:52:38,545] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:52:38,946] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:52:38,950] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 10:58:53,213] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:58:53,213] INFO: Starting portfolio processing pipeline...
+[2025-07-19 10:58:53,220] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 10:58:53,220] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:58:53,220] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 10:58:53,220] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 10:58:53,221] DEBUG: Loaded processing state with 14 files
+[2025-07-19 10:58:53,221] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 10:58:53,221] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,222] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,223] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,223] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 10:58:53,223] INFO: Identified 0 files for processing
+[2025-07-19 10:58:53,223] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 10:58:53,306] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 10:58:53,330] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 10:58:53,331] INFO: 
+=========================
+[2025-07-19 10:58:53,331] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 10:58:53,331] INFO: =========================
+[2025-07-19 10:58:53,331] INFO: Total unique dates in existing data: 14
+[2025-07-19 10:58:53,331] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 10:58:53,331] INFO: Existing dates in Parquet:
+[2025-07-19 10:58:53,332] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 10:58:53,332] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 10:58:53,332] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 10:58:53,332] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 10:58:53,333] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 10:58:53,333] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 10:58:53,333] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 10:58:53,333] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 10:58:53,334] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 10:58:53,334] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 10:58:53,334] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 10:58:53,334] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 10:58:53,335] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 10:58:53,335] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 10:58:53,335] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 10:58:53,335] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 10:58:53,715] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 10:58:53,718] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows
+[2025-07-19 11:16:48,876] INFO: Starting portfolio processing pipeline...
+[2025-07-19 11:16:48,876] INFO: Starting portfolio processing pipeline...
+[2025-07-19 11:16:48,876] DEBUG: Loaded portfolio processor configuration
+[2025-07-19 11:16:48,876] INFO: Raw data path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 11:16:48,876] INFO: Output Parquet path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\portfolio.parquet
+[2025-07-19 11:16:48,876] INFO: State file path: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processing_state.json
+[2025-07-19 11:16:48,876] DEBUG: Loaded processing state with 14 files
+[2025-07-19 11:16:48,886] INFO: Found 14 Excel files in C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\raw data
+[2025-07-19 11:16:48,886] DEBUG: Skipping 'Aggies 01.02.25.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,886] DEBUG: Skipping 'Aggies 02.25.25.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 05.09.25.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 06.06.25.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 06.10.25.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 06.13.25.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 06.19.25.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 06.26.25.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 06.30.25.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 07.09.24.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 12.04.24.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 12.18.24.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 12.20.24.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] DEBUG: Skipping 'Aggies 12.29.23.xlsx' - already processed and unchanged
+[2025-07-19 11:16:48,887] INFO: Identified 0 files for processing
+[2025-07-19 11:16:48,887] INFO: Found existing Parquet file. Loading for incremental processing...
+[2025-07-19 11:16:48,973] INFO: Loaded existing data: 18780 rows, 51 columns
+[2025-07-19 11:16:48,993] INFO: DataFrame info after loading from Parquet:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 18780 entries, 0 to 18779
+Data columns (total 51 columns):
+ #   Column                         Non-Null Count  Dtype         
+---  ------                         --------------  -----         
+ 0   Date                           18780 non-null  datetime64[ns]
+ 1   SECURITY                       18780 non-null  object        
+ 2   SECURITY TYPE                  18780 non-null  object        
+ 3   MODIFIED DURATION              18780 non-null  float64       
+ 4   QUANTITY                       18780 non-null  float64       
+ 5   PRICE                          18780 non-null  float64       
+ 6   YIELD TO MAT                   18780 non-null  float64       
+ 7   UNDERLYING SECURITY            18780 non-null  object        
+ 8   POSITION CR01                  18780 non-null  float64       
+ 9   VALUE PCT NAV                  18780 non-null  float64       
+ 10  POSITION PVBP                  18780 non-null  float64       
+ 11  ACCOUNT                        18780 non-null  object        
+ 12  PORTFOLIO                      18780 non-null  object        
+ 13  MATURITY DATE                  18780 non-null  datetime64[ns]
+ 14  UNDERLYING CUSIP               18552 non-null  object        
+ 15  VALUE                          18780 non-null  float64       
+ 16  TRADE GROUP                    18504 non-null  object        
+ 17  STRATEGY                       18552 non-null  object        
+ 18  CURRENCY                       18780 non-null  object        
+ 19  COMPANY SYMBOL                 18772 non-null  object        
+ 20  CUSIP                          18780 non-null  object        
+ 21  ISIN                           18098 non-null  object        
+ 22  MATURITY BUCKET                18392 non-null  object        
+ 23  COUPON                         18780 non-null  float64       
+ 24  SECURITY PVBP                  18780 non-null  float64       
+ 25  SECURITY CR01                  18780 non-null  float64       
+ 26  CREDIT RATING                  18520 non-null  object        
+ 27  SECURITY CLASSIFICATION        7792 non-null   object        
+ 28  UNDERLYING ISIN                18410 non-null  object        
+ 29  BENCHMARK MATURITY DATE        18780 non-null  datetime64[ns]
+ 30  PCT OF OUTSTANDING             18780 non-null  float64       
+ 31  FACE VALUE OUTSTANDING         18780 non-null  float64       
+ 32  CDS Adj Size (Calc)            18780 non-null  float64       
+ 33  Yield                          18780 non-null  float64       
+ 34  Yield CAD Fee Included         18716 non-null  float64       
+ 35  Fuding Status                  18780 non-null  object        
+ 36  TradeGroup Fixed               18774 non-null  object        
+ 37  Benchmark Yield                10722 non-null  float64       
+ 38  Benchmark Yield Including Fee  10726 non-null  float64       
+ 39  Sprd Calculated                10744 non-null  float64       
+ 40  Sprd Funding Adjusted          10744 non-null  float64       
+ 41  OAS (Bloomberg)                10764 non-null  float64       
+ 42  OAS Fund Adj(Bloomberg)        10764 non-null  float64       
+ 43  Yrs Calc                       18780 non-null  float64       
+ 44  Duration Calc                  18780 non-null  float64       
+ 45  OAD Calc                       18780 non-null  float64       
+ 46  Yrs Calc (Corps)               10326 non-null  float64       
+ 47  Yrs Calc (Corps + CDX)         10384 non-null  float64       
+ 48  Duration Calc (Corps)          10326 non-null  float64       
+ 49  Duration Calc (Corps + CDX)    10384 non-null  float64       
+ 50  Funding Cost                   15696 non-null  float64       
+dtypes: datetime64[ns](3), float64(30), object(18)
+memory usage: 7.3+ MB
+
+[2025-07-19 11:16:48,993] INFO: 
+=========================
+[2025-07-19 11:16:48,993] INFO: === EXISTING DATE COVERAGE ===
+[2025-07-19 11:16:48,993] INFO: =========================
+[2025-07-19 11:16:48,993] INFO: Total unique dates in existing data: 14
+[2025-07-19 11:16:48,993] INFO: Existing date range: 2023-12-29T00:00:00.000000000 to 2025-06-30T00:00:00.000000000
+[2025-07-19 11:16:48,993] INFO: Existing dates in Parquet:
+[2025-07-19 11:16:48,993] INFO:   - 2023-12-29: 1830 records
+[2025-07-19 11:16:48,993] INFO:   - 2024-07-09: 1190 records
+[2025-07-19 11:16:48,993] INFO:   - 2024-12-04: 1394 records
+[2025-07-19 11:16:48,993] INFO:   - 2024-12-18: 1396 records
+[2025-07-19 11:16:48,993] INFO:   - 2024-12-20: 1326 records
+[2025-07-19 11:16:48,993] INFO:   - 2025-01-02: 1304 records
+[2025-07-19 11:16:48,993] INFO:   - 2025-02-25: 1224 records
+[2025-07-19 11:16:48,993] INFO:   - 2025-05-09: 1322 records
+[2025-07-19 11:16:48,993] INFO:   - 2025-06-06: 1284 records
+[2025-07-19 11:16:48,993] INFO:   - 2025-06-10: 1280 records
+[2025-07-19 11:16:48,993] INFO:   - 2025-06-13: 1286 records
+[2025-07-19 11:16:48,993] INFO:   - 2025-06-19: 1308 records
+[2025-07-19 11:16:48,993] INFO:   - 2025-06-26: 1328 records
+[2025-07-19 11:16:48,993] INFO:   - 2025-06-30: 1308 records
+[2025-07-19 11:16:48,993] INFO: No new or modified files to process. The Parquet file is up-to-date.
+[2025-07-19 11:16:48,993] INFO: Portfolio processing pipeline finished successfully.
+[2025-07-19 11:16:49,369] INFO: Exported processed data to CSV at 'C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\portfolio\processed data\portfolio.csv'.
+[2025-07-19 11:16:49,369] INFO: Analysis: Found 0 rows with blank CUSIP out of 18780 total rows

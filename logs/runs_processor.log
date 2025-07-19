@@ -1372,3 +1372,1727 @@ Found 0 new or modified files to process.
 [2025-07-04 16:54:12,877] INFO: No processing needed - using existing data.
 [2025-07-04 16:54:12,878] INFO: 
 ===== Pipeline Complete (No New Data): 2025-07-04 16:54:12.878374 =====
+[2025-07-19 09:26:27,708] INFO: 
+===== Starting Data Pipeline: 2025-07-19 09:26:27.708958 =====
+[2025-07-19 09:26:27,708] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 09:26:27,710] INFO: Last processed date: 2025-07-04
+[2025-07-19 09:26:27,710] INFO: Found 22 Excel files.
+[2025-07-19 09:26:27,710] INFO: 
+Checking file modification dates:
+[2025-07-19 09:26:27,710] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 09:26:27,710] INFO: 
+Found 22 new or modified files to process.
+[2025-07-19 09:26:27,710] INFO: Loading files in parallel with 20 workers...
+[2025-07-19 09:26:51,826] INFO: Loaded RUNS 01.03.25.xlsx: shape=(8911, 30)
+[2025-07-19 09:26:51,826] INFO: Parsing date/time columns for RUNS 01.03.25.xlsx
+[2025-07-19 09:26:51,846] INFO:   Original Date column type: object
+[2025-07-19 09:26:52,013] INFO:   Successfully parsed 8911 dates using format '%m/%d/%y'
+[2025-07-19 09:26:52,160] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:26:52,202] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:26:52,202] INFO:   Original Time column type: object
+[2025-07-19 09:26:52,383] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:26:52,642] INFO:   Final Time column type: object
+[2025-07-19 09:26:52,642] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:26:57,229] INFO: Loaded RUNS 11.01.23.xlsx: shape=(11624, 30)
+[2025-07-19 09:26:57,282] INFO: Parsing date/time columns for RUNS 11.01.23.xlsx
+[2025-07-19 09:26:57,324] INFO:   Original Date column type: object
+[2025-07-19 09:26:57,524] INFO:   Successfully parsed 11624 dates using format '%m/%d/%y'
+[2025-07-19 09:26:57,874] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:26:57,904] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:26:57,925] INFO:   Original Time column type: object
+[2025-07-19 09:26:58,207] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:26:58,322] INFO:   Final Time column type: object
+[2025-07-19 09:26:58,332] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:00,613] INFO: Loaded RUNS 01.02.25.xlsx: shape=(10401, 30)
+[2025-07-19 09:27:00,624] INFO: Parsing date/time columns for RUNS 01.02.25.xlsx
+[2025-07-19 09:27:00,645] INFO:   Original Date column type: object
+[2025-07-19 09:27:00,728] INFO:   Successfully parsed 10401 dates using format '%m/%d/%y'
+[2025-07-19 09:27:00,886] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:00,960] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:01,011] INFO:   Original Time column type: object
+[2025-07-19 09:27:01,189] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:01,454] INFO: Loaded RUNS 04.01.25.xlsx: shape=(11152, 30)
+[2025-07-19 09:27:01,547] INFO: Parsing date/time columns for RUNS 04.01.25.xlsx
+[2025-07-19 09:27:01,558] INFO:   Original Date column type: object
+[2025-07-19 09:27:01,568] INFO:   Final Time column type: object
+[2025-07-19 09:27:01,694] INFO:   Successfully parsed 11152 dates using format '%m/%d/%y'
+[2025-07-19 09:27:01,715] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:01,809] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:01,872] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:01,896] INFO:   Original Time column type: object
+[2025-07-19 09:27:02,040] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:02,154] INFO:   Final Time column type: object
+[2025-07-19 09:27:02,165] INFO: Loaded RUNS 05.01.25.xlsx: shape=(11238, 30)
+[2025-07-19 09:27:02,228] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:02,237] INFO: Parsing date/time columns for RUNS 05.01.25.xlsx
+[2025-07-19 09:27:02,321] INFO:   Original Date column type: object
+[2025-07-19 09:27:02,782] INFO:   Successfully parsed 11238 dates using format '%m/%d/%y'
+[2025-07-19 09:27:02,824] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:02,856] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:02,889] INFO:   Original Time column type: object
+[2025-07-19 09:27:03,151] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:03,204] INFO:   Final Time column type: object
+[2025-07-19 09:27:03,225] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:04,035] INFO: Loaded RUNS 05.28.25.xlsx: shape=(10811, 30)
+[2025-07-19 09:27:04,046] INFO: Parsing date/time columns for RUNS 05.28.25.xlsx
+[2025-07-19 09:27:04,070] INFO:   Original Date column type: object
+[2025-07-19 09:27:04,317] INFO:   Successfully parsed 10811 dates using format '%m/%d/%y'
+[2025-07-19 09:27:04,416] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:04,444] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:04,465] INFO: Loaded RUNS 12.31.22.xlsx: shape=(2605, 28)
+[2025-07-19 09:27:04,476] INFO:   Original Time column type: object
+[2025-07-19 09:27:04,498] INFO: Parsing date/time columns for RUNS 12.31.22.xlsx
+[2025-07-19 09:27:04,551] INFO:   Original Date column type: object
+[2025-07-19 09:27:04,582] INFO:   Successfully parsed 2605 dates using format '%m/%d/%y'
+[2025-07-19 09:27:04,594] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:04,635] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:04,635] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:04,655] INFO:   Final Time column type: object
+[2025-07-19 09:27:04,676] INFO:   Original Time column type: object
+[2025-07-19 09:27:04,676] INFO: Loaded RUNS 06.30.25.xlsx: shape=(12968, 30)
+[2025-07-19 09:27:04,697] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:04,973] INFO: Parsing date/time columns for RUNS 06.30.25.xlsx
+[2025-07-19 09:27:05,021] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:05,043] INFO:   Original Date column type: object
+[2025-07-19 09:27:05,108] INFO:   Final Time column type: object
+[2025-07-19 09:27:05,128] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:05,170] INFO:   Successfully parsed 12968 dates using format '%m/%d/%y'
+[2025-07-19 09:27:05,254] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:05,275] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:05,307] INFO:   Original Time column type: object
+[2025-07-19 09:27:05,445] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:05,529] INFO:   Final Time column type: object
+[2025-07-19 09:27:05,553] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:05,738] INFO: Loaded RUNS 06.10.25.xlsx: shape=(12615, 30)
+[2025-07-19 09:27:05,781] INFO: Parsing date/time columns for RUNS 06.10.25.xlsx
+[2025-07-19 09:27:05,781] INFO:   Original Date column type: object
+[2025-07-19 09:27:06,139] INFO:   Successfully parsed 12615 dates using format '%m/%d/%y'
+[2025-07-19 09:27:06,202] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:06,223] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:06,244] INFO:   Original Time column type: object
+[2025-07-19 09:27:06,349] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:06,391] INFO:   Final Time column type: object
+[2025-07-19 09:27:06,406] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:06,717] INFO: Loaded RUNS 01.02.24.xlsx: shape=(13856, 30)
+[2025-07-19 09:27:06,728] INFO: Parsing date/time columns for RUNS 01.02.24.xlsx
+[2025-07-19 09:27:06,749] INFO:   Original Date column type: object
+[2025-07-19 09:27:07,099] INFO:   Successfully parsed 13856 dates using format '%m/%d/%y'
+[2025-07-19 09:27:07,225] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:07,236] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:07,256] INFO:   Original Time column type: object
+[2025-07-19 09:27:07,298] INFO: Loaded RUNS 06.13.25.xlsx: shape=(13512, 30)
+[2025-07-19 09:27:07,300] INFO: Parsing date/time columns for RUNS 06.13.25.xlsx
+[2025-07-19 09:27:07,341] INFO:   Original Date column type: object
+[2025-07-19 09:27:07,415] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:07,466] INFO:   Successfully parsed 13512 dates using format '%m/%d/%y'
+[2025-07-19 09:27:07,478] INFO:   Final Time column type: object
+[2025-07-19 09:27:07,509] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:07,551] INFO: Loaded RUNS 05.30.25.xlsx: shape=(13690, 30)
+[2025-07-19 09:27:07,551] INFO: Parsing date/time columns for RUNS 05.30.25.xlsx
+[2025-07-19 09:27:07,561] INFO:   Original Date column type: object
+[2025-07-19 09:27:07,572] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:07,582] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:07,593] INFO:   Original Time column type: object
+[2025-07-19 09:27:07,645] INFO:   Successfully parsed 13690 dates using format '%m/%d/%y'
+[2025-07-19 09:27:07,678] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:07,750] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:07,750] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:07,750] INFO:   Final Time column type: object
+[2025-07-19 09:27:07,761] INFO:   Original Time column type: object
+[2025-07-19 09:27:07,782] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:08,027] INFO: Loaded RUNS 06.12.25.xlsx: shape=(13913, 30)
+[2025-07-19 09:27:08,048] INFO: Parsing date/time columns for RUNS 06.12.25.xlsx
+[2025-07-19 09:27:08,048] INFO:   Original Date column type: object
+[2025-07-19 09:27:08,059] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:08,080] INFO:   Successfully parsed 13913 dates using format '%m/%d/%y'
+[2025-07-19 09:27:08,111] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:08,122] INFO:   Final Time column type: object
+[2025-07-19 09:27:08,132] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:08,153] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:08,153] INFO:   Original Time column type: object
+[2025-07-19 09:27:08,268] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:08,342] INFO:   Final Time column type: object
+[2025-07-19 09:27:08,342] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:08,658] INFO: Loaded RUNS 05.29.25.xlsx: shape=(14783, 30)
+[2025-07-19 09:27:08,691] INFO: Parsing date/time columns for RUNS 05.29.25.xlsx
+[2025-07-19 09:27:08,850] INFO:   Original Date column type: object
+[2025-07-19 09:27:08,941] INFO:   Successfully parsed 14783 dates using format '%m/%d/%y'
+[2025-07-19 09:27:08,983] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:09,001] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:09,032] INFO:   Original Time column type: object
+[2025-07-19 09:27:09,114] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:09,177] INFO:   Final Time column type: object
+[2025-07-19 09:27:09,177] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:09,287] INFO: Loaded RUNS 07.02.25.xlsx: shape=(15059, 30)
+[2025-07-19 09:27:09,293] INFO: Parsing date/time columns for RUNS 07.02.25.xlsx
+[2025-07-19 09:27:09,302] INFO:   Original Date column type: object
+[2025-07-19 09:27:09,335] INFO:   Successfully parsed 15059 dates using format '%m/%d/%y'
+[2025-07-19 09:27:09,367] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:09,377] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:09,377] INFO:   Original Time column type: object
+[2025-07-19 09:27:09,392] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:09,587] INFO: Loaded RUNS 01.13.25.xlsx: shape=(14883, 30)
+[2025-07-19 09:27:09,588] INFO: Parsing date/time columns for RUNS 01.13.25.xlsx
+[2025-07-19 09:27:09,588] INFO:   Final Time column type: object
+[2025-07-19 09:27:09,598] INFO:   Original Date column type: object
+[2025-07-19 09:27:09,629] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:09,703] INFO:   Successfully parsed 14883 dates using format '%m/%d/%y'
+[2025-07-19 09:27:09,746] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:09,746] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:09,757] INFO:   Original Time column type: object
+[2025-07-19 09:27:09,853] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:09,981] INFO:   Final Time column type: object
+[2025-07-19 09:27:09,981] INFO: Loaded RUNS 06.02.25.xlsx: shape=(15900, 30)
+[2025-07-19 09:27:09,981] INFO: Parsing date/time columns for RUNS 06.02.25.xlsx
+[2025-07-19 09:27:09,981] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:09,991] INFO:   Original Date column type: object
+[2025-07-19 09:27:10,002] INFO: Loaded RUNS 01.14.25.xlsx: shape=(15692, 30)
+[2025-07-19 09:27:10,012] INFO: Parsing date/time columns for RUNS 01.14.25.xlsx
+[2025-07-19 09:27:10,012] INFO:   Original Date column type: object
+[2025-07-19 09:27:10,023] INFO:   Successfully parsed 15900 dates using format '%m/%d/%y'
+[2025-07-19 09:27:10,043] INFO:   Successfully parsed 15692 dates using format '%m/%d/%y'
+[2025-07-19 09:27:10,043] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:10,054] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:10,054] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:10,054] INFO:   Original Time column type: object
+[2025-07-19 09:27:10,054] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:10,106] INFO:   Original Time column type: object
+[2025-07-19 09:27:10,107] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:10,116] INFO: Loaded RUNS 06.26.25.xlsx: shape=(13919, 30)
+[2025-07-19 09:27:10,127] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:10,127] INFO: Parsing date/time columns for RUNS 06.26.25.xlsx
+[2025-07-19 09:27:10,127] INFO:   Final Time column type: object
+[2025-07-19 09:27:10,137] INFO:   Final Time column type: object
+[2025-07-19 09:27:10,137] INFO:   Original Date column type: object
+[2025-07-19 09:27:10,148] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:10,158] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:10,200] INFO:   Successfully parsed 13919 dates using format '%m/%d/%y'
+[2025-07-19 09:27:10,210] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:10,211] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:10,211] INFO:   Original Time column type: object
+[2025-07-19 09:27:10,242] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:10,263] INFO:   Final Time column type: object
+[2025-07-19 09:27:10,273] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:10,346] INFO: Loaded RUNS 12.29.23.xlsx: shape=(7645, 30)
+[2025-07-19 09:27:10,351] INFO: Parsing date/time columns for RUNS 12.29.23.xlsx
+[2025-07-19 09:27:10,356] INFO:   Original Date column type: object
+[2025-07-19 09:27:10,358] INFO:   Successfully parsed 7645 dates using format '%m/%d/%y'
+[2025-07-19 09:27:10,379] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:10,379] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:10,379] INFO:   Original Time column type: object
+[2025-07-19 09:27:10,409] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:10,441] INFO:   Final Time column type: object
+[2025-07-19 09:27:10,443] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:10,559] INFO: Loaded RUNS 06.17.25.xlsx: shape=(16854, 30)
+[2025-07-19 09:27:10,569] INFO: Parsing date/time columns for RUNS 06.17.25.xlsx
+[2025-07-19 09:27:10,569] INFO:   Original Date column type: object
+[2025-07-19 09:27:10,580] INFO:   Successfully parsed 16854 dates using format '%m/%d/%y'
+[2025-07-19 09:27:10,580] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:10,580] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:10,580] INFO:   Original Time column type: object
+[2025-07-19 09:27:10,601] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:10,601] INFO:   Final Time column type: object
+[2025-07-19 09:27:10,601] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:10,844] INFO: Loaded RUNS 06.11.25.xlsx: shape=(19142, 30)
+[2025-07-19 09:27:10,844] INFO: Parsing date/time columns for RUNS 06.11.25.xlsx
+[2025-07-19 09:27:10,844] INFO:   Original Date column type: object
+[2025-07-19 09:27:10,844] INFO:   Successfully parsed 19142 dates using format '%m/%d/%y'
+[2025-07-19 09:27:10,844] INFO:   Final Date column type: datetime64[ns]
+[2025-07-19 09:27:10,844] INFO:   NaT (invalid dates) count: 0
+[2025-07-19 09:27:10,844] INFO:   Original Time column type: object
+[2025-07-19 09:27:10,858] INFO:   Successfully parsed times using format '%H:%M'
+[2025-07-19 09:27:10,860] INFO:   Final Time column type: object
+[2025-07-19 09:27:10,860] INFO:   NaN (invalid times) count: 0
+[2025-07-19 09:27:10,861] INFO: Concatenating 22 DataFrames...
+[2025-07-19 09:27:10,934] INFO: 
+===== DataFrame Validation NEW DATA =====
+[2025-07-19 09:27:10,934] INFO: 
+===== DataFrame Validation NEW DATA =====
+[2025-07-19 09:27:10,934] INFO: Shape: (281173, 30)
+[2025-07-19 09:27:10,934] INFO: Shape: (281173, 30)
+[2025-07-19 09:27:10,935] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-19 09:27:10,935] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-19 09:27:10,935] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-19 09:27:10,936] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-19 09:27:11,157] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 281173 entries, 0 to 281172
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     281173 non-null  object        
+ 1   Date                                   281173 non-null  datetime64[ns]
+ 2   Time                                   281173 non-null  object        
+ 3   Bid Workout Risk                       269598 non-null  float64       
+ 4   Ticker                                 281173 non-null  object        
+ 5   Dealer                                 281173 non-null  object        
+ 6   Source                                 281173 non-null  object        
+ 7   Security                               281173 non-null  object        
+ 8   Bid Price                              273338 non-null  float64       
+ 9   Ask Price                              275422 non-null  float64       
+ 10  Bid Spread                             277159 non-null  float64       
+ 11  Ask Spread                             279196 non-null  float64       
+ 12  Benchmark                              280885 non-null  object        
+ 13  Reference Benchmark                    280885 non-null  object        
+ 14  Bid Size                               273030 non-null  float64       
+ 15  Ask Size                               246987 non-null  float64       
+ 16  Sector                                 278568 non-null  object        
+ 17  Bid Yield To Convention                274552 non-null  float64       
+ 18  Ask Yield To Convention                275691 non-null  float64       
+ 19  Bid Discount Margin                    167 non-null     float64       
+ 20  Ask Discount Margin                    196 non-null     float64       
+ 21  CUSIP                                  281173 non-null  object        
+ 22  Sender Name                            281061 non-null  object        
+ 23  Currency                               281173 non-null  object        
+ 24  Subject                                276131 non-null  object        
+ 25  Keyword                                52478 non-null   object        
+ 26  Bid Interpolated Spread to Government  260688 non-null  float64       
+ 27  Ask Interpolated Spread to Government  235126 non-null  float64       
+ 28  Bid Contributed Yield                  98718 non-null   float64       
+ 29  Bid Z-spread                           41359 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 64.4+ MB
+
+[2025-07-19 09:27:11,157] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 281173 entries, 0 to 281172
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     281173 non-null  object        
+ 1   Date                                   281173 non-null  datetime64[ns]
+ 2   Time                                   281173 non-null  object        
+ 3   Bid Workout Risk                       269598 non-null  float64       
+ 4   Ticker                                 281173 non-null  object        
+ 5   Dealer                                 281173 non-null  object        
+ 6   Source                                 281173 non-null  object        
+ 7   Security                               281173 non-null  object        
+ 8   Bid Price                              273338 non-null  float64       
+ 9   Ask Price                              275422 non-null  float64       
+ 10  Bid Spread                             277159 non-null  float64       
+ 11  Ask Spread                             279196 non-null  float64       
+ 12  Benchmark                              280885 non-null  object        
+ 13  Reference Benchmark                    280885 non-null  object        
+ 14  Bid Size                               273030 non-null  float64       
+ 15  Ask Size                               246987 non-null  float64       
+ 16  Sector                                 278568 non-null  object        
+ 17  Bid Yield To Convention                274552 non-null  float64       
+ 18  Ask Yield To Convention                275691 non-null  float64       
+ 19  Bid Discount Margin                    167 non-null     float64       
+ 20  Ask Discount Margin                    196 non-null     float64       
+ 21  CUSIP                                  281173 non-null  object        
+ 22  Sender Name                            281061 non-null  object        
+ 23  Currency                               281173 non-null  object        
+ 24  Subject                                276131 non-null  object        
+ 25  Keyword                                52478 non-null   object        
+ 26  Bid Interpolated Spread to Government  260688 non-null  float64       
+ 27  Ask Interpolated Spread to Government  235126 non-null  float64       
+ 28  Bid Contributed Yield                  98718 non-null   float64       
+ 29  Bid Z-spread                           41359 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 64.4+ MB
+
+[2025-07-19 09:27:11,368] INFO: 
+Null values per column:
+[2025-07-19 09:27:11,368] INFO: 
+Null values per column:
+[2025-07-19 09:27:11,368] INFO: Reference Security: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Reference Security: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Date: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Date: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Time: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Time: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Bid Workout Risk: 11575 (4.12%)
+[2025-07-19 09:27:11,368] INFO: Bid Workout Risk: 11575 (4.12%)
+[2025-07-19 09:27:11,368] INFO: Ticker: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Ticker: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Dealer: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Dealer: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Source: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Source: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Security: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Security: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Bid Price: 7835 (2.79%)
+[2025-07-19 09:27:11,368] INFO: Bid Price: 7835 (2.79%)
+[2025-07-19 09:27:11,368] INFO: Ask Price: 5751 (2.05%)
+[2025-07-19 09:27:11,368] INFO: Ask Price: 5751 (2.05%)
+[2025-07-19 09:27:11,368] INFO: Bid Spread: 4014 (1.43%)
+[2025-07-19 09:27:11,368] INFO: Bid Spread: 4014 (1.43%)
+[2025-07-19 09:27:11,368] INFO: Ask Spread: 1977 (0.70%)
+[2025-07-19 09:27:11,368] INFO: Ask Spread: 1977 (0.70%)
+[2025-07-19 09:27:11,368] INFO: Benchmark: 288 (0.10%)
+[2025-07-19 09:27:11,368] INFO: Benchmark: 288 (0.10%)
+[2025-07-19 09:27:11,368] INFO: Reference Benchmark: 288 (0.10%)
+[2025-07-19 09:27:11,368] INFO: Reference Benchmark: 288 (0.10%)
+[2025-07-19 09:27:11,368] INFO: Bid Size: 8143 (2.90%)
+[2025-07-19 09:27:11,368] INFO: Bid Size: 8143 (2.90%)
+[2025-07-19 09:27:11,368] INFO: Ask Size: 34186 (12.16%)
+[2025-07-19 09:27:11,368] INFO: Ask Size: 34186 (12.16%)
+[2025-07-19 09:27:11,368] INFO: Sector: 2605 (0.93%)
+[2025-07-19 09:27:11,368] INFO: Sector: 2605 (0.93%)
+[2025-07-19 09:27:11,368] INFO: Bid Yield To Convention: 6621 (2.35%)
+[2025-07-19 09:27:11,368] INFO: Bid Yield To Convention: 6621 (2.35%)
+[2025-07-19 09:27:11,368] INFO: Ask Yield To Convention: 5482 (1.95%)
+[2025-07-19 09:27:11,368] INFO: Ask Yield To Convention: 5482 (1.95%)
+[2025-07-19 09:27:11,368] INFO: Bid Discount Margin: 281006 (99.94%)
+[2025-07-19 09:27:11,368] INFO: Bid Discount Margin: 281006 (99.94%)
+[2025-07-19 09:27:11,368] INFO: Ask Discount Margin: 280977 (99.93%)
+[2025-07-19 09:27:11,368] INFO: Ask Discount Margin: 280977 (99.93%)
+[2025-07-19 09:27:11,368] INFO: CUSIP: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: CUSIP: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Sender Name: 112 (0.04%)
+[2025-07-19 09:27:11,368] INFO: Sender Name: 112 (0.04%)
+[2025-07-19 09:27:11,368] INFO: Currency: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Currency: 0 (0.00%)
+[2025-07-19 09:27:11,368] INFO: Subject: 5042 (1.79%)
+[2025-07-19 09:27:11,368] INFO: Subject: 5042 (1.79%)
+[2025-07-19 09:27:11,368] INFO: Keyword: 228695 (81.34%)
+[2025-07-19 09:27:11,368] INFO: Keyword: 228695 (81.34%)
+[2025-07-19 09:27:11,368] INFO: Bid Interpolated Spread to Government: 20485 (7.29%)
+[2025-07-19 09:27:11,368] INFO: Bid Interpolated Spread to Government: 20485 (7.29%)
+[2025-07-19 09:27:11,368] INFO: Ask Interpolated Spread to Government: 46047 (16.38%)
+[2025-07-19 09:27:11,368] INFO: Ask Interpolated Spread to Government: 46047 (16.38%)
+[2025-07-19 09:27:11,368] INFO: Bid Contributed Yield: 182455 (64.89%)
+[2025-07-19 09:27:11,368] INFO: Bid Contributed Yield: 182455 (64.89%)
+[2025-07-19 09:27:11,368] INFO: Bid Z-spread: 239814 (85.29%)
+[2025-07-19 09:27:11,368] INFO: Bid Z-spread: 239814 (85.29%)
+[2025-07-19 09:27:11,693] INFO: 
+Duplicate rows: 8708
+[2025-07-19 09:27:11,693] INFO: 
+Duplicate rows: 8708
+[2025-07-19 09:27:11,693] INFO: 
+Numeric columns statistics:
+[2025-07-19 09:27:11,693] INFO: 
+Numeric columns statistics:
+[2025-07-19 09:27:11,872] INFO:        Bid Workout Risk      Bid Price  ...  Bid Contributed Yield  Bid Z-spread
+count     269598.000000  273338.000000  ...           98718.000000  41359.000000
+mean           5.523068      97.870608  ...               4.226779    129.128132
+std            4.535364       7.513523  ...               1.525158     62.352920
+min            0.010000       1.000000  ...             -10.000000    -21.000000
+25%            2.090000      95.403000  ...               3.420000     89.000000
+50%            3.860000      99.753000  ...               4.110000    128.000000
+75%            7.880000     102.445000  ...               4.790000    158.000000
+max           19.180000     121.830000  ...             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-19 09:27:11,872] INFO:        Bid Workout Risk      Bid Price  ...  Bid Contributed Yield  Bid Z-spread
+count     269598.000000  273338.000000  ...           98718.000000  41359.000000
+mean           5.523068      97.870608  ...               4.226779    129.128132
+std            4.535364       7.513523  ...               1.525158     62.352920
+min            0.010000       1.000000  ...             -10.000000    -21.000000
+25%            2.090000      95.403000  ...               3.420000     89.000000
+50%            3.860000      99.753000  ...               4.110000    128.000000
+75%            7.880000     102.445000  ...               4.790000    158.000000
+max           19.180000     121.830000  ...             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-19 09:27:11,872] INFO: Starting clean_and_deduplicate with 281173 rows
+[2025-07-19 09:27:11,956] INFO: After filtering negative Bid Size: 273030 rows (removed 8143)
+[2025-07-19 09:27:11,998] INFO: After filtering negative Ask Size: 242796 rows (removed 30234)
+[2025-07-19 09:27:12,029] INFO: After filtering negative Bid Price: 239335 rows (removed 3461)
+[2025-07-19 09:27:12,061] INFO: After filtering negative Ask Price: 239284 rows (removed 51)
+[2025-07-19 09:27:12,061] INFO: Date column type before sorting: datetime64[ns]
+[2025-07-19 09:27:12,061] INFO: Date column type after conversion: datetime64[ns]
+[2025-07-19 09:27:12,061] INFO: Sorting by Date and Time...
+[2025-07-19 09:27:12,114] INFO: After sorting by ['Date', 'Time']: 239284 rows
+[2025-07-19 09:27:12,114] INFO: Using deduplication columns: ['Date', 'Time', 'Dealer', 'Security', 'Bid Price', 'Ask Price', 'Bid Size', 'Ask Size', 'Bid Yield To Convention', 'Ask Yield To Convention']
+[2025-07-19 09:27:12,230] INFO: After deduplication: 232284 rows (removed 7000)
+[2025-07-19 09:27:12,230] INFO: Final Date column type: datetime64[ns]
+[2025-07-19 09:27:12,230] INFO: Final clean_and_deduplicate result: 232284 rows
+[2025-07-19 09:27:12,241] INFO: Cleaned new data shape: (232284, 30)
+[2025-07-19 09:27:12,403] INFO: Existing Parquet file shape: (232284, 30)
+[2025-07-19 09:27:12,403] INFO: 
+===== DataFrame Validation EXISTING DATA =====
+[2025-07-19 09:27:12,403] INFO: 
+===== DataFrame Validation EXISTING DATA =====
+[2025-07-19 09:27:12,403] INFO: Shape: (232284, 30)
+[2025-07-19 09:27:12,407] INFO: Shape: (232284, 30)
+[2025-07-19 09:27:12,407] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-19 09:27:12,407] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-19 09:27:12,407] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-19 09:27:12,407] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-19 09:27:12,586] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 232284 entries, 0 to 232283
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     232284 non-null  object        
+ 1   Date                                   232284 non-null  datetime64[ns]
+ 2   Time                                   232284 non-null  object        
+ 3   Bid Workout Risk                       229640 non-null  float64       
+ 4   Ticker                                 232284 non-null  object        
+ 5   Dealer                                 232284 non-null  object        
+ 6   Source                                 232284 non-null  object        
+ 7   Security                               232284 non-null  object        
+ 8   Bid Price                              232284 non-null  float64       
+ 9   Ask Price                              232284 non-null  float64       
+ 10  Bid Spread                             232277 non-null  float64       
+ 11  Ask Spread                             232237 non-null  float64       
+ 12  Benchmark                              232163 non-null  object        
+ 13  Reference Benchmark                    232163 non-null  object        
+ 14  Bid Size                               232284 non-null  float64       
+ 15  Ask Size                               232284 non-null  float64       
+ 16  Sector                                 230288 non-null  object        
+ 17  Bid Yield To Convention                232279 non-null  float64       
+ 18  Ask Yield To Convention                232277 non-null  float64       
+ 19  Bid Discount Margin                    10 non-null      float64       
+ 20  Ask Discount Margin                    10 non-null      float64       
+ 21  CUSIP                                  232284 non-null  object        
+ 22  Sender Name                            232284 non-null  object        
+ 23  Currency                               232284 non-null  object        
+ 24  Subject                                230640 non-null  object        
+ 25  Keyword                                40945 non-null   object        
+ 26  Bid Interpolated Spread to Government  221442 non-null  float64       
+ 27  Ask Interpolated Spread to Government  205809 non-null  float64       
+ 28  Bid Contributed Yield                  87614 non-null   float64       
+ 29  Bid Z-spread                           30301 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 53.2+ MB
+
+[2025-07-19 09:27:12,586] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 232284 entries, 0 to 232283
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     232284 non-null  object        
+ 1   Date                                   232284 non-null  datetime64[ns]
+ 2   Time                                   232284 non-null  object        
+ 3   Bid Workout Risk                       229640 non-null  float64       
+ 4   Ticker                                 232284 non-null  object        
+ 5   Dealer                                 232284 non-null  object        
+ 6   Source                                 232284 non-null  object        
+ 7   Security                               232284 non-null  object        
+ 8   Bid Price                              232284 non-null  float64       
+ 9   Ask Price                              232284 non-null  float64       
+ 10  Bid Spread                             232277 non-null  float64       
+ 11  Ask Spread                             232237 non-null  float64       
+ 12  Benchmark                              232163 non-null  object        
+ 13  Reference Benchmark                    232163 non-null  object        
+ 14  Bid Size                               232284 non-null  float64       
+ 15  Ask Size                               232284 non-null  float64       
+ 16  Sector                                 230288 non-null  object        
+ 17  Bid Yield To Convention                232279 non-null  float64       
+ 18  Ask Yield To Convention                232277 non-null  float64       
+ 19  Bid Discount Margin                    10 non-null      float64       
+ 20  Ask Discount Margin                    10 non-null      float64       
+ 21  CUSIP                                  232284 non-null  object        
+ 22  Sender Name                            232284 non-null  object        
+ 23  Currency                               232284 non-null  object        
+ 24  Subject                                230640 non-null  object        
+ 25  Keyword                                40945 non-null   object        
+ 26  Bid Interpolated Spread to Government  221442 non-null  float64       
+ 27  Ask Interpolated Spread to Government  205809 non-null  float64       
+ 28  Bid Contributed Yield                  87614 non-null   float64       
+ 29  Bid Z-spread                           30301 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 53.2+ MB
+
+[2025-07-19 09:27:12,754] INFO: 
+Null values per column:
+[2025-07-19 09:27:12,754] INFO: 
+Null values per column:
+[2025-07-19 09:27:12,754] INFO: Reference Security: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Reference Security: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Date: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Date: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Time: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Time: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Bid Workout Risk: 2644 (1.14%)
+[2025-07-19 09:27:12,754] INFO: Bid Workout Risk: 2644 (1.14%)
+[2025-07-19 09:27:12,754] INFO: Ticker: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Ticker: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Dealer: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Dealer: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Source: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Source: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Security: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Security: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Bid Price: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Bid Price: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Ask Price: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Ask Price: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Bid Spread: 7 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Bid Spread: 7 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Ask Spread: 47 (0.02%)
+[2025-07-19 09:27:12,754] INFO: Ask Spread: 47 (0.02%)
+[2025-07-19 09:27:12,754] INFO: Benchmark: 121 (0.05%)
+[2025-07-19 09:27:12,754] INFO: Benchmark: 121 (0.05%)
+[2025-07-19 09:27:12,754] INFO: Reference Benchmark: 121 (0.05%)
+[2025-07-19 09:27:12,754] INFO: Reference Benchmark: 121 (0.05%)
+[2025-07-19 09:27:12,754] INFO: Bid Size: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Bid Size: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Ask Size: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Ask Size: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Sector: 1996 (0.86%)
+[2025-07-19 09:27:12,754] INFO: Sector: 1996 (0.86%)
+[2025-07-19 09:27:12,754] INFO: Bid Yield To Convention: 5 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Bid Yield To Convention: 5 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Ask Yield To Convention: 7 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Ask Yield To Convention: 7 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Bid Discount Margin: 232274 (100.00%)
+[2025-07-19 09:27:12,754] INFO: Bid Discount Margin: 232274 (100.00%)
+[2025-07-19 09:27:12,754] INFO: Ask Discount Margin: 232274 (100.00%)
+[2025-07-19 09:27:12,754] INFO: Ask Discount Margin: 232274 (100.00%)
+[2025-07-19 09:27:12,754] INFO: CUSIP: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: CUSIP: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Sender Name: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Sender Name: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Currency: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Currency: 0 (0.00%)
+[2025-07-19 09:27:12,754] INFO: Subject: 1644 (0.71%)
+[2025-07-19 09:27:12,754] INFO: Subject: 1644 (0.71%)
+[2025-07-19 09:27:12,754] INFO: Keyword: 191339 (82.37%)
+[2025-07-19 09:27:12,754] INFO: Keyword: 191339 (82.37%)
+[2025-07-19 09:27:12,754] INFO: Bid Interpolated Spread to Government: 10842 (4.67%)
+[2025-07-19 09:27:12,754] INFO: Bid Interpolated Spread to Government: 10842 (4.67%)
+[2025-07-19 09:27:12,754] INFO: Ask Interpolated Spread to Government: 26475 (11.40%)
+[2025-07-19 09:27:12,764] INFO: Ask Interpolated Spread to Government: 26475 (11.40%)
+[2025-07-19 09:27:12,764] INFO: Bid Contributed Yield: 144670 (62.28%)
+[2025-07-19 09:27:12,764] INFO: Bid Contributed Yield: 144670 (62.28%)
+[2025-07-19 09:27:12,764] INFO: Bid Z-spread: 201983 (86.96%)
+[2025-07-19 09:27:12,764] INFO: Bid Z-spread: 201983 (86.96%)
+[2025-07-19 09:27:13,012] INFO: 
+Duplicate rows: 0
+[2025-07-19 09:27:13,012] INFO: 
+Duplicate rows: 0
+[2025-07-19 09:27:13,012] INFO: 
+Numeric columns statistics:
+[2025-07-19 09:27:13,012] INFO: 
+Numeric columns statistics:
+[2025-07-19 09:27:13,134] INFO:        Bid Workout Risk      Bid Price  ...  Bid Contributed Yield  Bid Z-spread
+count     229640.000000  232284.000000  ...           87614.000000  30301.000000
+mean           5.635558      98.062332  ...               4.200150    130.812888
+std            4.543566       7.437887  ...               1.210512     59.372801
+min            0.010000       1.000000  ...               1.630000    -21.000000
+25%            2.170000      95.722000  ...               3.440000     92.000000
+50%            3.950000      99.872000  ...               4.120000    131.000000
+75%            9.170000     102.643000  ...               4.780000    157.000000
+max           19.180000     121.830000  ...             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-19 09:27:13,134] INFO:        Bid Workout Risk      Bid Price  ...  Bid Contributed Yield  Bid Z-spread
+count     229640.000000  232284.000000  ...           87614.000000  30301.000000
+mean           5.635558      98.062332  ...               4.200150    130.812888
+std            4.543566       7.437887  ...               1.210512     59.372801
+min            0.010000       1.000000  ...               1.630000    -21.000000
+25%            2.170000      95.722000  ...               3.440000     92.000000
+50%            3.950000      99.872000  ...               4.120000    131.000000
+75%            9.170000     102.643000  ...               4.780000    157.000000
+max           19.180000     121.830000  ...             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-19 09:27:13,219] INFO: Combined data shape before deduplication: (464568, 30)
+[2025-07-19 09:27:13,219] INFO: Starting clean_and_deduplicate with 464568 rows
+[2025-07-19 09:27:13,346] INFO: After filtering negative Bid Size: 464568 rows (removed 0)
+[2025-07-19 09:27:13,416] INFO: After filtering negative Ask Size: 464568 rows (removed 0)
+[2025-07-19 09:27:13,476] INFO: After filtering negative Bid Price: 464568 rows (removed 0)
+[2025-07-19 09:27:13,541] INFO: After filtering negative Ask Price: 464568 rows (removed 0)
+[2025-07-19 09:27:13,541] INFO: Date column type before sorting: datetime64[ns]
+[2025-07-19 09:27:13,541] INFO: Date column type after conversion: datetime64[ns]
+[2025-07-19 09:27:13,541] INFO: Sorting by Date and Time...
+[2025-07-19 09:27:13,656] INFO: After sorting by ['Date', 'Time']: 464568 rows
+[2025-07-19 09:27:13,656] INFO: Using deduplication columns: ['Date', 'Time', 'Dealer', 'Security', 'Bid Price', 'Ask Price', 'Bid Size', 'Ask Size', 'Bid Yield To Convention', 'Ask Yield To Convention']
+[2025-07-19 09:27:13,847] INFO: After deduplication: 232284 rows (removed 232284)
+[2025-07-19 09:27:13,847] INFO: Final Date column type: datetime64[ns]
+[2025-07-19 09:27:13,847] INFO: Final clean_and_deduplicate result: 232284 rows
+[2025-07-19 09:27:13,857] INFO: Final combined data shape: (232284, 30)
+[2025-07-19 09:27:13,857] INFO: 
+===== DataFrame Validation FINAL COMBINED DATA =====
+[2025-07-19 09:27:13,857] INFO: 
+===== DataFrame Validation FINAL COMBINED DATA =====
+[2025-07-19 09:27:13,857] INFO: Shape: (232284, 30)
+[2025-07-19 09:27:13,857] INFO: Shape: (232284, 30)
+[2025-07-19 09:27:13,857] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-19 09:27:13,857] INFO: Columns: ['Reference Security', 'Date', 'Time', 'Bid Workout Risk', 'Ticker', 'Dealer', 'Source', 'Security', 'Bid Price', 'Ask Price', 'Bid Spread', 'Ask Spread', 'Benchmark', 'Reference Benchmark', 'Bid Size', 'Ask Size', 'Sector', 'Bid Yield To Convention', 'Ask Yield To Convention', 'Bid Discount Margin', 'Ask Discount Margin', 'CUSIP', 'Sender Name', 'Currency', 'Subject', 'Keyword', 'Bid Interpolated Spread to Government', 'Ask Interpolated Spread to Government', 'Bid Contributed Yield', 'Bid Z-spread']
+[2025-07-19 09:27:13,857] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-19 09:27:13,857] INFO: Data types:
+Reference Security                               object
+Date                                     datetime64[ns]
+Time                                             object
+Bid Workout Risk                                float64
+Ticker                                           object
+Dealer                                           object
+Source                                           object
+Security                                         object
+Bid Price                                       float64
+Ask Price                                       float64
+Bid Spread                                      float64
+Ask Spread                                      float64
+Benchmark                                        object
+Reference Benchmark                              object
+Bid Size                                        float64
+Ask Size                                        float64
+Sector                                           object
+Bid Yield To Convention                         float64
+Ask Yield To Convention                         float64
+Bid Discount Margin                             float64
+Ask Discount Margin                             float64
+CUSIP                                            object
+Sender Name                                      object
+Currency                                         object
+Subject                                          object
+Keyword                                          object
+Bid Interpolated Spread to Government           float64
+Ask Interpolated Spread to Government           float64
+Bid Contributed Yield                           float64
+Bid Z-spread                                    float64
+dtype: object
+[2025-07-19 09:27:14,053] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 232284 entries, 232284 to 464567
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     232284 non-null  object        
+ 1   Date                                   232284 non-null  datetime64[ns]
+ 2   Time                                   232284 non-null  object        
+ 3   Bid Workout Risk                       229640 non-null  float64       
+ 4   Ticker                                 232284 non-null  object        
+ 5   Dealer                                 232284 non-null  object        
+ 6   Source                                 232284 non-null  object        
+ 7   Security                               232284 non-null  object        
+ 8   Bid Price                              232284 non-null  float64       
+ 9   Ask Price                              232284 non-null  float64       
+ 10  Bid Spread                             232277 non-null  float64       
+ 11  Ask Spread                             232237 non-null  float64       
+ 12  Benchmark                              232163 non-null  object        
+ 13  Reference Benchmark                    232163 non-null  object        
+ 14  Bid Size                               232284 non-null  float64       
+ 15  Ask Size                               232284 non-null  float64       
+ 16  Sector                                 230288 non-null  object        
+ 17  Bid Yield To Convention                232279 non-null  float64       
+ 18  Ask Yield To Convention                232277 non-null  float64       
+ 19  Bid Discount Margin                    10 non-null      float64       
+ 20  Ask Discount Margin                    10 non-null      float64       
+ 21  CUSIP                                  232284 non-null  object        
+ 22  Sender Name                            232284 non-null  object        
+ 23  Currency                               232284 non-null  object        
+ 24  Subject                                230640 non-null  object        
+ 25  Keyword                                40945 non-null   object        
+ 26  Bid Interpolated Spread to Government  221442 non-null  float64       
+ 27  Ask Interpolated Spread to Government  205809 non-null  float64       
+ 28  Bid Contributed Yield                  87614 non-null   float64       
+ 29  Bid Z-spread                           30301 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 54.9+ MB
+
+[2025-07-19 09:27:14,054] INFO: DataFrame info:
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 232284 entries, 232284 to 464567
+Data columns (total 30 columns):
+ #   Column                                 Non-Null Count   Dtype         
+---  ------                                 --------------   -----         
+ 0   Reference Security                     232284 non-null  object        
+ 1   Date                                   232284 non-null  datetime64[ns]
+ 2   Time                                   232284 non-null  object        
+ 3   Bid Workout Risk                       229640 non-null  float64       
+ 4   Ticker                                 232284 non-null  object        
+ 5   Dealer                                 232284 non-null  object        
+ 6   Source                                 232284 non-null  object        
+ 7   Security                               232284 non-null  object        
+ 8   Bid Price                              232284 non-null  float64       
+ 9   Ask Price                              232284 non-null  float64       
+ 10  Bid Spread                             232277 non-null  float64       
+ 11  Ask Spread                             232237 non-null  float64       
+ 12  Benchmark                              232163 non-null  object        
+ 13  Reference Benchmark                    232163 non-null  object        
+ 14  Bid Size                               232284 non-null  float64       
+ 15  Ask Size                               232284 non-null  float64       
+ 16  Sector                                 230288 non-null  object        
+ 17  Bid Yield To Convention                232279 non-null  float64       
+ 18  Ask Yield To Convention                232277 non-null  float64       
+ 19  Bid Discount Margin                    10 non-null      float64       
+ 20  Ask Discount Margin                    10 non-null      float64       
+ 21  CUSIP                                  232284 non-null  object        
+ 22  Sender Name                            232284 non-null  object        
+ 23  Currency                               232284 non-null  object        
+ 24  Subject                                230640 non-null  object        
+ 25  Keyword                                40945 non-null   object        
+ 26  Bid Interpolated Spread to Government  221442 non-null  float64       
+ 27  Ask Interpolated Spread to Government  205809 non-null  float64       
+ 28  Bid Contributed Yield                  87614 non-null   float64       
+ 29  Bid Z-spread                           30301 non-null   float64       
+dtypes: datetime64[ns](1), float64(15), object(14)
+memory usage: 54.9+ MB
+
+[2025-07-19 09:27:14,226] INFO: 
+Null values per column:
+[2025-07-19 09:27:14,226] INFO: 
+Null values per column:
+[2025-07-19 09:27:14,226] INFO: Reference Security: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Reference Security: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Date: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Date: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Time: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Time: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Bid Workout Risk: 2644 (1.14%)
+[2025-07-19 09:27:14,226] INFO: Bid Workout Risk: 2644 (1.14%)
+[2025-07-19 09:27:14,226] INFO: Ticker: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Ticker: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Dealer: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Dealer: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Source: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Source: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Security: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Security: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Bid Price: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Bid Price: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Ask Price: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Ask Price: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Bid Spread: 7 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Bid Spread: 7 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Ask Spread: 47 (0.02%)
+[2025-07-19 09:27:14,226] INFO: Ask Spread: 47 (0.02%)
+[2025-07-19 09:27:14,226] INFO: Benchmark: 121 (0.05%)
+[2025-07-19 09:27:14,226] INFO: Benchmark: 121 (0.05%)
+[2025-07-19 09:27:14,226] INFO: Reference Benchmark: 121 (0.05%)
+[2025-07-19 09:27:14,226] INFO: Reference Benchmark: 121 (0.05%)
+[2025-07-19 09:27:14,226] INFO: Bid Size: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Bid Size: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Ask Size: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Ask Size: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Sector: 1996 (0.86%)
+[2025-07-19 09:27:14,226] INFO: Sector: 1996 (0.86%)
+[2025-07-19 09:27:14,226] INFO: Bid Yield To Convention: 5 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Bid Yield To Convention: 5 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Ask Yield To Convention: 7 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Ask Yield To Convention: 7 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Bid Discount Margin: 232274 (100.00%)
+[2025-07-19 09:27:14,226] INFO: Bid Discount Margin: 232274 (100.00%)
+[2025-07-19 09:27:14,226] INFO: Ask Discount Margin: 232274 (100.00%)
+[2025-07-19 09:27:14,226] INFO: Ask Discount Margin: 232274 (100.00%)
+[2025-07-19 09:27:14,226] INFO: CUSIP: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: CUSIP: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Sender Name: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Sender Name: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Currency: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Currency: 0 (0.00%)
+[2025-07-19 09:27:14,226] INFO: Subject: 1644 (0.71%)
+[2025-07-19 09:27:14,226] INFO: Subject: 1644 (0.71%)
+[2025-07-19 09:27:14,226] INFO: Keyword: 191339 (82.37%)
+[2025-07-19 09:27:14,226] INFO: Keyword: 191339 (82.37%)
+[2025-07-19 09:27:14,226] INFO: Bid Interpolated Spread to Government: 10842 (4.67%)
+[2025-07-19 09:27:14,226] INFO: Bid Interpolated Spread to Government: 10842 (4.67%)
+[2025-07-19 09:27:14,226] INFO: Ask Interpolated Spread to Government: 26475 (11.40%)
+[2025-07-19 09:27:14,226] INFO: Ask Interpolated Spread to Government: 26475 (11.40%)
+[2025-07-19 09:27:14,226] INFO: Bid Contributed Yield: 144670 (62.28%)
+[2025-07-19 09:27:14,226] INFO: Bid Contributed Yield: 144670 (62.28%)
+[2025-07-19 09:27:14,226] INFO: Bid Z-spread: 201983 (86.96%)
+[2025-07-19 09:27:14,226] INFO: Bid Z-spread: 201983 (86.96%)
+[2025-07-19 09:27:14,491] INFO: 
+Duplicate rows: 0
+[2025-07-19 09:27:14,492] INFO: 
+Duplicate rows: 0
+[2025-07-19 09:27:14,492] INFO: 
+Numeric columns statistics:
+[2025-07-19 09:27:14,492] INFO: 
+Numeric columns statistics:
+[2025-07-19 09:27:14,620] INFO:        Bid Workout Risk      Bid Price  ...  Bid Contributed Yield  Bid Z-spread
+count     229640.000000  232284.000000  ...           87614.000000  30301.000000
+mean           5.635558      98.062332  ...               4.200150    130.812888
+std            4.543566       7.437887  ...               1.210512     59.372801
+min            0.010000       1.000000  ...               1.630000    -21.000000
+25%            2.170000      95.722000  ...               3.440000     92.000000
+50%            3.950000      99.872000  ...               4.120000    131.000000
+75%            9.170000     102.643000  ...               4.780000    157.000000
+max           19.180000     121.830000  ...             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-19 09:27:14,620] INFO:        Bid Workout Risk      Bid Price  ...  Bid Contributed Yield  Bid Z-spread
+count     229640.000000  232284.000000  ...           87614.000000  30301.000000
+mean           5.635558      98.062332  ...               4.200150    130.812888
+std            4.543566       7.437887  ...               1.210512     59.372801
+min            0.010000       1.000000  ...               1.630000    -21.000000
+25%            2.170000      95.722000  ...               3.440000     92.000000
+50%            3.950000      99.872000  ...               4.120000    131.000000
+75%            9.170000     102.643000  ...               4.780000    157.000000
+max           19.180000     121.830000  ...             102.080000   1909.000000
+
+[8 rows x 15 columns]
+[2025-07-19 09:27:14,623] INFO: 
+=========================
+[2025-07-19 09:27:14,623] INFO: === DATE COVERAGE ANALYSIS (FINAL COMBINED DATA) ===
+[2025-07-19 09:27:14,623] INFO: =========================
+[2025-07-19 09:27:14,623] INFO: Total unique dates: 22
+[2025-07-19 09:27:14,623] INFO: Date column dtype: datetime64[ns]
+[2025-07-19 09:27:14,623] INFO: Date range: 2023-01-03 to 2025-07-02
+[2025-07-19 09:27:14,623] INFO: Time span: 911 days (2.5 years)
+[2025-07-19 09:27:14,703] INFO: 
+Year distribution:
+[2025-07-19 09:27:14,703] INFO:   - 2023: 16115 records
+[2025-07-19 09:27:14,703] INFO:   - 2024: 8330 records
+[2025-07-19 09:27:14,703] INFO:   - 2025: 207839 records
+[2025-07-19 09:27:14,778] INFO: 
+Business day analysis:
+[2025-07-19 09:27:14,778] INFO:   - Business days: 232284 (100.0%)
+[2025-07-19 09:27:14,778] INFO:   - Weekend days: 0 (0.0%)
+[2025-07-19 09:27:14,778] INFO: 
+Sample dates:
+[2025-07-19 09:27:14,778] INFO:   - 2023-01-03 (Tue): 1996 records
+[2025-07-19 09:27:14,778] INFO:   - 2023-11-01 (Wed): 9540 records
+[2025-07-19 09:27:14,778] INFO:   - 2023-12-29 (Fri): 4579 records
+[2025-07-19 09:27:14,778] INFO:   - 2024-01-02 (Tue): 8330 records
+[2025-07-19 09:27:14,778] INFO:   - 2025-01-02 (Thu): 8968 records
+[2025-07-19 09:27:14,778] INFO:   ... (12 more dates) ...
+[2025-07-19 09:27:14,778] INFO:   - 2025-06-13 (Fri): 11705 records
+[2025-07-19 09:27:14,778] INFO:   - 2025-06-17 (Tue): 14694 records
+[2025-07-19 09:27:14,778] INFO:   - 2025-06-26 (Thu): 11988 records
+[2025-07-19 09:27:14,778] INFO:   - 2025-06-30 (Mon): 11038 records
+[2025-07-19 09:27:14,778] INFO:   - 2025-07-02 (Wed): 12903 records
+[2025-07-19 09:27:14,778] INFO: 
+=== END DATE ANALYSIS ===
+
+[2025-07-19 09:27:14,799] INFO: 
+=========================
+[2025-07-19 09:27:14,799] INFO: === BLANK/INVALID KEY ANALYSIS ===
+[2025-07-19 09:27:14,799] INFO: =========================
+[2025-07-19 09:27:15,125] INFO: Column 'Bid Workout Risk': 2644 blank/invalid out of 232284 rows
+[2025-07-19 09:27:15,453] INFO: Column 'Bid Spread': 7 blank/invalid out of 232284 rows
+[2025-07-19 09:27:15,529] INFO: Column 'Ask Spread': 47 blank/invalid out of 232284 rows
+[2025-07-19 09:27:15,550] INFO: Column 'Benchmark': 121 blank/invalid out of 232284 rows
+[2025-07-19 09:27:15,581] INFO: Column 'Reference Benchmark': 121 blank/invalid out of 232284 rows
+[2025-07-19 09:27:15,739] INFO: Column 'Sector': 1996 blank/invalid out of 232284 rows
+[2025-07-19 09:27:15,812] INFO: Column 'Bid Yield To Convention': 5 blank/invalid out of 232284 rows
+[2025-07-19 09:27:15,876] INFO: Column 'Ask Yield To Convention': 7 blank/invalid out of 232284 rows
+[2025-07-19 09:27:15,951] INFO: Column 'Bid Discount Margin': 232274 blank/invalid out of 232284 rows
+[2025-07-19 09:27:16,014] INFO: Column 'Ask Discount Margin': 232274 blank/invalid out of 232284 rows
+[2025-07-19 09:27:16,140] INFO: Column 'Subject': 1644 blank/invalid out of 232284 rows
+[2025-07-19 09:27:16,182] INFO: Column 'Keyword': 191339 blank/invalid out of 232284 rows
+[2025-07-19 09:27:16,244] INFO: Column 'Bid Interpolated Spread to Government': 10842 blank/invalid out of 232284 rows
+[2025-07-19 09:27:16,318] INFO: Column 'Ask Interpolated Spread to Government': 26475 blank/invalid out of 232284 rows
+[2025-07-19 09:27:16,394] INFO: Column 'Bid Contributed Yield': 144670 blank/invalid out of 232284 rows
+[2025-07-19 09:27:16,455] INFO: Column 'Bid Z-spread': 201983 blank/invalid out of 232284 rows
+[2025-07-19 09:27:16,841] INFO: Saved combined DataFrame to Parquet: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 09:27:16,841] INFO: 
+===== Pipeline Summary =====
+[2025-07-19 09:27:16,841] INFO: Processed 22 files:
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.02.24.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.02.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.03.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.13.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 01.14.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 04.01.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 05.01.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 05.28.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 05.29.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 05.30.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.02.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.10.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.11.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.12.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.13.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.17.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.26.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 06.30.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 07.02.25.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 11.01.23.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 12.29.23.xlsx
+[2025-07-19 09:27:16,841] INFO: - C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\raw\RUNS 12.31.22.xlsx
+[2025-07-19 09:27:16,841] INFO: Final Parquet file saved to: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 09:27:16,841] INFO: Records processed: 232284
+[2025-07-19 09:27:16,841] INFO: Output files: 1
+[2025-07-19 09:27:16,841] INFO: Total rows in final dataset: 232284
+[2025-07-19 09:27:16,841] INFO: 
+===== Pipeline Complete: 2025-07-19 09:27:16.841917 =====
+[2025-07-19 09:37:17,936] INFO: 
+===== Starting Data Pipeline: 2025-07-19 09:37:17.936460 =====
+[2025-07-19 09:37:17,936] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 09:37:17,936] INFO: Last processed date: 2025-07-19
+[2025-07-19 09:37:17,936] INFO: Found 22 Excel files.
+[2025-07-19 09:37:17,936] INFO: 
+Checking file modification dates:
+[2025-07-19 09:37:17,936] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,936] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,944] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,944] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,944] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,945] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 09:37:17,945] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 09:37:17,945] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 09:37:17,945] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 09:37:18,106] INFO: Existing data shape: (232284, 30)
+[2025-07-19 09:37:18,106] INFO: Records processed: 232284
+[2025-07-19 09:37:18,106] INFO: Output files: 1
+[2025-07-19 09:37:18,106] INFO: No processing needed - using existing data.
+[2025-07-19 09:37:18,106] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 09:37:18.106005 =====
+[2025-07-19 10:12:26,232] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:12:26.232444 =====
+[2025-07-19 10:12:26,232] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:12:26,233] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:12:26,233] INFO: Found 22 Excel files.
+[2025-07-19 10:12:26,233] INFO: 
+Checking file modification dates:
+[2025-07-19 10:12:26,233] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,234] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,234] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,234] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,234] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,234] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,234] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,234] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,234] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,234] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,235] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,236] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,236] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:12:26,236] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:12:26,236] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:12:26,236] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:12:26,375] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:12:26,375] INFO: Records processed: 232284
+[2025-07-19 10:12:26,375] INFO: Output files: 1
+[2025-07-19 10:12:26,375] INFO: No processing needed - using existing data.
+[2025-07-19 10:12:26,375] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:12:26.375749 =====
+[2025-07-19 10:23:23,334] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:23:23.334201 =====
+[2025-07-19 10:23:23,334] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:23:23,334] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:23:23,334] INFO: Found 22 Excel files.
+[2025-07-19 10:23:23,334] INFO: 
+Checking file modification dates:
+[2025-07-19 10:23:23,334] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:23:23,334] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:23:23,334] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:23:23,334] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:23:23,489] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:23:23,489] INFO: Records processed: 232284
+[2025-07-19 10:23:23,489] INFO: Output files: 1
+[2025-07-19 10:23:23,489] INFO: No processing needed - using existing data.
+[2025-07-19 10:23:23,489] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:23:23.489004 =====
+[2025-07-19 10:24:35,950] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:24:35.950741 =====
+[2025-07-19 10:24:35,950] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:24:35,950] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:24:35,951] INFO: Found 22 Excel files.
+[2025-07-19 10:24:35,951] INFO: 
+Checking file modification dates:
+[2025-07-19 10:24:35,951] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,951] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,951] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,951] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,951] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,952] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:24:35,953] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:24:35,954] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:24:35,954] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:24:36,103] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:24:36,103] INFO: Records processed: 232284
+[2025-07-19 10:24:36,103] INFO: Output files: 1
+[2025-07-19 10:24:36,103] INFO: No processing needed - using existing data.
+[2025-07-19 10:24:36,103] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:24:36.103293 =====
+[2025-07-19 10:25:31,664] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:25:31.664238 =====
+[2025-07-19 10:25:31,664] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:25:31,665] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:25:31,665] INFO: Found 22 Excel files.
+[2025-07-19 10:25:31,665] INFO: 
+Checking file modification dates:
+[2025-07-19 10:25:31,665] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,665] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,665] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,665] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,666] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,667] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,667] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,667] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,667] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,667] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,667] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,667] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:25:31,667] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:25:31,667] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:25:31,667] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:25:31,823] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:25:31,823] INFO: Records processed: 232284
+[2025-07-19 10:25:31,823] INFO: Output files: 1
+[2025-07-19 10:25:31,823] INFO: No processing needed - using existing data.
+[2025-07-19 10:25:31,823] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:25:31.823054 =====
+[2025-07-19 10:26:06,783] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:26:06.783955 =====
+[2025-07-19 10:26:06,784] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:26:06,784] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:26:06,785] INFO: Found 22 Excel files.
+[2025-07-19 10:26:06,785] INFO: 
+Checking file modification dates:
+[2025-07-19 10:26:06,785] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,785] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,785] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,785] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,786] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,786] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,786] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,786] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,786] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,786] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,786] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,786] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,787] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,787] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,787] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,787] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,787] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,787] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,787] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,787] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,788] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,788] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:26:06,788] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:26:06,788] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:26:06,788] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:26:06,952] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:26:06,952] INFO: Records processed: 232284
+[2025-07-19 10:26:06,952] INFO: Output files: 1
+[2025-07-19 10:26:06,952] INFO: No processing needed - using existing data.
+[2025-07-19 10:26:06,952] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:26:06.952277 =====
+[2025-07-19 10:30:05,114] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:30:05.114191 =====
+[2025-07-19 10:30:05,114] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:30:05,114] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:30:05,114] INFO: Found 22 Excel files.
+[2025-07-19 10:30:05,114] INFO: 
+Checking file modification dates:
+[2025-07-19 10:30:05,117] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:05,117] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:30:05,117] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:30:05,117] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:30:05,279] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:30:05,279] INFO: Records processed: 232284
+[2025-07-19 10:30:05,279] INFO: Output files: 1
+[2025-07-19 10:30:05,279] INFO: No processing needed - using existing data.
+[2025-07-19 10:30:05,279] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:30:05.279818 =====
+[2025-07-19 10:30:59,160] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:30:59.160892 =====
+[2025-07-19 10:30:59,160] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:30:59,160] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:30:59,170] INFO: Found 22 Excel files.
+[2025-07-19 10:30:59,171] INFO: 
+Checking file modification dates:
+[2025-07-19 10:30:59,171] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:30:59,171] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:30:59,171] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:30:59,171] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:30:59,328] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:30:59,328] INFO: Records processed: 232284
+[2025-07-19 10:30:59,328] INFO: Output files: 1
+[2025-07-19 10:30:59,328] INFO: No processing needed - using existing data.
+[2025-07-19 10:30:59,328] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:30:59.328606 =====
+[2025-07-19 10:34:18,280] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:34:18.280343 =====
+[2025-07-19 10:34:18,280] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:34:18,281] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:34:18,281] INFO: Found 22 Excel files.
+[2025-07-19 10:34:18,281] INFO: 
+Checking file modification dates:
+[2025-07-19 10:34:18,281] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,282] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,282] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,282] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,282] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,282] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,282] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,282] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,282] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,282] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,283] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,284] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:34:18,284] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:34:18,284] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:34:18,284] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:34:18,435] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:34:18,435] INFO: Records processed: 232284
+[2025-07-19 10:34:18,435] INFO: Output files: 1
+[2025-07-19 10:34:18,435] INFO: No processing needed - using existing data.
+[2025-07-19 10:34:18,436] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:34:18.436466 =====
+[2025-07-19 10:36:26,058] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:36:26.058498 =====
+[2025-07-19 10:36:26,058] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:36:26,059] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:36:26,059] INFO: Found 22 Excel files.
+[2025-07-19 10:36:26,059] INFO: 
+Checking file modification dates:
+[2025-07-19 10:36:26,059] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,060] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,060] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,060] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,060] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,060] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,060] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,060] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,061] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,061] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,061] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,061] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,061] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:36:26,062] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:36:26,062] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:36:26,062] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:36:26,216] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:36:26,216] INFO: Records processed: 232284
+[2025-07-19 10:36:26,216] INFO: Output files: 1
+[2025-07-19 10:36:26,216] INFO: No processing needed - using existing data.
+[2025-07-19 10:36:26,216] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:36:26.216837 =====
+[2025-07-19 10:37:20,856] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:37:20.856436 =====
+[2025-07-19 10:37:20,856] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:37:20,856] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:37:20,856] INFO: Found 22 Excel files.
+[2025-07-19 10:37:20,856] INFO: 
+Checking file modification dates:
+[2025-07-19 10:37:20,856] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:37:20,856] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:37:20,856] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:37:20,856] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:37:20,997] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:37:20,997] INFO: Records processed: 232284
+[2025-07-19 10:37:20,997] INFO: Output files: 1
+[2025-07-19 10:37:20,997] INFO: No processing needed - using existing data.
+[2025-07-19 10:37:20,997] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:37:20.997233 =====
+[2025-07-19 10:47:11,492] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:47:11.492272 =====
+[2025-07-19 10:47:11,492] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:47:11,492] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:47:11,492] INFO: Found 22 Excel files.
+[2025-07-19 10:47:11,492] INFO: 
+Checking file modification dates:
+[2025-07-19 10:47:11,492] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:11,492] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:47:11,492] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:47:11,492] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:47:11,643] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:47:11,643] INFO: Records processed: 232284
+[2025-07-19 10:47:11,643] INFO: Output files: 1
+[2025-07-19 10:47:11,643] INFO: No processing needed - using existing data.
+[2025-07-19 10:47:11,653] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:47:11.653572 =====
+[2025-07-19 10:47:43,261] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:47:43.261155 =====
+[2025-07-19 10:47:43,261] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:47:43,261] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:47:43,261] INFO: Found 22 Excel files.
+[2025-07-19 10:47:43,261] INFO: 
+Checking file modification dates:
+[2025-07-19 10:47:43,261] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:47:43,261] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:47:43,261] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:47:43,261] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:47:43,406] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:47:43,406] INFO: Records processed: 232284
+[2025-07-19 10:47:43,406] INFO: Output files: 1
+[2025-07-19 10:47:43,406] INFO: No processing needed - using existing data.
+[2025-07-19 10:47:43,406] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:47:43.406660 =====
+[2025-07-19 10:52:32,322] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:52:32.322225 =====
+[2025-07-19 10:52:32,322] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:52:32,322] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:52:32,322] INFO: Found 22 Excel files.
+[2025-07-19 10:52:32,322] INFO: 
+Checking file modification dates:
+[2025-07-19 10:52:32,322] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:52:32,322] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:52:32,322] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:52:32,322] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:52:32,465] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:52:32,465] INFO: Records processed: 232284
+[2025-07-19 10:52:32,465] INFO: Output files: 1
+[2025-07-19 10:52:32,465] INFO: No processing needed - using existing data.
+[2025-07-19 10:52:32,465] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:52:32.465444 =====
+[2025-07-19 10:58:50,531] INFO: 
+===== Starting Data Pipeline: 2025-07-19 10:58:50.531842 =====
+[2025-07-19 10:58:50,531] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 10:58:50,531] INFO: Last processed date: 2025-07-19
+[2025-07-19 10:58:50,531] INFO: Found 22 Excel files.
+[2025-07-19 10:58:50,531] INFO: 
+Checking file modification dates:
+[2025-07-19 10:58:50,531] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 10:58:50,531] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 10:58:50,531] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 10:58:50,531] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 10:58:50,677] INFO: Existing data shape: (232284, 30)
+[2025-07-19 10:58:50,677] INFO: Records processed: 232284
+[2025-07-19 10:58:50,677] INFO: Output files: 1
+[2025-07-19 10:58:50,677] INFO: No processing needed - using existing data.
+[2025-07-19 10:58:50,677] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 10:58:50.677711 =====
+[2025-07-19 11:16:51,332] INFO: 
+===== Starting Data Pipeline: 2025-07-19 11:16:51.332868 =====
+[2025-07-19 11:16:51,332] INFO: CONFIG: {'INPUT_DIR': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\raw', 'FILE_PATTERN': '*.xls*', 'OUTPUT_PARQUET': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\combined_runs.parquet', 'LAST_PROCESSED_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\last_processed.json', 'DATE_FORMAT': '%m/%d/%y', 'TIME_FORMAT': '%H:%M', 'PARALLEL_LOAD': True, 'N_WORKERS': 20, 'SHOW_ROWS': 5, 'LOG_FILE': 'C:\\Users\\Eddy\\YTM Capital Dropbox\\Eddy Winiarz\\Trading\\COF\\Models\\Unfinished Models\\Eddy\\Python Projects\\work_supa\\runs\\data_pipeline.log'}
+[2025-07-19 11:16:51,332] INFO: Last processed date: 2025-07-19
+[2025-07-19 11:16:51,332] INFO: Found 22 Excel files.
+[2025-07-19 11:16:51,332] INFO: 
+Checking file modification dates:
+[2025-07-19 11:16:51,332] INFO: File: RUNS 01.02.24.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 01.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 01.03.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 01.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 01.14.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 04.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 05.01.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 05.28.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 05.29.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 05.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 06.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 06.10.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 06.11.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 06.12.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 06.13.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 06.17.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 06.26.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 06.30.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,332] INFO: File: RUNS 07.02.25.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,342] INFO: File: RUNS 11.01.23.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,342] INFO: File: RUNS 12.29.23.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,342] INFO: File: RUNS 12.31.22.xlsx, Modified: 2025-07-18
+[2025-07-19 11:16:51,342] INFO: 
+Found 0 new or modified files to process.
+[2025-07-19 11:16:51,342] INFO: No new files to process. Checking if existing data is available...
+[2025-07-19 11:16:51,342] INFO: Existing parquet file found: C:\Users\Eddy\YTM Capital Dropbox\Eddy Winiarz\Trading\COF\Models\Unfinished Models\Eddy\Python Projects\work_supa\runs\combined_runs.parquet
+[2025-07-19 11:16:51,483] INFO: Existing data shape: (232284, 30)
+[2025-07-19 11:16:51,483] INFO: Records processed: 232284
+[2025-07-19 11:16:51,483] INFO: Output files: 1
+[2025-07-19 11:16:51,483] INFO: No processing needed - using existing data.
+[2025-07-19 11:16:51,483] INFO: 
+===== Pipeline Complete (No New Data): 2025-07-19 11:16:51.483232 =====
