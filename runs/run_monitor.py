@@ -23,6 +23,7 @@ from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 import os
 import sys
+import argparse
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -32,8 +33,34 @@ sys.path.append(os.path.dirname(__file__))
 class RunMonitor:
     def __init__(self, source_file='runs/combined_runs.parquet', output_dir='runs'):
         """Initialize the Run Monitor with data source and output configuration."""
-        self.source_file = source_file
-        self.output_dir = output_dir
+        # Resolve paths relative to script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        # If source_file is relative and doesn't exist, try different path resolutions
+        if not os.path.isabs(source_file):
+            if os.path.exists(source_file):
+                self.source_file = source_file
+            elif os.path.exists(os.path.join(script_dir, 'combined_runs.parquet')):
+                # Running from runs/ directory
+                self.source_file = os.path.join(script_dir, 'combined_runs.parquet')
+            elif os.path.exists(os.path.join(os.path.dirname(script_dir), source_file)):
+                # Running from project root
+                self.source_file = os.path.join(os.path.dirname(script_dir), source_file)
+            else:
+                self.source_file = source_file  # Keep original and let it fail with clear error
+        else:
+            self.source_file = source_file
+            
+        # Resolve output directory
+        if not os.path.isabs(output_dir):
+            if os.path.basename(script_dir) == 'runs':
+                # Running from runs/ directory
+                self.output_dir = script_dir
+            else:
+                # Running from project root
+                self.output_dir = os.path.join(os.path.dirname(script_dir), output_dir)
+        else:
+            self.output_dir = output_dir
         self.df = None
         self.most_recent_date = None
         self.results = None
@@ -454,4 +481,13 @@ def main():
         return None
 
 if __name__ == "__main__":
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Run Monitor - Trading Analysis Tool')
+    parser.add_argument('--force-full-refresh', action='store_true',
+                       help='Force process all data ignoring state tracking')
+    args = parser.parse_args()
+    
+    if args.force_full_refresh:
+        print("[FORCE FULL REFRESH] Processing ALL trading data for analysis")
+    
     results = main() 

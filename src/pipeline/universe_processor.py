@@ -78,22 +78,33 @@ def get_files_to_process(raw_data_path, existing_state, logger: Logger):
     return files_to_process
 
 # --- Main Processing Logic ---
-def process_universe_files(logger: Logger):
+def process_universe_files(logger: Logger, force_full_refresh: bool = False):
     """
     Reads all Excel files from 'universe/raw data', processes them incrementally,
     and updates the 'universe.parquet' file.
+    
+    Args:
+        logger: Logger instance
+        force_full_refresh: If True, ignores state tracking and processes ALL raw data
     """
     config = load_config()
     project_root = Path(__file__).parent.parent.parent
     raw_data_path = project_root / 'universe' / 'raw data'
     parquet_path = project_root / 'universe' / 'universe.parquet'
     
-    existing_state = load_processing_state(logger)
-    
-    files_to_process = get_files_to_process(raw_data_path, existing_state, logger)
+    if force_full_refresh:
+        logger.info("🔄 FORCE FULL REFRESH: Ignoring state tracking, processing ALL universe files")
+        existing_state = {'processed_files': {}, 'last_processed': None}
+        # Get all Excel files for processing (with metadata tuple format)
+        all_files = [f for f in raw_data_path.glob('*.xlsx') if f.is_file()]
+        files_to_process = [(f, get_file_metadata(f)) for f in all_files]
+        logger.info(f"📁 Found {len(files_to_process)} Excel files for full processing")
+    else:
+        existing_state = load_processing_state(logger)
+        files_to_process = get_files_to_process(raw_data_path, existing_state, logger)
     
     existing_df = None
-    if parquet_path.exists():
+    if parquet_path.exists() and not force_full_refresh:
         logger.info("Found existing Parquet file. Loading for incremental processing...")
         try:
             existing_df = pd.read_parquet(parquet_path)

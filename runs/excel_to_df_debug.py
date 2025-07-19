@@ -153,7 +153,10 @@ def validate_dataframe(df, stage=""):
     # Basic statistics for numeric columns
     log("\nNumeric columns statistics:")
     log_runs("\nNumeric columns statistics:")
-    stats = str(df.describe())
+    if df.empty or len(df.columns) == 0:
+        stats = "DataFrame is empty - no statistics available"
+    else:
+        stats = str(df.describe())
     log(stats)
     log_runs(stats)
     
@@ -546,6 +549,7 @@ def main(force_all=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process Excel files and generate a combined DataFrame.")
     parser.add_argument("--force-all", action="store_true", help="Force process all files regardless of modification date")
+    parser.add_argument("--force-full-refresh", action="store_true", help="Force process all files regardless of modification date (alias for --force-all)")
     parser.add_argument("--reset-date", action="store_true", help="Reset last processed date to None")
     args = parser.parse_args()
 
@@ -554,4 +558,9 @@ if __name__ == "__main__":
         print("Last processed date reset to None.")
         sys.exit(0)
 
-    main(force_all=args.force_all)
+    # Either --force-all or --force-full-refresh will trigger full processing
+    force_all = args.force_all or args.force_full_refresh
+    if args.force_full_refresh:
+        print("[FORCE FULL REFRESH] Processing ALL Excel files regardless of modification date")
+    
+    main(force_all=force_all)

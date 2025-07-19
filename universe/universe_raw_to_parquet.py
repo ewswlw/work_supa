@@ -1,4 +1,5 @@
 import sys
+import argparse
 from pathlib import Path
 import yaml
 import pandas as pd
@@ -14,6 +15,12 @@ if __name__ == "__main__":
     This script acts as a simple runner for the universe processing pipeline.
     The core logic is located in the `src/pipeline/universe_processor.py` module.
     """
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Universe Data Processor')
+    parser.add_argument('--force-full-refresh', action='store_true',
+                       help='Process ALL raw data ignoring state tracking')
+    args = parser.parse_args()
+    
     # Load logging configuration
     config_path = Path(__file__).parent.parent / 'config' / 'config.yaml'
     with open(config_path, 'r') as f:
@@ -30,8 +37,11 @@ if __name__ == "__main__":
     )
     
     logger.info("Starting universe processing pipeline...")
+    if args.force_full_refresh:
+        logger.info("🔄 FORCE FULL REFRESH: Processing ALL raw universe data")
+    
     try:
-        process_universe_files(logger)
+        process_universe_files(logger, force_full_refresh=args.force_full_refresh)
         logger.info("Universe processing pipeline finished successfully.")
         # Export the processed Parquet to CSV
         parquet_path = Path(__file__).parent / 'universe.parquet'

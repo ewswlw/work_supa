@@ -42,6 +42,7 @@ Examples:
   python run_pipe.py --log-cleanup-only      # Only clean logs without running pipeline
   python run_pipe.py --analyze-data          # Analyze data after pipeline completion
   python run_pipe.py --data-analysis-only    # Only analyze data without running pipeline
+  python run_pipe.py --force-full-refresh    # Process ALL raw data (creates complete parquet files)
         """
     )
     
@@ -72,6 +73,8 @@ Examples:
                               help='Force execution even if dependencies are missing')
     control_group.add_argument('--parallel', action='store_true',
                               help='Enable parallel execution where possible')
+    control_group.add_argument('--force-full-refresh', action='store_true',
+                              help='Process ALL raw data ignoring state tracking (creates complete parquet files)')
     
     # Configuration
     config_group = parser.add_argument_group('Configuration')
@@ -238,6 +241,12 @@ async def main():
             stats = cleanup_manager.cleanup_logs(dry_run=False)
             
             logger.info(f"📊 Log cleanup completed: {stats['deleted_files']} files deleted, {stats['total_size_mb']:.2f} MB freed")
+        
+        # Handle force full refresh
+        if args.force_full_refresh:
+            logger.info("🔄 FORCE FULL REFRESH: Will process ALL raw data ignoring state tracking")
+            logger.info("   This will create complete parquet files from all available raw data")
+            logger.info("   State tracking files will be updated with latest data dates after processing")
         
         # Initialize pipeline manager
         manager = PipelineManager(config, logger)
