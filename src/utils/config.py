@@ -110,4 +110,42 @@ class ConfigManager:
         # Create output directories if they don't exist
         os.makedirs(os.path.dirname(self.pipeline_config.output_parquet), exist_ok=True)
         os.makedirs(os.path.dirname(self.pipeline_config.log_file), exist_ok=True)
-        os.makedirs(os.path.dirname(self.pipeline_config.last_processed_file), exist_ok=True) 
+        os.makedirs(os.path.dirname(self.pipeline_config.last_processed_file), exist_ok=True)
+
+
+def load_config(config_path: str = "config/config.yaml") -> dict:
+    """Load configuration from YAML file and return as dictionary"""
+    try:
+        config_manager = ConfigManager(config_path)
+        return {
+            'pipeline': config_manager.pipeline_config,
+            'supabase': config_manager.supabase_config,
+            'logging': config_manager.logging_config
+        }
+    except Exception as e:
+        # Return default config if file not found or invalid
+        return {
+            'pipeline': {
+                'input_dir': 'data/input',
+                'file_pattern': '*.csv',
+                'output_parquet': 'data/output/processed.parquet',
+                'last_processed_file': 'data/output/last_processed.txt',
+                'date_format': '%Y-%m-%d',
+                'time_format': '%H:%M:%S',
+                'parallel_load': False,
+                'n_workers': 1,
+                'show_rows': 10,
+                'log_file': 'logs/pipeline.log',
+                'chunk_size': 10000
+            },
+            'supabase': {
+                'url': '',
+                'key': '',
+                'table': 'runs',
+                'batch_size': 1000
+            },
+            'logging': {
+                'level': 'INFO',
+                'format': '[%(asctime)s] %(levelname)s: %(message)s'
+            }
+        } 

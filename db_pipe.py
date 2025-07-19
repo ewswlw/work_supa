@@ -319,7 +319,7 @@ class DatabasePipeline:
                             record = (
                                 date_str,
                                 row['CUSIP'],
-                                cusip_result['standardized_cusip'],
+                                cusip_result['cusip_standardized'],
                                 row.get('Security', ''),
                                 row.get('G Sprd'),
                                 row.get('OAS (Mid)'),
@@ -463,7 +463,7 @@ class DatabasePipeline:
                                 context={'table_name': 'portfolio_historical', 'source_file': portfolio_file}
                             )
                             
-                            standardized_cusip = cusip_result['standardized_cusip']
+                            standardized_cusip = cusip_result['cusip_standardized']
                             
                             # Check universe match
                             universe_match = standardized_cusip in universe_cusips
@@ -494,8 +494,8 @@ class DatabasePipeline:
                                 row.get('SECURITY', ''),
                                 row.get('QUANTITY'),
                                 row.get('PRICE'),
-                                row.get('VALUE'),
-                                row.get('VALUE PCT NAV'),
+                                row.get('VALUE'),  # This maps to MARKET VALUE column
+                                row.get('VALUE PCT NAV'),  # This maps to WEIGHT column
                                 match_status,
                                 datetime.now().date(),
                                 portfolio_file,
@@ -506,8 +506,8 @@ class DatabasePipeline:
                         # Insert portfolio batch
                         insert_sql = """
                             INSERT OR REPLACE INTO portfolio_historical 
-                            ("Date", "CUSIP", cusip_standardized, "SECURITY", "QUANTITY", "PRICE", "VALUE", 
-                             "VALUE PCT NAV", universe_match_status, universe_match_date, 
+                            ("Date", "CUSIP", cusip_standardized, "SECURITY", "QUANTITY", "PRICE", "MARKET VALUE", 
+                             "WEIGHT", universe_match_status, universe_match_date, 
                              source_file, file_date)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                         """
@@ -592,9 +592,14 @@ class DatabasePipeline:
                     try:
                         result = self.cusip_standardizer.standardize_cusip(cusip)
                         if isinstance(result, dict):
-                            return result.get('standardized_cusip')
+                            standardized = result.get('cusip_standardized')
+                            if standardized and standardized.strip():  # Check if we got a valid result
+                                return standardized
+                            else:
+                                # If standardization failed, return original CUSIP as fallback
+                                return cusip
                         else:
-                            return result
+                            return result if result else cusip  # Fallback to original if None
                     except Exception as e:
                         # Log the error but don't fail the pipeline
                         print(f"Warning: CUSIP standardization failed for {cusip}: {e}")
@@ -1121,9 +1126,8 @@ class DatabasePipeline:
                     'columns': list(df.columns)
                 })
                 
-                # Standardize CUSIPs for both CUSIP_1 and CUSIP_2 with optimization
-                df['cusip_1_original'] = df['CUSIP_1'].copy()
-                df['cusip_2_original'] = df['CUSIP_2'].copy()
+                # Standardize CUSIPs for the single CUSIP column
+                df['cusip_original'] = df['CUSIP'].copy()
                 
                 def safe_standardize_cusip(cusip):
                     if pd.isna(cusip):
@@ -1131,9 +1135,14 @@ class DatabasePipeline:
                     try:
                         result = self.cusip_standardizer.standardize_cusip(cusip)
                         if isinstance(result, dict):
-                            return result.get('standardized_cusip')
+                            standardized = result.get('cusip_standardized')
+                            if standardized and standardized.strip():  # Check if we got a valid result
+                                return standardized
+                            else:
+                                # If standardization failed, return original CUSIP as fallback
+                                return cusip
                         else:
-                            return result
+                            return result if result else cusip  # Fallback to original if None
                     except Exception as e:
                         # Log the error but don't fail the pipeline
                         if not self.disable_logging:
@@ -1147,49 +1156,34 @@ class DatabasePipeline:
                         'workers': min(mp.cpu_count(), 8)  # Limit to 8 workers
                     })
                     
-                    # Process CUSIP_1 in parallel
+                    # Process CUSIP in parallel
                     with ThreadPoolExecutor(max_workers=min(mp.cpu_count(), 8)) as executor:
-                        cusip_1_results = list(executor.map(safe_standardize_cusip, df['CUSIP_1']))
-                    df['cusip_1_standardized'] = cusip_1_results
-                    
-                    # Process CUSIP_2 in parallel
-                    with ThreadPoolExecutor(max_workers=min(mp.cpu_count(), 8)) as executor:
-                        cusip_2_results = list(executor.map(safe_standardize_cusip, df['CUSIP_2']))
-                    df['cusip_2_standardized'] = cusip_2_results
+                        cusip_results = list(executor.map(safe_standardize_cusip, df['CUSIP']))
+                    df['cusip_standardized'] = cusip_results
                     
                     # Garbage collection if low memory mode
                     if self.low_memory:
                         gc.collect()
                 else:
                     # Sequential processing
-                    df['cusip_1_standardized'] = df['CUSIP_1'].apply(safe_standardize_cusip)
-                    df['cusip_2_standardized'] = df['CUSIP_2'].apply(safe_standardize_cusip)
+                    df['cusip_standardized'] = df['CUSIP'].apply(safe_standardize_cusip)
                 
                 # Handle unmatched CUSIPs
-                unmatched_1_mask = df['cusip_1_standardized'].isna()
-                unmatched_2_mask = df['cusip_2_standardized'].isna()
-                unmatched_count = unmatched_1_mask.sum() + unmatched_2_mask.sum()
+                unmatched_mask = df['cusip_standardized'].isna()
+                unmatched_count = unmatched_mask.sum()
                 
                 if unmatched_count > 0:
                     self._log_pipeline_event(f"Found {unmatched_count} unmatched CUSIPs in G-spread analytics data")
                     
-                    # Collect unmatched CUSIPs from both columns
-                    unmatched_list = []
-                    
-                    # CUSIP_1 unmatched
-                    unmatched_1_data = df[unmatched_1_mask][['cusip_1_original', 'Bond_Name_1']].copy()
-                    unmatched_1_data.columns = ['cusip_original', 'security_name']
-                    unmatched_list.extend(unmatched_1_data.to_dict('records'))
-                    
-                    # CUSIP_2 unmatched
-                    unmatched_2_data = df[unmatched_2_mask][['cusip_2_original', 'Bond_Name_2']].copy()
-                    unmatched_2_data.columns = ['cusip_original', 'security_name']
-                    unmatched_list.extend(unmatched_2_data.to_dict('records'))
+                    # Collect unmatched CUSIPs
+                    unmatched_data = df[unmatched_mask][['cusip_original', 'Security']].copy()
+                    unmatched_data.columns = ['cusip_original', 'security_name']
+                    unmatched_list = unmatched_data.to_dict('records')
                     
                     self._insert_unmatched_cusips('gspread_analytics', unmatched_list, gspread_file)
                     
-                    # Remove records where either CUSIP is unmatched
-                    df = df[~unmatched_1_mask & ~unmatched_2_mask]
+                    # Remove records where CUSIP is unmatched
+                    df = df[~unmatched_mask]
                 
                 # Prepare data for database insertion
                 df['source_file'] = gspread_file
@@ -1229,17 +1223,11 @@ class DatabasePipeline:
                     # Insert batch with column mapping
                     cursor.executemany("""
                         INSERT INTO gspread_analytics (
-                            "CUSIP_1", cusip_1_standardized, "CUSIP_2", cusip_2_standardized,
-                            "Bond_Name_1", "Bond_Name_2", "Z_Score", "Last_Spread", "Percentile",
-                            "Max", "Min", "Last_vs_Max", "Last_vs_Min",
-                            cusip_1_match_status, cusip_2_match_status,
-                            universe_match_date, source_file, loaded_timestamp
+                            "CUSIP", cusip_standardized, "Security", "GSpread", "DATE",
+                            universe_match_status, universe_match_date, source_file, loaded_timestamp
                         ) VALUES (
-                            :cusip_1_original, :cusip_1_standardized, :cusip_2_original, :cusip_2_standardized,
-                            :Bond_Name_1, :Bond_Name_2, :Z_Score, :Last_Spread, :Percentile,
-                            :Max, :Min, :Last_vs_Max, :Last_vs_Min,
-                            'matched', 'matched',
-                            NULL, :source_file, :loaded_timestamp
+                            :cusip_original, :cusip_standardized, :Security, :GSpread, :DATE,
+                            'matched', NULL, :source_file, :loaded_timestamp
                         )
                     """, batch_records)
                     
@@ -1257,13 +1245,13 @@ class DatabasePipeline:
                 
                 # Update pipeline statistics
                 self.pipeline_stats['total_records_processed'] += len(df)
-                self.pipeline_stats['cusips_matched'] += len(df) * 2 - unmatched_count  # 2 CUSIPs per record
+                self.pipeline_stats['cusips_matched'] += len(df) - unmatched_count  # 1 CUSIP per record
                 self.pipeline_stats['cusips_unmatched'] += unmatched_count
                 self.pipeline_stats['tables_updated'].append('gspread_analytics')
                 
                 self._log_pipeline_event("G-spread analytics data loading completed successfully", {
                     'records_processed': len(df),
-                    'cusips_matched': len(df) * 2 - unmatched_count,
+                    'cusips_matched': len(df) - unmatched_count,
                     'cusips_unmatched': unmatched_count,
                     'update_strategy': 'full_refresh'
                 })
@@ -1670,7 +1658,12 @@ class DatabasePipeline:
             }
         except Exception as e:
             self._log_pipeline_error("Error getting unmatched CUSIP summary", e)
-            return {'error': str(e)}
+            return {
+                'unmatched_by_table': {},
+                'total_unmatched_last_date': 0,
+                'recent_examples': [],
+                'error': str(e)
+            }
     
     def _log_pipeline_event(self, message: str, details: Dict[str, Any] = None):
         """Log pipeline event"""

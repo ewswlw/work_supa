@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
 """
-G-Spread Pairwise Z-Score Analysis - SINGLE SOURCE OF TRUTH
-==========================================================
+G-Spread Pairwise Z-Score Analysis - CORE ANALYSIS ONLY
+========================================================
 
-This script is the ONLY source for all G-spread analytics, enrichment, filtering, and output.
-All logic for:
-  - Data loading
-  - Pairwise analytics (Z-score, percentiles, etc.)
-  - Universe and portfolio enrichment (all columns)
-  - Filtering (core, simple, advanced)
-  - Output (bond_z.parquet, bond_z.csv)
-resides here.
+This script performs CORE G-spread pairwise analysis with NO external dependencies.
 
-Do NOT use or reference any other script for G-spread analytics or enrichment.
-All downstream code, dashboards, and notebooks must use the output of this script.
+CORE ANALYSIS FEATURES:
+  - Data loading from bond_g_sprd_time_series.parquet only
+  - Pairwise Z-score, percentiles, min/max analysis
+  - Self-contained with no external table dependencies
+  - Output: 9 core analysis columns only
 
-If you need to add or change logic, do it HERE ONLY.
+OUTPUT COLUMNS (11):
+  - Security_1, Security_2 (bond pair names)
+  - CUSIP_1, CUSIP_2 (bond pair CUSIPs from raw data)
+  - Last_Spread, Z_Score, Max, Min, Last_vs_Max, Last_vs_Min, Percentile
+
+REMOVED FEATURES (for core simplicity):
+  - Universe data enrichment
+  - Portfolio data enrichment  
+  - Runs monitor data enrichment
+  - All filtering systems
+  - External dependencies
 
 SPEED OPTIMIZATIONS:
 - Matrix-based vectorized calculations (1000x faster than loops)
@@ -97,8 +103,7 @@ def setup_interactive_environment():
 def check_required_files():
     """Check if all required files exist."""
     required_files = [
-        "historical g spread/bond_g_sprd_time_series.parquet",
-        "universe/universe.parquet"
+        "historical g spread/raw data/g_ts.parquet"
     ]
     
     print("[INFO] Checking required files...")
@@ -274,11 +279,7 @@ FILTER_OPERATORS = {
 CONFIG = {
     # Core parameters
     'LOOKBACK_DAYS': 252,  
-<<<<<<< HEAD
     'MAX_BONDS': 200,       # Limit to most liquid bonds for speed
-=======
-    'MAX_BONDS': 2000,         # Limit to most liquid bonds for speed (small sample for testing)
->>>>>>> 639b7d6 (OPTIMIZATION: Implement comprehensive performance enhancements in DatabasePipeline)
     'MIN_OBSERVATIONS': 200,  # Minimum data points
     
     # Speed optimizations
@@ -292,70 +293,15 @@ CONFIG = {
     'MAX_SPREAD_DIFF': 500,    # Filter extreme outliers
     
     # ==========================================
-    # UNIVERSE DATA INTEGRATION
+    # CORE ANALYSIS ONLY - NO EXTERNAL DATA
     # ==========================================
-    'INCLUDE_UNIVERSE_DATA': True,  # Enable universe enrichment
-    
-    # Available universe columns for enrichment:
-    # • Custom_Sector (Non Financial Maples, HY, Utility, etc.)
-    # • CPN_TYPE (FIXED, etc.)  
-    # • Ticker (AAPL, etc.)
-    # • Currency (USD, CAD, etc.)
-    # • Equity_Ticker (AAPL US Equity, etc.)
-    # • Rating (AA+, NR, etc.)
-    # • Yrs_Since_Issue_Bucket (3-5, >7, etc.)
-    # • Yrs_Mat_Bucket (0-0.50, etc.)
-    
-    'UNIVERSE_COLUMNS': [           # Columns to add to output (Security_1 & Security_2)
-        'Custom_Sector',            # Sector classification
-        'Rating',                   # Credit rating
-        'Currency',                 # Currency 
-        'Ticker',                   # Company ticker
-        'CPN_TYPE',                 # Coupon type
-        'Yrs_Mat_Bucket',          # Maturity bucket
-    ],
+    'INCLUDE_UNIVERSE_DATA': False,  # Disabled - core analysis only
     
     # ==========================================
-    # SOPHISTICATED FILTERING SYSTEM
+    # CORE ANALYSIS ONLY - NO FILTERING
     # ==========================================
     
-    # CORE BUSINESS FILTERS (always applied when universe data available):
-    # • Excludes CAD Government bonds (Custom_Sector = 'CAD Govt')
-    # • Excludes short-term maturities: '>.25-1', '0-0.50', '0.50-1' and blank
-    # • These filters focus analysis on corporate/credit bonds with >1 year maturity
-    
-    'ENABLE_FILTERING': False,      # Set to True to enable additional filtering
-    
-    # SIMPLE MODE FILTERS (easy to use)
-    'SIMPLE_FILTERS': {
-        # 'same_sector': True,                    # Only pairs from same sector
-        # 'same_currency': True,                  # Only same currency pairs
-        # 'investment_grade_only': True,          # Exclude NR ratings
-        # 'usd_only': True,                      # Only USD securities
-        # 'min_z_score': 2.0,                   # Minimum |Z-score|
-        # 'fixed_coupon_only': True,             # Only FIXED coupon types
-    },
-    
-    # ADVANCED MODE FILTERS (full flexibility)
-    'ADVANCED_FILTERS': {
-        # Categorical filters - Security 1
-        # 'Custom_Sector_1': {'operator': 'in', 'values': ['Utility', 'Infrastructure']},
-        # 'Rating_1': {'operator': '!=', 'value': 'NR'},
-        # 'Currency_1': {'operator': '==', 'value': 'USD'},
-        
-        # Categorical filters - Security 2  
-        # 'Custom_Sector_2': {'operator': 'not_in', 'values': ['HY']},
-        # 'Rating_2': {'operator': '!=', 'value': 'NR'},
-        
-        # Pair comparison filters
-        # 'Same_Sector': {'operator': 'pair_equal', 'columns': ['Custom_Sector']},
-        # 'Different_Currency': {'operator': 'pair_not_equal', 'columns': ['Currency']},
-        
-        # Z-Score and statistics filters
-        # 'Z_Score': {'operator': 'abs_>', 'value': 1.5},
-        # 'Percentile': {'operator': 'between', 'min': 10, 'max': 90},
-        # 'Last_Spread': {'operator': 'between', 'min': -100, 'max': 100},
-    }
+    'ENABLE_FILTERING': False,      # Disabled - core analysis only
 }
 
 def load_and_pivot_data(file_path: str) -> pd.DataFrame:
@@ -363,72 +309,36 @@ def load_and_pivot_data(file_path: str) -> pd.DataFrame:
     print("[RUN] Loading and pivoting data for vectorized processing...")
     
     df = safe_read_parquet(file_path)
+    
+    # Standardize column names for compatibility
+    df = df.rename(columns={
+        'Date': 'DATE',
+        'Name': 'Security', 
+        'G_Spread_BVAL': 'GSpread'
+    })
+    
     df['DATE'] = pd.to_datetime(df['DATE'])
     
     # Remove missing data
     df = df.dropna(subset=['GSpread'])
-    print("   Loaded {len(df):,} records with {df['Security'].nunique():,} bonds")
+    print(f"   Loaded {len(df):,} records with {df['Security'].nunique():,} bonds")
     
     # Sample dates for speed if enabled
     if CONFIG['SAMPLE_DATES']:
         unique_dates = sorted(df['DATE'].unique())
         sampled_dates = unique_dates[::CONFIG['DATE_SAMPLE_FREQ']]
         df = df[df['DATE'].isin(sampled_dates)]
-        print("   Sampled to {len(sampled_dates):,} dates for speed")
+        print(f"   Sampled to {len(sampled_dates):,} dates for speed")
     
     return df
 
 def load_universe_data() -> pd.DataFrame:
-    """Load universe data for enrichment, using most recent date only."""
-    if not CONFIG['INCLUDE_UNIVERSE_DATA']:
-        return pd.DataFrame()
-        
-    print("[INFO] Loading universe data for enrichment...")
-    
-    try:
-        # Load universe data with path handling
-        universe_path = get_data_file_path('universe/universe.parquet')
-        universe_df = safe_read_parquet(universe_path)
-        
-        # Get most recent date globally (as per user preference)
-        latest_date = universe_df['Date'].max()
-        universe_df = universe_df[universe_df['Date'] == latest_date].copy()
-        
-        # Clean up column names to match config expectations
-        universe_df = universe_df.rename(columns={
-            'CPN TYPE': 'CPN_TYPE',
-            'Equity Ticker': 'Equity_Ticker', 
-            'Yrs Since Issue Bucket': 'Yrs_Since_Issue_Bucket',
-            'Yrs (Mat) Bucket': 'Yrs_Mat_Bucket'
-        })
-        
-        # Select only needed columns plus CUSIP for matching
-        needed_cols = ['CUSIP'] + CONFIG['UNIVERSE_COLUMNS']
-        available_cols = [col for col in needed_cols if col in universe_df.columns]
-        
-        if 'CUSIP' not in available_cols:
-            print("[WARN] Warning: CUSIP column not found in universe data")
-            return pd.DataFrame()
-            
-        universe_df = universe_df[available_cols].copy()
-        
-        # Handle duplicates (keep first occurrence)
-        initial_count = len(universe_df)
-        universe_df = universe_df.drop_duplicates(subset=['CUSIP'], keep='first')
-        
-        print("   [OK] Loaded {len(universe_df):,} universe records from {latest_date.strftime('%Y-%m-%d')}")
-        if initial_count > len(universe_df):
-            print("   [INFO] Removed {initial_count - len(universe_df):,} duplicate CUSIPs")
-            
-        return universe_df
-        
-    except Exception as e:
-        print("[FAIL] Error loading universe data: {e}")
-        return pd.DataFrame()
+    """Universe data loading disabled - core analysis only."""
+    return pd.DataFrame()
 
 def select_top_bonds(df: pd.DataFrame, max_bonds: int) -> list:
     """Select most liquid bonds based on data coverage and recent activity."""
-    print("[INFO] Selecting top {max_bonds} most liquid bonds...")
+    print(f"[INFO] Selecting top {max_bonds} most liquid bonds...")
     
     # Calculate bond metrics
     latest_date = df['DATE'].max()
@@ -454,30 +364,33 @@ def select_top_bonds(df: pd.DataFrame, max_bonds: int) -> list:
     eligible['Score'] = eligible['Total_Obs'] * eligible['GSpread_Count'] / eligible['Total_Obs']
     top_bonds = eligible.nlargest(max_bonds, 'Score').index.tolist()
     
-    print("   Selected {len(top_bonds)} bonds from {len(bond_metrics)} total")
+    print(f"   Selected {len(top_bonds)} bonds from {len(bond_metrics)} total")
     return top_bonds
 
 def get_cusip_mapping(df: pd.DataFrame) -> dict:
-    """Create mapping from Security name to CUSIP for universe matching."""
-    if not CONFIG['INCLUDE_UNIVERSE_DATA']:
-        return {}
-        
-    print("[INFO] Creating Security -> CUSIP mapping...")
+    """Create Security name to CUSIP mapping from raw data."""
+    print("[INFO] Creating Security -> CUSIP mapping from raw data...")
     
-    # Get unique Security → CUSIP mapping
+    # Get unique Security → CUSIP mapping from the same raw data
     mapping_df = df[['Security', 'CUSIP']].drop_duplicates()
     mapping = dict(zip(mapping_df['Security'], mapping_df['CUSIP']))
     
-    print("[OK] Created {len(mapping):,} Security -> CUSIP mappings")
+    print(f"[OK] Created {len(mapping):,} Security -> CUSIP mappings")
     return mapping
 
 def create_spread_matrix(df: pd.DataFrame, bonds: list) -> pd.DataFrame:
     """Create a date x bond matrix for vectorized calculations."""
     print("[RUN] Creating spread matrix for vectorized operations...")
     
-    # Filter to selected bonds and pivot
+    # Filter to selected bonds
     df_filtered = df[df['Security'].isin(bonds)]
-    matrix = df_filtered.pivot(index='DATE', columns='Security', values='GSpread')
+    
+    # Handle duplicates by taking the last value (most recent for same date/security)
+    # This is common in bond data where there might be multiple updates per day
+    df_aggregated = df_filtered.groupby(['DATE', 'Security'])['GSpread'].last().reset_index()
+    
+    # Pivot to create matrix
+    matrix = df_aggregated.pivot(index='DATE', columns='Security', values='GSpread')
     
     # Forward fill small gaps and drop rows with too many NaNs
     matrix = matrix.fillna(method='ffill', limit=5)
@@ -486,7 +399,7 @@ def create_spread_matrix(df: pd.DataFrame, bonds: list) -> pd.DataFrame:
     min_bonds_per_date = len(bonds) * 0.7  # At least 70% of bonds must have data
     matrix = matrix.dropna(thresh=min_bonds_per_date)
     
-    print("   Matrix shape: {matrix.shape[0]:,} dates × {matrix.shape[1]:,} bonds")
+    print(f"   Matrix shape: {matrix.shape[0]:,} dates × {matrix.shape[1]:,} bonds")
     return matrix
 
 def vectorized_pairwise_analysis(matrix: pd.DataFrame, lookback_days: int) -> pd.DataFrame:
@@ -582,7 +495,7 @@ def vectorized_pairwise_analysis(matrix: pd.DataFrame, lookback_days: int) -> pd
                 'Percentile': percentile
             })
     
-    print("   Generated {len(results):,} pair analyses")
+    print(f"   Generated {len(results):,} pair analyses")
     
     # Print detailed breakdown
     print("\n[INFO] DETAILED DATA QUALITY BREAKDOWN:")
@@ -594,112 +507,38 @@ def vectorized_pairwise_analysis(matrix: pd.DataFrame, lookback_days: int) -> pd
     
     return pd.DataFrame(results)
 
-def enrich_with_universe_data(results_df: pd.DataFrame, cusip_mapping: dict, universe_df: pd.DataFrame) -> pd.DataFrame:
-    """Enrich results with universe data for both securities."""
-    if not CONFIG['INCLUDE_UNIVERSE_DATA'] or universe_df.empty:
+def enrich_with_cusip_data(results_df: pd.DataFrame, cusip_mapping: dict) -> pd.DataFrame:
+    """Add CUSIP columns using raw data mapping."""
+    if not cusip_mapping:
         return results_df
         
-    print("[INFO] Enriching results with universe data...")
+    print("[INFO] Adding CUSIP_1 and CUSIP_2 columns...")
     
-    # Create CUSIP lookups for Security_1 and Security_2
+    # Add CUSIP columns for both securities
     results_df['CUSIP_1'] = results_df['Security_1'].map(cusip_mapping)
     results_df['CUSIP_2'] = results_df['Security_2'].map(cusip_mapping)
     
-    # Set universe as index for faster lookups
-    universe_indexed = universe_df.set_index('CUSIP')
-    
-    # Add universe data for Security_1
-    for col in CONFIG['UNIVERSE_COLUMNS']:
-        if col in universe_indexed.columns:
-            results_df[f"{col}_1"] = results_df['CUSIP_1'].map(universe_indexed[col])
-            results_df[f"{col}_2"] = results_df['CUSIP_2'].map(universe_indexed[col])
-    
-    # Remove temporary CUSIP columns
-    results_df = results_df.drop(['CUSIP_1', 'CUSIP_2'], axis=1)
-    
     # Count successful matches
-    universe_cols_1 = [f"{col}_1" for col in CONFIG['UNIVERSE_COLUMNS'] if col in universe_indexed.columns]
-    if universe_cols_1:
-        match_count = results_df[universe_cols_1[0]].notna().sum()
-        print("[OK] Enriched {match_count:,} of {len(results_df):,} pairs ({match_count/len(results_df)*100:.1f}% match rate)")
+    cusip_1_matches = results_df['CUSIP_1'].notna().sum()
+    cusip_2_matches = results_df['CUSIP_2'].notna().sum()
+    total_pairs = len(results_df)
+    
+    print(f"[OK] CUSIP_1 matches: {cusip_1_matches}/{total_pairs} ({cusip_1_matches/total_pairs*100:.1f}%)")
+    print(f"[OK] CUSIP_2 matches: {cusip_2_matches}/{total_pairs} ({cusip_2_matches/total_pairs*100:.1f}%)")
+    
+    # Reorder columns: Security_1, CUSIP_1, Security_2, CUSIP_2, then the rest
+    original_cols = ['Security_1', 'Security_2', 'Last_Spread', 'Z_Score', 'Max', 'Min', 'Last_vs_Max', 'Last_vs_Min', 'Percentile']
+    new_cols = ['Security_1', 'CUSIP_1', 'Security_2', 'CUSIP_2'] + original_cols[2:]
+    results_df = results_df[new_cols]
     
     return results_df
 
 def apply_simple_filters(results_df: pd.DataFrame) -> pd.DataFrame:
-    """Apply simple mode filters."""
-    if not CONFIG['ENABLE_FILTERING'] or not CONFIG['SIMPLE_FILTERS']:
-        return results_df
-        
-    print("[INFO] Applying simple filters...")
-    initial_count = len(results_df)
-    
-    for filter_name, filter_value in CONFIG['SIMPLE_FILTERS'].items():
-        if not filter_value:  # Skip disabled filters
-            continue
-            
-        if filter_name == 'same_sector':
-            results_df = results_df[results_df['Custom_Sector_1'] == results_df['Custom_Sector_2']]
-        elif filter_name == 'same_currency':
-            results_df = results_df[results_df['Currency_1'] == results_df['Currency_2']]
-        elif filter_name == 'investment_grade_only':
-            results_df = results_df[(results_df['Rating_1'] != 'NR') & (results_df['Rating_2'] != 'NR')]
-        elif filter_name == 'usd_only':
-            results_df = results_df[(results_df['Currency_1'] == 'USD') & (results_df['Currency_2'] == 'USD')]
-        elif filter_name == 'min_z_score':
-            results_df = results_df[abs(results_df['Z_Score']) >= filter_value]
-        elif filter_name == 'fixed_coupon_only':
-            results_df = results_df[(results_df['CPN_TYPE_1'] == 'FIXED') & (results_df['CPN_TYPE_2'] == 'FIXED')]
-    
-    filtered_count = len(results_df)
-    print("[OK] Simple filters: {initial_count:,} -> {filtered_count:,} pairs ({filtered_count/initial_count*100:.1f}% retained)")
-    
+    """Filtering disabled - core analysis only."""
     return results_df
 
 def apply_advanced_filters(results_df: pd.DataFrame) -> pd.DataFrame:
-    """Apply advanced mode filters."""
-    if not CONFIG['ENABLE_FILTERING'] or not CONFIG['ADVANCED_FILTERS']:
-        return results_df
-        
-    print("[INFO] Applying advanced filters...")
-    initial_count = len(results_df)
-    
-    for filter_name, filter_config in CONFIG['ADVANCED_FILTERS'].items():
-        operator = filter_config['operator']
-        
-        if operator == 'pair_equal':
-            # Compare values between Security_1 and Security_2
-            columns = filter_config['columns']
-            for col in columns:
-                col_1, col_2 = f"{col}_1", f"{col}_2"
-                if col_1 in results_df.columns and col_2 in results_df.columns:
-                    results_df = results_df[results_df[col_1] == results_df[col_2]]
-                    
-        elif operator == 'pair_not_equal':
-            # Compare values between Security_1 and Security_2
-            columns = filter_config['columns']
-            for col in columns:
-                col_1, col_2 = f"{col}_1", f"{col}_2"
-                if col_1 in results_df.columns and col_2 in results_df.columns:
-                    results_df = results_df[results_df[col_1] != results_df[col_2]]
-                    
-        elif operator in FILTER_OPERATORS and FILTER_OPERATORS[operator] is not None:
-            # Standard operator
-            column = filter_name.replace('_1', '').replace('_2', '')
-            if filter_name in results_df.columns:
-                func = FILTER_OPERATORS[operator]
-                
-                if operator == 'between':
-                    mask = results_df[filter_name].apply(lambda x: func(x, filter_config['min'], filter_config['max']))
-                elif operator in ['in', 'not_in']:
-                    mask = results_df[filter_name].apply(lambda x: func(x, filter_config['values']))
-                else:
-                    mask = results_df[filter_name].apply(lambda x: func(x, filter_config['value']))
-                    
-                results_df = results_df[mask]
-    
-    filtered_count = len(results_df)
-    print("[OK] Advanced filters: {initial_count:,} -> {filtered_count:,} pairs ({filtered_count/initial_count*100:.1f}% retained)")
-    
+    """Filtering disabled - core analysis only."""
     return results_df
 
 def parallel_chunk_processing(matrix_chunk, lookback_days, chunk_id):
@@ -707,161 +546,15 @@ def parallel_chunk_processing(matrix_chunk, lookback_days, chunk_id):
     return vectorized_pairwise_analysis(matrix_chunk, lookback_days)
 
 def save_results(results_df: pd.DataFrame, cusip_mapping: dict = None):
-    """Save results to parquet and CSV, and add Own? and XCCY columns."""
-    print("[INFO] Saving results...")
+    """Save core analysis results to parquet and CSV."""
+    print("[INFO] Saving core analysis results...")
     
     if results_df.empty:
         print("[FAIL] No results to save")
         return
-    
-    # --- ENRICHMENT: Add Own? column ---
-    try:
-        portfolio = safe_read_parquet('portfolio/portfolio.parquet')
-        portfolio_cusips = set(portfolio['CUSIP'])
-        results_df['Own?'] = results_df['Security_2'].map(lambda sec: 1 if sec in portfolio_cusips else 0)
-        print("[OK] Added 'Own?' column")
-    except Exception as e:
-        print("[WARN] Could not add 'Own?': {e}")
-    
-    # --- ENRICHMENT: Add XCCY column ---
-    try:
-        universe = safe_read_parquet('universe/universe.parquet')
-        if 'Date' in universe.columns:
-            universe = universe[universe['Date'] == universe['Date'].max()]
-        universe = universe.rename(columns={'CPN TYPE': 'CPN_TYPE', 'Equity Ticker': 'Equity_Ticker', 'Yrs Since Issue Bucket': 'Yrs_Since_Issue_Bucket', 'Yrs (Mat) Bucket': 'Yrs_Mat_Bucket'})
-        
-        # Create CUSIP to CAD Equiv Swap mapping
-        cad_swap = universe.set_index('CUSIP')['CAD Equiv Swap'].to_dict()
-        
-        if cusip_mapping is not None:
-            # CORRECTED LOGIC: Use proper CUSIP mapping
-            # Step 1: Map Security names to CUSIPs
-            security1_cusips = results_df['Security_1'].map(cusip_mapping)
-            security2_cusips = results_df['Security_2'].map(cusip_mapping)
-            
-            # Step 2: Map CUSIPs to CAD Equiv Swap values
-            cad_swap_1 = security1_cusips.map(cad_swap)
-            cad_swap_2 = security2_cusips.map(cad_swap)
-            
-            # Step 3: Calculate XCCY as the difference
-            results_df['XCCY'] = cad_swap_1.fillna(0) - cad_swap_2.fillna(0)
-            
-            # Add debugging information
-            total_pairs = len(results_df)
-            matched_1 = cad_swap_1.notna().sum()
-            matched_2 = cad_swap_2.notna().sum()
-            both_matched = (cad_swap_1.notna() & cad_swap_2.notna()).sum()
-            
-            print("[INFO] XCCY matching statistics:")
-            print("      • Security_1 matches: {matched_1:}/{total_pairs:}({matched_1/total_pairs*100:.1f}%)")
-            print("      • Security_2 matches: {matched_2:}/{total_pairs:}({matched_2/total_pairs*100:.1f}%)")
-            print("      • Both matched: {both_matched:}/{total_pairs:}({both_matched/total_pairs*100:.1f}%)")
-            print("      • XCCY range: {results_df['XCCY'].min():.2f} to {results_df['XCCY'].max():.2f}")
-        else:
-            # Fallback to old logic if cusip_mapping not provided
-            print("[WARN] No CUSIP mapping provided, using fallback logic")
-            results_df['XCCY'] = results_df['Security_1'].map(cad_swap).fillna(0) - results_df['Security_2'].map(cad_swap).fillna(0)
-            print("[OK] Added 'XCCY' column (FALLBACK)")
-        
-        # Move XCCY beside Percentile if present
-        if 'Percentile' in results_df.columns:
-            cols = results_df.columns.tolist()
-            idx = cols.index('Percentile') + 1
-            cols = cols[:idx] + ['XCCY'] + [c for c in cols if c != 'XCCY' and c not in cols[:idx]]
-            results_df = results_df[cols]
-            
-    except Exception as e:
-        print("[WARN] Could not add 'XCCY': {e}")
-        import traceback
-        traceback.print_exc()
 
-    # --- ENRICHMENT: Add runs monitor data ---
-    try:
-        print("[INFO] Adding runs monitor data enrichment...")
-        
-        # Load runs monitor data (prefer clean version to avoid duplicates)
-        runs_monitor_clean_path = Path("runs/run_monitor_clean.parquet")
-        runs_monitor_path = Path("runs/run_monitor.parquet")
-        
-        if runs_monitor_clean_path.exists():
-            runs_monitor = safe_read_parquet(runs_monitor_clean_path)
-            print("[OK] Using clean runs monitor data: {len(runs_monitor):,} securities")
-        elif runs_monitor_path.exists():
-            runs_monitor = safe_read_parquet(runs_monitor_path)
-            # Ensure no duplicates
-            initial_count = len(runs_monitor)
-            runs_monitor = runs_monitor.drop_duplicates(subset=['Security'], keep='first')
-            if len(runs_monitor) != initial_count:
-                print("[INFO] Removed {initial_count - len(runs_monitor):,} duplicate securities from runs monitor")
-            print("[OK] Using runs monitor data: {len(runs_monitor):,} securities")
-        else:
-            print("[WARN] No runs monitor file found, skipping runs enrichment")
-            runs_monitor = None
-        
-        if runs_monitor is not None:
-            # Define columns to merge from runs monitor
-            target_columns = [
-                'Best Bid', 'Best Offer', 'Bid/Offer', 
-                'Dealer @ Best Bid', 'Dealer @ Best Offer',
-                'Size @ Best Bid', 'Size @ Best Offer', 
-                'G Spread', 'Keyword'
-            ]
-            
-            # Verify all target columns exist in runs monitor
-            available_columns = [col for col in target_columns if col in runs_monitor.columns]
-            missing_cols = [col for col in target_columns if col not in runs_monitor.columns]
-            
-            if missing_cols:
-                print("[WARN] Missing runs monitor columns: {missing_cols}")
-            
-            if available_columns:
-                # Prepare runs monitor data for merging
-                runs_data = runs_monitor[['Security'] + available_columns].copy()
-                
-                # Merge for Security_1
-                print("[INFO] Merging runs monitor data for Security_1...")
-                initial_count = len(results_df)
-                results_df = results_df.merge(
-                    runs_data.rename(columns={col: f"{col}_1" for col in available_columns}),
-                    left_on='Security_1',
-                    right_on='Security',
-                    how='left',
-                    suffixes=('', '_runs1')
-                )
-                # Drop the extra Security column from the merge
-                if 'Security' in results_df.columns:
-                    results_df = results_df.drop('Security', axis=1)
-                
-                # Merge for Security_2
-                print("[INFO] Merging runs monitor data for Security_2...")
-                results_df = results_df.merge(
-                    runs_data.rename(columns={col: f"{col}_2" for col in available_columns}),
-                    left_on='Security_2',
-                    right_on='Security',
-                    how='left',
-                    suffixes=('', '_runs2')
-                )
-                # Drop the extra Security column from the merge
-                if 'Security' in results_df.columns:
-                    results_df = results_df.drop('Security', axis=1)
-                
-                # Log merge statistics
-                if 'Best Bid_1' in results_df.columns:
-                    match_1 = results_df['Best Bid_1'].notna().sum()
-                    match_2 = results_df['Best Bid_2'].notna().sum()
-                    total = len(results_df)
-                    print("[INFO] Security_1 match rate: {match_1:}/{total:}({match_1/total*100:.1f}%)")
-                    print("[INFO] Security_2 match rate: {match_2:}/{total:}({match_2/total*100:.1f}%)")
-                
-                print("[OK] Added {len(available_columns)*2:,} runs monitor columns")
-            else:
-                print("[WARN] No valid runs monitor columns found for enrichment")
-    
-    except Exception as e:
-        print("[WARN] Could not add runs monitor enrichment: {e}")
-
-    # --- DETAILED OUTPUT: Print columns and info ---
-    print("\n[INFO] FINAL OUTPUT COLUMNS:")
+    # --- CORE ANALYSIS OUTPUT: Print columns and info ---
+    print("\n[INFO] CORE ANALYSIS COLUMNS:")
     print(list(results_df.columns))
     print("\n[INFO] DataFrame info:")
     results_df.info()
@@ -885,62 +578,47 @@ def save_results(results_df: pd.DataFrame, cusip_mapping: dict = None):
     csv_path = processed_dir / "bond_z.csv"
     results_df.to_csv(csv_path, index=False, float_format='%.4f')
     
-    print("[OK] Saved {len(results_df):,} results")
-    print("[INFO] Parquet: {parquet_path}")
-    print("[INFO] CSV: {csv_path}")
+    print(f"[OK] Saved {len(results_df):,} results")
+    print(f"[INFO] Parquet: {parquet_path}")
+    print(f"[INFO] CSV: {csv_path}")
     
     # Summary stats
     print("\n[INFO] Summary Statistics:")
-    print("   Z-score range: {results_df['Z_Score'].min():.2f} to {results_df['Z_Score'].max():.2f}")
-    print("   Extreme pairs (|Z| > 2): {(abs(results_df['Z_Score']) > 2).sum():,}")
-    print("   Extreme pairs (|Z| > 3): {(abs(results_df['Z_Score']) > 3).sum():,}")
+    print(f"   Z-score range: {results_df['Z_Score'].min():.2f} to {results_df['Z_Score'].max():.2f}")
+    print(f"   Extreme pairs (|Z| > 2): {(abs(results_df['Z_Score']) > 2).sum():,}")
+    print(f"   Extreme pairs (|Z| > 3): {(abs(results_df['Z_Score']) > 3).sum():,}")
     
     # Print top 30 most extreme pairs (already sorted by |Z-Score|)
     print("\n[TOP] TOP 30 MOST EXTREME PAIRS (Highest |Z-Score|):")
     top_30 = results_df.head(30).copy()
     top_30['|Z_Score|'] = abs(top_30['Z_Score'])
-    top_cols = ['Security_1', 'Security_2', 'Z_Score', '|Z_Score|', 'Last_Spread', 'Custom_Sector_1', 'Custom_Sector_2']
-    available_cols = [col for col in top_cols if col in top_30.columns]
+    # Core columns only
+    core_cols = ['Security_1', 'Security_2', 'Z_Score', '|Z_Score|', 'Last_Spread', 'Percentile']
+    available_cols = [col for col in core_cols if col in top_30.columns]
     print(top_30[available_cols].to_string(index=False, float_format='%.2f'))
 
 def main():
-    """Ultra-fast main execution."""
-    print("[RUN] ULTRA-FAST G-Spread Pairwise Z-Score Analysis with Universe Integration")
+    """Core G-Spread Pairwise Z-Score Analysis - Self-Contained."""
+    print("[RUN] CORE G-Spread Pairwise Z-Score Analysis")
     print("=" * 80)
-    print("SPEED OPTIMIZATIONS:")
-    print("   • Max bonds: {CONFIG['MAX_BONDS']} (most liquid)")
-    print("   • Date sampling: Every {CONFIG['DATE_SAMPLE_FREQ']} dates" if CONFIG['SAMPLE_DATES'] else "   • Using all dates")
-    print("   • Parallel processing: {'ON' if CONFIG['USE_PARALLEL'] else 'OFF'}")
-    print("   • Lookback: {CONFIG['LOOKBACK_DAYS']} days")
-    
-    print("\nUNIVERSE INTEGRATION:")
-    print("   • Universe enrichment: {'ON' if CONFIG['INCLUDE_UNIVERSE_DATA'] else 'OFF'}")
-    if CONFIG['INCLUDE_UNIVERSE_DATA']:
-        print("   • Universe columns: {', '.join(CONFIG['UNIVERSE_COLUMNS'])}")
-    
-    print("\nFILTERING SYSTEM:")
-    print("   • Core business filters: {'ON' if CONFIG['INCLUDE_UNIVERSE_DATA'] else 'OFF'} (CAD/USD Govt + short-term exclusions)")
-    print("   • Additional filtering: {'ON' if CONFIG['ENABLE_FILTERING'] else 'OFF'}")
-    if CONFIG['ENABLE_FILTERING']:
-        simple_active = [k for k, v in CONFIG['SIMPLE_FILTERS'].items() if v]
-        advanced_active = list(CONFIG['ADVANCED_FILTERS'].keys())
-        if simple_active:
-            print("   • Simple filters: {', '.join(simple_active)}")
-        if advanced_active:
-            print("   • Advanced filters: {len(advanced_active)} custom rules")
+    print("CORE ANALYSIS CONFIGURATION:")
+    print(f"   • Max bonds: {CONFIG['MAX_BONDS']} (most liquid)")
+    print(f"   • Date sampling: Every {CONFIG['DATE_SAMPLE_FREQ']} dates" if CONFIG['SAMPLE_DATES'] else "   • Using all dates")
+    print(f"   • Parallel processing: {'ON' if CONFIG['USE_PARALLEL'] else 'OFF'}")
+    print(f"   • Lookback: {CONFIG['LOOKBACK_DAYS']} days")
+    print("   • External dependencies: NONE (self-contained)")
+    print("   • Output columns: 11 core analysis columns (includes CUSIPs)")
     print("=" * 80)
     
     start_time = datetime.now()
     
     try:
         # 1. Load and pivot data (vectorized approach)
-        g_spread_path = get_data_file_path("historical g spread/bond_g_sprd_time_series.parquet")
+        g_spread_path = get_data_file_path("historical g spread/raw data/g_ts.parquet")
         df = load_and_pivot_data(g_spread_path)
         
-        # 2. Load universe data for enrichment
-        universe_df = load_universe_data()
-        
-        # 3. Create CUSIP mapping for universe matching
+        # 2. Create CUSIP mapping from the same raw data (no external dependencies)
+        universe_df = pd.DataFrame()
         cusip_mapping = get_cusip_mapping(df)
         
         # 4. Select top liquid bonds
@@ -957,95 +635,36 @@ def main():
         
         # 6. Vectorized pairwise analysis
         print("\n[ANALYSIS] DETAILED FUNNEL ANALYSIS:")
-        print("   Stage 1 - Theoretical maximum: {total_pairs:,} potential pairs")
+        print(f"   Stage 1 - Theoretical maximum: {total_pairs:,} potential pairs")
         results_df = vectorized_pairwise_analysis(matrix, CONFIG['LOOKBACK_DAYS'])
-        print("   Stage 2 - After data quality filters: {len(results_df):,} pairs ({len(results_df)/total_pairs*100:.2f}% of theoretical)")
+        print(f"   Stage 2 - After data quality filters: {len(results_df):,} pairs ({len(results_df)/total_pairs*100:.2f}% of theoretical)")
         
-        # 7. Enrich with universe data
-        pre_enrich_count = len(results_df)
-        results_df = enrich_with_universe_data(results_df, cusip_mapping, universe_df)
-        print("   Stage 3 - After universe enrichment: {len(results_df):,} pairs ({len(results_df)/total_pairs*100:.2f}% of theoretical)")
+        # 7. Add CUSIP columns from raw data
+        results_df = enrich_with_cusip_data(results_df, cusip_mapping)
+        print(f"   Stage 3 - Core analysis complete with CUSIPs: {len(results_df):,} pairs ({len(results_df)/total_pairs*100:.2f}% of theoretical)")
         
-        # 8. Apply core business filters (always applied when universe data available)
-        if CONFIG['INCLUDE_UNIVERSE_DATA'] and not universe_df.empty:
-            universe_cols_1 = [f"{col}_1" for col in CONFIG['UNIVERSE_COLUMNS'] if col in universe_df.columns]
-            if universe_cols_1:
-                initial_count = len(results_df)
-                
-                # Exclude pairs where universe data is missing
-                results_df = results_df.dropna(subset=universe_cols_1[:1])  # Check first universe column
-                missing_universe = initial_count - len(results_df)
-                
-                # CORE BUSINESS FILTERS (always applied)
-                pre_filter_count = len(results_df)
-                
-                # Filter 1: Exclude CAD Government and USD Government bonds
-                if 'Custom_Sector_1' in results_df.columns and 'Custom_Sector_2' in results_df.columns:
-                    results_df = results_df[
-                        (results_df['Custom_Sector_1'] != 'CAD Govt') & 
-                        (results_df['Custom_Sector_2'] != 'CAD Govt') &
-                        (results_df['Custom_Sector_1'] != 'USD Govt') & 
-                        (results_df['Custom_Sector_2'] != 'USD Govt')
-                    ]
-                    govt_excluded = pre_filter_count - len(results_df)
-                    pre_filter_count = len(results_df)
-                    
-                # Filter 2: Exclude short-term maturity buckets
-                if 'Yrs_Mat_Bucket_1' in results_df.columns and 'Yrs_Mat_Bucket_2' in results_df.columns:
-                    excluded_buckets = ['>.25-1', '0-0.50', '0.50-1']
-                    results_df = results_df[
-                        (~results_df['Yrs_Mat_Bucket_1'].isin(excluded_buckets)) &
-                        (~results_df['Yrs_Mat_Bucket_2'].isin(excluded_buckets)) &
-                        (results_df['Yrs_Mat_Bucket_1'].notna()) &
-                        (results_df['Yrs_Mat_Bucket_2'].notna())
-                    ]
-                    short_term_excluded = pre_filter_count - len(results_df)
-                
-                # Report filtering results
-                total_excluded = initial_count - len(results_df)
-                if missing_universe > 0:
-                    print("   [FILTER] Excluded {missing_universe:,} pairs without universe matches")
-                if 'govt_excluded' in locals() and govt_excluded > 0:
-                    print("   [FILTER] Excluded {govt_excluded:,} pairs with Government bonds (CAD/USD)")
-                if 'short_term_excluded' in locals() and short_term_excluded > 0:
-                    print("   [FILTER] Excluded {short_term_excluded:,} pairs with short-term maturities (<1 year)")
-                if total_excluded > 0:
-                    print("   [OK] Core filters: {initial_count:,} -> {len(results_df):,} pairs ({len(results_df)/initial_count*100:.1f}% retained)")
-                    print("   Stage 4 - After core business filters: {len(results_df):,} pairs ({len(results_df)/total_pairs*100:.2f}% of theoretical)")
+        print("\n[SUMMARY] CORE ANALYSIS SUMMARY:")
+        print(f"   • Started with: {total_pairs:,} potential pairs")
+        print(f"   • Ended with: {len(results_df):,} core analysis pairs")
+        print(f"   • Data quality retention rate: {len(results_df)/total_pairs*100:.3f}%")
+        print(f"   • Reduction factor: {total_pairs/len(results_df):.1f}x fewer pairs (quality filtering)")
         
-        # 9. Apply simple filters
-        pre_simple_count = len(results_df)
-        results_df = apply_simple_filters(results_df)
-        if len(results_df) != pre_simple_count:
-            print("   Stage 5 - After simple filters: {len(results_df):,} pairs ({len(results_df)/total_pairs*100:.2f}% of theoretical)")
-        
-        # 10. Apply advanced filters  
-        pre_advanced_count = len(results_df)
-        results_df = apply_advanced_filters(results_df)
-        if len(results_df) != pre_advanced_count:
-            print("   Stage 6 - After advanced filters: {len(results_df):,} pairs ({len(results_df)/total_pairs*100:.2f}% of theoretical)")
-        
-        print("\n[SUMMARY] FINAL FUNNEL SUMMARY:")
-        print("   • Started with: {total_pairs:,} potential pairs")
-        print("   • Ended with: {len(results_df):,} final pairs")
-        print("   • Overall retention rate: {len(results_df)/total_pairs*100:.3f}%")
-        print("   • Reduction factor: {total_pairs/len(results_df):.1f}x fewer pairs")
-        
-        # 11. Save results
+        # 8. Save core results
         save_results(results_df, cusip_mapping)
         
         # Performance summary
         end_time = datetime.now()
         duration = end_time - start_time
         
-        print("\n[COMPLETE] ULTRA-FAST EXECUTION COMPLETE!")
-        print("   [TIME] Duration: {duration.total_seconds():.1f} seconds")
-        print("   [COUNT] Processed: {total_pairs:,} potential pairs")
-        print("   [RATE] Rate: {total_pairs / duration.total_seconds():.0f} pairs/second")
-        print("   [STATUS] Success: {'[OK]' if duration.total_seconds() < 120 else '[WARN]'} {'Under 2 minutes!' if duration.total_seconds() < 120 else 'Over 2 minutes'}")
+        print("\n[COMPLETE] CORE ANALYSIS EXECUTION COMPLETE!")
+        print(f"   [TIME] Duration: {duration.total_seconds():.1f} seconds")
+        print(f"   [COUNT] Processed: {total_pairs:,} potential pairs")
+        print(f"   [RATE] Rate: {total_pairs / duration.total_seconds():.0f} pairs/second")
+        print(f"   [STATUS] Success: {'[OK]' if duration.total_seconds() < 120 else '[WARN]'} {'Under 2 minutes!' if duration.total_seconds() < 120 else 'Over 2 minutes'}")
+        print("   [OUTPUT] Generated 11 core analysis columns (includes CUSIPs)")
         
     except Exception as e:
-        print("[FAIL] Error: {e}")
+        print(f"[FAIL] Error: {e}")
         raise
 
 # ==========================================
@@ -1055,13 +674,13 @@ def main():
 if __name__ != "__main__":
     # Display helpful instructions when imported
     print("\n" + "="*70)
-    print("[READY] G-SPREAD Z-SCORE ANALYSIS - INTERACTIVE MODE READY!")
+    print("[READY] G-SPREAD CORE ANALYSIS - INTERACTIVE MODE READY!")
     print("="*70)
     print("[HELP] Quick Start Commands:")
     print("   • get_config_summary()           # View current settings")
     print("   • run_quick_analysis()           # Quick test with 50 bonds")
     print("   • run_quick_analysis(100, 180)   # Custom: 100 bonds, 180 days")
-    print("   • main()                         # Full analysis with current config")
+    print("   • main()                         # Full core analysis")
     print("   • load_latest_results()          # Load previous results")
     print("")
     print("[SETUP] Setup Functions:")
@@ -1069,10 +688,11 @@ if __name__ != "__main__":
     print("   • check_required_files()         # Verify data files")
     print("   • set_config(max_bonds=100)      # Modify settings easily")
     print("")
-    print("[CONFIG] Configuration:")
+    print("[CONFIG] Core Analysis Configuration:")
     print("   • Current max bonds: {CONFIG['MAX_BONDS']}")
     print("   • Current lookback: {CONFIG['LOOKBACK_DAYS']} days")
-    print("   • Universe integration: {'ON' if CONFIG['INCLUDE_UNIVERSE_DATA'] else 'OFF'}")
+    print("   • External dependencies: NONE (core only)")
+    print("   • Output: 9 core analysis columns")
     print("="*70)
 
 if __name__ == "__main__":
