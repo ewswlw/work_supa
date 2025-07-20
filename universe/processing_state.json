@@ -2,73 +2,53 @@
   "processed_files": {
     "API 05.23.25.xlsx": {
       "name": "API 05.23.25.xlsx",
-      "modified": 1752879262.8324661,
+      "modified": 1752939113.176495,
       "size": 1879331
     },
     "API 05.26.25.xlsx": {
       "name": "API 05.26.25.xlsx",
-      "modified": 1752879262.8416939,
+      "modified": 1752939113.1862602,
       "size": 1880465
     },
     "API 05.28.25.xlsx": {
       "name": "API 05.28.25.xlsx",
-      "modified": 1752879262.851696,
+      "modified": 1752939113.1955178,
       "size": 1880600
     },
     "API 06.03.25.xlsx": {
       "name": "API 06.03.25.xlsx",
-      "modified": 1752879262.8616962,
+      "modified": 1752939113.2051961,
       "size": 1892242
     },
     "API 06.06.25.xlsx": {
       "name": "API 06.06.25.xlsx",
-      "modified": 1752879262.8713894,
+      "modified": 1752939113.214532,
       "size": 1899868
     },
     "API 06.10.25.xlsx": {
       "name": "API 06.10.25.xlsx",
-      "modified": 1752879262.8793883,
+      "modified": 1752939113.2232683,
       "size": 1880242
     },
     "API 06.11.25.xlsx": {
       "name": "API 06.11.25.xlsx",
-      "modified": 1752879262.8902125,
+      "modified": 1752939113.2328377,
       "size": 1880578
     },
     "API 06.20.25.xlsx": {
       "name": "API 06.20.25.xlsx",
-      "modified": 1752879262.8993292,
+      "modified": 1752939113.241675,
       "size": 1908179
     },
     "API 06.26.25.xlsx": {
       "name": "API 06.26.25.xlsx",
-      "modified": 1752879262.9073293,
+      "modified": 1752939113.249857,
       "size": 1694169
     },
     "API 06.30.25.xlsx": {
       "name": "API 06.30.25.xlsx",
-      "modified": 1752879262.9164443,
+      "modified": 1752939113.2580104,
       "size": 1691472
-    },
-    "API 08.04.23.xlsx": {
-      "name": "API 08.04.23.xlsx",
-      "modified": 1752879262.9351432,
-      "size": 1057548
-    },
-    "API 10.31.23.xlsx": {
-      "name": "API 10.31.23.xlsx",
-      "modified": 1752879262.9422164,
-      "size": 1068899
-    },
-    "API 12.20.24.xlsx": {
-      "name": "API 12.20.24.xlsx",
-      "modified": 1752879262.9513888,
-      "size": 1696448
-    },
-    "API 12.29.23.xlsx": {
-      "name": "API 12.29.23.xlsx",
-      "modified": 1752879262.9591,
-      "size": 1152556
     },
     "API 07.11.25.xlsx": {
       "name": "API 07.11.25.xlsx",
@@ -77,9 +57,29 @@
     },
     "API 07.16.25.xlsx": {
       "name": "API 07.16.25.xlsx",
-      "modified": 1752879262.9281423,
+      "modified": 1752938589.32386,
       "size": 1669574
+    },
+    "API 08.04.23.xlsx": {
+      "name": "API 08.04.23.xlsx",
+      "modified": 1752939113.2640154,
+      "size": 1057548
+    },
+    "API 10.31.23.xlsx": {
+      "name": "API 10.31.23.xlsx",
+      "modified": 1752939113.271226,
+      "size": 1068899
+    },
+    "API 12.20.24.xlsx": {
+      "name": "API 12.20.24.xlsx",
+      "modified": 1752939113.2802927,
+      "size": 1696448
+    },
+    "API 12.29.23.xlsx": {
+      "name": "API 12.29.23.xlsx",
+      "modified": 1752939113.286439,
+      "size": 1152556
     }
   },
-  "last_processed": "2025-07-19T09:16:15.020517"
+  "last_processed": "2025-07-19T18:32:50.160661"
 }

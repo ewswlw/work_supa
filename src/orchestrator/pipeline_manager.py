@@ -236,7 +236,7 @@ class PipelineManager:
             if len(group) == 1 or not getattr(args, 'parallel', False):
                 # Sequential execution
                 for stage in group:
-                    result = await self._execute_stage(stage)
+                    result = await self._execute_stage(stage, args)
                     self.results[stage] = result
                     if not result.success:
                         overall_success = False
@@ -245,7 +245,7 @@ class PipelineManager:
                             break
             else:
                 # Parallel execution
-                tasks = [self._execute_stage(stage) for stage in group]
+                tasks = [self._execute_stage(stage, args) for stage in group]
                 results = await asyncio.gather(*tasks, return_exceptions=True)
                 
                 for stage, result in zip(group, results):
@@ -274,7 +274,7 @@ class PipelineManager:
             total_files=sum(len(r.output_files) for r in self.results.values())
         )
     
-    async def _execute_stage(self, stage: PipelineStage) -> PipelineResult:
+    async def _execute_stage(self, stage: PipelineStage, args=None) -> PipelineResult:
         """Execute a single pipeline stage."""
         self.logger.info(f"[RUN] Executing {stage.value}...")
         start_time = datetime.now()
@@ -290,6 +290,12 @@ class PipelineManager:
             
             # Execute the pipeline script using poetry
             cmd = ["poetry", "run", "python", script_path]
+            
+            # Add force-full-refresh flag if requested
+            if args and getattr(args, 'force_full_refresh', False):
+                cmd.append("--force-full-refresh")
+                self.logger.debug(f"[FLAG] Adding --force-full-refresh flag to {stage.value}")
+            
             self.logger.debug(f"[CMD] Executing command: {' '.join(cmd)}")
             
             # Run the subprocess

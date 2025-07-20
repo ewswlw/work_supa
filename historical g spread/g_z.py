@@ -46,6 +46,7 @@ from concurrent.futures import ProcessPoolExecutor
 from scipy import stats
 import os
 import sys
+import argparse
 
 # ==========================================
 # SAFE FILE READING UTILITIES
@@ -696,5 +697,14 @@ if __name__ != "__main__":
     print("="*70)
 
 if __name__ == "__main__":
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='G-Spread Z-Score Analysis')
+    parser.add_argument('--force-full-refresh', action='store_true',
+                       help='Force process all data ignoring state tracking')
+    args = parser.parse_args()
+    
+    if args.force_full_refresh:
+        print("[FORCE FULL REFRESH] Processing ALL G-spread data for analysis")
+    
     warnings.filterwarnings('ignore')
     main() 

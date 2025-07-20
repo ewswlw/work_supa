@@ -1,4 +1,5 @@
 import sys
+import argparse
 from pathlib import Path
 import yaml
 import pandas as pd
@@ -14,6 +15,11 @@ if __name__ == "__main__":
     This script acts as a simple runner for the portfolio processing pipeline.
     The core logic is located in the `src/pipeline/portfolio_processor.py` module.
     """
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Portfolio Data Processor')
+    parser.add_argument('--force-full-refresh', action='store_true',
+                       help='Process ALL raw data ignoring state tracking')
+    args = parser.parse_args()
     # Load logging configuration
     config_path = Path(__file__).parent.parent / 'config' / 'config.yaml'
     with open(config_path, 'r') as f:
@@ -30,8 +36,11 @@ if __name__ == "__main__":
     )
     
     logger.info("Starting portfolio processing pipeline...")
+    if args.force_full_refresh:
+        logger.info("🔄 FORCE FULL REFRESH: Processing ALL raw portfolio data")
+    
     try:
-        final_df = process_portfolio_files(logger)
+        final_df = process_portfolio_files(logger, force_full_refresh=args.force_full_refresh)
         logger.info("Portfolio processing pipeline finished successfully.")
         
         # Export the processed Parquet to CSV
