@@ -280,7 +280,7 @@ FILTER_OPERATORS = {
 CONFIG = {
     # Core parameters
     'LOOKBACK_DAYS': 252,  
-    'MAX_BONDS': 200,       # Limit to most liquid bonds for speed
+    'MAX_BONDS': 2000,       # Limit to most liquid bonds for speed
     'MIN_OBSERVATIONS': 200,  # Minimum data points
     
     # Speed optimizations

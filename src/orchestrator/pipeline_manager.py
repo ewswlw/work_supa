@@ -78,6 +78,7 @@ class PipelineManager:
         PipelineStage.UNIVERSE: [],
         PipelineStage.PORTFOLIO: [],
         PipelineStage.HISTORICAL_GSPREAD: [],
+        PipelineStage.GSPREAD_ANALYTICS: [PipelineStage.HISTORICAL_GSPREAD],
         PipelineStage.RUNS_EXCEL: [],
         PipelineStage.RUNS_MONITOR: [PipelineStage.RUNS_EXCEL]
     }
@@ -87,6 +88,7 @@ class PipelineManager:
         PipelineStage.UNIVERSE: 2,
         PipelineStage.PORTFOLIO: 3,
         PipelineStage.HISTORICAL_GSPREAD: 5,
+        PipelineStage.GSPREAD_ANALYTICS: 3,
         PipelineStage.RUNS_EXCEL: 4,
         PipelineStage.RUNS_MONITOR: 2
     }
@@ -96,6 +98,7 @@ class PipelineManager:
         PipelineStage.UNIVERSE: "universe/universe_raw_to_parquet.py",
         PipelineStage.PORTFOLIO: "portfolio/portfolio_excel_to_parquet.py",
         PipelineStage.HISTORICAL_GSPREAD: "historical g spread/g_z.py",
+        PipelineStage.GSPREAD_ANALYTICS: "historical g spread/g_z.py",  # Same as historical for now
         PipelineStage.RUNS_EXCEL: "runs/excel_to_df_debug.py",
         PipelineStage.RUNS_MONITOR: "runs/run_monitor.py"
     }
