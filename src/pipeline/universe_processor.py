@@ -252,27 +252,43 @@ def process_universe_files(logger: Logger, force_full_refresh: bool = False):
     logger.info(summary_report)
     # --- End Snapshot ---
 
-    for col in final_df.columns:
-        if final_df[col].dtype == 'object':
-            final_df[col] = final_df[col].astype(str)
-
-    # Convert specified columns to float
+    # FIXED: Improved type conversion logic
+    # Convert specified columns to float FIRST (before string conversion)
     float_columns = [
         'Make_Whole', 'Back End', 'Stochastic Duration', 'Stochastic Convexity',
         'MTD Return', 'QTD Return', 'YTD Return', 'MTD Bench Return', 'QTD Bench Return',
         'YTD Bench Return', 'Yrs (Worst)', 'YTC', 'Excess MTD', 'Excess YTD', 'G Sprd',
         'Yrs (Cvn)', 'OAS (Mid)', 'CAD Equiv Swap', 'G (RBC Crv)', 'vs BI', 'vs BCE',
-        'YTD Equity', 'MTD Equity', 'Yrs Since Issue', 'Yrs (Mat)', 'Z Spread'
+        'YTD Equity', 'MTD Equity', 'Yrs Since Issue', 'Risk', 'Yrs (Mat)', 'Z Spread'
     ]
+
+    # Convert numeric columns to float with proper error handling
     for col in float_columns:
         if col in final_df.columns:
+            logger.debug(f"Converting {col} to numeric...")
+            original_dtype = final_df[col].dtype
+            original_non_null_count = final_df[col].notna().sum()
+            
+            # Convert to numeric with coerce
             final_df[col] = pd.to_numeric(final_df[col], errors='coerce')
+            
+            # Force float64 type if conversion was successful
+            if pd.api.types.is_numeric_dtype(final_df[col]):
+                final_df[col] = final_df[col].astype('float64')
+                logger.debug(f"✅ {col}: {original_dtype} → float64 ({final_df[col].notna().sum()}/{original_non_null_count} valid values)")
+            else:
+                logger.warning(f"⚠️ {col}: Failed to convert to numeric, keeping as {final_df[col].dtype}")
 
     # Convert specified columns to datetime
     datetime_columns = ['Pricing Date', 'Pricing Date (Bench)', 'Worst Date']
     for col in datetime_columns:
         if col in final_df.columns:
             final_df[col] = pd.to_datetime(final_df[col], errors='coerce')
+
+    # Convert remaining object columns to string (AFTER numeric conversion)
+    for col in final_df.columns:
+        if final_df[col].dtype == 'object':
+            final_df[col] = final_df[col].astype(str)
 
     logger.info(f"--- Processing Complete ---")
     logger.info(f"Final DataFrame Shape: {final_df.shape}")
